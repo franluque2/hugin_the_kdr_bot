@@ -37,6 +37,7 @@ type_converter = {
     "staples": "Staples",
     "removal": "Removal/Disruption",
     "engine": "Engine",
+    "powercard": "Power Cards",
     "low_qual": "Class Low Quality",
     "mid_qual": "Class Mid Quality",
     "high_qual": "Class High Quality"
@@ -53,3 +54,4 @@ rarity_converter = {
 # Categories for Buckets, [category id, Cost, How many buckets to show, at which round does it unlock]
 categories_buckets_generic = [["staples", 3, 3, 0], ["removal", 4, 3, 0], ["engine", 6, 2, 0]]
 categories_buckets_class = [["low_qual", 3, 3, 0], ["mid_qual", 5, 3, 1], ["high_qual", 10, 2, 2]]
+categories_secret=[["powercard", 10, 1, ]]

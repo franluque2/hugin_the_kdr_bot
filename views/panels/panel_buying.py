@@ -3,7 +3,7 @@ from views.panels.panel_status import StatusPanel
 from core import kdr_db as db
 from core.kdr_data import SpecialSkillHandling
 from views.view_buying import BuyView
-from core.kdr_data import categories_buckets_generic, categories_buckets_class, type_converter
+from core.kdr_data import categories_buckets_generic, categories_buckets_class, categories_secret, type_converter
 from config.config import BANLIST_LINK
 import random
 
@@ -155,13 +155,35 @@ class BuyPanel:
         buy_view = BuyView()
         await buy_view.create_buttons(self.pid, self.sid, self.iid, self.status_message,
                                       self.status_panel_generator, self.thread, can_sell, loot, categories_generic,
-                                      categories_class, self
+                                      categories_class,categories_secret, self
                                       )
 
         await self.thread.send(msg_ov[-1:][0], view=buy_view)
 
 
 async def get_shop_window_generic(pid, sid, iid, category):
+    buckets_taken = list(await db.get_inventory_value(pid, sid, iid, "loot"))
+    possible_buckets = list(await db.get_bucket_category(category[0]))
+    returnbuckets = []
+
+    for bucket in buckets_taken:
+        if bucket in possible_buckets:
+            possible_buckets.remove(bucket)
+
+    if len(possible_buckets) <= category[2]:
+        for bucket in possible_buckets:
+            retbucket = await db.get_bucket(bucket)
+            returnbuckets.append(retbucket)
+        return returnbuckets
+
+    ranchoices = random.sample(population=possible_buckets, k=category[2])
+    for bucket in ranchoices:
+        retbucket = await db.get_bucket(bucket)
+        returnbuckets.append(retbucket)
+    return returnbuckets
+
+
+async def get_shop_window_secret(pid, sid, iid, category):
     buckets_taken = list(await db.get_inventory_value(pid, sid, iid, "loot"))
     possible_buckets = list(await db.get_bucket_category(category[0]))
     returnbuckets = []
