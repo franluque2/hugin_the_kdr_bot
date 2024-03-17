@@ -8,6 +8,7 @@ A Bot to Run Yugioh Roguelike Experiences in Discord.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
+- [Special Thanks](#special-thanks)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -41,3 +42,12 @@ TOKEN = "" # your discord bot token goes here
 
 # allowed servers for data manipulation:
 SERVER_WHITELIST=[]
+```
+
+## Special Thanks
+
+To Mike, whom without this could've never happened, thanks for coaching me and helping me code every step of the way.
+
+To Jacob and Bryant, for designing an incredibly fun format and way to play Yugioh.
+
+To the KingdomsMC Staff team and Community, for giving me endless avenues to express my passion for the card game.
