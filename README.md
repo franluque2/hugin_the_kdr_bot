@@ -24,7 +24,7 @@ You'll also need a MongoDB Database instance. Make sure to configure your MongoD
 
 ## Usage
 
-Run main.py to initiate the bot.
+Run main.py to initiate the bot. To build the data run the /builddata command providing the necessary files, examples have been provided in the `class_examples`folder for them all.
 TODO: Finish rest of Instructions
 
 ## Configuration
