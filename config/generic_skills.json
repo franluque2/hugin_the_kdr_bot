@@ -1,0 +1,632 @@
+[
+    {
+        "id":"greed_is_good",
+        "name":"Greed is Good?",
+        "description":" Draw 2 cards for your Draw Phase instead of 1, but, your hand-size limit is 0 for the end of turns (discard until you have 0 cards in your hand during the End Phase).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/xpu506.png"
+    },
+    {
+        "id":"chicken",
+        "name":"Chicken",
+        "description":" (Once per Duel) Pay 500 LP: Draw 1 card. Your opponent can then pay 1000 LP to draw 1 card. Continue passing this choice with the LP cost doubling until one player decides to stop",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/3nyrsm.png"
+    },
+    {
+        "id":"mulligan",
+        "name":"Mulligan (Stackable)",
+        "description":"At the start of the duel, you can shuffle your hand back into your Deck and draw a new starting hand. Each new stack of this ability allows you to Mulligan an additional time",
+        "stackable_count": 99,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/4nslvx.png"
+    },
+	{
+        "id":"parasitic_invasion",
+        "name":"Parasitic Invasion",
+        "description":"Add 3 'Parasite Paracide' to your Deck (permanently). At the start of the Duel, activate the Flip effects of all 'Parasite Paracide' in your Deck and Hand. Draw cards to replace the ones activated in your hand so that your hand size is 5 again. If your opponent Special Summons a 'Parasite Paracide', draw 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/a/a8/ParasiteParacide-TF04-JP-VG.png/revision/latest?cb=20161204234540"   
+    },
+	{
+        "id":"scapelamba",
+        "name":"Scapelamba (Stackable)",
+        "description":"Start the game with a Token in play ('Scapelamba' 2000 ATK/2000 DEF Level 4 Earth/Beast). Each stack of this skill grants you an additional token.",
+        "stackable_count": 99,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://64.media.tumblr.com/5b5832a64ffd66aaa8c36453cffcf8da/tumblr_owlvj20qd01rie4kjo1_r1_500.png"
+    },
+	{
+        "id":"staff_of_avarice",
+        "name":"Staff of Avarice (Stackable)",
+        "description":"(Once per Duel) You can shuffle 1 card in your GY back into the Deck to draw 1 card. Each stack of this skill allows you to activate it an additional time per duel.",
+        "stackable_count": 99,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/f/fa/PotofAvarice-OW.png/revision/latest?cb=20140615142354"
+    },
+	{
+        "id":"future_visions",
+        "name":"Future Visions",
+        "description":"(During your first Draw Phase): You can discard 1 card, activate 1 'Future Fusion' from your Deck. (Add 'Future Fusion' to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/6/61/FutureFusion-OW.png/revision/latest?cb=20140606005517"
+    },
+	{
+        "id":"a_visit_to_the_old_sage",
+        "name":"A Visit to the Old Sage",
+        "description":"(Once per Duel): You can reveal 1 Fusion Monster in your Extra Deck, add 1 monster listed on it as a Fusion Material to your hand, then, you can add 'Polymerization' from your Deck to your hand (Add 'Polymerization' to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/2/2c/FusionSage-OW.png/revision/latest?cb=20140606005245"
+    },
+	{
+        "id":"ritual_tribute",
+        "name":"Ritual Tribute",
+        "description":"You can conduct a Tribute Summon in addition to your Normal Summon/Set each turn.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://64.media.tumblr.com/tumblr_mc4h7yb3mV1rie4kjo1_640.jpg"
+    },
+    {
+        "id":"card_vendor",
+        "name":"Card Vendor",
+        "description":"(During your first Standby Phase) (Once per Duel): You can activate up to 3 'Card Trader' from your Deck. You can activate the effect of 'Card Trader' during your opponent's Standby Phase. (Add 'Card Trader' to your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//b/b7/CardTrader-MADU-EN-VG-artwork.png"
+    },
+    {
+        "id":"sacrifice_to_the_cards",
+        "name":"Sacrifice to the Cards",
+        "description":"(Once per Duel) (During your opponent's turn) (Quick Effect): You can destroy 1 monster you control and draw 2 cards. Your opponent can activate cards/effects in response to the activation of this skill.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/8/82/PotofGreed-TF04-JP-VG.jpg/revision/latest?cb=20120829225457"
+    },
+    {
+        "id":"metalmorph",
+        "name":"Metalmorph (Stackable)",
+        "description":"Take 300 damage less from any source of damage. Each stack of this skill increases the damage reduction by 100",
+        "stackable_count": 99,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/a/ae/Metalmorph-TF04-JP-VG-2.png/revision/latest/scale-to-width-down/250?cb=20161231002431"
+    },
+    {
+        "id":"unexpected_dai",
+        "name":"Unexpected Die",
+        "description":"(Once per Duel): Add 1 'Unexpected Dai' from your Deck to your hand. (Add 'Unexpected Dai' and 'Little D' to your inventory.)",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://64.media.tumblr.com/1d7da3846befe5439a0bb025772f2373/tumblr_o1qzl4IRwK1rie4kjo1_r1_400.png"
+    },
+    {
+        "id":"bargain",
+        "name":"Bargain!",
+        "description":"Pools cost 1 Gold less",
+        "stackable_count": 1,
+        "special_code_flag": 5,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"silver_tongue",
+        "name":"Silver Tongue",
+        "description":"Purchasing Training costs 1 less Gold.",
+        "stackable_count": 1,
+        "special_code_flag": 7,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"pirate_soul",
+        "name":"Pirate Soul",
+        "description":"Whenever you get to choose a Treasure, you can choose 3 of the options presented.",
+        "stackable_count": 1,
+        "special_code_flag": 1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//f/fe/GeneraiderBossLoot-MADU-EN-VG-artwork.png"
+    },
+    {
+        "id":"dark_emissary",
+        "name":"Dark Emissary",
+        "description":"(Once per Duel): If you control a card: You can add 1 'Gorz the Emissary of Darkness' from your Deck to your hand (add 'Gorz the Emissary of Darkness' to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//thumb/4/49/GorztheEmissaryofDarkness-TF05-JP-VG-artwork.png/275px-GorztheEmissaryofDarkness-TF05-JP-VG-artwork.png"
+    },
+    {
+        "id":"normal_summon_alligator",
+        "name":"Normal Summon Alligator",
+        "description":"When you Normal Summon 'Alligator's Sword' you can add 1 'Kunai with Chain' from your Deck or GY to your hand, then draw 2 cards and discard 2 cards (Add 'Alligator's Sword' and 'Kunai with Chain' to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//thumb/1/1d/AlligatorsSword-MADU-EN-VG-artwork.png/275px-AlligatorsSword-MADU-EN-VG-artwork.png"
+    },
+    {
+        "id":"faulty_programming",
+        "name":"Faulty Programming",
+        "description":"Each player draws 2 cards for their Draw Phase, except during the first Draw Phase. Each player must shuffle 1 card they control or in their hand into the Deck during their End Phase, except during the first End Phase.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"plundered_booty",
+        "name":"Plundered Booty",
+        "description":"When you sell Treasure, you gain 3 Gold per Treasure instead of 1.",
+        "stackable_count": 1,
+        "special_code_flag": 10,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//f/fe/GeneraiderBossLoot-MADU-EN-VG-artwork.png"
+    },
+    {
+        "id":"chilly_shores",
+        "name":"Chilly Shores",
+        "description":"(Once per Duel): Next turn, the next 2 times you would take damage, or a monster you control would be destroyed by battle, you do not take damage and that monster is not destroyed.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/1/16/Umiiruka-TF04-JP-VG.jpg/revision/latest/scale-to-width-down/250?cb=20121017193707"
+    },
+    {
+        "id":"normal_seal",
+        "name":"Normal Seal",
+        "description":"Non-effect monsters and monsters with negated effects on your side of the field gain 500 ATK/DEF while face-up on the field. (Once per Duel): You can negate the effects of a face-up monster you control, or, give a non-effect monster you control 500 ATK.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//thumb/6/68/TheSealofOrichalcos-DG-EN-VG-Field.png/275px-TheSealofOrichalcos-DG-EN-VG-Field.png"
+    },
+    {
+        "id":"super_smooth_talker",
+        "name":"Super Smooth Talker",
+        "description":"Your required tip amount is reduced by 10. This skill cannot be sold.",
+        "stackable_count": 1,
+        "special_code_flag": 9,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"tapped_potential",
+        "name":"Tapped Potential",
+        "description":"You can tribute 1 'Fiend Scorpion' to Special Summon 1 'Millennium Scorpion' from your hand or Deck, then you can add up to 2 Trap Card(s) from your Deck to your hand. 'Millennium Scorpion' you control gain 1000 ATK for their effect instead of 500. (Add 'Fiend Scorpion' and 'Millennium Scorpion' to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/1/1b/FiendScorpion-OW.png/revision/latest?cb=20140605001036"
+    },
+    {
+        "id":"archetype_madness",
+        "name":"Archetype Madness",
+        "description":"Declare 1 card name in your inventory and 1 archetype name. That card becomes part of that archetype.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"lifesteal",
+        "name":"Lifesteal",
+        "description":"If your monster battles an opponent's monster and inflicts damage to them, gain LP equal to the amount inflicted.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"the_tragedy",
+        "name":"The Tragedy",
+        "description":"If a monster you control is destroyed by battle you can add 1 'Tragoedia' from your Deck to your hand, and if you do, you can add 1 monster from your GY to your hand. (Add 'Tragoedia' to your inventory.)",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/f/fa/Tragoedia-OW.png/revision/latest?cb=20140624161829"
+    },
+    {
+        "id":"heavy_sack",
+        "name":"Heavy Sack",
+        "description":"Gain 15 gold at the start of the next Shop Phase. This skill cannot be sold.",
+        "stackable_count": 1,
+        "special_code_flag": 4,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"drafted_for_battle",
+        "name":"Drafted for Battle",
+        "description":"(Once per Duel): You can declare 1 type. For the rest of the Duel, all monsters you control can be treated as that type or as their original type.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"legendary_sacrifice",
+        "name":"Legendary Sacrifice",
+        "description":"If your Legendary Monster is destroyed, draw 2 cards",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"mind_scan",
+        "name":"Mind Scan",
+        "description":"(Once per turn): You can target 1 Set card your opponent controls; you can look at it or declare a card name, and if the card is the declared card destroy it. Cards and effects can be activated in response to this Skill.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"lucky_die",
+        "name":"Lucky Die",
+        "description":"(Once per turn): Reveal 1 monster in your hand and roll a six-sided die. The level of that monster becomes that roll until the end of the turn. If the result is higher than 4, draw 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//thumb/b/b4/LevelConversionLab-TF04-EN-VG-artwork.png/275px-LevelConversionLab-TF04-EN-VG-artwork.png"
+    },
+    {
+        "id":"magic_madness",
+        "name":"Magic Madness",
+        "description":"(Once per Duel): You can banish 3 Spell Cards face-down from your GY. Your opponent randomly picks one of them to add to your hand. This turn, if you activate a Spell, you can banish it face-down. (Once per Duel): You can make your opponent add 1 of your face-down banished cards to your hand at random, and if you do, discard 1 card.'",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/7uxdzz.png"
+    },
+    {
+        "id":"we_are_number_one",
+        "name":"We are Number One",
+        "description":"(Once per Duel): If you control a level 4 or lower Normal monster, you can Special Summon up to 2 monsters from your Deck with the same name as that monster, also, monsters summoned from the Extra Deck this turn have their effects negated.'",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"rainbow_energy",
+        "name":"Rainbow Energy",
+        "description":"(Once per Duel): You can declare 1 attribute. For the rest of the Duel, all monsters you control are also treated as that attribute.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"tank_up",
+        "name":"Tank-Up",
+        "description":"(Once per Duel) (During your Main Phase 1) (Stackable): You can switch all monsters you control to Defense Position, then, they gain 1500 DEF. Each stack of this skill lets you activate this an additional time per Duel.'",
+        "stackable_count": 99,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"strong_arm",
+        "name":"Strong Arm",
+        "description":"(Once per Duel): You can make 1 monster your opponent controls declare an attack, or if it's in Defense Position, you can change it to Attack Position. Neither player takes battle damage this turn with battle involving that card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/9/99/Ojamuscle-OW.png/revision/latest?cb=20150131165216"
+    },
+    {
+        "id":"lawnmower",
+        "name":"Lawnmower",
+        "description":"(Once per Duel): You can send the top card of your deck to the GY. Your opponent can then repeat this effect, but sends twice as many as the previous amount. Continue passing this choice with the number sent doubling until one player decides to stop.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/jngm8d.jpg"
+    },
+    {
+        "id":"deck_hurty_virus",
+        "name":"Deck Hurty Virus",
+        "description":"(Once per Duel) (before the start of the duel): Both players discard 5, mill 5, then draw 5. This does not trigger GY effects of any kind.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"minigun_stackable",
+        "name":"Minigun (Stackable)",
+        "description":"(Once per turn) (Stackable): You start the Duel with 500 charges. You can spend any number of charges and lower the ATK 1 face-up monster by that much. If this reduces its ATK to 0, destroy the monster and gain 1000 charges. (Once per turn) (Quick Effect): You can destroy 1 monster you control to gain 1000 charges. This effect can go on chain and is treated as a card effect. Each stack of this skill gives an additional 500 charges at the start of the Duel.",
+        "stackable_count": 99,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"battle_boogy_rise_up",
+        "name":"'Battle Boogy - Rise Up!",
+        "description":"You can switch the position of monsters you control the turn they are Summoned, Set, or after they've battled.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"fusion_festival",
+        "name":"Fusion Festival!",
+        "description":"(Once per turn): If you Fusion Summon a monster, you can add 1 'Polymerization' and 1 monster used as Fusion Material for that monster from your GY to your hand (add 'Polymerization' and 'Garura, Wings of Resonant Life' to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//thumb/9/97/Polymerization-MADU-EN-VG-artwork.png/275px-Polymerization-MADU-EN-VG-artwork.png"
+    },
+    {
+        "id":"norme_gathering_stackable",
+        "name":"Normie Gathering (Stackable)",
+        "description":"(Once per Duel) (Stackable): You can add 1 non-effect monster from your Deck to your hand, except for your Legendary Monster(s). (Once per Duel): You can Special Summon 1 Level 4 or lower non-effect monster from your hand. Each stack of this skill lets you add up to 2 additional non-effect monster(s) from your Deck to your hand.",
+        "stackable_count": 99,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"wreck_less",
+        "name":"Wreck-less",
+        "description":"(Once per Duel): You can discard 1 card; add 1 'Rush Recklessly' from your Deck to your hand. Monsters affected by 'Rush Recklessly' do not deal battle damage. (Add 'Rush Recklessly' to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/f/f7/RushRecklessly-OW.png/revision/latest/scale-to-width-down/250?cb=20140618210559"
+    },
+    {
+        "id":"switcher_oop",
+        "name":"Switcher-oop",
+        "description":"(Once per Run): You can swap the names of 1 non-base loot card in your inventory and 1 base loot card in your inventory (write the cards you changed in the description of this ability)!",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"the_never_ending_story",
+        "name":"The Never Ending Story",
+        "description":"At the start of the Duel, double the amount of bonus LP players gained from the Base LP Increase rule for each player. The base LP increase rule is mandatory while you have this skill. (Once per Duel): If your LP is lower than your opponent's, you can draw 1 card per 1000 LP difference. Each player can activate this skill.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"storm_sceptre",
+        "name":"Storm Sceptre",
+        "description":"(Once per Duel): If an opponent's Spell/Trap card is sent to the GY during your turn: you can add 1 'Mystical Space Typhoon' from your Deck to your hand (add 'Mystical Space Typhoon' to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://static.wikia.nocookie.net/yugioh/images/0/0e/MysticalSpaceTyphoon-OW.png/revision/latest?cb=20140613030155"
+    },
+    {
+        "id":"cosmic_sceptre",
+        "name":"Cosmic Sceptre",
+        "description":"(Once per Duel): If a card in your opponent's possession is banished: you can pay 1000 LP; add 1 'Cosmic Cyclone' from your Deck to your hand (add  'Cosmic Cyclone' to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://64.media.tumblr.com/ff8038cae0872741020f439af0139092/tumblr_og8u49gxGj1rie4kjo1_r1_500.png"
+    },
+    {
+        "id":"a_tribute_to_those_who_lost",
+        "name":"A Tribute to Those Who Lost",
+        "description":"(Once per Duel): If a card in your opponent's possession is destroyed by a card or Skill effect during your turn: you can discard 1 card; add 1 'Tribute to the Doomed' from your Deck to your hand (add \"Tribute to the Doomed\" to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//thumb/6/6d/TributetoTheDoomed-TF05-JP-VG-artwork.png/275px-TributetoTheDoomed-TF05-JP-VG-artwork.png"
+    },
+    {
+        "id":"chainlonk",
+        "name":"Chainlonk",
+        "description":"Once per Duel (Quick Effect): You can activate this Skill as only Chain Link 3 or higher: This current chain resolves forwards instead of backwards",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"straightened_priorities",
+        "name":"Straightened Priorities",
+        "description":"You have Ignition Effect Priority (https://yugioh.fandom.com/wiki/Priority#Ignition_Effect_Priority).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"my_crazy_new_link_1_idea",
+        "name":"My Crazy New Link 1 Idea",
+        "description":"(Once per Duel) If you Link Summon \"Clara & Rushka, the Ventriloduo\",you can add 1 Field Spell from your Deck to your hand. (Add \"Clara & Rushka, the Ventriloduo\" to your inventory)",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/7sglbf.jpg"
+    },
+    {
+        "id":"quest_of_young_adult",
+        "name":"Quest of Young Adult",
+        "description":"(Once per turn): You can reveal 1 Level 5 or higher monster; this turn you can Normal Summon that monster without tributing. You can't reveal a monster with the same level of a previously revealed monster for the rest of the Duel.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"skill_veiler",
+        "name":"Skill Veiler",
+        "description":"(Once per Duel): You can negate 1 of your opponent's non-unique skills until the end of the next turn.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"marvelous_meatball",
+        "name":"Marvelous Meatball",
+        "description":"The effect of \"Nibiru, the Primal Being\" is instead: \"During the Main Phase, if your opponent Normal/Special Summoned 5 or more monsters this turn (Quick Effect): You can target 1 Effect Monster your opponent controls and return it to the hand; Special Summon this card from your hand.\" (Add \"Nibiru, the Primal Being\" to your inventory)",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://64.media.tumblr.com/d6a2cd3bc80eca025ebab4ab5b600e5e/tumblr_pz300ttAL21rie4kjo1_r1_640.png"
+    },
+    {
+        "id":"social_distancing",
+        "name":"Social Distancing",
+        "description":"(Once per turn): During your Draw Phase, draw 2 cards. Cards you control cannot be in adjacent zones (horizontal or vertical) to each other.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"tactical_retreat",
+        "name":"Tactical Retreat",
+        "description":"(Once per Duel) (During the Battle Phase): You can pay half your LP to end the battle phase. If it's Round 4 or higher, pay 7000LP instead.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"entrance_exam",
+        "name":"Entrance Exam",
+        "description":"(Once per turn): You can send 1 'Duel Academy' from your hand or field to the GY to activate one of the following effects (Add 'Duel Academy', 'Polymerization', 'Yubel' and 'A Hero Emerges' to your inventory):\n- Add 1 'Polymerization' or 1 'Fusion' Spell from your Deck to your hand.\n- Draw 1 card and reveal it, if it is a monster card, add it to your hand, otherwise, send it to the GY.\n- Reveal the top 3 cards of your Deck and add 1 Trap Card from among them to your hand, then send the rest to the GY.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/2na1tn.png"
+    },
+    {
+        "id":"exodia_obliterate",
+        "name":"Exodia, Obliterate!",
+        "description":"(Once per turn) (During your Draw Phase): Send 1 'Forbidden One' card from your hand or Deck to the GY. (Once per turn): If you have all 5 pieces of Exodia in your GY, you can target 1 monster on the field; destroy it. (Add 1 of each of the pieces of Exodia to your Deck, permanently).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//thumb/e/e9/ExodiatheForbiddenOne-TF04-EN-VG.jpg/275px-ExodiatheForbiddenOne-TF04-EN-VG.jpg"
+    },
+    {
+        "id":"my_wingman",
+        "name":"My Wingman!",
+        "description":"The effect of 'Super Polymerization' is now: 'Discard 1 card and send 1 monster from your Deck to your GY: Special Summon 1 'Flame Wingman' from your Extra Deck (this is treated as a Fusion Summon). (Once per turn): While you control \"Flame Wingman\", you can activate 1 \"Skyscraper\" from your Deck or GY, then Special Summon 1 'Ancient Gear Golem' from your Deck or GY, to your opponent's side of the field ignoring its summoning conditions. (Add 3 'Super Polymerization', 3 'Flame Wingman' to your Deck, permanently. Add 'Skyscraper' and 'Ancient Gear Golem' to your inventory.)",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//thumb/1/18/ElementalHEROFlameWingman-TF05-JP-VG-artwork.png/275px-ElementalHEROFlameWingman-TF05-JP-VG-artwork.png"
+    },
+    {
+        "id":"utopic_goober",
+        "name":"Utopic Goober",
+        "description":"You can Xyz Summon 'Number 39: Utopia' with monsters of any level (Add 3 'Number 39: Utopia' to your Extra Deck, permanently).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//thumb/f/ff/Number39Utopia-TF06-JP-VG.png/275px-Number39Utopia-TF06-JP-VG.png"
+    },
+    {
+        "id":"talkers_decoded",
+        "name":"Talkers, Decoded",
+        "description":"(Once per turn): You can tribute 1 card 'Decode Talker' points to draw 1 card, or if the tributed monster was Link Summoned, draw cards equal to its Link Rating. (Add \"Decode Talker\" to your inventory.)",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//thumb/a/a2/DecodeTalker-OW.png/275px-DecodeTalker-OW.png"
+    },
+    {
+        "id":"the_real_mystic_mine_out",
+        "name":"The Real Mystic Mine Out",
+        "description":"Only 1 Field Spell can be face-up on the field at a time. If either player activates another Field Spell the previous one is destroyed.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/7kglq3.jpg"
+    },
+    {
+        "id":"blazing_brazier",
+        "name":"Blazing Brazier",
+        "description":"(Once per turn) (During your End Phase): You can send the top card of your Deck to the GY. After each time you use this Skill, this skill sends an additional card until the end of the Duel (max 3).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/7kglq3.jpg"
+    },
+    {
+        "id":"torchlight",
+        "name":"Torchlight",
+        "description":"During your Draw Phase, instead of your normal draw, banish the top two cards of your Deck facedown, then add 1 from among those two facedown banished cards to your hand.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/7kglq3.jpg"
+    },
+    {
+        "id":"advanced_worship",
+        "name":"Advanced Worship",
+        "description":"Add 1 of each of the Egyptian Gods to your deck (permanently). You can Tribute Summon them for 2 Tributes instead of 3. Negate the fourth effect of \"Slifer the Sky Dragon\".",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/7kglq3.jpg"
+    },
+    {
+        "id":"magical_warriors_blessing",
+        "name":"Magical Warrior's Blessing",
+        "description":"(Once per turn): If you Normal Summon \"Breaker the Magical Warrior\", you can Normal Summon another monster this turn. If you destroy a Spell/Trap with the effect of \"Breaker the Magical Warrior\", you can draw 1 card. (Add \"Breaker the Magical Warrior\" to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/7kglq3.jpg"
+    },
+    {
+        "id":"dimension_rod",
+        "name":"Dimension Rod",
+        "description":"(Once per Duel) (During your Draw Phase): You can shuffle 3 of your cards that are banished into the Deck to draw 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/7kglq3.jpg"
+    },
+    {
+        "id":"tuning_fork",
+        "name":"Tuning Fork",
+        "description":"(Once per Duel): Target 1 non-Tuner monster you control; it is treated as a Tuner. (Add “Stardust Dragon” to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/7kglq3.jpg"
+    },
+    {
+        "id":"sacrificial_arts",
+        "name":"Sacrificial Arts",
+        "description":"You can Normal Summon an additional time each turn, but each time you Normal Summon, you must pay 1500 LP. You can still use this effect even if you cannot pay the LP cost.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://files.catbox.moe/7kglq3.jpg"
+    }
+]

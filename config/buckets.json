@@ -1,0 +1,3819 @@
+[
+    {
+        "id": "mother_lung",
+        "cards": [
+            "Mother Grizzly",
+            "Mermail Abysslung"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "panther_eagle_gazer_don",
+        "cards": [
+            "Panther Shark",
+            "Eagle Shark",
+            "Gazer Shark",
+            "Number 19: Freezadon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "fin_saber_stickers_hammer_17",
+        "cards": [
+            "Double Fin Shark",
+            "Saber Shark",
+            "Shark Stickers",
+            "Hammer Shark",
+            "Number 17: Leviathan Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "soldier_no_ninja_cleric_torpedo_sword",
+        "cards": [
+            "Penguin Soldier",
+            "Nopenguin",
+            "Penguin Ninja",
+            "Penguin Cleric",
+            "Penguin Torpedo",
+            "Penguin Sword"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ice_ghost_giant",
+        "cards": [
+            "Ice Knight",
+            "Piwraithe the Ghost Pirate",
+            "Snowdust Giant"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mobius_mega",
+        "cards": [
+            "Mobius the Forst Monarch",
+            "Mobius the Mega Monarch"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "skreech_fenrir_abyss_warrior",
+        "cards": [
+            "Skreech",
+            "Fenrir",
+            "Abyss Soldier",
+            "Abyss Warrior"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sebek_moray",
+        "cards": [
+            "Sorcerer of Sebek",
+            "Moray of Avarice"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "silent_rage",
+        "cards": [
+            "Silent Sea Nettle",
+            "Rage of the Deep Sea"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "master_cold_creator_dragon_dust",
+        "cards": [
+            "Ice Master",
+            "Cold Enchanter",
+            "Snowman Creator",
+            "Snow Dragon",
+            "Snowdust Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "wolf_narwhal",
+        "cards": [
+            "Glacial Beast Blizzard Wolf",
+            "Glacial Beast Iceberg Narwhal"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "beast_augus",
+        "cards": [
+            "Gishki Beast",
+            "Gishki Mind Augus"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ocean_sonar_water",
+        "cards": [
+            "Ocean Dragon Lord - Kairyu-Shin",
+            "Fish Sonar"
+        ],
+        "skills": ["Water_You_Doing_We_Hate_Floodgates"],
+        "tax": 0
+    },
+    {
+        "id": "tinola_acti_tremora_cradle",
+        "cards": [
+            "Iceade Tinola",
+            "Icejade Acti",
+            "Icejade Tremora",
+            "Icejade Cradle"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "megalo_linde_gunde_pike_sphere",
+        "cards": [
+            "Mermail Abyssmegalo",
+            "Mermail Abysslinde",
+            "Mermail Abyssgunde",
+            "Mermail Abysspike",
+            "Mermail Abyss-sphere"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "tetra_guppy_arowana_set",
+        "cards": [
+            "Aquaactress Tetra",
+            "Aquaactress Guppy",
+            "Aquaactress Arowana",
+            "Aquaactress Set"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "stealth_deep",
+        "cards": [
+            "Sea Stealth II",
+            "Forgotten Temple of the Deep"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "princess_minairuka_silent_bahamut_47_full",
+        "cards": [
+            "Beautunaful Princess",
+            "Minairuka",
+            "Silent Angler",
+            "Bahamut Shark",
+            "Number 47: Nightmare Shark",
+            "Full Armored Black Ray Lancer"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "bahrastos",
+        "cards": [
+            "True King Bahrastos, the Fathomer"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "beaver_sunfish_manta_angler_kappa_cat_mistar",
+        "cards": [
+            "Nimble Beaver",
+            "Nimble Sunfish",
+            "Nimble Manta",
+            "Nimble Angler",
+            "Armored Kappa",
+            "Cat Shark",
+            "Mistar Boy"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "surface_white",
+        "cards": [
+            "Surface",
+            "White Mirror"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "circumpolar",
+        "cards": [
+            "Cataclysmic Circumpolar Chilblainia"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "citadel_stealth",
+        "cards": [
+            "Citadel Whale",
+            "Sea Stealth Attack"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "flying_gluttonous_king_salvage",
+        "cards": [
+            "Flying Red Carp",
+            "Gluttonous Reptolphin Greethys",
+            "Superancient Deepsea King Coelacanth",
+            "Whitefish Salvage"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "abyss_dream_valiant",
+        "cards": [
+            "Abyss Shark",
+            "Dream Shark",
+            "Valiant Shark Lancer"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "emperor_squire_puny_nightmare_brave",
+        "cards": [
+            "The Great Emperor Penguin",
+            "Penguin Squire",
+            "Puny Penguin",
+            "Nightmare Penguin",
+            "Penguin Brave"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "aegirine_ran_kingfisher_manifestation_lancea",
+        "cards": [
+            "Icejade Aegirine",
+            "Icejade Ran Aegirine",
+            "Icejade Creation Kingfisher",
+            "Icejade Manifestation",
+            "Lancea, Dragonic Ancestor of the Ice Spirit Mountain"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "diva_guitar_repetiteur_prima_city",
+        "cards": [
+            "Deep Sea Diva",
+            "Guitar Gurnards Duonigis",
+            "Deep Sea Repetiteur",
+            "Deep Sea Prima Donna",
+            "Magellanica, the Deep Sea City"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "teus_turge_neptabyss_dragoons_infantry_lacia",
+        "cards": [
+            "Mermail Abyssteus",
+            "Mermail Abyssturge",
+            "Neptabyss, the Atlantean Prince",
+            "Atlantean Dragoons",
+            "Atlantean Heavy Infantry",
+            "Mermail Abyssalacia"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "tidal_stream",
+        "cards": [
+            "Tidal, Dragon Ruler of Waterfalls",
+            "Stream, Dragon RUler of Droplets"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "jellyfish_codarus_bugroth",
+        "cards": [
+            "Electric Jellyfish",
+            "Codarus",
+            "Amphibious Bugroth MK-11"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "buzzsaw_lantern_remora_32_37",
+        "cards": [
+            "Buzzsaw Shark",
+            "Lantern Shark",
+            "Xyz Remora",
+            "Numer 32: Shark Drake",
+            "Number 37: Hope Woven Dragon Spider Shark"
+        ],
+        "skills": [],
+        "tax": 1
+    },
+    {
+        "id": "infernalqueen_eria",
+        "cards": [
+            "Infernalqueen Salmon",
+            "Eria the Water Charmer, Gentle"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "grimness_abyss_aquamirror_zielgigas",
+        "cards": [
+            "Gishki Grimness",
+            "Gishki Abyss",
+            "Gishki Aquamirror",
+            "Gishki Zielgigas"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dragon_wonders",
+        "cards": [
+            "Red-Eyes Zombie Dragon",
+            "Pyramid of Wonders"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "haunted_return",
+        "cards": [
+            "Haunted Shrine",
+            "Return of the Zombies"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "specter_molten_hellfire",
+        "cards": [
+            "Shadow Specter",
+            "Molten Zombie"
+        ],
+        "skills": ["Eternal_Hellfire"],
+        "tax": 0
+    },
+    {
+        "id": "pumprincess_bayonater",
+        "cards": [
+            "Pumprincess the Princess of Ghosts",
+            "Bayonater, the Baneful Barrel"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "guard_doombearer",
+        "cards": [
+            "Guard Ghost",
+            "Doombearer Psychopompos"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mad_pain_archfiend_doomkaiser",
+        "cards": [
+            "Mad Mauler",
+            "Pain Painter",
+            "Archfiend Zombie-Skull",
+            "Doomkaiser Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "tristan_mammoth_zoma_tutan",
+        "cards": [
+            "Tristan, Knight of the Underworld",
+            "Zombie Mammoth",
+            "Zoma the Spirit",
+            "Tutan Mask"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "stein_jiangshi_mummy_alucard_shot",
+        "cards": [
+            "Ghostrick Stein",
+            "Ghostrick Jiangshi",
+            "Ghostrick Mummy",
+            "Ghostrick Alucard",
+            "Ghostrick Shot"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "warwolf_skeleton_ghoul_yeti",
+        "cards": [
+            "Ghostrick Warwolf",
+            "Ghostrick Skeleton",
+            "Ghostrick Ghoul",
+            "Ghostrick Yeti"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "plague_hela",
+        "cards": [
+            "Plague Wolf",
+            "Hela, Generaider Boss of Doom"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "success_synthesis",
+        "cards": [
+            "Shiranui Style Success",
+            "Shiranui Style Synthesis"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "seven_great_sea_skelgon_pile",
+        "cards": [
+            "Seven Cities of the Golden Land",
+            "Great Mammoth of Goldfine",
+            "Sea Monster of Theseus",
+            "Skelgon"
+        ],
+        "skills": ["Pile_Of_Old_Bones"],
+        "tax": 0
+    },
+    {
+        "id": "lord_vamp_red_desire",
+        "cards": [
+            "Vampire Lord",
+            "Vampire Vamp",
+            "Vampire Red Baron",
+            "Vampire's Desire"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "prince_princess",
+        "cards": [
+            "Wightprince",
+            "Wightprincess"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "turtle_zombina",
+        "cards": [
+            "Pyramid Turtle",
+            "Zombina"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "plague_king",
+        "cards": [
+            "Plaguespreader Zombie",
+            "Revived King Ha Des"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "douyou_beast_immortal",
+        "cards": [
+            "Douyou Catsubou",
+            "Beast of the Pharaoh",
+            "Immortal Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "jack_alghoul",
+        "cards": [
+            "Jack-o-Bolan",
+            "Alghoul Mazera"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "changshithespiriado",
+        "cards": [
+            "Changshi the Spiriado"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "zombiepowerstruggle",
+        "cards": [
+            "Zombie Power Struggle"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sucker_savior",
+        "cards": [
+            "Vampire Sucker",
+            "Avendread Savior"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "world_partial",
+        "cards": [
+            "Zombie World"
+        ],
+        "skills": ["Partial_Zombification"],
+        "tax": 0
+    },
+    {
+        "id": "kingoftheskullservants",
+        "cards": [
+            "King of the Skull Servants"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dakki_shafu_yasha_return_winter_icicle",
+        "cards": [
+            "Dakki, the Graceful Mayakashi",
+            "Shafu, the Wheeled Mayakashi",
+            "Yasha, the Skeletal Mayakashi",
+            "Maykashi Return",
+            "Mayakashi Winter",
+            "Yuki-Onna, the Icicle Mayakashi"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "voivode_ghsot_familiar_retainer_domain_zombie",
+        "cards": [
+            "Vampire Voivode",
+            "Vampire Ghost",
+            "Vampire Familiar",
+            "Vampire Retainer",
+            "Vampire's Domain",
+            "The Zombe Vampire"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "scourge_kingdom_takeover_dhampir",
+        "cards": [
+            "Vampire Scarlet Scourge",
+            "Vampire Kingdom",
+            "Vampire Takeover",
+            "Dhampir Vampire Sheridan"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "solitaire_uni_necro",
+        "cards": [
+            "Shiranui Solitaire",
+            "Uni-Zombie",
+            "Red-Eyes Zombie Necro Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "spectralsword_shade_samurai_saga_shogunsaga",
+        "cards": [
+            "Shiranui Spectralsword",
+            "Shiranui Spectralsword Shade",
+            "Shiranui Samurai",
+            "Shiranui Samuraisaga",
+            "Shiranui Shogunsaga"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "eldlichthegoldenlord",
+        "cards": [
+            "Eldlich the Golden Lord"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "houndhorde_striges_slayer_chimera_origin_nights",
+        "cards": [
+            "Vendread Houndhorde",
+            "Vendread Striges",
+            "Revendread Slayer",
+            "Revendread Chimera",
+            "Revendread Origin",
+            "Vendread Nights"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "necro_fox_felgrand",
+        "cards": [
+            "Shinobi Necro",
+            "Nine-Tailed Fox",
+            "Skeletal Dragon Felgrand"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "wyvern_charon_fusion_dragonecro_dragocytos",
+        "cards": [
+            "Ghost Wyvern, the Underworld Dragon",
+            "Ghost Charon, the Underworld Boatman",
+            "Ghost Fusion",
+            "Dragonecro Nethersoul Dragon",
+            "Dragocytos Corrupted Nethersoul Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "call_mezuki_book_reborn",
+        "cards": [
+            "Call of the Haunted",
+            "Mezuki",
+            "Book of Life",
+            "Zombie Reborn"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "hajun_yuki_tsukahagi_oboro_tsuchigumo_tengu",
+        "cards": [
+            "Hajun, the Winged Mayakashi",
+            "Yuki-Musume, the Ice Mayakashi",
+            "Tsukahagi, the Poisonous Maykashi",
+            "Oboro-Guruma, the Wheeled Mayakashi",
+            "Tsuchigumo, the Poisonous Maykashi",
+            "Tengu, the Winged Mayakashi"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "goddessbow",
+        "cards": [
+            "Goddess Bow"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "heart_wild_lives_skyscraper",
+        "cards": [
+            "Elemental HERO Wildheart",
+            "Elemental HERO Wildedge",
+            "A Hero Lives",
+            "Skyscraper 2- Hero City"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "cyber_fusion",
+        "cards": [
+            "Toon Cyber Dragon",
+            "Fusion Substitute"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "heat_lady_inferno_nova",
+        "cards": [
+            "Elemental HERO Heat",
+            "Elemental HERO Lady Heat",
+            "Elemental HERO Inferno",
+            "Elemental HERO Nova Master"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "voltic_shining",
+        "cards": [
+            "Elemental HERO Voltic",
+            "Elemental HERO The Shining"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "eheroplasmavice",
+        "cards": [
+            "Elemental HERO Plasma Vice"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "grand_flare",
+        "cards": [
+            "Elemental HERO Grand Neos",
+            "Elemental HERO Flare Neos"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "bear_miss_grandpa_box_cologne_doll",
+        "cards": [
+            "Doll Monster Bear-Bear",
+            "Doll Monster Miss Madchen",
+            "Grandpa Demetto",
+            "Box of Friends",
+            "Princess Cologne",
+            "Doll Happiness"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dragonbanekingbeowulf",
+        "cards": [
+            "D/D/D Dragonbane King Beowulf"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "rockethermoscannon",
+        "cards": [
+            "Rocket Hermos Cannon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mouse_patchwork_moss_sea_muddy",
+        "cards": [
+            "Fluffal Mouse",
+            "Patchwork Fluffal",
+            "Neo-Spacian Twinkle Moss",
+            "Sea Monster of Theseus",
+            "Muddy Mudragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "astro_armitylr",
+        "cards": [
+            "Meklord Astro Mekanikle",
+            "Armityle the Chaos Phantasm"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "gazelle_berfomet_coatl_chimera_phantom_fusion",
+        "cards": [
+            "Gazelle the King of Mythical Claws",
+            "Big-Winged Berfomet",
+            "Cornfield Coatl",
+            "Chimera the King of Phantom Beasts",
+            "Berfomet the Mythical King of Phantom Beasts",
+            "Chimera Fusion"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "verte_miracle",
+        "cards": [
+            "Predaplant Verte Anaconda",
+            "Miracle Fusion"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "keeper_horned",
+        "cards": [
+            "Keeper of Dragon Magic",
+            "Horned Saurus"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dog_sheep_cat_octo_wolf_proxy",
+        "cards": [
+            "Fluffal Dog",
+            "Fluffal Sheep",
+            "Fluffal Cat",
+            "Fluffal Octo",
+            "Frightfur Wolf",
+            "Proxy F Magician"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "falco_beast_keios_construict_axon",
+        "cards": [
+            "Shaddoll Falco",
+            "Shaddoll Beast",
+            "Qadshaddoll Keios",
+            "Shaddoll Construct",
+            "Ultimate Axon Kicker"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sparkman_giant_rage_shining_hero_contact",
+        "cards": [
+            "Elemental HERO Sparkman",
+            "Elemental HERO Thunder Giant",
+            "Elemental HERO Flame Wingman - Infernal Rage",
+            "Elemental HERO Shining Flare Wingman",
+            "Favorite Hero",
+            "Favorite Contact"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "traitor_disciple_ikelos_oneiros_terror_chaos",
+        "cards": [
+            "Neiroy, the Dream Mirror Traitor",
+            "Neiroy, the Dream Mirror Disciple",
+            "Ikelos, the Dream Mirror Sprite",
+            "Oneiros, the Dream Mirror Tormentor",
+            "Dream Mirror of Terror",
+            "Dream Mirror of Chaos"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "celestial_dasher_malicious_dominance_destiny",
+        "cards": [
+            "Destiny HERO - Celestial",
+            "Destiny HERO - Dasher",
+            "Destiny HERO - Malicious",
+            "Destiny HERO - Dominance",
+            "Fusion Destiny"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ash_fleurdelis",
+        "cards": [
+            "Dogmatika Fleurdelis, the Knighted",
+            "Titaniklad the Ash Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "starving_dragoon",
+        "cards": [
+            "Starving Venemy Fusion Dragon",
+            "Destiny End Dragoon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sky_unity_earthbolt_skybolt_breakbolt_gem",
+        "cards": [
+            "Hayate the Sky Star",
+            "Kaiki the Unity Star",
+            "Todoroki the Earthbolt Star",
+            "Senko the Skybolt Star",
+            "Raijin the Breakbolt Star",
+            "Gem-Knight Seraphinite"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "duplication_necro",
+        "cards": [
+            "Fusion Duplication",
+            "Necro Fusion"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "albion_sleipnir",
+        "cards": [
+            "Albion the Sanctifire Dragon",
+            "Sleipnir the Runick Mane"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "stratos_faris_vyon_increase_chaos_devicer",
+        "cards": [
+            "Elemental HERO Stratos",
+            "Vision HERO Faris",
+            "Vision HERO Vyon",
+            "Vision HERO Increase",
+            "Contrast HERO Chaos",
+            "Xtra HERO Infernal Devicer"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "scorpio_cobra_instant_darkflare_beast_cross",
+        "cards": [
+            "Predaplant Ophrys Scorpio",
+            "Predaplant Darlingtonia Cobra",
+            "Instant Fusion",
+            "Darkflare Dragon",
+            "Beast-Eyes Pendulum Dragon",
+            "Cross-Sheep"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "el_shaddoll_construct_constriction",
+        "cards": [
+            "El Shaddoll Fusion",
+            "Shaddoll Fusion",
+            "El Shaddoll Construct"
+        ],
+        "skills": ["Construct_Constriction"],
+        "tax": 0
+    },
+    {
+        "id": "bear_wings_dolphin_vendor_goods_jar",
+        "cards": [
+            "Fluffal Bear",
+            "Fluffal Wings",
+            "Fluffal Dolphin",
+            "Toy Vendor",
+            "Foolish Burial Goods",
+            "Frightfur Jar"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "chain_eater_patchwork_sheep_tooth_piece",
+        "cards": [
+            "Edge Imp Chain",
+            "Edge Imp Cotton Eater",
+            "Frightfur Patchwork",
+            "Frightfur Sheep",
+            "Frightfur Sabre-Tooth"
+        ],
+        "skills": ["Missing_Piece"],
+        "tax": 0
+    },
+    {
+        "id": "wendi_hollow_apkalone_synthesis_resh",
+        "cards": [
+            "Reeshaddoll Wendi",
+            "Helshaddoll Hollow",
+            "El Shaddoll Apkalone",
+            "Myutant Synthesis",
+            "Resh Shaddoll Incarnation"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "prisma_stegocyber_trifortressops_storagepod_bear",
+        "cards": [
+            "Elemental HERO Prisma",
+            "Stegocyber",
+            "Trifortressops",
+            "Storagepod",
+            "Frightfur Bear"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "aleister_invoked_invocation_meltdown",
+        "cards": [
+            "Aleister the Invoker",
+            "Invoked Magellanica",
+            "Invocation",
+            "Magical Meltdown"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "scythe_penguin_rabbit_vicious_dice",
+        "cards": [
+            "Edge Imp Scythe",
+            "Fluffal Penguin",
+            "Fluffal Rabbit",
+            "Vicious Astraloud"
+        ],
+        "skills": ["Scythe_And_Dice"],
+        "tax": 0
+    },
+    {
+        "id": "slicer_blaster_hammerer",
+        "cards": [
+            "Volcanic Slicer",
+            "Volcanic Blaster",
+            "Volcanic Hammerer"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ufo_raging",
+        "cards": [
+            "UFO Turtle",
+            "Raging Flame Sprite"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mantikor_hyppogrif_sphynx_glory",
+        "cards": [
+            "Hazy Flame Mantikor",
+            "Hazy Flame Hyppogrif",
+            "Hazy Flame Sphynx",
+            "Hazy Glory"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "brushfire_spirit",
+        "cards": [
+            "Brushfire Knight",
+            "Spirit of Flames"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "pyrotechmech",
+        "cards": [
+            "Pyrotech Mech - Shiryu"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "gokathepyre",
+        "cards": [
+            "Goka, the Pyre of Malice"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "thestalosthemega",
+        "cards": [
+            "Thestalos the Mega monarch"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "handmaiden_lady_miller_archer_field_blaster",
+        "cards": [
+            "Laval Volcano Handmaiden",
+            "Laval Lakeside Lady",
+            "Laval Miller",
+            "Laval Archer",
+            "Molten Conduction Field",
+            "Laval Blaster"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "duelittlechimera",
+        "cards": [
+            "Duelittle Chimera"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "hand_sacredphoenix",
+        "cards": [
+            "Hand of Nephthys",
+            "Sacred Phoenix of Nephthys"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "prometeorburning",
+        "cards": [
+            "Prometeor, the Burning Star"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "greater_flamvell",
+        "cards": [
+            "Laval the Greater",
+            "Flamvell Uruquizas"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ponix_rangbali_island_onslaught_tenki",
+        "cards": [
+            "Legendary Fire King Ponix",
+            "Fire King Avatar Rangbali",
+            "Fire King Island",
+            "Onslaught of the Fire Kings",
+            "Fire Formation - Tenki"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "garunix_yaksha_arvata_ulkanix",
+        "cards": [
+            "Fire King Avatar Garunix",
+            "Fire King Avatar Yaksha",
+            "Fire King Avatar Arvata",
+            "Fire King Consort Ulkanix"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "salamangreatheatleo",
+        "cards": [
+            "Salamangreat Heatleo"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "trooper_doomfire_blaze_tri",
+        "cards": [
+            "Volcanic Trooper",
+            "Volcanic Doomfire",
+            "Volcanic Blaze Accelerator",
+            "Tri-Blaze Accelerator"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "cerberus_hydra_grifin_peryton_pillar_basiltrice",
+        "cards": [
+            "Hazy Flame Cerberus",
+            "Hazy Flame Hydra",
+            "Hazy Flame Griffin",
+            "Hazy Flame Peryton",
+            "Hazy Pillar",
+            "Hazy Flame Basiltrice"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "reload_duel",
+        "cards": [
+            "Blaze Accelerator Relaod",
+            "Duel Academy"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "burningdragon",
+        "cards": [
+            "Burning Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "gunner_mars_magmacho",
+        "cards": [
+            "Electro Gunner",
+            "The Blazing Mars",
+            "Magmacho Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "wolf_amblowhale",
+        "cards": [
+            "Salamangreat Sunlight Wolf",
+            "Amphibious Swarmship Amblowhale"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sunburner_ferret",
+        "cards": [
+            "Cataclysmic Scorching Sunburner",
+            "Fencing Fire Ferret"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "infernalflame",
+        "cards": [
+            "Infernal Flame Banshee"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "thestalosshadowfire",
+        "cards": [
+            "Thestalos the Shadowfire Monarch"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sacred_barong_echelon",
+        "cards": [
+            "Sacred Fire King Garunix",
+            "Fire King Avatar Barong",
+            "Echelon of the Fire Kings"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ejection_rimfire_emperor_inferno_cold",
+        "cards": [
+            "Fire Ejection",
+            "Volcanic Rimfire",
+            "Volcanic Emperor",
+            "Volcanic Inferno"
+        ],
+        "skills": ["Cold_Fire"],
+        "tax": 0
+    },
+    {
+        "id": "blaster_burner",
+        "cards": [
+            "Blaster, Dragon Ruler of Infernos",
+            "Burner, Dragon Ruler of Sparks"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "truekingagnimazud",
+        "cards": [
+            "True King Agnimazud, the Vanisher"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "lavalval_exlord",
+        "cards": [
+            "Lavalval Exlord"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "baidora_zhongdora_trident_bident_kaimen",
+        "cards": [
+            "Tenpai Dragon Baidora",
+            "Tenpai Dragon Zhongdora",
+            "Trident Dragion",
+            "Sangen Risedragon Bident Dragion",
+            "Sangen Kaimen"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "hiita_gryphon",
+        "cards": [
+            "Hiita the Fire Channeler",
+            "Salamangreat Burst Gryphon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "jet_warrior_one",
+        "cards": [
+            "Jet Synchron",
+            "Jet Warrior",
+            "One for One"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "veidos_king_hero_priestess_awakening_obsidian_everlasting",
+        "cards": [
+            "Veidos the Eruption Dragon of Extinction",
+            "King of the Ashened City",
+            "Hero of the Ashened City",
+            "Priestess of the Ashened City",
+            "Awakening of Veidos",
+            "Obsidian, the Ashened City"
+        ],
+        "skills": ["Everlasting_Burning"],
+        "tax": 0
+    },
+    {
+        "id": "resonator_vulcan_mech",
+        "cards": [
+            "Red Resonator",
+            "Vulcan the Divine",
+            "Vermillion Dragon Mech"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mother_skull_otherworld",
+        "cards": [
+            "Alien Mother",
+            "Alien Skull",
+            "Otherworld - The \"A\" Zone"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "queen_victory_erokin_warlord_prince_noble",
+        "cards": [
+            "Worm Queen",
+            "Worm Victory",
+            "Worm Erokin",
+            "Worm Warlord",
+            "Worm Prince",
+            "Worm Noble"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "illidan_rakuyeh_dimikles_gulse_solid_millidith",
+        "cards": [
+            "Worm Illidan",
+            "Worm Rakuyeh",
+            "Worm Dimikles",
+            "Worm Gulse",
+            "Worm Solid",
+            "Worm Millidith"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "barses_falco_opera_linx_ugly",
+        "cards": [
+            "Worm Barses",
+            "Worm Falco",
+            "Worm Opera",
+            "Worm Linx",
+            "Worm Ugly"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "bitelon_gale",
+        "cards": [
+            "Bitelon",
+            "Gale Lizard"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "alligator_evilswarm",
+        "cards": [
+            "Lion Alligator",
+            "Evilswarm Azzathoth"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "masked_ipiria",
+        "cards": [
+            "Masked Chameleon",
+            "Ipiria"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "kid_turtle_jar",
+        "cards": [
+            "Alien Kid",
+            "Jar Turtle",
+            "Jar of Greed"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "apophis_advent",
+        "cards": [
+            "Apophis the Swamp Deity",
+            "Pharaonic Advent"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "damagereptile",
+        "cards": [
+            "Damage = Reptile"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "terrene_oshaleon",
+        "cards": [
+            "Terrene Toothed Tsuchinoko",
+            "Oshaleon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "swamp_snake_serpent_boa_fangs_we",
+        "cards": [
+            "Venom Swamp",
+            "Venom Snake",
+            "Venom Serpent",
+            "Venom Boa",
+            "Ambush Fangs"
+        ],
+        "skills": ["We_Are_Venom"],
+        "tax": 0
+    },
+    {
+        "id": "stealthbuster_crop",
+        "cards": [
+            "Alien Stealthbuster",
+            "Crop Circles"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "naga_vaskii_medusa_spawn_recoil",
+        "cards": [
+            "Reptilianne Naga",
+            "Reptilianne Vaskii",
+            "Reptilianne Medusa",
+            "Reptilianne Spawn",
+            "Reptilianne Recoil"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "raikanoyoroi",
+        "cards": [
+            "Raika no Yoroi Tokage"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "nauya_keurse_aleirtt_lily",
+        "cards": [
+            "Nauya, the Ogdoadic Remnant",
+            "Keurse, the Ogdoadic Light",
+            "Aleirtt, the Ogdoadic Dark",
+            "Ogdoadic Water Lily"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "nunu_flogos_zohah_strike",
+        "cards": [
+            "Nunu_ the Ogdoadic Remnant",
+            "Flogos, the Ogdoadic Boundless",
+            "Zohah, the Ogdoadic Boundless",
+            "Ogdoadic Serpent Strike"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "tsuchinoko_vanguard",
+        "cards": [
+            "Danger!? Tsuchinoko?",
+            "Vanguard of the Underground Emperor"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "serpent_rain",
+        "cards": [
+            "Night Sword Serpent",
+            "Snake Rain"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "therionempress",
+        "cards": [
+            "Therion \"Empress\" Alasia"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "kagetokage_king",
+        "cards": [
+            "Kagetokage",
+            "King of the Feral Imps"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dark_evil_lamia",
+        "cards": [
+            "Dark Alligator",
+            "Evil Dragon Ananta",
+            "Lamia"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "yamorimori_wicked",
+        "cards": [
+            "Yamorimori",
+            "Wicked Acolyte Chilam Sabak"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "viper_king",
+        "cards": [
+            "Viper's Rebirth",
+            "Vennominon the King of Poisonous Snakes"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ammonite_cosmic_cell",
+        "cards": [
+            "Alien Ammonite",
+            "Cosmic Fortress Gol'Gar",
+            "\"A\" Cell Recombination Device"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "triangle_burst_ruins",
+        "cards": [
+            "Mysterious Triangle",
+            "\"A\" Cell Scatter Burst",
+            "Code A Ancient Ruins"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "shocktroopermframe",
+        "cards": [
+            "Alien Shocktrooper M-Frame"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "echidna_lamia",
+        "cards": [
+            "Reptilianne Echidna",
+            "Reptilianne Lamia"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "nyami_coatl_hydra_ramifications",
+        "cards": [
+            "Reptilianne Nyami",
+            "Reptilianne Coatl",
+            "Reptilianne Hydra",
+            "Reptilianne Ramifications"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "aron_amunessia_hollow",
+        "cards": [
+            "Aron, the Ogdoadic King",
+            "Amunessia, the Ogdoadic Queen",
+            "Ogdoadic Hollow"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "nephilabyssoverlord",
+        "cards": [
+            "Nephilabyss, the Ogdoadic Overlord"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "cosmic_offense",
+        "cards": [
+            "Cosmic Slicer Zer'oll"
+        ],
+        "skills": ["A_Good_Offense"],
+        "tax": 0
+    },
+    {
+        "id": "black_urubonus",
+        "cards": [
+            "Black Mamba",
+            "Urubonus, the Avatar of Malice"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "offeringtothesnakedeity",
+        "cards": [
+            "Offering to the Snake Deity"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "theo_tricky_max_chaos_magician",
+        "cards": [
+            "Dogmatika Theo, the Iron Punch",
+            "The Tricky",
+            "Magician of Black Chaos MAX",
+            "Chaos Form",
+            "Dark Magician"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "crowley_jigabyte_ranryu",
+        "cards": [
+            "Crowley, the Magistus of Grimoires",
+            "Jigabyte",
+            "Ranryu"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mahavailolight",
+        "cards": [
+            "Maha Vailo, Light of the Heavens"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mage_sorcerer",
+        "cards": [
+            "Mage Power",
+            "Sorcerer of Dark Magic"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "something_exemplar_dice",
+        "cards": [
+            "Magical Something",
+            "Magical Exemplar",
+            "Dicephoon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "blue_golden",
+        "cards": [
+            "Blue Dragon Summoner",
+            "Golden Dragon Summoner"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ledger_dark",
+        "cards": [
+            "Ledger of Ledgermain",
+            "Dark Horizon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "blast_magical",
+        "cards": [
+            "Magical Blast",
+            "Magical Marionette"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "zero_silence",
+        "cards": [
+            "Silent Magician Zero",
+            "Silence Towards the Future"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "blue_gaia_red_gilfer",
+        "cards": [
+            "Skilled Blue Magician",
+            "Gaia The Fierce Knight",
+            "Skilled Red Magician",
+            "Archfiend of Gilfer"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "strider_striker_wacky",
+        "cards": [
+            "Spell Strider",
+            "Spell Striker",
+            "That Wacky Magic!"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "candoll_talismandra",
+        "cards": [
+            "Impcantation Candoll",
+            "Impcantation Talismandra"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "abductor_upstart",
+        "cards": [
+            "Magical Abductor",
+            "Upstart Goblin"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "knowledge_prophecy",
+        "cards": [
+            "Spellbook of Knowledge",
+            "Spellbook Magician of Prophecy"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "monk_trapeze_hope",
+        "cards": [
+            "Summoner Monk",
+            "Performage Trapeze Magician",
+            "Magician of Hope"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "downerd_alchemic",
+        "cards": [
+            "Downerd Magician",
+            "Alchemic Magician"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mysticalelfwhite",
+        "cards": [
+            "Mystical Elf - White Lightning"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "knight_relic_kalamity_matrix_ash",
+        "cards": [
+            "White Knight of Dogmatika",
+            "White Relic of Dogmatika",
+            "Dogmatikalamity",
+            "Dogmatikamatrix",
+            "Titaniklad the Ash Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "adularia_citadel",
+        "cards": [
+            "Adularia of the June Moon",
+            "Magical Citadel of Endymion"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "eda_piper",
+        "cards": [
+            "Eda the Sun Magician",
+            "Apprentice Piper"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "brain_queen_trance",
+        "cards": [
+            "Cosmo Brain",
+            "Cosmo Queen",
+            "Trance the Magic Swordsman"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "blackfangmage",
+        "cards": [
+            "Black Fang Magician"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "chronograph_timestar",
+        "cards": [
+            "Chronograph Sorcerer",
+            "Timegazer Magician"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "daybreakertheshining",
+        "cards": [
+            "Day-Breaker the Shining Magical Warrior"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "magister_reflection",
+        "cards": [
+            "Magister of Endymion",
+            "Reflection of Endymion"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "servant_master_mastery_lab",
+        "cards": [
+            "Servant of Endymion",
+            "Endymion, the Master Magician",
+            "Spell Power Mastery",
+            "Endymion's Lab"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "king_master_institution_mishaps",
+        "cards": [
+            "Mythical Beast Jackal King",
+            "Mythical Beast Master Cerberus",
+            "Mythical Institution"
+        ],
+        "skills": ["Mythical_Mishaps"],
+        "tax": 0
+    },
+    {
+        "id": "jackal_garuda_beast",
+        "cards": [
+            "Mythical Beast Jackal",
+            "Mythical Beast Garuda",
+            "Beast Magic Attack"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ecclesia_ashiyan_maximus_encounter",
+        "cards": [
+            "Dogmatika Ecclesia, the Virtuous",
+            "Dogmatika Ashiyan",
+            "Dogmatika Maximus",
+            "Dogmatika Encounter"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "silent_lv4_lv8",
+        "cards": [
+            "Silent Magician",
+            "Silent Magician LV4",
+            "Silent Magician LV8"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "witch_wanted_betrayal",
+        "cards": [
+            "Diabellstar the Black Witch",
+            "WANTED: Seeker of Sinful Spoils",
+            "Sinful Spoils of Betrayal - Silvera"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "incredible_golden_despian",
+        "cards": [
+            "Incredible Ecclesia, the Virtuous",
+            "The Golden Swordsoul",
+            "Despian Luluwalilith"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dark_girl_souls_the_secrets_chaos_super_gaia_entropy",
+        "cards": [
+            "Dark Magician",
+            "Dark Magician Girl",
+            "Magicians' Souls",
+            "The Dark Magicians",
+            "Secrets of Dark Magic",
+            "Black Luster Soldier - Super Soldier",
+            "Charging Gaia the Fierce Knight"
+        ],
+        "skills": ["Entropy_Takes_An_L"],
+        "tax": 0
+    },
+    {
+        "id": "astrograph_stargazer",
+        "cards": [
+            "Astrograph Sorcerer",
+            "Stargazer Magician"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "staysailor",
+        "cards": [
+            "Staysailor Romarin"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "knight_archer",
+        "cards": [
+            "Twilight Rose Knight",
+            "Rose Archer"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "corn_blooming",
+        "cards": [
+            "Papa-Corn",
+            "Blooming of the Darkest Rose"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "angel_leaves_blossoms",
+        "cards": [
+            "Rosaria, the Stately Fallen Angel",
+            "Chirubime, Princess of Autumn Leaves",
+            "Talaya, Princess of Cherry Blossoms"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mandragora_chain_baromet",
+        "cards": [
+            "Evilswarm Mandragora",
+            "Plant Food Chain",
+            "Baromet the Sacred Shep Shrub"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "thorn_witch",
+        "cards": [
+            "Evil Thorn",
+            "Violet Witch"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "roses_angel",
+        "cards": [
+            "Bird of Roses",
+            "Angel Trumpeter"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "cactus_rose_ivy",
+        "cards": [
+            "Cactus Fighter",
+            "Rose Tentacles",
+            "Ivy Shackles"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "revival_sinister",
+        "cards": [
+            "Revival Rose",
+            "Sinister Seeds"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "thornofmalice",
+        "cards": [
+            "Thorn of Malice"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "traptantalizing",
+        "cards": [
+            "Traptantalizing Tune"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "bell_queen",
+        "cards": [
+            "Rose Bell of Revelation",
+            "Queen Angel of Roses"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "guardioak_charity_mount",
+        "cards": [
+            "Sylvan Guardioak",
+            "Sylvan Charity",
+            "Mount Sylvania"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "lotuswain_blessing_waterslide",
+        "cards": [
+            "Sylvan Lotuswain",
+            "Sylvan Blessing",
+            "Sylvan Waterslide"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sarracniant_squid_predaponics_planet",
+        "cards": [
+            "Predaplant Sarraceniant",
+            "Predaplant Squid Drosera",
+            "Predaponics",
+            "Predaplanet"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "heliam_hydra_plast_pruning",
+        "cards": [
+            "Predaplant Heliamphorhynchus",
+            "Predaplant Drosphyllum Hydra",
+            "Predaplast",
+            "Predapruning"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "borea_white",
+        "cards": [
+            "Therion \"Lily\" Borea",
+            "Dandy White Lion"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "fallen_copy_orea",
+        "cards": [
+            "Fallen Angel of Roses",
+            "Copy Plant",
+            "Orea, the Sylvan High Arbiter"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "lord_gigantic_cherries",
+        "cards": [
+            "Lord Poison",
+            "Gigantic Cephalotus",
+            "Naturia Cherries"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "cucumber_amaryllis_trade",
+        "cards": [
+            "Cucumber Horse",
+            "Phoenixian Cluster Amarylis",
+            "Trade-In"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "angelica_majoram_jasmine_sweet",
+        "cards": [
+            "Aromaseraphy Angelica",
+            "Aromage Majoram",
+            "Aromage Jasmine",
+            "Aromaseraphy Sweet Majoram"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "scorpio_cobra_byblisp_ambulomelides_poly",
+        "cards": [
+            "Predaplant Ophrys Scorpio",
+            "Predaplant Darlingtonia Cobra",
+            "Predaplant Byblisp",
+            "Predaplant Abulomelides",
+            "Polymerization"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ruddy_witch_rose",
+        "cards": [
+            "Ruddy Rose Witch",
+            "Witch of the Black Rose",
+            "Rose Fairy"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "princess_shaman_paladin_fairy_frozen_white",
+        "cards": [
+            "Rose Princess",
+            "Rose Shaman",
+            "Rose Paladin",
+            "Dark Rose Fairy",
+            "Frozen Rose",
+            "White Rose Cloister"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sagequioa_princessprout_orea",
+        "cards": [
+            "Sylvan Sagequoia",
+            "Sylvan Princessprout",
+            "Orea, the Sylvan High Arbiter"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "tytannial_peaskeeper_cherubsprout_princessprite",
+        "cards": [
+            "Tytannial, Princess of Camellias",
+            "Sylvan Peaskeeper",
+            "Sylvan Cherubsprout",
+            "Sylvan Princessprite"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "red_white_rox_basal_cross_black",
+        "cards": [
+            "Red Rose Dragon",
+            "White Rose Dragon",
+            "Roxrose Dragon",
+            "Basal Rose Shoot",
+            "Crossrose Dragon",
+            "Black Rose Dragon"
+        ],
+        "skills": [],
+        "tax": 2
+    },
+    {
+        "id": "bufolicula_triantis_practice_greedy_chimerafflesia_dont",
+        "cards": [
+            "Predaplant Bufolicula",
+            "Predaplant Triantis",
+            "Predapractice",
+            "Greedy Venom Fusion Dragon",
+            "Predaplant Chimerafflesia"
+        ],
+        "skills": ["Dont_Be_Greedy"],
+        "tax": 0
+    },
+    {
+        "id": "bulb_splendid_grass",
+        "cards": [
+            "Glow-Up Bulb",
+            "Splendid Rose",
+            "That Grass Looks Greener"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "lonefire",
+        "cards": [
+            "Lonefire Blossom"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dandylion_spore_fengli_periallis",
+        "cards": [
+            "Dandylion",
+            "Spore",
+            "Fengli the Soldrapom",
+            "Periallis, Empress of Blossoms"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "hermitree_girl_lover_alsei",
+        "cards": [
+            "Sylvan Hermitree",
+            "Rose Girl",
+            "Rose Lover",
+            "Alsei, the Sylvan High Protector"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "laurel_jasmine",
+        "cards": [
+            "Aromage Laurel",
+            "Aromaseraphy Jasmine"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "rosalina_rosemary_aromaseraphy_magnolia_blend_winds_magNO",
+        "cards": [
+            "Aromalylith Rosalina",
+            "Aromage Rosemary",
+            "Aromaseraphy Rosemary",
+            "Aromalylith Magnolia",
+            "Aroma Blend",
+            "Humid Winds"
+        ],
+        "skills": ["Magnolia"],
+        "tax": 0
+    },
+    {
+        "id": "arsenal_eatos",
+        "cards": [
+            "Arsenal Summoner",
+            "Guardian Eatos"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "crusadiakrawler",
+        "cards": [
+            "Crusadia Krawler"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ranvier_glial_survivor_synaphysis",
+        "cards": [
+            "Krawler Ranvier",
+            "Krawler Glial",
+            "World Legacy Survivor",
+            "Krawler Synaphysis"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dendrite_receptor_qualiark",
+        "cards": [
+            "Krawler Dendrite",
+            "Krawler Receptor",
+            "X-Krawler Qualiark"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "burrowing_dragossuary_stygokraken",
+        "cards": [
+            "Subterror Behemoth Burrowing",
+            "Subterror Behemoth Dragossuary",
+            "Subterror Behemoth Stygokraken"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "spiritcaller",
+        "cards": [
+            "Spirit Caller"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "parasiteparacide",
+        "cards": [
+            "Parasite Paracide"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "defender_covington_soldier_sniper_force",
+        "cards": [
+            "Machina Defender",
+            "Commander Covington",
+            "Machina Soldier",
+            "Machina Sniper",
+            "Machina Force"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ghostrickscare",
+        "cards": [
+            "Ghostrick Scare"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "round_witch_mummy_onna_break_vanish",
+        "cards": [
+            "Ghostrick-Go-Round",
+            "Ghostrick Witch",
+            "Ghostrick Mummy",
+            "Ghostrick Yuki-Onna",
+            "Ghostrick Break",
+            "Ghostrick Vanish"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "berfomet_gazelle_chimera_edward",
+        "cards": [
+            "Berfomet",
+            "Gazelle the King of Mythical Beasts",
+            "Chimera the Flying Mythical Beast"
+        ],
+        "skills": ["Edward"],
+        "tax": 0
+    },
+    {
+        "id": "spiritofthefall",
+        "cards": [
+            "Spirit of the Fall Wind"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "tarotreith_arrowsylph_prediction_crystaldine",
+        "cards": [
+            "Prediction Princess Tarotreith",
+            "Prediction Princess Arrowsylph",
+            "Underworld Ritual of Prediction",
+            "Prediction Princess Crystaldine"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "defender_warrior_voltelluric",
+        "cards": [
+            "Subterror Nemesis Defender",
+            "Subterror Nemesis Warrior",
+            "Subterror Behemoth Voltelluric"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "jhrelth_intruder_gardna_dholes_mail_delaunay",
+        "cards": [
+            "Tindangle Jhrelth",
+            "Tindangle Intruder",
+            "Tindangle Base Gardna",
+            "Tindangle Dholes",
+            "Stairs of Mail",
+            "Tindangle Delaunay"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "yellow_mitsu_baku_senior_mystery_digger",
+        "cards": [
+            "Yellow Ninja",
+            "Mitsu the Insect Ninja",
+            "Baku the Beast Ninja",
+            "Senior Silver Ninja",
+            "Ninjitsu Art Notebook of Mystery",
+            "Ninjitsu Art Tool - Iron Digger"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "upstart_green_air",
+        "cards": [
+            "Upstart Golden Ninja",
+            "Green Ninja",
+            "Air Armor Ninja"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "treat_parade_mansion_siren_stein_shot_alucard_ghoul_renovation",
+        "cards": [
+            "Ghostrick or Treat",
+            "Ghostrick Parade",
+            "Ghostrick Mansion",
+            "Ghostrick Siren",
+            "Ghostrick Stein",
+            "Ghostrick Shot",
+            "Ghostrick Alucard",
+            "Ghostrick Ghoul",
+            "Ghostrick Renovation"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "jiangshi_specter_festival_jackfrost_lantern_dullahan_mary",
+        "cards": [
+            "Ghostrick Jiangshi",
+            "Ghostrick Specter",
+            "Ghostrick Festival",
+            "Ghostrick Jackfrost",
+            "Ghostrick Lantern",
+            "Ghostrick Dullahan",
+            "Ghostrick Mary"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "accelerator_anchor_attacker_armor_arsenal_auger_gigant",
+        "cards": [
+            "Geargiaccelerator",
+            "Geargianchor",
+            "Geargiattacker",
+            "Geargiarmor",
+            "Geargiarsenal",
+            "Geargiauger",
+            "Gear Gigant X"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "spirit_greed_turtle_jar_greedging",
+        "cards": [
+            "Spirit of the Pot of Greed",
+            "Pot of Greed",
+            "Jar Turtle",
+            "Jar of Greed"
+        ],
+        "skills": ["Greedging"],
+        "tax": 0
+    },
+    {
+        "id": "armor_pawns",
+        "cards": [
+            "World Legacy - \"World Armor\"",
+            "World Legacy Pawns"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "jar_piper",
+        "cards": [
+            "Greed Jar",
+            "Apprentice Piper"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "speleogeist_phospheroglacier_clash_small",
+        "cards": [
+            "Subterror Behemoth Speleogeist",
+            "Subterror Behemoth Phospheroglacier",
+            "Subterror Cave Clash"
+        ],
+        "skills": ["Small_Caves"],
+        "tax": 0
+    },
+    {
+        "id": "spine_axon_soma_deus_neurogos_machina",
+        "cards": [
+            "Krawler Spine",
+            "Krawler Axon",
+            "Krawler Soma",
+            "Deus-X Krawler",
+            "Krawler Nerogos"
+        ],
+        "skills": ["Deus_X_Machina"],
+        "tax": 0
+    },
+    {
+        "id": "guard_bug",
+        "cards": [
+            "Gravekeeper's Guard",
+            "Man-Eater Bug"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "behemothfiendess",
+        "cards": [
+            "Subterror Behemoth Fiendess"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "guard_ham_poly_going",
+        "cards": [
+            "Borrelguard Dragon",
+            "Master of Ham",
+            "Polymerization"
+        ],
+        "skills": ["Going_Ham"],
+        "tax": 0
+    },
+    {
+        "id": "hanzo_kagero_leaves_duplication_meizen",
+        "cards": [
+            "Ninja Grandmaster Hanzo",
+            "Kagero the Cannon Ninja",
+            "Ninjitsu Art of Dancing Leaves",
+            "Ninjitsu Art of Duplication",
+            "Meizen the Battle Ninja"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "taritreu_ritual_bibliomuse_fake",
+        "cards": [
+            "Prediction Princess Tarotrei",
+            "Prediction Ritual",
+            "Prediction Princess Bibliomuse"
+        ],
+        "skills": ["Fake_Tarot_Cards"],
+        "tax": 0
+    },
+    {
+        "id": "bookofeclipse",
+        "cards": [
+            "Book of Eclipse"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "aleister_invocation_magellanica_cocytus_raidjin",
+        "cards": [
+            "Aleister the Invoker",
+            "Invocation",
+            "Invoked Magellanica",
+            "Invoked Cocytus",
+            "Invoked Raidjin"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dododoswordsman",
+        "cards": [
+            "Dododo Swordsman"
+        ],
+        "skills": [],
+        "tax": 2
+    },
+    {
+        "id": "timerewinder",
+        "cards": [
+            "Time Rewinder"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dagla_glass_shining_armory",
+        "cards": [
+            "Cestus of Dagla",
+            "Glass Slippers",
+            "Shining Angel",
+            "Hidden Armory"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "angel_venus",
+        "cards": [
+            "Angel 01",
+            "Splendid Venus"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "airknight_neo",
+        "cards": [
+            "Airknight Parshath",
+            "Neo-Parshath, the Sky Paladin"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "novasummoner",
+        "cards": [
+            "Nova Summoner"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "coupleofacespriest",
+        "cards": [
+            "Couple of Aces"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "guiding_hanewata_marshmacaron_winged_court",
+        "cards": [
+            "Guiding Light",
+            "Hanewata",
+            "Marshmacaron",
+            "Winged Kuriboh",
+            "Court of Justice"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "hecatrice_valhalla",
+        "cards": [
+            "Hecatrice",
+            "Valhalla, Hall of the Fallen"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "hoshiningen_hip",
+        "cards": [
+            "Hoshiningen",
+            "Hip Hoshiningen"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mudora",
+        "cards": [
+            "Mudora"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dunk_serve",
+        "cards": [
+            "Cupid Dunk",
+            "Cupid Serve"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sky_descent",
+        "cards": [
+            "Cards from the Sky",
+            "Miraculous Descent"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "tethys_tellus_chorus",
+        "cards": [
+            "Tethys, Goddess of Light",
+            "Tellus the Little Angel",
+            "The Chorus in the Sky"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "cataclysmic_priest",
+        "cards": [
+            "Cataclysmic Circumpolar Chilblainia",
+            "Cataclysmic Crusted Calcifda",
+            "Cataclysmic Cryonic Coldo",
+            "Cataclysmic Scorching Sunburner"
+        ],
+        "skills": ["Cataclysmic_Prism"],
+        "tax": 0
+    },
+    {
+        "id": "omega_ptolemy",
+        "cards": [
+            "Constellar Omega",
+            "Constellar Ptolemy M7"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "rayel_ceremony_flamel_arrival_dragon_cosmos",
+        "cards": [
+            "Starry Knight Rayel",
+            "Starry Knight Ceremony",
+            "Starry Knight Flamel",
+            "Starry Knight Arrival",
+            "Starry Knight, Starry Dragon"
+        ],
+        "skills": ["The_Infinite_Cosmos"],
+        "tax": 0
+    },
+    {
+        "id": "astel_ciel_orbitael_sky_balefire_dragon_void",
+        "cards": [
+            "Starry Knight Astel",
+            "Starry Knight Ciel",
+            "Starry Knight Orbitael",
+            "Starry Knight Sky",
+            "Starry Knight Balefire",
+            "Starry Knight, Starry Dragon"
+        ],
+        "skills": ["The_Great_Void"],
+        "tax": 0
+    },
+    {
+        "id": "triashierarchia",
+        "cards": [
+            "Trias Hierarchi"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "maestra_diva_elegy_mozarta_opera_serenade_solo_tamtam_poly_solo",
+        "cards": [
+            "Schuberta the Melodious Maestra",
+            "Canon the Melodious Diva",
+            "Elegy the Melodious Diva",
+            "Mozarta the Melodious Maestra",
+            "Opera the Melodious Diva",
+            "Serenade the Melodious Diva",
+            "Solo the Melodious Songstress",
+            "Tamtam the Melodious Diva",
+            "Polymerization",
+            "1st Movement Solo"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "duel_dai_angel_ancient_stage_mardel",
+        "cards": [
+            "Duel Academy",
+            "Unexpected Dai",
+            "Angel Trumpeter",
+            "Ancient Fairy Dragon",
+            "Generaider Boss Stage",
+            "Mardel, Generaider Boss of Light"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "disciple_ra_true_card",
+        "cards": [
+            "Ra's Disciple",
+            "The Winged Dragon of Ra",
+            "The True Name",
+            "Card Advance"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dog_bear_wings_vendor_leo_frightful",
+        "cards": [
+            "Fluffal Dog",
+            "Fluffal Bear",
+            "Fluffal Wings",
+            "Toy Vendor",
+            "Fluffal Leo"
+        ],
+        "skills": ["Frightful_Fluffals"],
+        "tax": 0
+    },
+    {
+        "id": "bloom_prima_soprano_sonata_shopina_ostinato",
+        "cards": [
+            "Bloom Harmonist the Melodious Composer",
+            "Bloom Prima the Melodious Choir",
+            "Soprano the Melodious Songstress",
+            "Sonata the Melodious Diva",
+            "Shopina the Melodious Maestra",
+            "Ostinato"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "scepter_sovereignty_scout_scale_sentry_vylon",
+        "cards": [
+            "Star Seraph Scepter",
+            "Star Seraph Sovereignty",
+            "Star Seraph Scout",
+            "Star Seraph Scale",
+            "Number 102: Star Seraph Sentry",
+            "Vylon Disigma"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "cheer_parshath_herald_diviner_fairness",
+        "cards": [
+            "Fairy Cheer Girl",
+            "Avenging Knight Parshath",
+            "Herald of the Arc Light",
+            "Diviner of the Herald"
+        ],
+        "skills": ["Herald_of_Fairness"],
+        "tax": 0
+    },
+    {
+        "id": "master_venus_ball_destruction_parshath",
+        "cards": [
+            "Master Hyperion",
+            "The Agent of Creation - Venus",
+            "Mystical Shine Ball",
+            "The Agent of Destruction - Venus",
+            "Celestial Knightlord Parshath"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "uranus_neptune_jupiter_pluto_sanctuary_waters",
+        "cards": [
+            "The Agent of Entropy - Uranus",
+            "The Agent of Life - Neptune",
+            "The Agent of Miracles - Jupiter",
+            "The Executor of the Underworld - Pluto",
+            "The Sanctuary in the Sky",
+            "The Sacred Waters in the Sky"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "earth_majesty_eva_masterflare_sanctum_chorus",
+        "cards": [
+            "The Agent of Mystery - Earth",
+            "Majesty Hyperion",
+            "Eva",
+            "Masterflare Hyperion",
+            "The Sanctum of Parshath",
+            "The Chorus in the Sky"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "protectormoon",
+        "cards": [
+            "Protector of The Agents - Moon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dakini_izana_machine_petit",
+        "cards": [
+            "Cyber Angel Dakini",
+            "Cyber Angel Izana",
+            "Machine Angel Ritual",
+            "Cyber Petit Angel"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "rites_natash",
+        "cards": [
+            "Preparation of Rites",
+            "Cyber Angel Natasha"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "misting_thawing_flowering_corolla_bloom_agido",
+        "cards": [
+            "Vernusylph of the Misting Seedlings",
+            "Vernusylph of the Thawing Mountains",
+            "Vernusylph of the Flowering Fields",
+            "Vernusylph Corolla",
+            "Vernusylph in Full Bloom",
+            "Agido the Ancient Sentinel"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "condemned_desire_ixchel_amdusc_contact_pot",
+        "cards": [
+            "Condemned Darklord",
+            "Darklord Desire",
+            "Darklord Ixchel",
+            "Darklord Amdusc",
+            "Darklord Contact",
+            "Pot of Desires"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "uprising_first_nasten_descennt_darklord_ukoback_trade_not",
+        "cards": [
+            "Darklord Uprising",
+            "The First Darklord",
+            "Darklord Nasten",
+            "Darklord Descent",
+            "Darlord Tezcatlipoca",
+            "Darklord Ukoback",
+            "Trade-In"
+        ],
+        "skills": ["Not_The_Zeroth_Darklord"],
+        "tax": 0
+    },
+    {
+        "id": "awakening_flourishing_seasons_trap_kelbek",
+        "cards": [
+            "Vernusylph of the Awakening Forests",
+            "Vernusylph of the Flourishing Hills",
+            "Vernusylph and the Changing Seasons",
+            "Gravekeeper's Trap",
+            "Kelbek the Ancient Vanguard"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sangan_witch",
+        "cards": [
+            "Sangan",
+            "Witch of the Black Forest"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "cock_rose",
+        "cards": [
+            "Cockadoodledoo",
+            "Black Rose Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "catastor_cyclone",
+        "cards": [
+            "Ally of Justice Catastor",
+            "Ally of Justice Cyclone Creator"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "thought_ruler",
+        "cards": [
+            "Thought Ruler Archfiend",
+            "Obsessive Uvualoop"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "acid_golem",
+        "cards": [
+            "Number 30: Acid Golem of Destruction"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "nightmare_shark",
+        "cards": [
+            "Number 47: Nightmare Shark"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "grampulse",
+        "cards": [
+            "Super Quantal Mech Beast Grampulse"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "castel",
+        "cards": [
+            "Castel, the Skyblaster Musketeer"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "honor_ark",
+        "cards": [
+            "Number 101: Silent Honor ARK"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "utopia_pearl",
+        "cards": [
+            "Number 39: Utopia",
+            "Gem-Knight Pearl"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sin_and_zen",
+        "cards": [
+            "Number 70: Malevolent Sin",
+            "Wind-Up Zenmaister"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "flare_metal",
+        "cards": [
+            "Red-Eyes Flare Metal Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dharc_lyna",
+        "cards": [
+            "Dharc the Dark Charmer, Gloomy",
+            "Lyna the Light Charmer, Lustrous",
+            "Wee Witch's Apprentice",
+            "Hip Hoshiningen"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "wynn_aussa",
+        "cards": [
+            "Wynn the Winder Charmer, Verdant",
+            "Aussa the Earth Charmer, Immovable",
+            "Greatfly",
+            "Missus Radiant"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "hiita_eria",
+        "cards": [
+            "Hiita the Fire Charmer, Ablaze",
+            "Eria the Water Charmer, Gentle",
+            "Duelittle Chimera",
+            "Mistar Boy"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "clock_talker",
+        "cards": [
+            "Underclock Taker",
+            "Decode Talker Extended"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "decode_talker",
+        "cards": [
+            "Decode Talker"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "saryuja",
+        "cards": [
+            "Saryuja Skull Dread"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "curious",
+        "cards": [
+            "Curious, the Lightsworn Dominion"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "avarice_duality",
+        "cards": [
+            "Pot of Avarice",
+            "Pot of Duality"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "reasoning_gate",
+        "cards": [
+            "Reasoning",
+            "Monster Gate"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "card_of_demise",
+        "cards": [
+            "Card of Demise"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "gold_sarc",
+        "cards": [
+            "Gold Sarcophagus"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "desires",
+        "cards": [
+            "Pot Of Desires"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "half_unbreak",
+        "cards": [
+            "Half Unbreak"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "small_scuffle",
+        "cards": [
+            "Small Scuffle"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "split_mirror",
+        "cards": [
+            "Split Mirror of the Underworld"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ultimeat",
+        "cards": [
+            "Ultimeat Offering"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "lose_your_soul",
+        "cards": [
+            "The Seal of Orichalcos"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mst",
+        "cards": [
+            "Mystical Space Typhoon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "tornado_doll",
+        "cards": [
+            "Dust Tornado",
+            "Bait Doll"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "twisters",
+        "cards": [
+            "Twin Twisters"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "galaxy_cyclone",
+        "cards": [
+            "Galaxy Cyclone"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "cosmic_cyclone",
+        "cards": [
+            "Cosmic Cyclone"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "night_beam",
+        "cards": [
+            "Night Beam"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "hammer_shot",
+        "cards": [
+            "Hammer Shot"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "shield_crush",
+        "cards": [
+            "Shield Crush"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "nobleman",
+        "cards": [
+            "Nobleman of Crossout"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "tttd",
+        "cards": [
+            "Tribute to the Doomed"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "wide_dud",
+        "cards": [
+            "Widespread Dud"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "wide_ruin",
+        "cards": [
+            "Widespread Ruin"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "draining_shield",
+        "cards": [
+            "Draining Shield"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "cylinder",
+        "cards": [
+            "Magic Cylinder"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "scarecrow",
+        "cards": [
+            "Scrap-Iron Scarecrow"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "spiritual_swords",
+        "cards": [
+            "Spiritual Swords of Revealing Light"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "dim_prison",
+        "cards": [
+            "Dimensional Prison"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "sakaretsu",
+        "cards": [
+            "Sakuretsu Armor"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "guidance_armor",
+        "cards": [
+            "Attack Guidance Armor"
+        ],
+        "skills": [],
+        "tax": 1
+    },
+    {
+        "id": "trap_hole",
+        "cards": [
+            "Trap Hole"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "mirror_force",
+        "cards": [
+            "Mirror Force"
+        ],
+        "skills": [],
+        "tax": 2
+    },
+    {
+        "id": "bottomless",
+        "cards": [
+            "Bottomless Trap Hole"
+        ],
+        "skills": [],
+        "tax": 1
+    },
+    {
+        "id": "banishingthole",
+        "cards": [
+            "banishing Trap Hole"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "geki_break",
+        "cards": [
+            "Raigeki Break"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "enemy_controller",
+        "cards": [
+            "Enemy Controller"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "book_of_moon",
+        "cards": [
+            "Book of Moon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "veiler",
+        "cards": [
+            "Effect Veiler"
+        ],
+        "skills": [],
+        "tax": 1
+    },
+    {
+        "id": "fader",
+        "cards": [
+            "Battle Fader"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "manticore",
+        "cards": [
+            "Manticore of Smashing",
+            "Fissure",
+            "Smashing Ground"
+        ],
+        "skills": [],
+        "tax": 3
+    },
+    {
+        "id": "stardusts",
+        "cards": [
+            "Stardust Dragon",
+            "Stardust Synchron",
+            "Stardust Trail",
+            "Stardust Illumination",
+            "Stardust Spark Dragon"
+        ],
+        "skills": [],
+        "tax": 2
+    },
+    {
+        "id": "brilliant_fusion_performage",
+        "cards": [
+            "Brilliant Fusion",
+            "Gem-Knight Sapphire",
+            "Gem-Knight Seraphinite",
+            "Performage Damage Juggler",
+            "Performage Trick Clown",
+            "Performage Hat Tricker"
+        ],
+        "skills": [],
+        "tax": 1
+    },
+    {
+        "id": "ryko_hamster",
+        "cards": [
+            "Ryko, Lightsworn Hunter",
+            "Super-Nimble Mega Hamster"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "restrict_bubbleman",
+        "cards": [
+            "Metamorphosis",
+            "Thousand-Eyes Restrict",
+            "Thousand-Eyes Idol",
+            "Elemental HERO Bubbleman",
+            "Elemental HERO Neo Bubbleman",
+            "Bubble Blaster"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "elemental_hands",
+        "cards": [
+            "Ice Hand",
+            "Fire Hand",
+            "Thunder Hand"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "kuribulb",
+        "cards": [
+            "Glow-Up Bulb",
+            "Linkuriboh"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "make_verte",
+        "cards": [
+            "Predaplant Verte Anaconda",
+            "Mudragon of the Swamp",
+            "Polymerization"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "adventure",
+        "cards": [
+            "Water Enchantress of the Temple",
+            "Magicore Warrior of the Relics",
+            "Rite of Aramesir",
+            "Fateful Adventure",
+            "Dunnel, the Noble Arms of Light",
+            "Breath of Resurrection"
+        ],
+        "skills": [],
+        "tax": 1
+    },
+    {
+        "id": "theseus_ready_fusion",
+        "cards": [
+            "King of the Swamp",
+            "Sea Monster of Theseus",
+            "Magnum the Reliever",
+            "Polymerization",
+            "Ready Fusion"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "striker_spells",
+        "cards": [
+            "Sky Striker Mobilize - Engage!",
+            "Sky Striker Maneuver - Jamming Waves!",
+            "Sky Striker Maneuver - Afterburners!"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "tour_guide",
+        "cards": [
+            "Tour Guide from the Underworld",
+            "Sangan",
+            "Wind-Up Zenmaines"
+        ],
+        "skills": [],
+        "tax": 1
+    },
+    {
+        "id": "terror_tomborg_sword",
+        "cards": [
+            "Speedroid Terrortop",
+            "Speedroid Taketomborg",
+            "The Phantom Knights of Break Sword"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "symphonic_ns",
+        "cards": [
+            "Symphonic Warrior Guitaar",
+            "Symphonic Warrior Miccs"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "soldier_dragon_quinquery_tiras",
+        "cards": [
+            "Galaxy Soldier",
+            "Cyber Dragon",
+            "Imperial Princess Quinguery",
+            "Tiras, Keeper of Genesis"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "spellbooks",
+        "cards": [
+            "Spellbook Magician of Prophecy",
+            "Spellbook of Knowledge",
+            "Spellbook of Secrets"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "trickstars",
+        "cards": [
+            "Trickstar Candina",
+            "Trickstar Corobane",
+            "Trickstar Light Stage"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "lightsworns",
+        "cards": [
+            "Raiden, Hand of the Lightsworn",
+            "Wulf, Lightsworn Beast",
+            "Minerva, the Exalted Lightsworn",
+            "Charge of the Light Brigade",
+            "Felis, Lightsworn Archer",
+            "Minerva, Lightsworn Athena"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "monarchs",
+        "cards": [
+            "Treeborn Frog",
+            "Caius the Shadow Monarch",
+            "Raiza the Storm Monarch",
+            "Mobius the Frost Monarch",
+            "The Monarchs Stormforth"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "frogs",
+        "cards": [
+            "Swap Frog",
+            "Dupe Frog",
+            "Ronintoadin",
+            "Gachi Gachi Gantetsu",
+            "Armored Kappa"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "magicians_souls_chaos",
+        "cards": [
+            "Magicians' Souls",
+            "Illusion of Chaos"
+        ],
+        "skills": [],
+        "tax": 0
+    }
+]

@@ -1,0 +1,443 @@
+[
+    {
+        "id": "base_fisherman",
+        "name": "Terrors from the Deep",
+        "echos": [
+            "fisherman"
+        ],
+        "bucket_list": {
+            "low_qual": [
+                "mother_lung",
+                "panther_eagle_gazer_don",
+                "fin_saber_stickers_hammer_17",
+                "soldier_no_ninja_cleric_torpedo_sword",
+                "ice_ghost_giant",
+                "mobius_mega",
+                "skreech_fenrir_abyss_warrior",
+                "sebek_moray",
+                "silent_rage",
+                "master_cold_creator_dragon_dust",
+                "wolf_narwhal",
+                "beast_augus"
+            ],
+            "mid_qual": [
+                "ocean_sonar_water",
+                "tinola_acti_tremora_cradle",
+                "megalo_linde_gunde_pike_sphere",
+                "tetra_guppy_arowana_set",
+                "stealth_deep",
+                "princess_minairuka_silent_bahamut_47_full",
+                "bahrastos",
+                "beaver_sunfish_manta_angler_kappa_cat_mistar",
+                "surface_white",
+                "circumpolar",
+                "citadel_stealth",
+                "flying_gluttonous_king_salvage"
+            ],
+            "high_qual": [
+                "abyss_dream_valiant",
+                "emperor_squire_puny_nightmare_brave",
+                "aegirine_ran_kingfisher_manifestation_lancea",
+                "diva_guitar_repetiteur_prima_city",
+                "teus_turge_neptabyss_dragoons_infantry_lacia",
+                "tidal_stream",
+                "jellyfish_codarus_bugroth",
+                "buzzsaw_lantern_remora_32_37",
+                "infernalqueen_eria",
+                "grimness_abyss_aquamirror_zielgigas"
+            ]
+        }
+    },
+    {
+        "id": "base_necromancer",
+        "name": "The Undead Host",
+        "echos": [
+            "necromancer"
+        ],
+        "bucket_list": {
+            "low_qual": [
+                "dragon_wonders",
+                "haunted_return",
+                "specter_molten_hellfire",
+                "pumprincess_bayonater",
+                "guard_doombearer",
+                "mad_pain_archfiend_doomkaiser",
+                "tristan_mammoth_zoma_tutan",
+                "stein_jiangshi_mummy_alucard_shot",
+                "warwolf_skeleton_ghoul_yeti",
+                "plague_hela",
+                "success_synthesis",
+                "seven_great_sea_skelgon_pile"
+            ],
+            "mid_qual": [
+                "lord_vamp_red_desire",
+                "prince_princess",
+                "turtle_zombina",
+                "plague_king",
+                "douyou_beast_immortal",
+                "jack_alghoul",
+                "changshithespiriado",
+                "zombiepowerstruggle",
+                "sucker_savior",
+                "world_partial",
+                "kingoftheskullservants",
+                "dakki_shafu_yasha_return_winter_icicle"
+            ],
+            "high_qual": [
+                "voivode_ghsot_familiar_retainer_domain_zombie",
+                "scourge_kingdom_takeover_dhampir",
+                "solitaire_uni_necro",
+                "spectralsword_shade_samurai_saga_shogunsaga",
+                "eldlichthegoldenlord",
+                "houndhorde_striges_slayer_chimera_origin_nights",
+                "necro_fox_felgrand",
+                "wyvern_charon_fusion_dragonecro_dragocytos",
+                "call_mezuki_book_reborn",
+                "hajun_yuki_tsukahagi_oboro_tsuchigumo_tengu"
+            ]
+        }
+    },
+    {
+        "id": "base_toy",
+        "name": "The Joys of Creation",
+        "echos": [
+            "toymaker"
+        ],
+        "bucket_list": {
+            "low_qual": [
+                "goddessbow",
+                "heart_wild_lives_skyscraper",
+                "cyber_fusion",
+                "heat_lady_inferno_nova",
+                "voltic_shining",
+                "eheroplasmavice",
+                "grand_flare",
+                "bear_miss_grandpa_box_cologne_doll",
+                "dragonbanekingbeowulf",
+                "rockethermoscannon",
+                "mouse_patchwork_moss_sea_muddy",
+                "astro_armitylr"
+            ],
+            "mid_qual": [
+                "gazelle_berfomet_coatl_chimera_phantom_fusion",
+                "verte_miracle",
+                "keeper_horned",
+                "dog_sheep_cat_octo_wolf_proxy",
+                "falco_beast_keios_construict_axon",
+                "sparkman_giant_rage_shining_hero_contact",
+                "traitor_disciple_ikelos_oneiros_terror_chaos",
+                "celestial_dasher_malicious_dominance_destiny",
+                "ash_fleurdelis",
+                "starving_dragoon",
+                "sky_unity_earthbolt_skybolt_breakbolt_gem",
+                "duplication_necro"
+            ],
+            "high_qual": [
+                "albion_sleipnir",
+                "stratos_faris_vyon_increase_chaos_devicer",
+                "scorpio_cobra_instant_darkflare_beast_cross",
+                "el_shaddoll_construct_constriction",
+                "bear_wings_dolphin_vendor_goods_jar",
+                "chain_eater_patchwork_sheep_tooth_piece",
+                "wendi_hollow_apkalone_synthesis_resh",
+                "prisma_stegocyber_trifortressops_storagepod_bear",
+                "aleister_invoked_invocation_meltdown",
+                "scythe_penguin_rabbit_vicious_dice"
+            ]
+        }
+    },
+    {
+        "id": "base_pyro",
+        "name": "The Burning Army",
+        "echos": [
+            "pyro"
+        ],
+        "bucket_list": {
+            "low_qual": [
+                "slicer_blaster_hammerer",
+                "ufo_raging",
+                "mantikor_hyppogrif_sphynx_glory",
+                "brushfire_spirit",
+                "pyrotechmech",
+                "gokathepyre",
+                "thestalosthemega",
+                "handmaiden_lady_miller_archer_field_blaster",
+                "duelittlechimera",
+                "hand_sacredphoenix",
+                "prometeorburning",
+                "greater_flamvell"
+            ],
+            "mid_qual": [
+                "ponix_rangbali_island_onslaught_tenki",
+                "garunix_yaksha_arvata_ulkanix",
+                "salamangreatheatleo",
+                "trooper_doomfire_blaze_tri",
+                "cerberus_hydra_grifin_peryton_pillar_basiltrice",
+                "reload_duel",
+                "burningdragon",
+                "gunner_mars_magmacho",
+                "wolf_amblowhale",
+                "sunburner_ferret",
+                "infernalflame",
+                "thestalosshadowfire"
+            ],
+            "high_qual": [
+                "sacred_barong_echelon",
+                "ejection_rimfire_emperor_inferno_cold",
+                "blaster_burner",
+                "truekingagnimazud",
+                "lavalval_exlord",
+                "baidora_zhongdora_trident_bident_kaimen",
+                "hiita_gryphon",
+                "veidos_king_hero_priestess_awakening_obsidian_everlasting",
+                "resonator_vulcan_mech"
+            ]
+        }
+    },
+    {
+        "id": "base_alien",
+        "name": "Extra-Terrestrial Experiment",
+        "echos": [
+            "alien"
+        ],
+        "bucket_list": {
+            "low_qual": [
+                "mother_skull_otherworld",
+                "queen_victory_erokin_warlord_prince_noble",
+                "illidan_rakuyeh_dimikles_gulse_solid_millidith",
+                "barses_falco_opera_linx_ugly",
+                "bitelon_gale",
+                "alligator_evilswarm",
+                "masked_ipiria",
+                "kid_turtle_jar",
+                "apophis_advent",
+                "damagereptile",
+                "terrene_oshaleon",
+                "swamp_snake_serpent_boa_fangs_we"
+            ],
+            "mid_qual": [
+                "stealthbuster_crop",
+                "naga_vaskii_medusa_spawn_recoil",
+                "raikanoyoroi",
+                "nauya_keurse_aleirtt_lily",
+                "nunu_flogos_zohah_strike",
+                "tsuchinoko_vanguard",
+                "serpent_rain",
+                "therionempress",
+                "kagetokage_king",
+                "dark_evil_lamia",
+                "yamorimori_wicked",
+                "viper_king"
+            ],
+            "high_qual": [
+                "ammonite_cosmic_cell",
+                "triangle_burst_ruins",
+                "shocktroopermframe",
+                "echidna_lamia",
+                "nyami_coatl_hydra_ramifications",
+                "aron_amunessia_hollow",
+                "nephilabyssoverlord",
+                "cosmic_offense",
+                "black_urubonus",
+                "offeringtothesnakedeity"
+            ]
+        }
+    },
+    {
+        "id": "base_mage",
+        "name": "Master of Magic",
+        "echos": [
+            "mage"
+        ],
+        "bucket_list": {
+            "low_qual": [
+                "theo_tricky_max_chaos_magician",
+                "crowley_jigabyte_ranryu",
+                "mahavailolight",
+                "mage_sorcerer",
+                "something_exemplar_dice",
+                "blue_golden",
+                "ledger_dark",
+                "blast_magical",
+                "zero_silence",
+                "blue_gaia_red_gilfer",
+                "strider_striker_wacky",
+                "candoll_talismandra"
+            ],
+            "mid_qual": [
+                "abductor_upstart",
+                "knowledge_prophecy",
+                "monk_trapeze_hope",
+                "downerd_alchemic",
+                "mysticalelfwhite",
+                "knight_relic_kalamity_matrix_ash",
+                "adularia_citadel",
+                "eda_piper",
+                "brain_queen_trance",
+                "blackfangmage",
+                "chronograph_timestar",
+                "daybreakertheshining"
+            ],
+            "high_qual": [
+                "magister_reflection",
+                "servant_master_mastery_lab",
+                "king_master_institution_mishaps",
+                "jackal_garuda_beast",
+                "ecclesia_ashiyan_maximus_encounter",
+                "silent_lv4_lv8",
+                "witch_wanted_betrayal",
+                "incredible_golden_despian",
+                "dark_girl_souls_the_secrets_chaos_super_gaia_entropy",
+                "astrograph_stargazer"
+            ]
+        }
+    },
+    {
+        "id": "base_gardener",
+        "name": "Powers in Season",
+        "echos": [
+            "gardener"
+        ],
+        "bucket_list": {
+            "low_qual": [
+                "staysailor",
+                "knight_archer",
+                "corn_blooming",
+                "angel_leaves_blossoms",
+                "mandragora_chain_baromet",
+                "thorn_witch",
+                "roses_angel",
+                "cactus_rose_ivy",
+                "revival_sinister",
+                "thornofmalice",
+                "traptantalizing",
+                "bell_queen"
+            ],
+            "mid_qual": [
+                "guardioak_charity_mount",
+                "lotuswain_blessing_waterslide",
+                "sarracniant_squid_predaponics_planet",
+                "heliam_hydra_plast_pruning",
+                "borea_white",
+                "fallen_copy_orea",
+                "lord_gigantic_cherries",
+                "cucumber_amaryllis_trade",
+                "angelica_majoram_jasmine_sweet",
+                "scorpio_cobra_byblisp_ambulomelides_poly",
+                "ruddy_witch_rose",
+                "princess_shaman_paladin_fairy_frozen_white"
+            ],
+            "high_qual": [
+                "sagequioa_princessprout_orea",
+                "tytannial_peaskeeper_cherubsprout_princessprite",
+                "red_white_rox_basal_cross_black",
+                "bufolicula_triantis_practice_greedy_chimerafflesia_dont",
+                "bulb_splendid_grass",
+                "lonefire",
+                "dandylion_spore_fengli_periallis",
+                "hermitree_girl_lover_alsei",
+                "laurel_jasmine",
+                "rosalina_rosemary_aromaseraphy_magnolia_blend_winds_magNO"
+            ]
+        }
+    },
+    {
+        "id": "base_acrobat",
+        "name": "Flipping, a neat trick!",
+        "echos": [
+            "acrobat"
+        ],
+        "bucket_list": {
+            "low_qual": [
+                "arsenal_eatos",
+                "crusadiakrawler",
+                "ranvier_glial_survivor_synaphysis",
+                "dendrite_receptor_qualiark",
+                "burrowing_dragossuary_stygokraken",
+                "spiritcaller",
+                "parasiteparacide",
+                "defender_covington_soldier_sniper_force",
+                "ghostrickscare",
+                "round_witch_mummy_onna_break_vanish",
+                "berfomet_gazelle_chimera_edward",
+                "spiritofthefall"
+            ],
+            "mid_qual": [
+                "tarotreith_arrowsylph_prediction_crystaldine",
+                "speleogeist_phospheroglacier_clash_small",
+                "defender_warrior_voltelluric",
+                "jhrelth_intruder_gardna_dholes_mail_delaunay",
+                "yellow_mitsu_baku_senior_mystery_digger",
+                "upstart_green_air",
+                "treat_parade_mansion_siren_stein_shot_alucard_ghoul_renovation",
+                "jiangshi_specter_festival_jackfrost_lantern_dullahan_mary",
+                "accelerator_anchor_attacker_armor_arsenal_auger_gigant",
+                "spirit_greed_turtle_jar_greedging",
+                "armor_pawns",
+                "jar_piper"
+            ],
+            "high_qual": [
+                "spine_axon_soma_deus_neurogos_machina",
+                "guard_bug",
+                "behemothfiendess",
+                "guard_ham_poly_going",
+                "hanzo_kagero_leaves_duplication_meizen",
+                "taritreu_ritual_bibliomuse_fake",
+                "bookofeclipse",
+                "aleister_invocation_magellanica_cocytus_raidjin",
+                "dododoswordsman",
+                "timerewinder"
+            ]
+        }
+    },
+    {
+        "id": "base_priest",
+        "name": "Holy Night",
+        "echos": [
+            "priest"
+        ],
+        "bucket_list": {
+            "low_qual": [
+                "dagla_glass_shining_armory",
+                "angel_venus",
+                "airknight_neo",
+                "novasummoner",
+                "coupleofacespriest",
+                "guiding_hanewata_marshmacaron_winged_court",
+                "hecatrice_valhalla",
+                "hoshiningen_hip",
+                "mudora",
+                "dunk_serve",
+                "sky_descent",
+                "tethys_tellus_chorus"
+            ],
+            "mid_qual": [
+                "cataclysmic_priest",
+                "omega_ptolemy",
+                "rayel_ceremony_flamel_arrival_dragon_cosmos",
+                "astel_ciel_orbitael_sky_balefire_dragon_void",
+                "triashierarchia",
+                "maestra_diva_elegy_mozarta_opera_serenade_solo_tamtam_poly_solo",
+                "duel_dai_angel_ancient_stage_mardel",
+                "disciple_ra_true_card",
+                "dog_bear_wings_vendor_leo_frightful",
+                "bloom_prima_soprano_sonata_shopina_ostinato",
+                "scepter_sovereignty_scout_scale_sentry_vylon",
+                "cheer_parshath_herald_diviner_fairness"
+            ],
+            "high_qual": [
+                "master_venus_ball_destruction_parshath",
+                "uranus_neptune_jupiter_pluto_sanctuary_waters",
+                "earth_majesty_eva_masterflare_sanctum_chorus",
+                "protectormoon",
+                "dakini_izana_machine_petit",
+                "rites_natash",
+                "misting_thawing_flowering_corolla_bloom_agido",
+                "condemned_desire_ixchel_amdusc_contact_pot",
+                "uprising_first_nasten_descennt_darklord_ukoback_trade_not",
+                "awakening_flourishing_seasons_trap_kelbek"
+                
+            ]
+        }
+    }
+]

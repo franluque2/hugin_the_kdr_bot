@@ -1,0 +1,105 @@
+[
+	{
+		"id" : "mage",
+		"base" : "base_mage",
+		"name" : "Mage",
+		"tip_ratio" : [10,15],
+		"unique_skills" : ["infusion_of_magic","i_count_spells"],
+		"unique_effects" : [],
+		"description" : "Use your hand to generate illusions to fight for you while drawing massive amounts of cards!",
+		"url_picture" : "https://cdn.discordapp.com/attachments/1117942317211467776/1117942317681213510/Mage.png",
+		"url_sheet" : "https://docs.google.com/spreadsheets/d/1yPYTSZud0Ir-6OC6OtH4bLs9se8fm-gmM8fvpSxVfbo/edit?usp=sharing"
+	},
+	
+	{
+		"id" : "pyro",
+		"base" : "base_pyro",
+		"name" : "Pyromancer",
+		"tip_ratio" : [10,15],
+		"unique_skills" : ["specially_prepared_meal","the_dragon_from_creation"],
+		"unique_effects" : [],
+		"description" : "Send and banish your monsters, prepare for the revival of the Twin-Headed Fire Dragon!",
+		"url_picture" : "https://cdn.discordapp.com/attachments/1117943281913962546/1117943282291458140/pyromancer.png",
+		"url_sheet" : "https://docs.google.com/spreadsheets/d/1wf5hY8NGzMfSkyINmSBtPyr3Yy5syqZ3qxXR2xw_OUw/edit?usp=sharing"
+	},
+	
+	{
+		"id" : "necromancer",
+		"base" : "base_necromancer",
+		"name" : "Necromancer",
+		"tip_ratio" : [10,15],
+		"unique_skills" : ["dead_mans_hand","omniservant"],
+		"unique_effects" : [],
+		"description" : "The Skull Servants come along to play, have your graveyard be a revolving door!",
+		"url_picture" : "https://cdn.discordapp.com/attachments/1117942957329358879/1117942957610369066/Necromancer.png",
+		"url_sheet" : "https://docs.google.com/spreadsheets/d/18x-u-Cw-dDEqnFeM9uQSwAqhSBGNwMyH_O-ToffRCOE/edit?usp=sharing"
+	},
+	
+	{
+		"id" : "fisherman",
+		"base" : "base_fisherman",
+		"name" : "Fisherman",
+		"tip_ratio" : [10,15],
+		"unique_skills" : ["fly_fishing","i_taught_the_fish"],
+		"unique_effects" : [],
+		"description" : "The Fisherman is Gone Fishing, looking for the catch of dreams only told about in whispers on choppy waters, the bountiful salman, known for its delicious roe, is the dream catch for any person at sea.",
+		"url_picture" : "https://cdn.discordapp.com/attachments/1117942499500101733/1117942499672064131/Fisherman.png",
+		"url_sheet" : "https://docs.google.com/spreadsheets/d/1VnzVd6y_p5DG5G6qFu9F1IuLYgs3ssitNd3HpMgE2Zk/edit?usp=sharing"
+	},
+	
+	{
+		"id" : "alien",
+		"base" : "base_alien",
+		"name" : "AlIen",
+		"tip_ratio" : [10,15],
+		"unique_skills" : ["allen_adrien","xenomorph_evolution"],
+		"unique_effects" : [],
+		"description" : "Spread your counters, weakening your foes to take over!",
+		"url_picture" : "https://cdn.discordapp.com/attachments/1189959473477984356/1189959474358792202/AlIen.png",
+		"url_sheet" : "https://docs.google.com/spreadsheets/d/1ZFeOEDnXr79mBWx4BsDe3wtGyjMVCVZSMZlvf4bWVV4/edit?usp=sharing"
+	},
+	{
+		"id" : "gardener",
+		"base" : "base_gardener",
+		"name" : "Gardener",
+		"tip_ratio" : [10,15],
+		"unique_skills" : ["super_nutrient_y","mulching"],
+		"unique_effects" : [],
+		"description" : "Out-grow the competition! Gardener hits fast and hard, with tough-as-nails plants that no weed killer could handle!",
+		"url_picture" : "https://media.discordapp.net/attachments/1117943629114257562/1117943629705642104/gardener_image.png?width=912&height=454",
+		"url_sheet" : "https://docs.google.com/spreadsheets/d/1VJNR60XAJqeiJeS4tkxd0SxzRf9OaYEFKRN5hbQ6Al0/edit?usp=sharing"
+	},
+	{
+		"id" : "toymaker",
+		"base" : "base_toy",
+		"name" : "Toy Maker",
+		"tip_ratio" : [10,15],
+		"unique_skills" : ["teamwork_makes_the_dream_work","fusion_fury_patchwork"],
+		"unique_effects" : [],
+		"description" : "Bring joy and terror to the battlefield as you lure opponent's in with the promise of toys and candy, but dreadfully slice them into nightmare fueled amalgams!",
+		"url_picture" : "https://media.discordapp.net/attachments/1117947087812841502/1117947088064491582/toy_maker.png?width=975&height=655",
+		"url_sheet" : "https://docs.google.com/spreadsheets/d/1UlKNJhvuMQuPOXaMrLO-LENg9ZqFdexYMUfJdyTzS0Q/edit?usp=sharing"
+	},
+	{
+		"id" : "acrobat",
+		"base" : "base_acrobat",
+		"name" : "Acrobat",
+		"tip_ratio" : [10,15],
+		"unique_skills" : ["dexterous","tight_tights"],
+		"unique_effects" : [],
+		"description" : "Flip away! React to every move your opponent makes, constantly keeping them guessing as to what comes next!",
+		"url_picture" : "https://cdn.discordapp.com/attachments/1189959599525208186/1189959600447963226/Acrobat.png",
+		"url_sheet" : "https://docs.google.com/spreadsheets/d/1UlKNJhvuMQuPOXaMrLO-LENg9ZqFdexYMUfJdyTzS0Q/edit?usp=sharing"
+	},
+	{
+		"id" : "priest",
+		"base" : "base_priest",
+		"name" : "Priest",
+		"tip_ratio" : [10,15],
+		"unique_skills" : ["blessed_by_ishizu","shattered_hourglass"],
+		"unique_effects" : [],
+		"description" : "Wield these holy creatures, utilising your life to advance plays. You have the power of God and anime on your side!",
+		"url_picture" : "https://cdn.discordapp.com/attachments/1117943093690380379/1117943094478897152/Priest.png",
+		"url_sheet" : "https://docs.google.com/spreadsheets/d/15xFswimCZx8By90fwJGgOVhHLDM3MNGlWkRQ-8TEi5c/edit?usp=sharing"
+	}
+]

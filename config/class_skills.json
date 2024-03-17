@@ -1,0 +1,164 @@
+[
+    {
+        "id":"fly_fishing",
+        "name":"Fly Fishing",
+        "description":"You are always treated as having \"Umi\" on the field. WATER monsters you control gain 200 ATK/DEF.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"i_taught_the_fish",
+        "name":"I taught the Fish to Xyz Summon",
+        "description":"If \"Terrorking Salmon\" is used for the Xyz Summon of a WATER monster, it can be treated as a Level 3 or 4 monster. An Xyz monster with \"Terroking Salmon\" as material, is treated as \"Terrorking Salmon\".",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"dead_mans_hand",
+        "name":"Dead Man's Hand",
+        "description":"During your Draw Phase, instead of conducting your normal draw, you can reveal the top card of your Deck, then choose to add it to your hand or send it to the GY. If you send it to the GY, send the top card of your Deck to the GY.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"omniservant",
+        "name":"Omni-Servant",
+        "description":"Your Legendary Monster can be treated as the full Tribute for either a Tribute Summon or Ritual Summon, also if \"Skull Servant\" would be used for a Synchro Summon, you can treat it as a Level 1, 2, or 3 Tuner monster. (Once per Duel): You can Tribute Summon a monster.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"teamwork_makes_the_dream_work",
+        "name":"Teamwork makes the Dream Work!",
+        "description":"\"Predaplant\", \"Shaddoll\", \"Fluffal\", 'HERO', and \"Edge Imp\", monsters are all also treated as \"Predaplant\", \"Shaddoll\", \"Fluffal\", 'HERO', and \"Edge Imp\" monsters at all times.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"fusion_fury_patchwork",
+        "name":"Fusion Fury",
+        "description":"Patchwork can be used if you activate any effect that would Fusion Summon a monster instead of just 'Polymerization' and can now be used once for each card effect you use with a different name to fuse.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"specially_prepared_meal",
+        "name":"Specially Prepared Meal",
+        "description":"All monsters in your hand/GY are all also \"Salamangreat\" monsters. Add \"Salamangreat Weasel\" and \"Salamangreat Tiger\" to your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"the_dragon_from_creation",
+        "name":"The Dragon from Creation",
+        "description":"\"Twin-Headed Fire Dragon\" is also treated as a Dragon monster. If you would use \"Twin-Headed Fire Dragon\" for a Synchro Summon, it can be treated as a Tuner monster, also you can treat it as any Level for that Synchro Summon.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"allen_adrien",
+        "name":"AAAILNHLSSVH",
+        "description":"When you place an \"A\" Counter(s) by a card effect, place another. This Skill's name is always treated as \"Allen and Adrien’s Alienation Immigration Legalization Nation Hydration Lactation Station Socialization Vacation resulting in Hospitalization\".",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"xenomorph_evolution",
+        "name":"Xenomorph Evolution",
+        "description":"Your Reptile monsters in your possession are all also treated as \"Alien\" monsters.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"infusion_of_magic",
+        "name":"Infusion of Magic",
+        "description":"Your Tokens can now be treated as a substitute for any 1 Fusion Material, but the other materials must be correct. Your Tokens can be used as the entire requirement for a Ritual Summon also they are treated as the correct tribute. Your Tokens can now be treated as 2 Tributes for a Tribute Summon.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"i_count_spells",
+        "name":"I Count Spells",
+        "description":"\"Neo Aqua Madoor\" gains 1 Spell Counter each time a Spell Card is activated.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"super_nutrient_y",
+        "name":"Super Nutrient Y",
+        "description":"(Once per Duel): If you Summon a Plant monster(s): You can draw 2 cards and discard 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"mulching",
+        "name":"Mulching",
+        "description":"(Once per turn): You can excavate the top card of your Deck, and if it is a Plant monster, send it to the GY. Otherwise, banish it. This is treated as a card effect.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"dexterous",
+        "name":"Dexterous",
+        "description":"Gain +4 DEX. You no longer have a cap on the DEX stat. (Once per Duel): Instead of drawing for DEX, you can add \"Book of Moon\" from your Deck to your hand (Add 1 copy of \"Book of Moon\" to your Deck, permanently).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"tight_tights",
+        "name":"Tight Tights",
+        "description":"The first time you Flip Summon a monster each turn, draw 1 card, then discard 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"blessed_by_ishizu",
+        "name":"Blessed by Ishizu",
+        "description":"Once per turn, if \"Kelbek\", \"Mudora\", \"Keldo\", or \"Agido\" are Normal Summoned or sent to the GY, you can send the top 5 cards of your Deck to the GY.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id":"shattered_hourglass",
+        "name":"shattered_hourglass",
+        "description":" Replace \"Hourglass of Life\" with \"Wingweaver\" in your Skill/Quest/Relic. You can Normal Summon/Set \"Wingweaver\" without Tributing. (Once per Duel): If you Special Summon from the effect of your Legendary Relic, you can Special Summon 1 Fairy monster from your hand or GY.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    }
+]
