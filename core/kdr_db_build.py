@@ -58,9 +58,9 @@ async def build_skills(file_bucket_skills: dict, file_class_skills: dict, file_g
     for c in file_bucket_skills:
         db.coll_skills.insert_one(c)
     for c in file_class_skills:
-        db.coll_skills_generic.insert_one(c)
-    for c in file_generic_skills:
         db.coll_skills.insert_one(c)
+    for c in file_generic_skills:
+        db.coll_skills_generic.insert_one(c)
     return True
 
 
