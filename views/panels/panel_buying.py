@@ -80,32 +80,35 @@ class BuyPanel:
                 catid = cat[0]
                 catname = type_converter[catid]
                 msg += f"**{catname}**:\n\n"
-                shopwindowitems = await get_shop_window_generic(self.pid, self.sid, self.iid, cat)
-                if len(shopwindowitems) == 0:
-                    msg += f"You have bought out all your possible loot for this category\n"
+                if cat[3]>roundnum:
+                    msg+=f"This category of loot unlocks in round {cat[3]+1}.\n"
                 else:
-                    shopwindow = {"name": catid, "cost": cat[1], "buckets": shopwindowitems}
-                    for bucket in shopwindowitems:
-                        if bucket["cards"] is not None:
-                            for card in bucket["cards"][:-1]:
-                                msg += f"{card} / "
-                            lastname = bucket["cards"][-1]
-                            msg += f"{lastname}\n"
+                    shopwindowitems = await get_shop_window_generic(self.pid, self.sid, self.iid, cat)
+                    if len(shopwindowitems) == 0:
+                        msg += f"You have bought out all your possible loot for this category\n"
+                    else:
+                        shopwindow = {"name": catid, "cost": cat[1], "buckets": shopwindowitems}
+                        for bucket in shopwindowitems:
+                            if bucket["cards"] is not None:
+                                for card in bucket["cards"][:-1]:
+                                    msg += f"{card} / "
+                                lastname = bucket["cards"][-1]
+                                msg += f"{lastname}\n"
 
-                        for skill in bucket["skills"]:
-                            skillinfo = await db.get_skill_by_id(skill)
-                            name = skillinfo["name"]
-                            desc = skillinfo["description"]
-                            msg += f"\n**{name}** : {desc}\n"
-                        shopwindow["cost"] += bucket["tax"]
-                        msg += f"\n"
-                        if bucket["tax"]!=0:
-                            tax=bucket["tax"]
-                            msg+=f"**Tax**: This Shown Category costs **{tax}** more!\n"
-                    categories_generic.append(cat)
-                    if SpecialSkillHandling.SKILL_BARGAIN.value in special_flags:
-                        shopwindow["cost"] -= 1
-                    loot.append(shopwindow)
+                            for skill in bucket["skills"]:
+                                skillinfo = await db.get_skill_by_id(skill)
+                                name = skillinfo["name"]
+                                desc = skillinfo["description"]
+                                msg += f"\n**{name}** : {desc}\n"
+                            shopwindow["cost"] += bucket["tax"]
+                            msg += f"\n"
+                            if bucket["tax"]!=0:
+                                tax=bucket["tax"]
+                                msg+=f"**Tax**: This Shown Category costs **{tax}** more!\n"
+                        categories_generic.append(cat)
+                        if SpecialSkillHandling.SKILL_BARGAIN.value in special_flags:
+                            shopwindow["cost"] -= 1
+                        loot.append(shopwindow)
             loot_offered = [loot, categories_generic, categories_class]
             await db.set_inventory_value(self.pid, self.sid, self.iid, "offered_loot", loot_offered)
         else:
