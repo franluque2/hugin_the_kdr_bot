@@ -3815,5 +3815,60 @@
         ],
         "skills": [],
         "tax": 0
+    },{
+        "id": "borreloaddragon",
+        "cards": [
+            "Borreload Dragon"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "raigeki",
+        "cards": [
+            "Raigeki"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "darkhole",
+        "cards": [
+            "Dark Hole"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "heavystorm",
+        "cards": [
+            "Heavy Storm"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "ratentheheavenlygeneral",
+        "cards": [
+            "Ra'ten, the Heavenly General"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "underworldgoddessoftheclosedworld",
+        "cards": [
+            "Underworld Goddess of the Closed World"
+        ],
+        "skills": [],
+        "tax": 0
+    },
+    {
+        "id": "summonsorceress",
+        "cards": [
+            "Summon Sorceress"
+        ],
+        "skills": [],
+        "tax": 0
     }
 ]
