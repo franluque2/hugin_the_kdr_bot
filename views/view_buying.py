@@ -261,6 +261,8 @@ class BuyView(discord.ui.View):
 
         playergold = await db.get_inventory_value(pid, sid, iid, "gold")
         playerclass = await db.get_inventory_value(pid, sid, iid, "class")
+        roundnum=await db.get_instance_value(self.sid,self.iid,"active_round")
+
 
         row_buy_shown_class_count = 0
 
@@ -290,7 +292,7 @@ class BuyView(discord.ui.View):
                                                     f"{raw_category}_random",
                                                     pid, sid, iid, status_message, status_panel_generator, thread,
                                                     window)
-                if playergold < cost:
+                if (playergold < cost) or cat[3]>roundnum:
                     buy_window_btn.disabled = True
                 buy_window_btn.row = 2
                 self.add_item(buy_window_btn)
@@ -306,7 +308,7 @@ class BuyView(discord.ui.View):
                                                     f"{raw_category}_random",
                                                     pid, sid, iid, status_message, status_panel_generator, thread,
                                                     window)
-                if playergold < cost:
+                if playergold < cost  or cat[3]>roundnum:
                     buy_window_btn.disabled = True
                 buy_window_btn.row = 3
                 self.add_item(buy_window_btn)
@@ -321,7 +323,7 @@ class BuyView(discord.ui.View):
                                                     f"{raw_category}_random",
                                                     pid, sid, iid, status_message, status_panel_generator, thread,
                                                     window)
-                if playergold < cost:
+                if playergold < cost  or cat[3]>roundnum:
                     buy_window_btn.disabled = True
                 buy_window_btn.row = 3
                 self.add_item(buy_window_btn)
