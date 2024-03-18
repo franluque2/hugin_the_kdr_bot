@@ -261,7 +261,7 @@ class BuyView(discord.ui.View):
 
         playergold = await db.get_inventory_value(pid, sid, iid, "gold")
         playerclass = await db.get_inventory_value(pid, sid, iid, "class")
-        roundnum=await db.get_instance_value(self.sid,self.iid,"active_round")
+        roundnum=await db.get_instance_value(sid,iid,"active_round")
 
 
         row_buy_shown_class_count = 0
