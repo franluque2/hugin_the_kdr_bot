@@ -260,7 +260,7 @@ class KDRAdmin(Cog):
             await db.set_inventory_value(first_player, sid, iid, "wl_ratio", p1_wl)
             await db.set_inventory_value(second_player, sid, iid, "wl_ratio", p2_wl)
             await db.set_instance_value(sid, iid, 'round_results', round_results)
-            msg+=f"<@{first_player}> wins by default vs <@{second_player}> \n"
+            msg+=f"<@{second_player}> wins by default vs <@{first_player}> \n"
             players_to_ping.append(first_player)
             players_to_ping.append(second_player)
             
