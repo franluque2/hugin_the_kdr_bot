@@ -1,4 +1,4 @@
-from discord import Activity, Game, ActivityType
+from discord import Activity, Game, ActivityType, CustomActivity
 from discord.ext.commands.cog import Cog
 from discord.ext.commands.bot import Bot
 from discord import app_commands
@@ -18,11 +18,12 @@ class KDRFun(Cog):
         self.client = client
 
     @app_commands.command(name="get_new_status", description="Changes the Status of Hugin!")
+    @app_commands.describe(status="(Optional) Status code for Hugin")
     @app_commands.guild_only()
     @app_commands.check(statics.server_whitelisted)
     @app_commands.checks.has_role(ROLE_ADMIN)
-    async def get_new_status(self, interaction=Interaction):
-        await get_random_status(self.client)
+    async def get_new_status(self, interaction=Interaction, status: int=None):
+        await get_random_status(self.client, status)
         await interaction.response.send_message(f"Hugin has changed her status!", ephemeral=True)
 
     @get_new_status.error
@@ -49,8 +50,13 @@ async def setup(bot: Bot) -> None:
     await bot.add_cog(KDRFun(bot))
 
 
-async def get_random_status(bot):
-    randstatus = random.randint(1, 7)
+async def get_random_status(bot, randstatus=None):
+    maxstatus=12
+    if randstatus==None:
+        randstatus = random.randint(1, maxstatus)
+    if randstatus>maxstatus:
+        randstatus=1
+
     if randstatus == 1:
         await bot.change_presence(activity=Game(name="Runick Stun in Master Duel"))
     if randstatus == 2:
@@ -67,5 +73,20 @@ async def get_random_status(bot):
     if randstatus == 7:
         await bot.change_presence(
             activity=Activity(type=ActivityType.watching, name='my one Fountain getting Cosmic\'d in the OCG'))
+    if randstatus == 8:
+        await bot.change_presence(
+            activity=CustomActivity(name="Teaching the Ghotis to Synchro Summon"))
+    if randstatus == 9:
+        await bot.change_presence(
+            activity=CustomActivity(name="Begging for an Unlimit of Fountain"))
+    if randstatus == 10:
+        await bot.change_presence(
+            activity=CustomActivity(name="Debating playing Ash Blossom"))
+    if randstatus == 11:
+        await bot.change_presence(
+            activity=CustomActivity(name="Simping over The Bystial Aluber"))
+    if randstatus == 12:
+        await bot.change_presence(
+            activity=CustomActivity(name="Flipping Synchro Zone of all things"))
 
 

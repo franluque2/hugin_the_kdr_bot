@@ -504,9 +504,6 @@ class KDRCore(Cog):
                 p1_wl, p2_wl = [], []
                 fp = str(match[0])
                 sp = str(match[1])
-                print(f"first player: {fp}")
-                print(f"second player: {sp}")
-                print(f"pid {pid}")
                 # if player not in match or match was already reported, continue
                 if (fp != pid and sp != pid) or round_results[x][y][1] != WinType.INCOMPLETE.value:
                     continue
