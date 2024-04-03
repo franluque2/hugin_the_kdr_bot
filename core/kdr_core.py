@@ -27,7 +27,7 @@ class KDRCore(Cog):
 
     @app_commands.command(name="newkdr", description="Creates a new KDR with a random Instance ID.")
     @app_commands.describe(playernum="The Number of players in the KDR, Defaults to 8",
-                        isprivate="Should the KDR ID be shown in a public Message? Defaults to False",
+                        isprivate="Should the KDR ID be shown in a private Message? Defaults to False",
                            isranked="Is the KDR Ranked? Defaults to False. KDR ADMIN ONLY")
     @app_commands.guild_only()
     async def new_kdr(self, interaction: Interaction, playernum:int=8, isprivate: bool = False, isranked: bool = False):
