@@ -137,8 +137,9 @@ class BuyRandomWindowButton(discord.ui.Button):
             if bucket["cards"] is not None:
                 for card in bucket["cards"][:-1]:
                     retmsg += f"{card} /  "
-                lastname = bucket["cards"][-1]
-                retmsg += f"{lastname}\n"
+                if len(bucket["cards"]>0):
+                    lastname = bucket["cards"][-1]
+                    retmsg += f"{lastname}\n"
             for skill in bucket["skills"]:
                 skillinfo = await db.get_skill_by_id(skill)
                 name = skillinfo["name"]
