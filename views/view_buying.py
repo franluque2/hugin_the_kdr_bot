@@ -258,7 +258,7 @@ class BuyView(discord.ui.View):
     async def create_buttons(self, pid: str, sid, iid,
                              status_message: Message, status_panel_generator: StatusPanel,
                              thread: Thread, can_sell: bool, loot: list, categories_generic: list,
-                             categories_class: list, categories_secret: list, original_panel):
+                             categories_class: list, categories_secret: list, original_panel, costreduction:int =0):
 
         playergold = await db.get_inventory_value(pid, sid, iid, "gold")
         playerclass = await db.get_inventory_value(pid, sid, iid, "class")
@@ -285,7 +285,7 @@ class BuyView(discord.ui.View):
         for cat in categories_generic:
             raw_category = cat[0]
             category = type_converter[raw_category]
-            cost = cat[1]
+            cost = cat[1] - costreduction
             window_objs = await panel_buying.get_shop_window_generic(pid, sid, iid, cat)
             if len(window_objs)>0:
                 window = {"name": cat, "cost": cost, "buckets": window_objs}
@@ -301,7 +301,7 @@ class BuyView(discord.ui.View):
         for cat in categories_class:
             raw_category = cat[0]
             category = type_converter[raw_category]
-            cost = cat[1]
+            cost = cat[1] - costreduction
             window_objs = await panel_buying.get_shop_window_class(pid, sid, iid, playerclass, cat)
             if len(window_objs)>0:
                 window = {"name": cat, "cost": cost, "buckets": window_objs}
@@ -316,18 +316,19 @@ class BuyView(discord.ui.View):
         for cat in categories_secret:
             raw_category = cat[0]
             category = type_converter[raw_category]
-            cost = cat[1]
-            window_objs = await panel_buying.get_shop_window_secret(pid, sid, iid, cat)
-            if len(window_objs)>0:
-                window = {"name": cat, "cost": cost, "buckets": window_objs}
-                buy_window_btn = BuyRandomWindowButton(f"Buy a random {category} Secret Card for {cost} gold.",
-                                                    f"{raw_category}_random",
-                                                    pid, sid, iid, status_message, status_panel_generator, thread,
-                                                    window)
-                if playergold < cost  or cat[3]>roundnum:
-                    buy_window_btn.disabled = True
-                buy_window_btn.row = 3
-                self.add_item(buy_window_btn)
+            cost = cat[1] - costreduction
+            if cat[3]>roundnum:
+                window_objs = await panel_buying.get_shop_window_secret(pid, sid, iid, cat)
+                if len(window_objs)>0:
+                    window = {"name": cat, "cost": cost, "buckets": window_objs}
+                    buy_window_btn = BuyRandomWindowButton(f"Buy a random {category} Secret Card for {cost} gold.",
+                                                        f"{raw_category}_random",
+                                                        pid, sid, iid, status_message, status_panel_generator, thread,
+                                                        window)
+                    if playergold < cost:
+                        buy_window_btn.disabled = True
+                    buy_window_btn.row = 3
+                    self.add_item(buy_window_btn)
 
         cont_button = ContinueButtonBuying("Continue to Tips.", "Continue",
                                            pid, sid, iid, status_message, status_panel_generator, thread)

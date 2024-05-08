@@ -156,9 +156,12 @@ class BuyPanel:
         for msg_overflow in msg_ov[:-1]:
           await self.thread.send(msg_overflow)
         buy_view = BuyView()
+        costreduction=0
+        if SpecialSkillHandling.SKILL_BARGAIN.value in special_flags:
+            costreduction=1
         await buy_view.create_buttons(self.pid, self.sid, self.iid, self.status_message,
                                       self.status_panel_generator, self.thread, can_sell, loot, categories_generic,
-                                      categories_class,categories_secret, self
+                                      categories_class,categories_secret, self, costreduction
                                       )
 
         await self.thread.send(msg_ov[-1:][0], view=buy_view)
