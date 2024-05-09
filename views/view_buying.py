@@ -317,7 +317,7 @@ class BuyView(discord.ui.View):
             raw_category = cat[0]
             category = type_converter[raw_category]
             cost = cat[1] - costreduction
-            if cat[3]>roundnum:
+            if cat[3]<roundnum:
                 window_objs = await panel_buying.get_shop_window_secret(pid, sid, iid, cat)
                 if len(window_objs)>0:
                     window = {"name": cat, "cost": cost, "buckets": window_objs}
