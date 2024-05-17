@@ -28,6 +28,7 @@ class BuyWindowButton(discord.ui.Button):
             await interaction.response.send_message(f"You are not the player using this shop.", ephemeral=True)
             return
         await self.disable_view(interaction)
+        await interaction.response.defer()
         cost = self.window["cost"]
         retmsg = f"<@{self.pid}> just bought a window for {cost} gold containing:\n"
         for bucket in self.window["buckets"]:
@@ -97,7 +98,7 @@ class BuyWindowButton(discord.ui.Button):
 
         await self.status_message.edit(content=f'<@{self.pid}>',
                                        embed=await self.status_panel_generator.get_message())
-        await interaction.response.send_message(retmsg)
+        await interaction.followup.send_message(retmsg)
         shopper = panel_buying.BuyPanel(self.pid, self.sid, self.iid, self.status_message, self.status_panel_generator,
                                         self.thread)
         await shopper.get_buy_panel()
@@ -129,6 +130,7 @@ class BuyRandomWindowButton(discord.ui.Button):
             await interaction.response.send_message(f"You are not the player using this shop.", ephemeral=True)
             return
         await self.disable_view(interaction)
+        await interaction.response.defer()
         cost = self.window["cost"]
         retmsg = f"<@{self.pid}> just bought a random window for {cost} gold containing:\n"
         for bucket in self.window["buckets"]:
@@ -198,7 +200,7 @@ class BuyRandomWindowButton(discord.ui.Button):
 
         await self.status_message.edit(content=f'<@{self.pid}>',
                                        embed=await self.status_panel_generator.get_message())
-        await interaction.response.send_message(retmsg)
+        await interaction.followup.send_message(retmsg)
         shopper = panel_buying.BuyPanel(self.pid, self.sid, self.iid, self.status_message, self.status_panel_generator,
                                         self.thread)
         await shopper.get_buy_panel()
@@ -231,11 +233,12 @@ class ContinueButtonBuying(discord.ui.Button):
 
         # disable
         await self.disable_view(interaction)
+        await interaction.response.defer()
 
         stage = await db.get_inventory_value(self.pid, self.sid, self.iid, 'shop_stage')
         stage += 1
         await db.set_inventory_value(self.pid, self.sid, self.iid, 'shop_stage', stage)
-        await interaction.response.send_message(f"Continuing to Tips!", ephemeral=True)
+        await interaction.followup.send_message(f"Continuing to Tips!", ephemeral=True)
         await db.set_inventory_value(self.pid, self.sid, self.iid, "offered_loot", [])
 
         tipper = panel_tips.TipPanel(self.pid, self.sid, self.iid, self.status_message, self.status_panel_generator,
