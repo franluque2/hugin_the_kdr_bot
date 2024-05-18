@@ -98,7 +98,7 @@ class BuyWindowButton(discord.ui.Button):
 
         await self.status_message.edit(content=f'<@{self.pid}>',
                                        embed=await self.status_panel_generator.get_message())
-        await interaction.followup.send_message(retmsg)
+        await interaction.followup.send(retmsg)
         shopper = panel_buying.BuyPanel(self.pid, self.sid, self.iid, self.status_message, self.status_panel_generator,
                                         self.thread)
         await shopper.get_buy_panel()
@@ -200,7 +200,7 @@ class BuyRandomWindowButton(discord.ui.Button):
 
         await self.status_message.edit(content=f'<@{self.pid}>',
                                        embed=await self.status_panel_generator.get_message())
-        await interaction.followup.send_message(retmsg)
+        await interaction.followup.send(retmsg)
         shopper = panel_buying.BuyPanel(self.pid, self.sid, self.iid, self.status_message, self.status_panel_generator,
                                         self.thread)
         await shopper.get_buy_panel()
@@ -238,7 +238,7 @@ class ContinueButtonBuying(discord.ui.Button):
         stage = await db.get_inventory_value(self.pid, self.sid, self.iid, 'shop_stage')
         stage += 1
         await db.set_inventory_value(self.pid, self.sid, self.iid, 'shop_stage', stage)
-        await interaction.followup.send_message(f"Continuing to Tips!", ephemeral=True)
+        await interaction.followup.send(f"Continuing to Tips!", ephemeral=True)
         await db.set_inventory_value(self.pid, self.sid, self.iid, "offered_loot", [])
 
         tipper = panel_tips.TipPanel(self.pid, self.sid, self.iid, self.status_message, self.status_panel_generator,

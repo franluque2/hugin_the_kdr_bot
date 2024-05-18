@@ -85,7 +85,7 @@ class ContinueButtonTraining(discord.ui.Button):
         stage = await db.get_inventory_value(self.pid, self.sid, self.iid, 'shop_stage')
         stage += 1
         await db.set_inventory_value(self.pid, self.sid, self.iid, 'shop_stage', stage)
-        await interaction.followup.send_message(f"Continuing to Stat Leveling or Treasures!", ephemeral=True)
+        await interaction.followup.send(f"Continuing to Stat Leveling or Treasures!", ephemeral=True)
         increaser = LevelAttributePanel(self.pid, self.sid, self.iid, self.status_message, self.status_panel_generator,
                                         self.thread)
         await increaser.get_level_attribute_panel()
