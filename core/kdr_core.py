@@ -32,7 +32,7 @@ class KDRCore(Cog):
                             class_selection_number="Number of classes to offer, defaults to 1, be careful increasing",
                            isranked="Is the KDR Ranked? Defaults to False. KDR ADMIN ONLY")
     @app_commands.guild_only()
-    async def new_kdr(self, interaction: Interaction, playernum:int=8, isprivate: bool = False, modifiers: list={}, class_selection_number: int=1, isranked: bool = False):
+    async def new_kdr(self, interaction: Interaction, playernum:int=8, isprivate: bool = False, modifiers: str="", class_selection_number: int=1, isranked: bool = False):
         sid = interaction.guild_id
         pid=interaction.user.id
         proles=interaction.user.roles
