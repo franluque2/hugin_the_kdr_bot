@@ -28,9 +28,11 @@ class KDRCore(Cog):
     @app_commands.command(name="newkdr", description="Creates a new KDR with a random Instance ID.")
     @app_commands.describe(playernum="The Number of players in the KDR, Defaults to 8",
                         isprivate="Should the KDR ID be shown in a private Message? Defaults to False",
+                            modifiers="List of Modifiers to use this KDR, defailts to empty",
+                            class_selection_number="Number of classes to offer, defaults to 1, be careful increasing",
                            isranked="Is the KDR Ranked? Defaults to False. KDR ADMIN ONLY")
     @app_commands.guild_only()
-    async def new_kdr(self, interaction: Interaction, playernum:int=8, isprivate: bool = False, isranked: bool = False):
+    async def new_kdr(self, interaction: Interaction, playernum:int=8, isprivate: bool = False, modifiers: list={}, class_selection_number: int=1, isranked: bool = False):
         sid = interaction.guild_id
         pid=interaction.user.id
         proles=interaction.user.roles
@@ -46,7 +48,7 @@ class KDRCore(Cog):
             await interaction.followup.send(f"{OOPS}\n Non Admins may not create more than 1 KDR at a time!",ephemeral=True)
             return
         name_id = statics.generate_instance_name(sid)
-        await db.add_new_kdr(sid, name_id, isranked,pid,playernum)
+        await db.add_new_kdr(sid, name_id, isranked,pid,playernum, class_selection_number, modifiers)
         msg = ""
         msg = "Started a new KDR "
         if isranked:

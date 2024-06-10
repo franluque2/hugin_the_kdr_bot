@@ -275,6 +275,53 @@ class KDRAdmin(Cog):
 
         await interaction.response.send_message(f"{msg}")
 
+
+    """ Admin Delete KDR"""
+
+    @app_commands.command(name="deletekdr", description="Delete KDR based on Instance ID.")
+    @app_commands.describe(iid="The Instance ID of the KDR.")
+    @app_commands.guild_only()
+    @app_commands.check(statics.instance_started)
+    @app_commands.check(statics.instance_exists)
+    async def deletekdr(self, interaction=Interaction, iid: str = ""):
+        # fetch data
+        sid = interaction.guild_id
+        pid = str(interaction.user.id)
+
+        if iid == "":
+            player_kdrs = await db.get_users_value(pid, sid, "instances")
+            if len(player_kdrs) == 1:
+                iid = player_kdrs[0]
+
+        creatorid = await db.get_instance_value(sid, iid, 'creator_id')
+        if str(creatorid)!=str(pid) and ROLE_ADMIN not in str(interaction.user.roles):
+            await interaction.response.send_message(f"You cannot delete a KDR you are not the owner of.",ephemeral=True)
+            return
+
+        player_names = await db.get_instance_list(sid, iid, 'player_names')
+        msg=""
+
+        players_to_ping=[]
+        players=[]
+        for player in player_names:
+            playerdata=await db.get_inventory(player,sid,iid)
+            players.append(playerdata)
+        for p in players:
+
+            pname=p["id_player"]
+            players_to_ping.append(pname)
+            await db.set_users_value(pname,sid,"instances",iid,"$pull")
+        
+        
+        for p in players_to_ping:
+            msg+=f"<@{p}> "
+
+        db.delete_kdr(sid,iid)
+        msg=f"\n <@{pid}> has deleted KDR {iid}!"
+
+
+        await interaction.response.send_message(f"{msg}")
+
     """ Admin Override Match Result """
 
     @app_commands.command(name="overrideresult", description="Override the result of an active KDR Match.")

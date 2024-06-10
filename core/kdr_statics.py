@@ -213,10 +213,13 @@ async def get_class_selection(sid, iid):
     offered_classes = await db.get_instance_list(sid, iid, 'offered_classes')
     class_list = list(await db.get_all_base_classes())
     static_classes = list(await db.get_all_static_classes())
+    choicenum = await db.get_instance_value(sid,iid,'class_choices')
+    if choicenum is None:
+        choicenum=1
     random.shuffle(class_list)
 
     for c in class_list:
-        if not (len(offered) < 1 and len(static_classes) - len(offered_classes) > 0):
+        if not (len(offered) < choicenum and len(static_classes) - len(offered_classes) > 0):
             break
         if offered_classes.count(c['id']) < len(c['echos']):
             offered.append(c['id'])
@@ -232,7 +235,7 @@ async def get_class_selection(sid, iid):
 
 
 async def get_final_class_selection(player_classes):
-    msg = f"Let's get started with class selection! New KDR Season (I call it Swords)! So fewer friends are joining us, you only get one choice, sorry :(  Please, select your class:"
+    msg = f"Let's get started with class selection! Please, select your class:"
     echos = []
     embeds=[]
     for x in player_classes:

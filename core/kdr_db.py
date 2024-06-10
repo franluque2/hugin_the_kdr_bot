@@ -299,7 +299,7 @@ async def get_treasure_value(tid, key):
 """ KDR """
 
 
-async def add_new_kdr(sid: int, iid: str, is_ranked: False, creatorid: str, maxplayers: int):
+async def add_new_kdr(sid: int, iid: str, is_ranked: False, creatorid: str, maxplayers: int, class_choices: int=1, modifiers: list={}):
     uid = 1 + len(list(coll_kdr.find({DB_KEY_SERVER: sid})))
 
     instance = {
@@ -318,7 +318,9 @@ async def add_new_kdr(sid: int, iid: str, is_ranked: False, creatorid: str, maxp
         'is_ranked': is_ranked,
         'creator_id': creatorid,
         'ended': False,
-        'max_players': maxplayers
+        'max_players': maxplayers,
+        'class_choices': class_choices,
+        'modifiers': modifiers
     }
 
     coll_kdr.insert_one(instance)
@@ -434,6 +436,8 @@ async def has_player_started_a_kdr(pid, sid):
                                    DB_KEY_SERVER: sid,
                                    'ended': False}))
 
+def delete_kdr(sid,iid):
+    coll_kdr.delete_one({DB_KEY_SERVER: sid, DB_KEY_INSTANCE: iid})
 
 async def has_player_started_specific_kdr(pid, sid, iid):
     return bool(coll_kdr.find_one({'creator_id': pid,
