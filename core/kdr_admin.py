@@ -281,7 +281,6 @@ class KDRAdmin(Cog):
     @app_commands.command(name="deletekdr", description="Delete KDR based on Instance ID.")
     @app_commands.describe(iid="The Instance ID of the KDR.")
     @app_commands.guild_only()
-    @app_commands.check(statics.instance_started)
     @app_commands.check(statics.instance_exists)
     async def deletekdr(self, interaction=Interaction, iid: str = ""):
         # fetch data
