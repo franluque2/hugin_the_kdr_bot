@@ -175,7 +175,7 @@ class LowSelectView(discord.ui.View):
                 msg += f"\n"
             loot.append(shopwindow)
         for c in loot:
-            button = LowQualButton(f'{c[1]}', f'{c[0]}', player_class, pid, sid, iid,c[2])
+            button = LowQualButton(f'{c["name"]}', f'{c["id"]}', player_class, pid, sid, iid,c["buckets"])
             self.add_item(button)
 
         msg_lines=msg.split("\n")
