@@ -192,5 +192,5 @@ class LowSelectView(discord.ui.View):
             msg_ov.append(buffer)
 
         for msg_overflow in msg_ov[:-1]:
-          await interaction.thread.send(msg_overflow)
-        await interaction.thread.send(msg_ov[-1:][0], view=self)
+          await interaction.followup.send(msg_overflow)
+        await interaction.followup.send(msg_ov[-1:][0], view=self)
