@@ -54,4 +54,4 @@ rarity_converter = {
 # Categories for Buckets, [category id, Cost, How many buckets to show, at which round does it unlock]
 categories_buckets_generic = [["staples", 3, 3, 0], ["removal", 4, 3, 2], ["engine", 6, 2, 2]]
 categories_buckets_class = [["low_qual", 3, 3, 0], ["mid_qual", 5, 3, 1], ["high_qual", 10, 2, 2]]
-categories_secret=[["powercard", 10, 1, 2]]
+categories_secret=[] #["powercard", 10, 1, 2] removed for balance concerns

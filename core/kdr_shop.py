@@ -49,6 +49,12 @@ class KDRShop(Cog):
             if len(player_kdrs)==1:
                 iid=player_kdrs[0]
 
+        res_user_modifiers = await db.get_inventory_value(pid, sid, iid, 'modifiers')
+        if SpecialClassHandling.CLASS_MIMIC.value in res_user_modifiers:
+            await interaction.response.send_message("Mimics do not get a Shop Phase.", ephemeral=True)
+            return
+
+
         res_user_shop = await db.get_inventory_value(pid, sid, iid, 'shop_phase')
         if not res_user_shop:
             await interaction.response.send_message("You have already finished your shop phase.")

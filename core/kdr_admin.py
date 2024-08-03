@@ -11,7 +11,7 @@ from discord import Interaction, Attachment
 from discord import Member
 from discord import Interaction
 
-from core.kdr_data import WinType
+from core.kdr_data import WinType, SpecialClassHandling
 from core.kdr_elo import EloAdjustment
 from config.config import OOPS, ROLE_ADMIN, DB_KEY_INSTANCE, ROLE_CODER, ROLE_OWNER, \
                             PATH_BUCKETS, PATH_BASE_CLASSES, PATH_STATIC_CLASSES, \
@@ -149,6 +149,14 @@ class KDRAdmin(Cog):
                 xp += 2
                 await db.set_inventory_value(p, sid, iid, 'XP', xp)
             await db.set_inventory_value(p, sid, iid, 'shop_stage', 0)
+            player_data = await db.get_inventory(p, sid, iid)
+            playermodifiers = player_data["modifiers"]
+            for modifier in playermodifiers:
+                if modifier == SpecialClassHandling.CLASS_MIMIC.value: #Mimics do not get a shop phase.
+                    await db.set_inventory_value(p, sid, iid, 'shop_stage', 9)
+                    await db.set_inventory_value(p, sid, iid, 'shop_phase', False)
+
+
 
         rounds=""
         num=0
