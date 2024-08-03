@@ -80,13 +80,13 @@ class ClassButton(discord.ui.Button):
         self.view.stop()
 
 class LowQualButton(discord.ui.Button):
-    def __init__(self, label: str, custom_id: str, static_class_id: str, pid: str, sid, iid, window):
+    def __init__(self, label: str, custom_id: str, static_class_id: str, pid: str, sid, iid, windowbuckets):
         super().__init__(label=label, custom_id=custom_id)
         self.static_class_id = static_class_id
         self.pid = pid
         self.sid = sid
         self.iid = iid
-        self.window=window
+        self.windowbuckets=windowbuckets
 
 
     async def callback(self, interaction: discord.Interaction):
@@ -96,7 +96,7 @@ class LowQualButton(discord.ui.Button):
         await self.disable_view(interaction)
         await interaction.response.defer()
         retmsg = f"<@{self.pid}> just picked a window containing:\n"
-        for bucket in self.window["buckets"]:
+        for bucket in self.windowbuckets:
             if bucket["cards"] is not None:
                 for card in bucket["cards"][:-1]:
                     retmsg += f"{card} /  "
@@ -155,7 +155,7 @@ class LowSelectView(discord.ui.View):
         loot = []
         msg=f"Heya! As a new way to start your KDR with choices, you get a bit of Low Quality Class loot!, get picking\n"
         categories_class = []
-        for i in range(1,3):
+        for i in range(1,4):
             msg+=f"__**Window {i}**__\n\n"
             shopwindowitems = await get_shop_window_class(pid, sid, iid, player_class, categories_buckets_class[0])
             shopwindow = {"id": i,"name": f"Window {i}", "buckets": shopwindowitems}
