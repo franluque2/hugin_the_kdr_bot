@@ -45,21 +45,20 @@ class ClassButton(discord.ui.Button):
         await db.set_inventory_value(self.pid,self.sid,self.iid,"tip_threshold",generated_tip)
         await interaction.response.send_message(f"<@{interaction.user.id}> selected: **{self.static_class_name}**, remember to make a copy of the sheet, and share the url (to view) with the `setclassheet` command!", embed=embed) #
         
-        if SpecialClassHandling.CLASS_PIRATE.value in (static_class_info["unique_effects"]):
-            msg = "__**Yarr, welcome to the KDR laddie! Ye get all these treasures!**__:\n"
-            offered_treasure = await get_random_treasures()
-            embeds=[]
-            for treasure in offered_treasure:
-                treasure_name = treasure["name"]
-                treasure_image = treasure["img_url"]
-                rarity=rarity_converter[treasure["rarity"]]
-                treasure_rarity=f"Rarity: {rarity}"
-                new_embed=Embed(title=treasure_name,description=treasure_rarity)
-                new_embed.set_thumbnail(treasure_image)
-                embeds.append(new_embed)
-                await db.set_inventory_value(self.pid, self.sid, self.iid, "treasures", treasure["id"], "$push")
-
-            await interaction.followup.send(content=msg,embeds=embeds)
+        #if SpecialClassHandling.CLASS_PIRATE.value in (static_class_info["unique_effects"]): Pirate no longer starts with treasures
+        #    msg = "__**Yarr, welcome to the KDR laddie! Ye get all these treasures!**__:\n"
+        #    offered_treasure = await get_random_treasures()
+        #    embeds=[]
+        #    for treasure in offered_treasure:
+        #        treasure_name = treasure["name"]
+        #        treasure_image = treasure["img_url"]
+        #        rarity=rarity_converter[treasure["rarity"]]
+        #        treasure_rarity=f"Rarity: {rarity}"
+        #        new_embed=Embed(title=treasure_name,description=treasure_rarity)
+        #        new_embed.set_thumbnail(treasure_image)
+        #        embeds.append(new_embed)
+        #        await db.set_inventory_value(self.pid, self.sid, self.iid, "treasures", treasure["id"], "$push")
+        #    await interaction.followup.send(content=msg,embeds=embeds)
         if SpecialClassHandling.CLASS_MIMIC.value in (static_class_info["unique_effects"]):
                 await db.set_inventory_value(self.pid, self.sid, self.iid, "shop_phase", False) # Mimics do not get a shop phase
 
