@@ -438,7 +438,30 @@ class KDRAdmin(Cog):
 
         await db.set_instance_value(sid, iid, 'offered_classes', offered_classes)
         await db.set_instance_value(sid, iid, 'picked_classes', playerclass['id'], '$push')
+ 
+    """ Admin Override Class to PICK """
 
+    @app_commands.command(name="setofferedclass", description="Set a player's offered class.")
+    @app_commands.describe(iid="The KDR ID", first_player="The Player to set the offered class of", classname="The class's EXACT name")
+    @app_commands.guild_only()
+    @app_commands.checks.has_role(ROLE_ADMIN)
+    @app_commands.check(statics.instance_exists)
+    async def override_class_offer(self, interaction: Interaction, iid: str,
+                              first_player: Member, classname:str):
+        # fetch data
+        pid = str(interaction.user.id)
+        sid = interaction.guild_id
+        first_player = str(first_player.id)
+        playerclass=await db.get_static_class_by_name(classname)
+
+        await db.set_inventory_value(first_player,sid,iid,"classes",[playerclass["id"]])
+        await interaction.response.send_message(f'<@{pid}> has modified <@{first_player}>\'s offered class, they are now being offered {classname}. ')
+
+        offered_classes = await db.get_instance_list(sid, iid, 'offered_classes')
+        
+        offered_classes.append(playerclass['id'])
+
+        await db.set_instance_value(sid, iid, 'offered_classes', offered_classes)
 
     """ Admin Set Shop Phase Status """
 
@@ -809,6 +832,7 @@ class KDRAdmin(Cog):
     @nextround.error
     @override_result.error
     @override_class.error
+    @override_class_offer.error
     #@clear_chat.error
     @reset_kdr_data.error
     @reset_kdr_player_data.error
@@ -858,6 +882,7 @@ class KDRAdmin(Cog):
     @force_join_kdr.autocomplete('iid')
     @forceendround.autocomplete('iid')
     @override_class.autocomplete('iid')
+    @override_class_offer.autocomplete('iid')
     @override_gold_value.autocomplete('iid')
     @override_shop_status.autocomplete('iid')
     @kick_player.autocomplete('iid')
