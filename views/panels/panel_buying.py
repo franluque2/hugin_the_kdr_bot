@@ -54,10 +54,9 @@ class BuyPanel:
                         shopwindow = {"name": catid, "cost": cat[1], "buckets": shopwindowitems}
                         for bucket in shopwindowitems:
                             if bucket["cards"] is not None:
-                                for card in bucket["cards"][:-1]:
+                                for card in bucket["cards"]:
                                     msg += f"{card} / "
-                                lastname = bucket["cards"][-1]
-                                msg += f"{lastname}\n"
+                                msg = msg[:-3]
 
                             for skill in bucket["skills"]:
                                 skillinfo = await db.get_skill_by_id(skill)
