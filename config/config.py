@@ -83,7 +83,7 @@ LOSS_STREAK_EXTRA_GOLD = [0, 0, 4, 8, 10]
 HEAVY_SACK_EXTRA_GOLD = 15
 
 # ban list link
-BANLIST_LINK = "https://docs.google.com/spreadsheets/d/1yQP3m5JN0wKPYOyztvd_809NRFhtpNey7pfs5O4fbns/edit"
+BANLIST_LINK = "https://sites.google.com/view/ygodungeonrun/banlist"
 
 
 # Stuff for the About Message

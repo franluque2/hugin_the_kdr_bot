@@ -99,7 +99,7 @@ class KDRUtil(Cog):
     @app_commands.guild_only()
     async def get_tutorial(self, interaction=Interaction):
         # fetch data
-        await interaction.response.send_message(f"__**What is KDR?**__ \n https://docs.google.com/document/d/1YlC9zVx4JgYpvwzPji7QHLu0pZ8VjWhXuTTLnpk-Gak/edit?usp=sharing", ephemeral=True)
+        await interaction.response.send_message(f"__**What is KDR?**__ \n https://sites.google.com/view/ygodungeonrun/tutorial", ephemeral=True)
         await interaction.followup.send(f"__**Using me**__ (no, not like that!) __**and setting up your Character sheet!**__:\nhttps://docs.google.com/document/d/1KSAqvNsn8h7E_rAzQzw4BlOsI5cNdm7AM_jCc0nkkTQ/edit?usp=sharing", ephemeral=True)
 
     @app_commands.command(name="about", description="Get Technical Information about Hugin!")
