@@ -57,7 +57,7 @@ class BuyPanel:
                                 for card in bucket["cards"]:
                                     msg += f"{card} / "
                                 msg = msg[:-3]
-
+                                msg += f"\n"
                             for skill in bucket["skills"]:
                                 skillinfo = await db.get_skill_by_id(skill)
                                 name = skillinfo["name"]
@@ -92,6 +92,7 @@ class BuyPanel:
                                 for card in bucket["cards"]:
                                     msg += f"{card} / "
                                 msg = msg[:-3]
+                                msg += f"\n"
 
                             for skill in bucket["skills"]:
                                 skillinfo = await db.get_skill_by_id(skill)
@@ -119,6 +120,7 @@ class BuyPanel:
                         for card in bucket["cards"]:
                             msg += f"{card} / "
                         msg = msg[:-3]
+                        msg += f"\n"
                     for skill in bucket["skills"]:
                         skillinfo = await db.get_skill_by_id(skill)
                         name = skillinfo["name"]
