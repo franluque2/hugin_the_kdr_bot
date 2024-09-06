@@ -35,7 +35,7 @@ class SpecialSkillNames(Enum):
 #KDR Modifier Names
 class KdrModifierNames(Enum):
     LOSE_GOLD_AT_END="USEITORLOSEIT"
-    GOLD_PER_ROUND="USEITORLOSEIT"
+    GOLD_PER_ROUND="GOLDPERROUND"
     NO_INTEREST="NOINTEREST"
     NO_TRAINING="SKIPGYM"
 
