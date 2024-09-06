@@ -1,6 +1,8 @@
 from discord import Embed
 from core import kdr_db as db
 from config.config import GOLD_INTEREST_REQUIRED, GOLD_INTEREST_GAINED, LEVEL_THRESHOLDS
+from core.kdr_modifiers import get_modifier
+from core.kdr_data import KdrModifierNames
 import math
 
 
@@ -35,7 +37,11 @@ class StatusPanel:
         ret_embed.set_thumbnail(url=self.classimg)
         ret_embed.add_field(name="Stats",
                             value=f'**STR**: {self.currstr}  **DEX**: {self.currdex}  **CON**: {self.currcon}')
-        ret_embed.set_footer(text=f'Current Interest when the shop ends will be: {self.possible_interest}')
+        modifiers=await db.get_instance_value(self.sid,self.iid,"modifiers")
+        if modifiers and (get_modifier(modifiers,KdrModifierNames.NO_INTEREST.value) is not None or get_modifier(modifiers,KdrModifierNames.LOSE_GOLD_AT_END.value) is not None):
+            ret_embed.set_footer(text=f'You will gain no Interest at the end of the round.')
+        else:    
+            ret_embed.set_footer(text=f'Current Interest when the shop ends will be: {self.possible_interest}')
         return ret_embed
 
     async def update_vals(self):

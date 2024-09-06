@@ -10,7 +10,8 @@ from config.config import CWD, PATH_INSTANCE_NAMES, GOLD_INTEREST_REQUIRED, \
     GOLD_INTEREST_GAINED, LOSS_STREAK_EXTRA_GOLD, GOLD_WIN_GAINED_PROFESSIONAL_DUELIST, \
     GOLD_WIN_GAINED, HEAVY_SACK_EXTRA_GOLD, GOLD_LOSS_GAINED
 from discord import Interaction, Embed
-from core.kdr_data import SpecialSkillHandling
+from core.kdr_data import SpecialSkillHandling, KdrModifierNames
+from core.kdr_modifiers import get_modifier
 
 from config.secret_values import GUILD, SERVER_WHITELIST
 
@@ -264,22 +265,31 @@ async def get_final_class_selection(player_classes):
 async def update_gold(pid, iid, sid, win, special_flags):
     gold = await db.get_inventory_value(pid, sid, iid, "gold")
 
+    modifiers=await db.get_instance_value(sid,iid,"modifiers")
+
     loss_streak = await db.get_inventory_value(pid, sid, iid, "loss_streak")
+    if modifiers and (get_modifier(modifiers,KdrModifierNames.LOSE_GOLD_AT_END.value) is not None):
+        gold=0
+
 
     if loss_streak > len(LOSS_STREAK_EXTRA_GOLD) - 1:
         loss_streak = len(LOSS_STREAK_EXTRA_GOLD) - 1
     # interest
-    gold += math.floor((gold / GOLD_INTEREST_REQUIRED)) * GOLD_INTEREST_GAINED
+    if not (modifiers and (get_modifier(modifiers,KdrModifierNames.NO_INTEREST.value) is not None)):
+        gold += math.floor((gold / GOLD_INTEREST_REQUIRED)) * GOLD_INTEREST_GAINED
 
     # win/loss gold
-    if win:
-        if SpecialSkillHandling.SKILL_PROFESSIONAL_DUELIST.value in special_flags:
-            gold += GOLD_WIN_GAINED_PROFESSIONAL_DUELIST
+    if not (modifiers and (get_modifier(modifiers,KdrModifierNames.NO_INTEREST.value) is not None)):
+        if win:
+            if SpecialSkillHandling.SKILL_PROFESSIONAL_DUELIST.value in special_flags:
+                gold += GOLD_WIN_GAINED_PROFESSIONAL_DUELIST
+            else:
+                gold += GOLD_WIN_GAINED
         else:
-            gold += GOLD_WIN_GAINED
+            gold += GOLD_LOSS_GAINED
+            gold += LOSS_STREAK_EXTRA_GOLD[loss_streak]
     else:
-        gold += GOLD_LOSS_GAINED
-        gold += LOSS_STREAK_EXTRA_GOLD[loss_streak]
+        gold += get_modifier(modifiers,KdrModifierNames.NO_INTEREST.value)
 
     # heavy sack
     if SpecialSkillHandling.SKILL_HEAVY_SACK.value in special_flags:

@@ -32,6 +32,20 @@ class SpecialSkillHandling(Enum):
 class SpecialSkillNames(Enum):
     SKILL_SUPER_SMOOTH_TALKER = "super_smooth_talker"
 
+#KDR Modifier Names
+class KdrModifierNames(Enum):
+    LOSE_GOLD_AT_END="USEITORLOSEIT"
+    GOLD_PER_ROUND="USEITORLOSEIT"
+    NO_INTEREST="NOINTEREST"
+    NO_TRAINING="SKIPGYM"
+
+#Whether the kdr modifiers return a value
+KDR_MODIFIERS = {
+    "USEITORLOSEIT": False,
+    "GOLDPERROUND": True,
+    "NOINTEREST": False,
+    "SKIPGYM": False
+}
 
 type_converter = {
     "staples": "Staples",

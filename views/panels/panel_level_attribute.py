@@ -4,6 +4,8 @@ from config.config import LEVEL_THRESHOLDS, MAX_RPG_STAT_LEVEL
 from core import kdr_db as db
 import views.panels.panel_treasure as panel_treasure
 from views.view_increase_stat import IncreaseStatView
+from core.kdr_data import KdrModifierNames
+from core.kdr_modifiers import get_modifier
 
 
 class LevelAttributePanel:
@@ -31,14 +33,16 @@ class LevelAttributePanel:
         STR = player_inventory["STR"]
         DEX = player_inventory["DEX"]
         CON = player_inventory["CON"]
-
-        if STR + DEX + CON < level + wins + losses and not STR == DEX == CON == MAX_RPG_STAT_LEVEL:
-            increase_view = IncreaseStatView()
-            await increase_view.create_buttons(self.pid, self.sid, self.iid, self.status_message,
-                                               self.status_panel_generator, self.thread, STR, DEX, CON)
-            await self.thread.send(f"Select a Stat to Level Up\n\n"
-                                   f"Current Stats: **STR**: {STR}  **DEX**: {DEX} **CON**: {CON}", view=increase_view)
-            return
+        
+        modifiers=await db.get_instance_value(self.sid,self.iid,"modifiers")
+        if not (modifiers and (get_modifier(modifiers,KdrModifierNames.NO_TRAINING.value) is not None)):
+            if STR + DEX + CON < level + wins + losses and not STR == DEX == CON == MAX_RPG_STAT_LEVEL:
+                increase_view = IncreaseStatView()
+                await increase_view.create_buttons(self.pid, self.sid, self.iid, self.status_message,
+                                                self.status_panel_generator, self.thread, STR, DEX, CON)
+                await self.thread.send(f"Select a Stat to Level Up\n\n"
+                                    f"Current Stats: **STR**: {STR}  **DEX**: {DEX} **CON**: {CON}", view=increase_view)
+                return
 
         stage += 1
         await db.set_inventory_value(self.pid, self.sid, self.iid, 'shop_stage', stage)
