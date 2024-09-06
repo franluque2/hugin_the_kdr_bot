@@ -1,4 +1,4 @@
-from kdr_data import KdrModifierNames, KDR_MODIFIERS
+from core.kdr_data import KdrModifierNames, KDR_MODIFIERS
 
 def parse_modifiers(modifier_string: str):
     # Split the string by commas, and strip whitespace
