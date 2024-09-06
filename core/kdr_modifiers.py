@@ -21,6 +21,8 @@ def parse_modifiers(modifier_string: str):
     return modifier_dict
 
 def get_modifier(modifier_string: str, modifier: str):
+    if not isinstance(modifier_string, str):
+        return None
     # Parse the modifier string
     modifiers = parse_modifiers(modifier_string)
     
