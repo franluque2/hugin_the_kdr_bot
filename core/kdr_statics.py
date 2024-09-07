@@ -289,7 +289,7 @@ async def update_gold(pid, iid, sid, win, special_flags):
             gold += GOLD_LOSS_GAINED
             gold += LOSS_STREAK_EXTRA_GOLD[loss_streak]
     else:
-        gold += get_modifier(modifiers,KdrModifierNames.GOLD_PER_ROUND.value)
+        gold += int(get_modifier(modifiers,KdrModifierNames.GOLD_PER_ROUND.value))
 
     # heavy sack
     if SpecialSkillHandling.SKILL_HEAVY_SACK.value in special_flags:
