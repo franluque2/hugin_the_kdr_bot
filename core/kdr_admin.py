@@ -526,6 +526,7 @@ class KDRAdmin(Cog):
                         treasurefile: Attachment):
 
         msg = f"Rebuilding data..."
+        await interaction.response.send_message(msg)
         baseclasses=None
         staticclasses=None
         buckets=None
@@ -538,54 +539,54 @@ class KDRAdmin(Cog):
             baseclassesbytes=await basefile.read()
             baseclasses=json.loads(str(baseclassesbytes, 'utf-8'))
         else:
-            await interaction.response.send_message(f"Base Classes file not found or not named {PATH_BASE_CLASSES}")
+            await interaction.edit_original_response(f"Base Classes file not found or not named {PATH_BASE_CLASSES}")
             return
 
         if staticfile.filename==PATH_STATIC_CLASSES:
             staticclassesbytes=await staticfile.read()
             staticclasses=json.loads(str(staticclassesbytes, 'utf-8'))
         else:
-            await interaction.response.send_message(f"Static Classes file not found or not named {PATH_STATIC_CLASSES}")
+            await interaction.edit_original_response(f"Static Classes file not found or not named {PATH_STATIC_CLASSES}")
             return
             
         if bucketsfile.filename==PATH_BUCKETS:
             bucketsbytes=await bucketsfile.read()
             buckets=json.loads(str(bucketsbytes, 'utf-8'))
         else:
-            await interaction.response.send_message(f"Buckets file not found or not named {PATH_BUCKETS}")
+            await interaction.edit_original_response(f"Buckets file not found or not named {PATH_BUCKETS}")
             return
         if bucketskillsfile.filename==PATH_BUCKET_SKILLS:
             bucketskillsbytes=await bucketskillsfile.read()
             bucketskills=json.loads(str(bucketskillsbytes, 'utf-8'))
         else:
-            await interaction.response.send_message(f"Bucket Skills file not found or not named {PATH_BUCKET_SKILLS}")
+            await interaction.edit_original_response(f"Bucket Skills file not found or not named {PATH_BUCKET_SKILLS}")
             return
         if classskillfile.filename==PATH_CLASS_SKILLS:
             classskillsbytes=await classskillfile.read()
             classskills=json.loads(str(classskillsbytes, 'utf-8'))
         else:
-            await interaction.response.send_message(f"Class Skills file not found or not named {PATH_CLASS_SKILLS}")
+            await interaction.edit_original_response(f"Class Skills file not found or not named {PATH_CLASS_SKILLS}")
             return
         if genericskillfile.filename==PATH_GENERIC_SKILLS:
             genericskillsbytes=await genericskillfile.read()
             genericskills=json.loads(str(genericskillsbytes, 'utf-8'))
         else:
-            await interaction.response.send_message(f"Generic Skills file not found or not named {PATH_GENERIC_SKILLS}")
+            await interaction.edit_original_response(f"Generic Skills file not found or not named {PATH_GENERIC_SKILLS}")
             return
         if genericbucketfile.filename==PATH_GENERIC_BUCKETS:
             genericbucketsbytes=await genericbucketfile.read()
             genericbuckets=json.loads(str(genericbucketsbytes, 'utf-8'))
         else:
-            await interaction.response.send_message(f"Generic Buckets file not found or not named {PATH_GENERIC_BUCKETS}")
+            await interaction.edit_original_response(f"Generic Buckets file not found or not named {PATH_GENERIC_BUCKETS}")
             return
         if treasurefile.filename==PATH_TREASURES:
             treasuresbytes=await treasurefile.read()
             treasures=json.loads(str(treasuresbytes, 'utf-8'))
         else:
-            await interaction.response.send_message(f"Treasures file not found or not named {PATH_TREASURES}")
+            await interaction.edit_original_response(f"Treasures file not found or not named {PATH_TREASURES}")
             return
 
-        await interaction.response.send_message(msg)
+        await interaction.edit_original_response(content=msg)
 
         if not await db_build.build_base_classes(baseclasses):
             raise kdr_errors.BuildDBDataError("Base Classes")
