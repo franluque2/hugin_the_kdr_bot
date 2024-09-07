@@ -279,7 +279,7 @@ async def update_gold(pid, iid, sid, win, special_flags):
         gold += math.floor((gold / GOLD_INTEREST_REQUIRED)) * GOLD_INTEREST_GAINED
 
     # win/loss gold
-    if not (modifiers and (get_modifier(modifiers,KdrModifierNames.NO_INTEREST.value) is not None)):
+    if not (modifiers and (get_modifier(modifiers,KdrModifierNames.GOLD_PER_ROUND.value) is not None)):
         if win:
             if SpecialSkillHandling.SKILL_PROFESSIONAL_DUELIST.value in special_flags:
                 gold += GOLD_WIN_GAINED_PROFESSIONAL_DUELIST
@@ -289,7 +289,7 @@ async def update_gold(pid, iid, sid, win, special_flags):
             gold += GOLD_LOSS_GAINED
             gold += LOSS_STREAK_EXTRA_GOLD[loss_streak]
     else:
-        gold += get_modifier(modifiers,KdrModifierNames.NO_INTEREST.value)
+        gold += get_modifier(modifiers,KdrModifierNames.GOLD_PER_ROUND.value)
 
     # heavy sack
     if SpecialSkillHandling.SKILL_HEAVY_SACK.value in special_flags:
