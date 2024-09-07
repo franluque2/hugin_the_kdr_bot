@@ -32,6 +32,7 @@ def get_modifier(modifier_string: str, modifier: str):
     # Check if the modifier exists in the parsed list
     if modifier in modifiers:
         # Check if the modifier is expected to have a value
+        print(modifier)
         if KDR_MODIFIERS.get(modifier, False):
             # Return the value if it has one
             return modifiers[modifier]
