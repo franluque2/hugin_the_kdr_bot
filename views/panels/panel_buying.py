@@ -4,7 +4,7 @@ from core import kdr_db as db
 from core.kdr_data import SpecialSkillHandling
 from views.view_buying import BuyView
 from core.kdr_data import categories_buckets_generic, categories_buckets_class, categories_secret, type_converter
-from config.config import BANLIST_LINK
+from config.config import BANLIST_LINK, LEVEL_THRESHOLDS
 import random
 
 
@@ -27,7 +27,13 @@ class BuyPanel:
         special_flags = player_inventory["modifiers"]
         can_sell = len(player_inventory["treasures"]) > 0
 
-        roundnum=await db.get_instance_value(self.sid,self.iid,"active_round")
+        playerlevel = 0
+
+        playerxp = player_inventory["XP"] if player_inventory["XP"] <= LEVEL_THRESHOLDS[-1] else LEVEL_THRESHOLDS[-1]
+
+        for level in LEVEL_THRESHOLDS:
+            if playerxp >= level:
+                playerlevel += 1
         for skill in player_inventory["skills"]:
             skill_data = await db.get_skill_by_id(skill)
             if skill_data["is_sellable"]:
@@ -44,8 +50,8 @@ class BuyPanel:
                 catid = cat[0]
                 catname = type_converter[catid]
                 msg += f"**{catname}**:\n\n"
-                if cat[3]>roundnum:
-                    msg+=f"This category of loot unlocks in round {cat[3]+1}.\n"
+                if cat[3]>playerlevel:
+                    msg+=f"This category of loot unlocks at level {cat[3]+1}.\n"
                 else:
                     shopwindowitems = await get_shop_window_class(self.pid, self.sid, self.iid, player_class, cat)
                     if len(shopwindowitems) == 0:
@@ -79,8 +85,8 @@ class BuyPanel:
                 catid = cat[0]
                 catname = type_converter[catid]
                 msg += f"**{catname}**:\n\n"
-                if cat[3]>roundnum:
-                    msg+=f"This category of loot unlocks in round {cat[3]+1}.\n"
+                if cat[3]>playerlevel:
+                    msg+=f"This category of loot unlocks at level {cat[3]+1}.\n"
                 else:
                     shopwindowitems = await get_shop_window_generic(self.pid, self.sid, self.iid, cat)
                     if len(shopwindowitems) == 0:
