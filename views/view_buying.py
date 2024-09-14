@@ -287,7 +287,7 @@ class BuyView(discord.ui.View):
             self.add_item(buy_window_btn)
         playerlevel = 0
 
-        xp=db.get_inventory_value(pid, sid, iid, "XP")
+        xp=await db.get_inventory_value(pid, sid, iid, "XP")
         playerxp = xp if xp <= LEVEL_THRESHOLDS[-1] else LEVEL_THRESHOLDS[-1]
 
         for level in LEVEL_THRESHOLDS:
