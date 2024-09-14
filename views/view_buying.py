@@ -8,6 +8,7 @@ import views.panels.panel_buying as panel_buying
 import views.panels.panel_tips as panel_tips
 from core.kdr_data import type_converter
 from views.panels.panel_additional_loot import AdditionalLootPanel
+from config.config import LEVEL_THRESHOLDS
 
 
 class BuyWindowButton(discord.ui.Button):
@@ -284,6 +285,14 @@ class BuyView(discord.ui.View):
                 buy_window_btn.row = 1
                 row_buy_shown_class_count += 1
             self.add_item(buy_window_btn)
+        playerlevel = 0
+
+        xp=db.get_inventory_value(pid, sid, iid, "XP")
+        playerxp = xp if xp <= LEVEL_THRESHOLDS[-1] else LEVEL_THRESHOLDS[-1]
+
+        for level in LEVEL_THRESHOLDS:
+            if playerxp >= level:
+                playerlevel += 1
 
         for cat in categories_generic:
             raw_category = cat[0]
@@ -296,7 +305,7 @@ class BuyView(discord.ui.View):
                                                     f"{raw_category}_random",
                                                     pid, sid, iid, status_message, status_panel_generator, thread,
                                                     window)
-                if (playergold < cost) or cat[3]>roundnum:
+                if (playergold < cost) or cat[3]>playerlevel:
                     buy_window_btn.disabled = True
                 buy_window_btn.row = 2
                 self.add_item(buy_window_btn)
@@ -312,7 +321,7 @@ class BuyView(discord.ui.View):
                                                     f"{raw_category}_random",
                                                     pid, sid, iid, status_message, status_panel_generator, thread,
                                                     window)
-                if playergold < cost  or cat[3]>roundnum:
+                if playergold < cost  or cat[3]>playerlevel:
                     buy_window_btn.disabled = True
                 buy_window_btn.row = 3
                 self.add_item(buy_window_btn)
@@ -320,7 +329,7 @@ class BuyView(discord.ui.View):
             raw_category = cat[0]
             category = type_converter[raw_category]
             cost = cat[1] - costreduction
-            if cat[3]<roundnum:
+            if cat[3]<playerlevel:
                 window_objs = await panel_buying.get_shop_window_secret(pid, sid, iid, cat)
                 if len(window_objs)>0:
                     window = {"name": cat, "cost": cost, "buckets": window_objs}
