@@ -80,7 +80,7 @@ GOLD_WIN_GAINED_PROFESSIONAL_DUELIST = 15
 LOSS_STREAK_EXTRA_GOLD = [0, 0, 4, 8, 10]
 
 # gold in heavy sack
-HEAVY_SACK_EXTRA_GOLD = 15
+HEAVY_SACK_EXTRA_GOLD = 2
 
 # ban list link
 BANLIST_LINK = "https://sites.google.com/view/ygodungeonrun/banlist"

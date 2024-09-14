@@ -293,10 +293,7 @@ async def update_gold(pid, iid, sid, win, special_flags):
 
     # heavy sack
     if SpecialSkillHandling.SKILL_HEAVY_SACK.value in special_flags:
-        gold += HEAVY_SACK_EXTRA_GOLD
-        flags = await db.get_inventory_value(pid, sid, iid, "modifiers")
-        flags.remove(SpecialSkillHandling.SKILL_HEAVY_SACK.value)
-        await db.set_inventory_value(pid, sid, iid, "modifiers", flags)
+        gold += HEAVY_SACK_EXTRA_GOLD*(special_flags.count(SpecialSkillHandling.SKILL_HEAVY_SACK.value))
 
     await db.set_inventory_value(pid, sid, iid, "gold", gold)
 
