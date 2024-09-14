@@ -290,6 +290,31 @@ shopkeepers=[
     "I haven't seen a murder that bad since they errata'd Disc Commander.",
     "You're a lot like Destroyer Phoenix Enforcer, really. You keep destroying yourself and coming back to my shop."
 ]
+},
+{"id":"Rappa",
+"name":"S-Force Rappa Chiyomaru",
+"img_url":"https://files.catbox.moe/rz8zaw.jpg",
+"chance":1,
+"greetings":[
+    "Be careful, I think some of Di-Gamma's prototypes got mixed up with the cards. If you're not careful you might lose a pinkie!",
+    "Nothing better to give a rouge officer like you than some contraband from the Bridgehead prisoners!",
+    "Time for my ultimate skill! \"Roll a UR treasure\" jutsu!!",
+    "Edge Razor just finished his training session, maybe we can ask him for some super special senior-officer advice!",
+    "I heard Gravitino knew you from his days of Gravity Controlling, what was he like?",
+    "If you keep up like this officer, you might even get to chase the interlopers with Orrafist!",
+    "All of these wares were brought straight from Retroactive's teleporter!"
+],
+"greetings_loss_streak":[
+    "If it'll cheer you up, I can share some of my LiveTwin merch with you!",
+    "I get what it's like being on the run too, take this extra gold and stay as far away from Nightchaser as you can!",
+    "Hey officer, this loss streak has been getting Pla-Tina angry. If MD has taught you anything, it should be that you NEVER make Pla-Tina angry.",
+    "I'll let you pet Dog Tag if it helps with your mission-failing streak!",
+    "I hate to sound so rude, but if these aren't gonna help your run turn around, can we hurry this up? I have a dat- I MEAN a mission to chase I:P again!",
+    "Lapcewell showed me where to find these fancy good luck charms at Bridgehead, maybe you should get one as well. It might help with that bad luck you've been having!",
+    "If you'd like some advice from another new recruit, whenever I'm down after a loss streak I always activate my special ability! \"Win the Dice Roll\" jutsu!! You should try it!"
+    "Justify told me to help out the new recruits, and you looked like you needed some. Here are some cards that can turn your luck around!",
+]
+
 }
 
 
