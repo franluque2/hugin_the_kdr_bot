@@ -142,10 +142,8 @@ class KDRAdmin(Cog):
             # Grant gold and xp anyways if player did not do shop phase
             if current_shop_phase == 0:
                 xp = await db.get_inventory_value(p, sid, iid, 'XP')
-                won, match_pos, opponent = \
-                    await statics.check_player_won_round(pid, round_results, current_rounds, active_round)
                 special_flags = await db.get_inventory_value(p, sid, iid, 'modifiers')
-                await statics.update_gold(p, iid, sid, won, special_flags)
+                await statics.update_gold(p, iid, sid, True, special_flags)
                 xp += 2
                 await db.set_inventory_value(p, sid, iid, 'XP', xp)
             await db.set_inventory_value(p, sid, iid, 'shop_stage', 0)
