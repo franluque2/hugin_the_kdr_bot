@@ -104,7 +104,6 @@ async def extract_data(deck,extradeck):
         info = json.loads(response.text)
         #print(info)
         info = info["data"][0]
-        print(info["name"]) 
 
         if "Monster" in info["type"]:
             deckmonsters[info["name"]] = {"ATK": info["atk"],"DEF": info["def"], "Attribute": info["attribute"],"Type": info["race"], "Level": info["level"]}
@@ -116,7 +115,6 @@ async def extract_data(deck,extradeck):
         info = json.loads(response.text)
         #print(info)
         info = info["data"][0]
-        print(info["name"]) 
         if "Monster" in info["type"]:
             final[info["name"]] = {"ATK": [],"DEF": [], "Attribute": [],"Type": [], "Level": []}
         if info["type"]=="Link Monster":
