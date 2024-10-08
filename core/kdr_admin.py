@@ -452,12 +452,12 @@ class KDRAdmin(Cog):
         first_player = str(first_player.id)
         playerclass=await db.get_static_class_by_name(classname)
 
-        await db.set_inventory_value(first_player,sid,iid,"classes",[playerclass["id"]])
+        await db.set_inventory_value(first_player,sid,iid,"classes",[playerclass["base"]])
         await interaction.response.send_message(f'<@{pid}> has modified <@{first_player}>\'s offered class, they are now being offered {classname}. ')
 
         offered_classes = await db.get_instance_list(sid, iid, 'offered_classes')
         
-        offered_classes.append(playerclass['id'])
+        offered_classes.append(playerclass['base'])
 
         await db.set_instance_value(sid, iid, 'offered_classes', offered_classes)
 

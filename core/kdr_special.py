@@ -2,6 +2,8 @@ import requests
 import random
 from discord import Embed
 import urllib.parse
+import base64
+import json
 
 
 url_ygoprodeck = "https://db.ygoprodeck.com/api/v7/cardinfo.php"
@@ -66,3 +68,98 @@ class MonsterPanel:
 
 
 
+
+def process_ydke(ydke):
+    if ydke.startswith("ydke://"):
+        ydke = ydke[len("ydke://"):]
+    
+    sections = ydke.split('!')
+    
+    results = []
+    
+    for section in sections:
+        if section: 
+            decoded_bytes = base64.b64decode(section)
+            
+            
+            int_list = [int.from_bytes(decoded_bytes[i:i+4], byteorder='little', signed=False) 
+                        for i in range(0, len(decoded_bytes), 4)]
+            
+            
+            results.append(int_list)
+    
+    return results
+
+
+async def extract_data(deck,extradeck):
+    deckmonsters = {}
+    extradeckmonsters = {}
+    final = {}
+    monsterbridges = {}
+
+    # Step 2: API Calls
+    for card in deck:
+        #print(f"https://db.ygoprodeck.com/api/v7/cardinfo.php?id={card}")
+        response = requests.get(f"https://db.ygoprodeck.com/api/v7/cardinfo.php?id={card}")
+        info = json.loads(response.text)
+        #print(info)
+        info = info["data"][0]
+        print(info["name"]) 
+
+        if "Monster" in info["type"]:
+            deckmonsters[info["name"]] = {"ATK": info["atk"],"DEF": info["def"], "Attribute": info["attribute"],"Type": info["race"], "Level": info["level"]}
+            deckmonsters[(info["name"]+" +100 STR")] = {"ATK": (int(info["atk"])+100),"DEF": info["def"], "Attribute": info["attribute"],"Type": info["race"], "Level": info["level"]}
+
+    for card in extradeck:
+        #print(f"https://db.ygoprodeck.com/api/v7/cardinfo.php?id={card}")
+        response = requests.get(f"https://db.ygoprodeck.com/api/v7/cardinfo.php?id={card}")
+        info = json.loads(response.text)
+        #print(info)
+        info = info["data"][0]
+        print(info["name"]) 
+        if "Monster" in info["type"]:
+            final[info["name"]] = {"ATK": [],"DEF": [], "Attribute": [],"Type": [], "Level": []}
+        if info["type"]=="Link Monster":
+            extradeckmonsters[info["name"]] = {"ATK": info["atk"],"DEF": -1, "Attribute": info["attribute"],"Type": info["race"], "Level": -1}
+            continue
+        if info["type"]=="XYZ Monster":
+            extradeckmonsters[info["name"]] = {"ATK": info["atk"],"DEF": info["def"], "Attribute": info["attribute"],"Type": info["race"], "Level": -1}
+            continue
+        elif "Monster" in info["type"]:
+            extradeckmonsters[info["name"]] = {"ATK": info["atk"],"DEF": info["def"], "Attribute": info["attribute"],"Type": info["race"], "Level": info["level"]}
+
+    deckmonsters.update(extradeckmonsters)
+
+
+    # Step 3: Actual Logic
+
+    def getScore(card,comparison):
+        score = 0
+        for key in card:
+            if card[key] == comparison[key]:
+                score = score + 1
+                keyR = key
+        if score == 1:
+            return keyR
+        else:
+            return 'no'
+
+    for mdMon in deckmonsters:
+        for edMon in extradeckmonsters:
+            key = getScore(deckmonsters[mdMon], extradeckmonsters[edMon])
+            if key != 'no':
+                final[edMon][key].append(mdMon)
+
+    msg=""
+    for card in final:
+        string = ""
+        string += card
+        string += ":\n"
+        for key in final[card]:
+            string += key
+            string += ":("
+            string += "/".join(final[card][key])
+            string += ")\n"
+        string += "\n"
+        msg=msg+string
+    return msg

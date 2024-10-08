@@ -5,10 +5,10 @@ from discord import Interaction
 from core import kdr_db as db, \
     kdr_messages, \
     kdr_errors, \
+    kdr_special, \
     kdr_statics as statics
 from config.config import ROLE_ADMIN, OOPS, DB_KEY_SERVER, DB_KEY_INSTANCE, ABOUT_MSG
 from config.secret_values import GUILD
-
 
 class KDRUtil(Cog):
     def __init__(self, client: Bot):
@@ -107,6 +107,42 @@ class KDRUtil(Cog):
     async def get_about_msg(self, interaction=Interaction):
         # fetch data
         await interaction.response.send_message(ABOUT_MSG, ephemeral=True)
+
+
+    @app_commands.command(name="toymakerhelp", description="Let me Solve a Toy Maker Decklist Fuses for You!")
+    @app_commands.guild_only()
+    @app_commands.describe(ydke="The YDKe of the deck you want me to try to find the Toy Maker Fuses for")
+    async def solve_toymaker_list(self, interaction: Interaction, ydke: str):
+        msg = f"Calculating..."
+        await interaction.response.send_message(msg,ephemeral=True)
+
+        main,extra,side=kdr_special.process_ydke(ydke)
+        if not ((main) and (extra)):
+            await interaction.edit_original_response(f"There was an error with the YDKe, are you sure there's a valid Main and Extra Deck in there?")
+            return
+
+        if side:
+            main=main+side
+        
+        returnmsg=await kdr_special.extract_data(main,extra)
+        msg_lines=returnmsg.split("\n")
+        msg_ov=[]
+        buffer=""
+        for line in msg_lines:
+            if len(buffer+line+"\n")>1900:
+                msg_ov.append(buffer)
+                buffer=""
+            buffer+=line
+            buffer+="\n"
+           
+        if len(buffer)>1:
+            msg_ov.append(buffer)
+
+        for msg_overflow in msg_ov[:-1]:
+          await interaction.followup.send(msg_overflow, ephemeral=True)
+
+        await interaction.followup.send(msg_ov[-1:][0], ephemeral=True)
+
 
     """ Command Errors """
     @get_current_match_data.error
