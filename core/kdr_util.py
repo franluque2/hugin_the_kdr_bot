@@ -116,14 +116,15 @@ class KDRUtil(Cog):
         msg = f"Calculating..."
         await interaction.response.send_message(msg,ephemeral=True)
 
-        main,extra,side=kdr_special.process_ydke(ydke)
+        processed_ydk=kdr_special.process_ydke(ydke)
+        main=processed_ydk[0]
+        extra=processed_ydk[1]
+        if len(processed_ydk)>2:
+            main=main+processed_ydk[2]
         if not ((main) and (extra)):
             await interaction.edit_original_response(f"There was an error with the YDKe, are you sure there's a valid Main and Extra Deck in there?")
             return
-
-        if side:
-            main=main+side
-        
+       
         returnmsg=await kdr_special.extract_data(main,extra)
         msg_lines=returnmsg.split("\n")
         msg_ov=[]
