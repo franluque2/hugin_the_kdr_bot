@@ -611,6 +611,7 @@ class KDRCore(Cog):
     @report_result.autocomplete('iid')
     @get_bracket.autocomplete('iid')
     @leave_kdr.autocomplete('iid')
+    @set_class_sheet.autocomplete('iid')
     async def autocomplete_iid(self, interaction: discord.Interaction, current: str):
         iid_list=await db.get_users_value(str(interaction.user.id),interaction.guild_id,"instances")
         final_iid_list=[app_commands.Choice(name=x,value=x) for x in iid_list]
