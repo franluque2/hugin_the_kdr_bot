@@ -224,7 +224,7 @@ class KDRCore(Cog):
         col_users=list(col_users.sort("elo",-1))
         if len(col_users)==0:
             await interaction.followup.send(f"{OOPS}\n No Users have Played in KDRs yet in this server.",ephemeral=True)
-        filtered_users = [user for user in col_users if user["elo"] != DEFAULT_ELO_RANKING]
+        filtered_users = [user for user in col_users if (int(user["elo"])) != DEFAULT_ELO_RANKING]
         filtered_users = filtered_users[:length]
 
         msg=f"The KDR Elo Ranking top {length} for this server is as follows: \n"
