@@ -37,9 +37,6 @@ ROLE_LFG = "kdr-lfg"
 # default elo rank
 DEFAULT_ELO_RANKING = 1500
 
-# level thresholds in which to give a level
-LVL_THRESHOLDS = [2, 6, 8, 10, 14, 18, 22, 24, 28, 30]
-
 # free xp given per round played
 XP_PER_ROUND = 2
 

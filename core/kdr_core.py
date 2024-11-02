@@ -221,19 +221,19 @@ class KDRCore(Cog):
         
         if length>50: length=50
 
-        col_users=list(col_users.sort("elo",-1).limit(length))
+        col_users=list(col_users.sort("elo",-1))
         if len(col_users)==0:
             await interaction.followup.send(f"{OOPS}\n No Users have Played in KDRs yet in this server.",ephemeral=True)
-
+        filtered_users = [user for user in col_users if (int(user["elo"])) != DEFAULT_ELO_RANKING]
+        filtered_users = filtered_users[:length]
 
         msg=f"The KDR Elo Ranking top {length} for this server is as follows: \n"
         rank=1
-        for player in col_users:
+        for player in filtered_users:
             playerid=player["id_player"]
             playerelo=int(player["elo"])
-            if playerelo!=DEFAULT_ELO_RANKING:
-                msg+=f"{rank} - <@{playerid}> (Elo: {playerelo})\n"
-                rank+=1
+            msg+=f"{rank} - <@{playerid}> (Elo: {playerelo})\n"
+            rank+=1
 
         await interaction.followup.send(msg,ephemeral=True)
 
