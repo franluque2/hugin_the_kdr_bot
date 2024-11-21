@@ -50,7 +50,7 @@ XP_PER_GOLD_SPENT = 2
 MAX_RPG_STAT_LEVEL = 12
 
 # level thresholds in which to give a level
-LEVEL_THRESHOLDS = [0, 2, 6, 8, 10, 14, 18, 22, 24, 28, 30]
+LEVEL_THRESHOLDS = [2, 6, 8, 10, 14, 18, 22, 24, 28, 30]
 
 # gold cost to skip a skillpick and instead gain another stack of a skill
 GOLD_COST_UPGRADE = 5
