@@ -30,7 +30,7 @@ class StatusPanel:
         await self.update_vals()
         title = f'Player Data for {self.playername} ({self.classname})'
         type = "rich"
-        description = (f'You are Currently Level {self.currlevel} ({self.currxp} XP)\n'
+        description = (f'You are Currently Level {self.currlevel+1} ({self.currxp} XP)\n'
                        f'Current Gold: {self.currgold}\n\n'
                        f'Your Sheet Link: [Character Sheet]({self.sheeturl})')
         ret_embed = Embed(title=title, type=type, description=description)
