@@ -16,7 +16,7 @@ A Bot to Run Yugioh Roguelike Experiences in Discord.
 
 Run a variable length Swiss run Yugioh Tournament with customizable Roguelike Features.
 
-Keep track of a ranked system.
+Keep track of an elo ranked system over multiple games.
 
 Run multiple tournaments, private and public, at a time.
 
