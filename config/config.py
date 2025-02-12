@@ -56,13 +56,13 @@ LEVEL_THRESHOLDS = [2, 6, 8, 10, 14, 18, 22, 24, 28, 30]
 GOLD_COST_UPGRADE = 5
 
 # gold needed per interest threshold
-GOLD_INTEREST_REQUIRED = 5
+GOLD_INTEREST_REQUIRED = 4
 
 # gold gained per interest threshold
-GOLD_INTEREST_GAINED = 2
+GOLD_INTEREST_GAINED = 1
 
 # gold gained per interest threshold with greed is good
-GOLD_INTEREST_GAINED_GREED_IS_GOOD = 4
+GOLD_INTEREST_GAINED_GREED_IS_GOOD = 2
 
 # gold gained on win
 GOLD_WIN_GAINED = 10
