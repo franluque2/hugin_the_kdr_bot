@@ -154,7 +154,7 @@ class LowSelectView(discord.ui.View):
         loot = []
         msg=f"Heya! As a new way to start your KDR with choices, you get a bit of Low Quality Class loot!, get picking\n"
         categories_class = []
-        for i in range(1,4):
+        for i in range(1,2):
             msg+=f"__**Window {i}**__\n\n"
             shopwindowitems = await get_shop_window_class(pid, sid, iid, player_class, categories_buckets_class[0])
             shopwindow = {"id": i,"name": f"Window {i}", "buckets": shopwindowitems}
