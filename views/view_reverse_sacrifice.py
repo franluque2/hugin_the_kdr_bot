@@ -32,7 +32,7 @@ class ReverseSacrificeButton(discord.ui.Button):
         await interaction.response.defer()
         statdown = self.window["statdown"]
 
-        stat=db.get_inventory_value(self.pid,self.sid,self.iid,statdown)
+        stat=await db.get_inventory_value(self.pid,self.sid,self.iid,statdown)
         stat-=3
         await db.set_inventory_value(self.pid,self.sid,self.iid,statdown,stat)
         retmsg = f"<@{self.pid}> has given up the following:\n"
@@ -136,7 +136,7 @@ class ReverseSacrificeView(discord.ui.View):
         row_buy_shown_class_count = 0
 
         for window in loot:
-            id=window["id"]
+            id=window["id"]+1
             buy_window_btn = ReverseSacrificeButton(f"Give up all things in Window {id}.", f"{id}",
                                              pid, sid, iid, status_message, status_panel_generator, thread,
                                              window)

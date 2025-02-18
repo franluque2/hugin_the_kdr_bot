@@ -26,7 +26,7 @@ class ReverseSacrificePanel:
 
         loot_to_delete=[]
 
-        for i in range(3):
+        for i in range(2):
             loot_to_delete.append({})
             loot_to_delete[i]["id"] = i
             loot_to_delete[i]["buckets"] = await get_loot_to_sacrifice(self.pid, self.sid, self.iid)
@@ -34,11 +34,30 @@ class ReverseSacrificePanel:
             loot_to_delete[i]["statdown"] = await get_stat_to_sacrifice(self.pid, self.sid, self.iid)
 
 
-
         reverse_sacrifice_view = view_reverse_sacrifice.ReverseSacrificeView()
+        msg=f"To get to the next round, you must give up some of your inventory, choose one of the following:\n"
+
+        for window in loot_to_delete:
+            msg += f"**{window['id'] + 1}**. Sacrifice:\n"
+            if window["statdown"] is not None:
+                msg += f"**-3 {window['statdown']}**\n"
+            if window["skill"] is not None:
+                skill = await db.get_skill_by_id(window["skill"])
+                msg += f"**{skill['name']}** : {skill['description']}\n"
+            for bucket in window["buckets"]:
+                if bucket["cards"] is not None:
+                    msg += f"**{bucket['id'] + 1}**. Cards:\n"
+                    for card in bucket["cards"]:
+                        msg += f"{card}\n"
+                if bucket["skills"] is not None:
+                    msg += f"**{bucket['id'] + 1}**. Skills:\n"
+                    for skill in bucket["skills"]:
+                        skillinfo = await db.get_skill_by_id(skill)
+                        msg += f"**{skillinfo['name']}** : {skillinfo['description']}\  "
+            msg += "\n"
         await reverse_sacrifice_view.create_buttons(self.pid, self.sid, self.iid, self.status_message,
                                         self.status_panel_generator, self.thread,loot_to_delete)
-        await self.thread.send("To get to the next round, you must give up some of your inventory, choose one of the following:\n", view=reverse_sacrifice_view)
+        await self.thread.send(msg, view=reverse_sacrifice_view)
         
 
         await db.set_inventory_value(self.pid, self.sid, self.iid, 'shop_stage', 8)
