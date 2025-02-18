@@ -27,7 +27,7 @@ class ReverseSacrificePanel:
         loot_to_delete=[]
 
         for i in range(3):
-            loot_to_delete[i] = {}
+            loot_to_delete.append({})
             loot_to_delete[i]["id"] = i
             loot_to_delete[i]["buckets"] = await get_loot_to_sacrifice(self.pid, self.sid, self.iid)
             loot_to_delete[i]["skill"] = await get_skill_to_sacrifice(self.pid, self.sid, self.iid)
