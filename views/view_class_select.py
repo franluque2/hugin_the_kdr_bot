@@ -71,13 +71,13 @@ class ClassButton(discord.ui.Button):
             if modifiers and (get_modifier(modifiers,KdrModifierNames.REVERSE_RUN.value) is not None):
                 await interaction.followup.send(f"Welcome to the a Reverse Run! This is the loot you will be starting with!: \n")
                 skillGiverView=SkillGiverView()
-                skillGiverView.create_skill_giver_view(self.sid,self.iid,self.pid,interaction)
+                await skillGiverView.create_skill_giver_view(self.sid,self.iid,self.pid,interaction)
                 await interaction.followup.send(f"Your Stats of STR, CON AND DEX have been set to 9/9/9 ! \n")
                 await db.set_inventory_value(self.pid, self.sid, self.iid, "CON", 9)
                 await db.set_inventory_value(self.pid, self.sid, self.iid, "DEX", 9)
                 await db.set_inventory_value(self.pid, self.sid, self.iid, "STR", 9)
                 lootGiverView=LootGiverView()
-                lootGiverView.create_loot_giving_view(self.sid,self.iid,self.pid,self.static_class_id,interaction)
+                await lootGiverView.create_loot_giving_view(self.sid,self.iid,self.pid,self.static_class_id,interaction)
 
             else:
                 lowselector = LowSelectView()
