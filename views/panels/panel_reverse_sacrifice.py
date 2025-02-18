@@ -46,11 +46,9 @@ class ReverseSacrificePanel:
                 msg += f"**{skill['name']}** : {skill['description']}\n"
             for bucket in window["buckets"]:
                 if bucket["cards"] is not None:
-                    msg += f"**{bucket['id'] + 1}**. Cards:\n"
                     for card in bucket["cards"]:
                         msg += f"{card}\n"
                 if bucket["skills"] is not None:
-                    msg += f"**{bucket['id'] + 1}**. Skills:\n"
                     for skill in bucket["skills"]:
                         skillinfo = await db.get_skill_by_id(skill)
                         msg += f"**{skillinfo['name']}** : {skillinfo['description']}\  "
