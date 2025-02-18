@@ -101,12 +101,6 @@ class ReverseSacrificeButton(discord.ui.Button):
                     shower=AdditionalLootPanel(self.pid,self.sid,self.iid,self.status_message,self.status_panel_generator,self.thread,buckets,skills)
                     await shower.get_additional_loot_panel()
         retmsg += "\n Make sure to write it down in your Character Sheet!"
-        offered_loot = await db.get_inventory_value(self.pid, self.sid, self.iid, "offered_loot")
-        for offer in offered_loot[0]:
-            if offer["name"] == self.window["name"]:
-                offered_loot[0].remove(offer)
-        await db.set_inventory_value(self.pid, self.sid, self.iid, "offered_loot", offered_loot)
-
         await self.status_message.edit(content=f'<@{self.pid}>',
                                        embed=await self.status_panel_generator.get_message())
         await interaction.followup.send(retmsg)
