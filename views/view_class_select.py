@@ -387,3 +387,6 @@ class LootGiverView(discord.ui.View):
         for msg_overflow in msg_ov[:-1]:
           await interaction.followup.send(msg_overflow)
         await interaction.followup.send(msg_ov[-1:][0], view=self)
+        if isinstance(interaction.channel, discord.Thread):
+            await interaction.channel.edit(archived=True, locked=True)
+
