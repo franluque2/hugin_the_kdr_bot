@@ -47,7 +47,7 @@ class ReverseSacrificePanel:
             for bucket in window["buckets"]:
                 if bucket["cards"] is not None:
                     for card in bucket["cards"]:
-                        msg += f"{card}\ "
+                        msg += f"{card} \ "
                 if bucket["skills"] is not None:
                     for skill in bucket["skills"]:
                         skillinfo = await db.get_skill_by_id(skill)
