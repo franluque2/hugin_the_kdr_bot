@@ -24,6 +24,7 @@ from views.panels.panel_buying import BuyPanel
 from views.panels.panel_tips import TipPanel
 from views.panels.panel_end_shop_phase import EndShopPanel
 from views.panels.shopkeeper_intro_panel import ShopIntroPanel
+from views.panels.panel_reverse_sacrifice import ReverseSacrificePanel
 
 from config.config import LEVEL_THRESHOLDS, XP_PER_ROUND
 
@@ -130,7 +131,12 @@ class KDRShop(Cog):
             await thread.send("Mimic gets handled here")
             return
 
-        if special_flags and (get_modifier(special_flags,KdrModifierNames.REVERSE_RUN.value) is not None): #Swap normal shop for Reverse Run "Shop"
+        modifiers = await db.get_instance_value(sid, iid, 'modifiers')
+
+        if modifiers and (get_modifier(modifiers,KdrModifierNames.REVERSE_RUN.value) is not None): #Swap normal shop for Reverse Run "Shop"
+            reverter=ReverseSacrificePanel(pid,sid,iid,status_message,status_panel_generator,thread)
+            await reverter.get_sacrifice_panel()
+            shop_stage=9
             return
 
         # Increase xp
