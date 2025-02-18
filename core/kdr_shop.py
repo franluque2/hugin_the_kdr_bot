@@ -5,7 +5,8 @@ from discord.ext.commands.bot import Bot
 from discord import app_commands
 from discord import Interaction, InteractionResponse
 from discord import ChannelType, AllowedMentions
-from core.kdr_data import WinType, SpecialClassHandling, SpecialSkillHandling
+from core.kdr_data import WinType, SpecialClassHandling, SpecialSkillHandling, KdrModifierNames
+from core.kdr_modifiers import get_modifier
 
 import core.kdr_statics as statics
 import core.kdr_errors as kdr_errors
@@ -127,6 +128,9 @@ class KDRShop(Cog):
         if SpecialClassHandling.CLASS_MIMIC.value in special_flags:
             # TODO, handle mimic
             await thread.send("Mimic gets handled here")
+            return
+
+        if special_flags and (get_modifier(special_flags,KdrModifierNames.REVERSE_RUN.value) is not None): #Swap normal shop for Reverse Run "Shop"
             return
 
         # Increase xp

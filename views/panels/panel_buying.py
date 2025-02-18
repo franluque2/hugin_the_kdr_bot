@@ -3,7 +3,9 @@ from views.panels.panel_status import StatusPanel
 from core import kdr_db as db
 from core.kdr_data import SpecialSkillHandling
 from views.view_buying import BuyView
-from core.kdr_data import categories_buckets_generic, categories_buckets_class, categories_secret, type_converter
+from core.kdr_data import categories_buckets_generic, categories_buckets_class, categories_secret, type_converter, KdrModifierNames
+from core.kdr_modifiers import get_modifier
+
 from config.config import BANLIST_LINK, LEVEL_THRESHOLDS
 import random
 
@@ -222,6 +224,13 @@ async def get_shop_window_class(pid, sid, iid, cid_echo, category):
     possible_buckets_master = await db.get_base_class_value(cid, "bucket_list")
     possible_buckets = list(possible_buckets_master[category[0]])
 
+    modifiers=await db.get_instance_value(sid,iid,"modifiers")
+
+    if modifiers and (get_modifier(modifiers,KdrModifierNames.IGNORE_CLASSES.value) is not None):
+        classes=db.get_all_base_classes()
+        for c in classes:
+            if c["base"]!=cid:
+                possible_buckets+=c["bucket_list"][category[0]]
     returnbuckets = []
 
     for bucket in buckets_taken:

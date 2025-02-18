@@ -38,13 +38,18 @@ class KdrModifierNames(Enum):
     GOLD_PER_ROUND="GOLDPERROUND"
     NO_INTEREST="NOINTEREST"
     NO_TRAINING="SKIPGYM"
+    IGNORE_CLASSES="ANARCHY"
+    REVERSE_RUN="REVERSERUN"
 
 #Whether the kdr modifiers return a value
 KDR_MODIFIERS = {
     "USEITORLOSEIT": False,
     "GOLDPERROUND": True,
     "NOINTEREST": False,
-    "SKIPGYM": False
+    "SKIPGYM": False,
+    "ANARCHY": False,
+    "REVERSERUN": False,
+
 }
 
 type_converter = {
