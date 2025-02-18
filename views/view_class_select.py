@@ -248,25 +248,8 @@ class SkillGiverView(discord.ui.View):
 
             skillnum+=1
             if skillnum>=10:
-                break
-            
-
-        msg_lines=msg.split("\n")
-        msg_ov=[]
-        buffer=""
-        for line in msg_lines:
-            if len(buffer+line+"\n")>1900:
-                msg_ov.append(buffer)
-                buffer=""
-            buffer+=line
-            buffer+="\n"
-           
-        if len(buffer)>1:
-            msg_ov.append(buffer)
-
-        for msg_overflow in msg_ov[:-1]:
-          await interaction.followup.send(msg_overflow)
-        await interaction.followup.send(msg_ov[-1:][0], view=self,embeds=embeds)
+                break        
+        await interaction.followup.send("", view=self,embeds=embeds)
 
 
 class LootGiverView(discord.ui.View):
