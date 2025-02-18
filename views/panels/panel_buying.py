@@ -229,7 +229,7 @@ async def get_shop_window_class(pid, sid, iid, cid_echo, category):
     if modifiers and (get_modifier(modifiers,KdrModifierNames.IGNORE_CLASSES.value) is not None):
         classes=await db.get_all_base_classes()
         for c in classes:
-            if c["base"]!=cid:
+            if c["id"]!=cid:
                 possible_buckets+=c["bucket_list"][category[0]]
     returnbuckets = []
 
