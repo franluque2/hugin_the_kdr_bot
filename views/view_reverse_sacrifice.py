@@ -136,9 +136,8 @@ class ReverseSacrificeView(discord.ui.View):
         row_buy_shown_class_count = 0
 
         for window in loot:
-            raw_category = window["name"]
             id=window["id"]
-            buy_window_btn = ReverseSacrificeButton(f"Give up all things in Window {id}.", f"{raw_category}",
+            buy_window_btn = ReverseSacrificeButton(f"Give up all things in Window {id}.", f"{id}",
                                              pid, sid, iid, status_message, status_panel_generator, thread,
                                              window)
             buy_window_btn.row = 0
