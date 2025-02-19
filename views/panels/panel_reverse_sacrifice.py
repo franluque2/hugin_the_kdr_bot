@@ -52,6 +52,7 @@ class ReverseSacrificePanel:
                     for skill in bucket["skills"]:
                         skillinfo = await db.get_skill_by_id(skill)
                         msg += f"**{skillinfo['name']}** : {skillinfo['description']}\  "
+                msg += "\n"
             msg += "\n"
         await reverse_sacrifice_view.create_buttons(self.pid, self.sid, self.iid, self.status_message,
                                         self.status_panel_generator, self.thread,loot_to_delete)
