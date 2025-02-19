@@ -120,7 +120,7 @@ class ReverseSacrificeButton(discord.ui.Button):
 
 
 class ReverseSacrificeView(discord.ui.View):
-    def __init__(self, *, timeout=1800):
+    def __init__(self, *, timeout=7200):
         super().__init__(timeout=timeout)
 
     async def create_buttons(self, pid: str, sid, iid,
