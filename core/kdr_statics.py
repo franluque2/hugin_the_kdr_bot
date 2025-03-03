@@ -212,8 +212,19 @@ async def get_player_data(interaction=Interaction):
 async def get_class_selection(sid, iid):
     offered = []
     offered_classes = await db.get_instance_list(sid, iid, 'offered_classes')
-    class_list = list(await db.get_all_base_classes())
-    static_classes = list(await db.get_all_static_classes())
+    class_list=[]
+    modifiers = await db.get_instance_value(sid, iid, "modifiers")
+    if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+        class_list = list(await db.get_all_base_classes(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
+    else:
+        class_list = list(await db.get_all_base_classes())
+
+    static_classes = []
+    if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+        class_list = list(await db.get_all_static_classes(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
+    else:
+        class_list = list(await db.get_all_static_classes())
+
     choicenum = await db.get_instance_value(sid,iid,'class_choices')
     if choicenum is None:
         choicenum=1

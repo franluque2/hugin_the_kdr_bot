@@ -222,7 +222,13 @@ class SkillGiverView(discord.ui.View):
         embeds=[]
         skillnum=0
         
-        generic_skills = list(await db.get_all_generic_skills())
+        generic_skills=[]
+        modifiers = await db.get_instance_value(self.sid, self.iid, "modifiers")
+        if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+            generic_skills = list(await db.get_all_generic_skills(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
+        else:
+            generic_skills = list(await db.get_all_generic_skills())
+
         random.shuffle(generic_skills)
         for skill in generic_skills:
             given_skills.append(skill)

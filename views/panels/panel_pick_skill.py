@@ -1,9 +1,10 @@
 from random import shuffle
 from discord import Message, Thread, Embed
 from core import kdr_db as db
+from core.kdr_modifiers import get_modifier
 from views.panels.panel_status import StatusPanel
 from views.view_skill_select import SkillSelectView
-from core.kdr_data import SpecialSkillHandling
+from core.kdr_data import KdrModifierNames, SpecialSkillHandling
 from config.config import LEVEL_THRESHOLDS, GOLD_PER_XP
 import views.panels.panel_training as panel_training
 
@@ -24,6 +25,7 @@ class PickSkillPanel:
         xp = await db.get_inventory_value(self.pid, self.sid, self.iid, "XP")
         playerskills = list(await db.get_inventory_value(self.pid, self.sid, self.iid, "skills"))
         gxp = GOLD_PER_XP
+        modifiers=await db.get_instance_value(self.sid, self.iid, "modifiers")
 
         treasures = list(await db.get_inventory_value(self.pid, self.sid, self.iid, "treasures"))
         if SpecialSkillHandling.SKILL_SILVER_TONGUE.value in special_flags:
@@ -41,7 +43,11 @@ class PickSkillPanel:
             embeds=[]
 
             if len(offered_skills) == 0:
-                generic_skills = list(await db.get_all_generic_skills())
+                if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+                    generic_skills = list(await db.get_all_generic_skills(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
+                else:
+                    generic_skills = list(await db.get_all_generic_skills())
+
                 shuffle(generic_skills)
                 for skill in generic_skills:
                     if playerskills.count(skill['id']) < skill['stackable_count']:

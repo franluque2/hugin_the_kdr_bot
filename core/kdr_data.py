@@ -40,6 +40,7 @@ class KdrModifierNames(Enum):
     NO_TRAINING="SKIPGYM"
     IGNORE_CLASSES="ANARCHY"
     REVERSE_RUN="REVERSERUN"
+    ALTERNATE_FORMAT="ALTFORMAT"
 
 #Whether the kdr modifiers return a value
 KDR_MODIFIERS = {
@@ -49,6 +50,7 @@ KDR_MODIFIERS = {
     "SKIPGYM": False,
     "ANARCHY": False,
     "REVERSERUN": False,
+    "ALTFORMAT": True
 
 }
 

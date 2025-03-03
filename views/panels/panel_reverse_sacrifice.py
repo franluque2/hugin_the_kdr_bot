@@ -51,7 +51,8 @@ class ReverseSacrificePanel:
                 if bucket["skills"] is not None:
                     for skill in bucket["skills"]:
                         skillinfo = await db.get_skill_by_id(skill)
-                        msg += f"**{skillinfo['name']}** : {skillinfo['description']}\  "
+                        msg += f"**{skillinfo['name']}** : {skillinfo['description']}\ "
+                msg = msg[:-2]
                 msg += "\n"
             msg += "\n"
         await reverse_sacrifice_view.create_buttons(self.pid, self.sid, self.iid, self.status_message,

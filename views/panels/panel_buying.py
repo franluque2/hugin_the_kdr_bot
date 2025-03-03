@@ -176,7 +176,11 @@ class BuyPanel:
 
 async def get_shop_window_generic(pid, sid, iid, category):
     buckets_taken = list(await db.get_inventory_value(pid, sid, iid, "loot"))
-    possible_buckets = list(await db.get_bucket_category(category[0]))
+    modifiers = await db.get_instance_value(sid, iid, "modifiers")
+    if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+        possible_buckets = list(await db.get_bucket_category(category[0], get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
+    else:
+        possible_buckets = list(await db.get_bucket_category(category[0]))
     returnbuckets = []
 
     for bucket in buckets_taken:
@@ -198,7 +202,11 @@ async def get_shop_window_generic(pid, sid, iid, category):
 
 async def get_shop_window_secret(pid, sid, iid, category):
     buckets_taken = list(await db.get_inventory_value(pid, sid, iid, "loot"))
-    possible_buckets = list(await db.get_bucket_category(category[0]))
+    modifiers = await db.get_instance_value(sid, iid, "modifiers")
+    if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+        possible_buckets = list(await db.get_bucket_category(category[0], get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
+    else:
+        possible_buckets = list(await db.get_bucket_category(category[0]))
     returnbuckets = []
 
     for bucket in buckets_taken:
@@ -227,7 +235,11 @@ async def get_shop_window_class(pid, sid, iid, cid_echo, category):
     modifiers=await db.get_instance_value(sid,iid,"modifiers")
 
     if modifiers and (get_modifier(modifiers,KdrModifierNames.IGNORE_CLASSES.value) is not None):
-        classes=await db.get_all_base_classes()
+        classes=None
+        if modifiers and (get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None):
+            classes=await db.get_all_base_classes(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value))
+        else:
+            classes=await db.get_all_base_classes()
         for c in classes:
             if c["id"]!=cid:
                 possible_buckets+=c["bucket_list"][category[0]]

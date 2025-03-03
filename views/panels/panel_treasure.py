@@ -1,7 +1,8 @@
 from discord import Message, Thread, Embed
+from core.kdr_modifiers import get_modifier
 from views.panels.panel_status import StatusPanel
 from core import kdr_db as db
-from core.kdr_data import SpecialSkillHandling, SpecialClassHandling, rarity_converter
+from core.kdr_data import KdrModifierNames, SpecialSkillHandling, SpecialClassHandling, rarity_converter
 from views.view_treasures import TreasureView
 from views.panels.panel_buying import BuyPanel
 from views.panels.shopkeeper_intro_panel import ShopIntroPanel
@@ -26,7 +27,12 @@ class TreasurePanel():
         shop_stage = player_data["shop_stage"]
 
         if len(offered_treasure) == 0:
-            offered_treasure = await get_random_treasures()
+            modifiers = await db.get_instance_value(self.sid, self.iid, "modifiers")
+            if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+                offered_treasure = await get_random_treasures(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value))
+            else:
+                offered_treasure = await get_random_treasures()
+
             await db.set_inventory_value(self.pid, self.sid, self.iid, "offered_treasure", offered_treasure)
 
         treasuresgivenout = False
@@ -106,13 +112,13 @@ class TreasurePanel():
             await self.thread.send(content=msg, view=treasurer,embeds=embeds)
 
 
-async def get_random_treasures():
+async def get_random_treasures(altformat=None):
     treasures = []
     chances = []
-    common_treasures = await db.get_treasures_by_rarity("common")
-    rare_treasures = await db.get_treasures_by_rarity("rare")
-    super_rare_treasures = await db.get_treasures_by_rarity("super_rare")
-    ultra_rare_treasures = await db.get_treasures_by_rarity("ultra_rare")
+    common_treasures = await db.get_treasures_by_rarity("common",altformat)
+    rare_treasures = await db.get_treasures_by_rarity("rare",altformat)
+    super_rare_treasures = await db.get_treasures_by_rarity("super_rare",altformat)
+    ultra_rare_treasures = await db.get_treasures_by_rarity("ultra_rare",altformat)
 
     for i in common_treasures:
         treasures.append(i)

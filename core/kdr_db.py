@@ -185,8 +185,10 @@ async def check_class_picked(sid, iid, kdr_class):
     return False
 
 
-async def get_all_base_classes():
-    return coll_classes_base.find()
+async def get_all_base_classes(altformat=None):
+    if altformat is None:
+        return coll_classes_base.find({altformat: {"$exists": False}})
+    return coll_classes_base.find({altformat: altformat})
 
 
 async def get_base_class_value(cid, key):
@@ -198,8 +200,10 @@ async def get_base_class_value(cid, key):
 """ Static Classes """
 
 
-async def get_all_static_classes():
-    return coll_classes_static.find()
+async def get_all_static_classes(altformat=None):
+    if altformat is None:
+        return coll_classes_static.find({altformat: {"$exists": False}})
+    return coll_classes_static.find({altformat: altformat})
 
 
 async def get_static_class(cid):
@@ -227,8 +231,10 @@ async def get_bucket_value(bid, key):
     return coll_buckets.find_one({'id': bid}).get(key)
 
 
-async def get_all_buckets():
-    return coll_buckets.find()
+async def get_all_buckets(altformat=None):
+    if altformat is None:
+        return coll_buckets.find({altformat: {"$exists": False}})
+    return coll_buckets.find({altformat: altformat})
 
 
 """"""
@@ -236,7 +242,9 @@ async def get_all_buckets():
 """ Bucket Categories """
 
 
-async def get_bucket_category(bid):
+async def get_bucket_category(bid, altformat=None):
+    if altformat is None:
+        return coll_buckets_generic.find_one({altformat: {"$exists": False}}).get(bid)
     return coll_buckets_generic.find_one({}).get(bid)
 
 
@@ -257,8 +265,10 @@ async def get_skill(sid):
     return coll_skills.find_one({'id': sid})
 
 
-async def get_all_generic_skills():
-    return coll_skills_generic.find()
+async def get_all_generic_skills(altformat=None):
+    if altformat is None:
+        return coll_skills_generic.find({altformat: {"$exists": False}})
+    return coll_skills_generic.find({altformat: altformat})
 
 
 async def get_skill_by_id(skill_id):
@@ -286,8 +296,11 @@ async def get_treasure_by_name(name):
     return coll_treasures.find_one({'name': name})
 
 
-async def get_treasures_by_rarity(rarity):
+async def get_treasures_by_rarity(rarity, altformat=None):
+    if altformat is None:
+        return coll_treasures.find({'rarity': rarity, altformat: {"$exists": False}})
     return coll_treasures.find({'rarity': rarity})
+
 
 
 async def get_treasure_value(tid, key):
