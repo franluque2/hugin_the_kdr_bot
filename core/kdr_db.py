@@ -267,6 +267,7 @@ async def get_skill(sid):
 
 async def get_all_generic_skills(altformat=None):
     if altformat is None:
+        print("GOT HERE")
         return coll_skills_generic.find({altformat: {"$exists": False}})
     return coll_skills_generic.find({altformat: altformat})
 
