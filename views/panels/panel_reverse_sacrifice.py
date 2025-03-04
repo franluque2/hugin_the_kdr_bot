@@ -63,12 +63,35 @@ class ReverseSacrificePanel:
         await db.set_inventory_value(self.pid, self.sid, self.iid, 'shop_stage', 8)
 
 
+def get_prioritized_sample(buckets_taken, low_qual, mid_qual, high_qual, k=4):
+    high_candidates = [e for e in buckets_taken if e in high_qual]
+    mid_candidates = [e for e in buckets_taken if e in mid_qual]
+    low_candidates = [e for e in buckets_taken if e in low_qual]
+
+    prioritized_groups = [high_candidates, mid_candidates, low_candidates]
+
+    for group in prioritized_groups:
+        if group:
+            while True:
+                ranchoices = random.sample(population=buckets_taken, k=k)
+                if any(e in group for e in ranchoices):
+                    return ranchoices
+    return random.sample(population=buckets_taken, k=k)
 
 async def get_loot_to_sacrifice(pid, sid, iid):
     buckets_taken = list(await db.get_inventory_value(pid, sid, iid, "loot"))
     returnbuckets = []
+    playerclass=await db.get_inventory_value(pid, sid, iid, "class")
+    cid = await db.get_static_class_value(playerclass, "base")
+    buckets_taken = list(await db.get_inventory_value(pid, sid, iid, "loot"))
+    possible_buckets_master = await db.get_base_class_value(cid, "bucket_list")
+    classlowqual = list(possible_buckets_master["low_qual"])
+    classmidqual = list(possible_buckets_master["mid_qual"])
+    classhighqual = list(possible_buckets_master["high_qual"])
 
-    ranchoices = random.sample(population=buckets_taken, k=4)
+    ranchoices = get_prioritized_sample(buckets_taken, classlowqual, classmidqual,
+                                        classhighqual, k=4)
+
 
     for bucket in ranchoices:
         retbucket = await db.get_bucket(bucket)
