@@ -230,7 +230,6 @@ async def get_class_selection(sid, iid):
         choicenum=1
     random.shuffle(class_list)
 
-    print(class_list)
     for c in class_list:
         if not (len(offered) < choicenum and len(static_classes) - len(offered_classes) > 0):
             break
