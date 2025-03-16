@@ -202,8 +202,6 @@ async def get_base_class_value(cid, key):
 
 async def get_all_static_classes(altformat=None):
     if altformat is None:
-        print("GOT TO HERE")
-        print(coll_classes_static.find({"altformat": {"$exists": False}}))
         return coll_classes_static.find({"altformat": {"$exists": False}})
     return coll_classes_static.find({"altformat": altformat})
 

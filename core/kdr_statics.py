@@ -221,15 +221,16 @@ async def get_class_selection(sid, iid):
 
     static_classes = []
     if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
-        class_list = list(await db.get_all_static_classes(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
+        static_classes = list(await db.get_all_static_classes(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
     else:
-        class_list = list(await db.get_all_static_classes())
+        static_classes = list(await db.get_all_static_classes())
 
     choicenum = await db.get_instance_value(sid,iid,'class_choices')
     if choicenum is None:
         choicenum=1
     random.shuffle(class_list)
 
+    print(class_list)
     for c in class_list:
         if not (len(offered) < choicenum and len(static_classes) - len(offered_classes) > 0):
             break
