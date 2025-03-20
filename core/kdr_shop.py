@@ -148,6 +148,9 @@ class KDRShop(Cog):
                 await db.set_inventory_value(pid, sid, iid, 'shop_stage', shop_stage)
                 await status_message.edit(content=f'<@{pid}>', embed=await status_panel_generator.get_message())
             #cleaning up just incase last shop phase was incomplete
+            else:
+                shop_stage += 1
+                await db.set_inventory_value(pid, sid, iid, 'shop_stage', shop_stage)
             await db.set_inventory_value(pid, sid, iid, "offered_loot", [])
 
         if shop_stage == 2:
