@@ -232,29 +232,49 @@ async def get_shop_window_class(pid, sid, iid, cid_echo, category):
     possible_buckets_master = await db.get_base_class_value(cid, "bucket_list")
     possible_buckets = list(possible_buckets_master[category[0]])
 
-    modifiers=await db.get_instance_value(sid,iid,"modifiers")
+    modifiers = await db.get_instance_value(sid, iid, "modifiers")
+    blacklist = []
 
-    if modifiers and (get_modifier(modifiers,KdrModifierNames.IGNORE_CLASSES.value) is not None):
-        classes=None
-        if modifiers and (get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None):
-            classes=await db.get_all_base_classes(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value))
+    # Handle blacklist modifier
+    if modifiers and get_modifier(modifiers, KdrModifierNames.BLACKLIST_CLASS.value) is not None:
+        blacklist = get_modifier(modifiers, KdrModifierNames.BLACKLIST_CLASS.value).split(";")
+
+    # Handle IGNORE_CLASSES modifier
+    if modifiers and get_modifier(modifiers, KdrModifierNames.IGNORE_CLASSES.value) is not None:
+        classes = None
+        if modifiers and get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+            classes = await db.get_all_base_classes(get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value))
         else:
-            classes=await db.get_all_base_classes()
+            classes = await db.get_all_base_classes()
+
         for c in classes:
-            if c["id"]!=cid:
-                possible_buckets+=c["bucket_list"][category[0]]
+            if c["id"] != cid and c["id"] not in blacklist:
+                possible_buckets += c["bucket_list"][category[0]]
+    else:
+        # Filter out blacklisted buckets for the current base class
+        if cid in blacklist:
+            possible_buckets = []
+        else:
+            possible_buckets = [
+                bucket for bucket in possible_buckets
+                if bucket not in blacklist
+            ]
+
     returnbuckets = []
 
+    # Remove already taken buckets
     for bucket in buckets_taken:
         if bucket in possible_buckets:
             possible_buckets.remove(bucket)
 
+    # If possible buckets are fewer than the required amount, return all
     if len(possible_buckets) <= category[2]:
         for bucket in possible_buckets:
             retbucket = await db.get_bucket(bucket)
             returnbuckets.append(retbucket)
         return returnbuckets
 
+    # Randomly select buckets if more than required
     ranchoices = random.sample(population=possible_buckets, k=category[2])
     for bucket in ranchoices:
         retbucket = await db.get_bucket(bucket)

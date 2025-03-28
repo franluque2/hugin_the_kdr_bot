@@ -41,6 +41,8 @@ class KdrModifierNames(Enum):
     IGNORE_CLASSES="ANARCHY"
     REVERSE_RUN="REVERSERUN"
     ALTERNATE_FORMAT="ALTFORMAT"
+    BLACKLIST_CLASS="BLACKLIST"
+    ALLOW_DUPLICATES="ALLOWDUPES"
 
 #Whether the kdr modifiers return a value
 KDR_MODIFIERS = {
@@ -50,7 +52,9 @@ KDR_MODIFIERS = {
     "SKIPGYM": False,
     "ANARCHY": False,
     "REVERSERUN": False,
-    "ALTFORMAT": True
+    "ALTFORMAT": True,
+    "BLACKLIST": True,
+    "ALLOWDUPES": False
 
 }
 

@@ -64,10 +64,13 @@ class ClassButton(discord.ui.Button):
                 await db.set_inventory_value(self.pid, self.sid, self.iid, "shop_phase", False) # Mimics do not get a shop phase
 
         await db.set_inventory_value(self.pid, self.sid, self.iid, "class", self.static_class_id)
-        await db.set_instance_value(self.sid, self.iid, 'picked_classes', self.static_class_id, '$push')
+
+        modifiers=await db.get_instance_value(self.sid,self.iid,"modifiers")
+
+        if not (modifiers and (get_modifier(modifiers,KdrModifierNames.ALLOW_DUPLICATES.value) is not None)):
+            await db.set_instance_value(self.sid, self.iid, 'picked_classes', self.static_class_id, '$push')
 
         if not (SpecialClassHandling.CLASS_MIMIC.value in (static_class_info["unique_effects"])): #mimics do not get loot
-            modifiers=await db.get_instance_value(self.sid,self.iid,"modifiers")
             if modifiers and (get_modifier(modifiers,KdrModifierNames.REVERSE_RUN.value) is not None):
                 await interaction.followup.send(f"Welcome to the a Reverse Run! This is the loot you will be starting with!: \n")
                 skillGiverView=SkillGiverView()

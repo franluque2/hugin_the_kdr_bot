@@ -185,10 +185,23 @@ async def check_class_picked(sid, iid, kdr_class):
     return False
 
 
-async def get_all_base_classes(altformat=None):
-    if altformat is None:
-        return coll_classes_base.find({"altformat": {"$exists": False}})
-    return coll_classes_base.find({"altformat": altformat})
+async def get_all_base_classes(altformat=None, blacklist=None):
+    if blacklist is None:
+        blacklist = []
+
+    query = {"altformat": {"$exists": False}} if altformat is None else {"altformat": altformat}
+    base_classes = coll_classes_base.find(query)
+
+    # Filter out blacklisted classes
+    filtered_classes = []
+    for base_class in base_classes:
+        if base_class['id'] in blacklist:
+            continue
+        if all(echo in blacklist for echo in base_class.get('echos', [])):
+            continue
+        filtered_classes.append(base_class)
+
+    return filtered_classes
 
 
 async def get_base_class_value(cid, key):
@@ -200,10 +213,23 @@ async def get_base_class_value(cid, key):
 """ Static Classes """
 
 
-async def get_all_static_classes(altformat=None):
-    if altformat is None:
-        return coll_classes_static.find({"altformat": {"$exists": False}})
-    return coll_classes_static.find({"altformat": altformat})
+async def get_all_static_classes(altformat=None, blacklist=None):
+    if blacklist is None:
+        blacklist = []
+
+    query = {"altformat": {"$exists": False}} if altformat is None else {"altformat": altformat}
+    static_classes = coll_classes_static.find(query)
+
+    # Filter out blacklisted classes
+    filtered_classes = []
+    for static_class in static_classes:
+        if static_class['id'] in blacklist:
+            continue
+        if static_class.get('base') in blacklist:
+            continue
+        filtered_classes.append(static_class)
+
+    return filtered_classes
 
 
 async def get_static_class(cid):

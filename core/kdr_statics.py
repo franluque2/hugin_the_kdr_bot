@@ -212,22 +212,30 @@ async def get_player_data(interaction=Interaction):
 async def get_class_selection(sid, iid):
     offered = []
     offered_classes = await db.get_instance_list(sid, iid, 'offered_classes')
-    class_list=[]
+    class_list = []
     modifiers = await db.get_instance_value(sid, iid, "modifiers")
-    if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
-        class_list = list(await db.get_all_base_classes(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
-    else:
-        class_list = list(await db.get_all_base_classes())
 
+    # Check for blacklist modifier
+    blacklist = []
+    if modifiers and get_modifier(modifiers, KdrModifierNames.BLACKLIST_CLASS.value) is not None:
+        blacklist = get_modifier(modifiers, KdrModifierNames.BLACKLIST_CLASS.value).split(";")
+
+    # Fetch base classes
+    if modifiers and get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+        class_list = list(await db.get_all_base_classes(get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value), blacklist))
+    else:
+        class_list = list(await db.get_all_base_classes(blacklist=blacklist))
+
+    # Fetch static classes
     static_classes = []
-    if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
-        static_classes = list(await db.get_all_static_classes(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
+    if modifiers and get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+        static_classes = list(await db.get_all_static_classes(get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value), blacklist))
     else:
-        static_classes = list(await db.get_all_static_classes())
+        static_classes = list(await db.get_all_static_classes(blacklist=blacklist))
 
-    choicenum = await db.get_instance_value(sid,iid,'class_choices')
+    choicenum = await db.get_instance_value(sid, iid, 'class_choices')
     if choicenum is None:
-        choicenum=1
+        choicenum = 1
     random.shuffle(class_list)
 
     for c in class_list:
@@ -237,7 +245,8 @@ async def get_class_selection(sid, iid):
             offered.append(c['id'])
             offered_classes.append(c['id'])
 
-    await db.set_instance_value(sid, iid, 'offered_classes', offered_classes)
+    if not (modifiers and get_modifier(modifiers, KdrModifierNames.ALLOW_DUPLICATES.value) is not None):
+        await db.set_instance_value(sid, iid, 'offered_classes', offered_classes)
     return offered
 
 
