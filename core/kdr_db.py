@@ -271,7 +271,7 @@ async def get_all_buckets(altformat=None):
 async def get_bucket_category(bid, altformat=None):
     if altformat is None:
         return coll_buckets_generic.find_one({"altformat": {"$exists": False}}).get(bid)
-    return coll_buckets_generic.find_one({}).get(bid)
+    return coll_buckets_generic.find_one({"altformat": altformat}).get(bid)
 
 
 async def get_bucket_category_value(bid, key):
