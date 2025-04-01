@@ -269,9 +269,13 @@ async def get_all_buckets(altformat=None):
 
 
 async def get_bucket_category(bid, altformat=None):
-    if altformat is None:
-        return coll_buckets_generic.find_one({"altformat": {"$exists": False}}).get(bid)
-    return coll_buckets_generic.find_one({"altformat": altformat}).get(bid)
+    try:
+        if altformat is None:
+            return coll_buckets_generic.find_one({"altformat": {"$exists": False}}).get(bid)
+        return coll_buckets_generic.find_one({"altformat": altformat}).get(bid)
+    except Exception as e:
+        print(f"Error retrieving bucket category: {e}")
+        return None
 
 
 async def get_bucket_category_value(bid, key):
