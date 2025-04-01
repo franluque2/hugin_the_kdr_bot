@@ -275,7 +275,7 @@ async def get_bucket_category(bid, altformat=None):
         return coll_buckets_generic.find_one({"altformat": altformat}).get(bid)
     except Exception as e:
         print(f"Error retrieving bucket category: {e}")
-        return None
+        return []
 
 
 async def get_bucket_category_value(bid, key):
