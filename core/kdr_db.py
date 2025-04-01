@@ -325,7 +325,7 @@ async def get_treasure_by_name(name):
 async def get_treasures_by_rarity(rarity, altformat=None):
     if altformat is None:
         return coll_treasures.find({'rarity': rarity, "altformat": {"$exists": False}})
-    return coll_treasures.find({'rarity': rarity})
+    return coll_treasures.find({'rarity': rarity, "altformat": altformat})
 
 
 
