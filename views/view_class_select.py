@@ -7,6 +7,7 @@ from core.kdr_modifiers import get_modifier
 import random
 from views.panels.panel_treasure import get_random_treasures
 from views.panels.panel_buying import get_shop_window_class, get_shop_window_generic
+from core.kdr_db import get_class_bucket_categories, get_generic_bucket_categories
 
 from discord import Embed
 
@@ -172,10 +173,19 @@ class LowSelectView(discord.ui.View):
     async def create_low_view_picking(self, sid, iid, pid, player_class, interaction):
         loot = []
         msg=f"Heya! As a way to start your KDR with choices, you get a bit of Special Class loot!, get picking\n"
-        categories_class = []
-        for i in range(1,3):
+
+        # Fetch modifiers and determine kdr_format
+        modifiers = await db.get_instance_value(sid, iid, "modifiers")
+        kdr_format = None
+        if modifiers and get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+            kdr_format = get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value)
+
+        # Fetch categories dynamically based on kdr_format
+        categories_class = await get_class_bucket_categories(kdr_format)
+
+        for i in range(1, 3):
             msg+=f"__**Window {i}**__\n\n"
-            shopwindowitems = await get_shop_window_class(pid, sid, iid, player_class, categories_buckets_class[0])
+            shopwindowitems = await get_shop_window_class(pid, sid, iid, player_class, categories_class[0])
             shopwindow = {"id": i,"name": f"Window {i}", "buckets": shopwindowitems}
             for bucket in shopwindowitems:
                 if bucket["cards"] is not None:
