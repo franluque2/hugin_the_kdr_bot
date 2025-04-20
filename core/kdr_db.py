@@ -4,7 +4,7 @@ from config.config import DB_ADDRESS, DB_KEY_SERVER, \
     PATH_STATIC_CLASSES, PATH_BASE_CLASSES, \
     PATH_BUCKETS, PATH_GENERIC_BUCKETS, PATH_CLASS_SKILLS, \
     PATH_TREASURES, PATH_GENERIC_SKILLS, DEFAULT_ELO_RANKING
-from kdr_data import categories_buckets_generic, categories_buckets_class, categories_secret
+from core.kdr_data import categories_buckets_generic, categories_buckets_class, categories_secret
 
 from json import load as json_load
 
