@@ -172,21 +172,33 @@ class LowSelectView(discord.ui.View):
 
     async def create_low_view_picking(self, sid, iid, pid, player_class, interaction):
         loot = []
-        msg=f"Heya! As a way to start your KDR with choices, you get a bit of Special Class loot!, get picking\n"
+        msg = f"Heya! As a way to start your KDR with choices, you get a bit of Special Class loot!, get picking\n"
 
-        # Fetch modifiers and determine kdr_format
         modifiers = await db.get_instance_value(sid, iid, "modifiers")
         kdr_format = None
         if modifiers and get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
             kdr_format = get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value)
 
-        # Fetch categories dynamically based on kdr_format
         categories_class = await get_class_bucket_categories(kdr_format)
 
+        selected_bucket_ids = set()
+
         for i in range(1, 3):
-            msg+=f"__**Window {i}**__\n\n"
-            shopwindowitems = await get_shop_window_class(pid, sid, iid, player_class, categories_class[0])
-            shopwindow = {"id": i,"name": f"Window {i}", "buckets": shopwindowitems}
+            msg += f"__**Window {i}**__\n\n"
+            shopwindowitems = []
+
+            for i in range(10):  
+                potential_items = await get_shop_window_class(pid, sid, iid, player_class, categories_class[0])
+                unique_items = [item for item in potential_items if item["id"] not in selected_bucket_ids]
+
+                if unique_items:
+                    shopwindowitems = unique_items[:categories_class[0][2]]  # Limit to the required number of buckets
+                    break
+
+            for bucket in shopwindowitems:
+                selected_bucket_ids.add(bucket["id"])
+
+            shopwindow = {"id": i, "name": f"Window {i}", "buckets": shopwindowitems}
             for bucket in shopwindowitems:
                 if bucket["cards"] is not None:
                     for card in bucket["cards"][:-1]:
@@ -202,25 +214,26 @@ class LowSelectView(discord.ui.View):
 
                 msg += f"\n"
             loot.append(shopwindow)
+
         for c in loot:
-            button = LowQualButton(f'{c["name"]}', f'{c["id"]}', player_class, pid, sid, iid,c["buckets"])
+            button = LowQualButton(f'{c["name"]}', f'{c["id"]}', player_class, pid, sid, iid, c["buckets"])
             self.add_item(button)
 
-        msg_lines=msg.split("\n")
-        msg_ov=[]
-        buffer=""
+        msg_lines = msg.split("\n")
+        msg_ov = []
+        buffer = ""
         for line in msg_lines:
-            if len(buffer+line+"\n")>1900:
+            if len(buffer + line + "\n") > 1900:
                 msg_ov.append(buffer)
-                buffer=""
-            buffer+=line
-            buffer+="\n"
-           
-        if len(buffer)>1:
+                buffer = ""
+            buffer += line
+            buffer += "\n"
+
+        if len(buffer) > 1:
             msg_ov.append(buffer)
 
         for msg_overflow in msg_ov[:-1]:
-          await interaction.followup.send(msg_overflow)
+            await interaction.followup.send(msg_overflow)
         await interaction.followup.send(msg_ov[-1:][0], view=self)
 
 
