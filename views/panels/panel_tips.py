@@ -45,7 +45,6 @@ class TipPanel:
                                                  total_tips,
                                                  can_sell, player_gold, 1, (total_tips+1) * 10, self)
                 await self.thread.send(f"It's Time to Gamble Mr Gambler! You are Right now at Stage {total_tips}, you may bet any amount between **1** and {(total_tips+1)*10} to gamble on a roll, if it falls below what you bet you "
-
                                         f"will get your next skill!\n Also, as an incentive to gamble irresponsibly, if you bet half or less of what you would've needed to guarantee it (*{(total_tips+1)*10}*), you will get twice your gold back!",
                                        view=gamble_view)
                 return
