@@ -43,6 +43,8 @@ class KdrModifierNames(Enum):
     ALTERNATE_FORMAT="ALTFORMAT"
     BLACKLIST_CLASS="BLACKLIST"
     ALLOW_DUPLICATES="ALLOWDUPES"
+    NO_GENERIC_SKILL="NOGENERICSKILLS"
+    NO_STARTING_LOOT="BOOTSTRAPS"
 
 #Whether the kdr modifiers return a value
 KDR_MODIFIERS = {
@@ -54,7 +56,9 @@ KDR_MODIFIERS = {
     "REVERSERUN": False,
     "ALTFORMAT": True,
     "BLACKLIST": True,
-    "ALLOWDUPES": False
+    "ALLOWDUPES": False,
+    "NOGENERICSKILLS": False,
+    "BOOTSTRAPS": False,
 
 }
 

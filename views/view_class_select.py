@@ -174,20 +174,28 @@ class LowSelectView(discord.ui.View):
         loot = []
         msg = f"Heya! As a way to start your KDR with choices, you get a bit of Special Class loot!, get picking\n"
 
+        # Fetch modifiers and determine kdr_format
         modifiers = await db.get_instance_value(sid, iid, "modifiers")
         kdr_format = None
         if modifiers and get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
             kdr_format = get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value)
 
+        # Check if BOOTSTRAPS modifier is active
+        if modifiers and get_modifier(modifiers, KdrModifierNames.NO_STARTING_LOOT.value) is not None:
+            msg += f"\nJust Kidding :P , this KDR is without Starting Loot!.\n"
+            await interaction.followup.send(msg)
+            return  # Exit early, no loot offered
+
+        # Fetch categories dynamically based on kdr_format
         categories_class = await get_class_bucket_categories(kdr_format)
 
+        # Track already selected bucket IDs to avoid duplicates
         selected_bucket_ids = set()
 
         for i in range(1, 3):
             msg += f"__**Window {i}**__\n\n"
             shopwindowitems = []
-
-            for i in range(10):  
+            for _ in range(10):  # Retry up to 10 times to find unique buckets
                 potential_items = await get_shop_window_class(pid, sid, iid, player_class, categories_class[0])
                 unique_items = [item for item in potential_items if item["id"] not in selected_bucket_ids]
 

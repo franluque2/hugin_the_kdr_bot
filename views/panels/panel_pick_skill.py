@@ -20,18 +20,27 @@ class PickSkillPanel:
         self.thread = thread
 
     async def get_pick_skill_panel(self) -> None:
-
         special_flags = (await db.get_inventory_value(self.pid, self.sid, self.iid, "modifiers"))
         xp = await db.get_inventory_value(self.pid, self.sid, self.iid, "XP")
         playerskills = list(await db.get_inventory_value(self.pid, self.sid, self.iid, "skills"))
         gxp = GOLD_PER_XP
-        modifiers=await db.get_instance_value(self.sid, self.iid, "modifiers")
+        modifiers = await db.get_instance_value(self.sid, self.iid, "modifiers")
 
         treasures = list(await db.get_inventory_value(self.pid, self.sid, self.iid, "treasures"))
         if SpecialSkillHandling.SKILL_SILVER_TONGUE.value in special_flags:
             gxp = GOLD_PER_XP - 1
 
+        # Check if the player has reached a level-up threshold
         if xp in LEVEL_THRESHOLDS:
+            # Do not give out skills if it is a no generic skill KDR
+            if modifiers and get_modifier(modifiers, KdrModifierNames.NO_GENERIC_SKILL.value) is not None:
+                msg = "Generic skills are disabled for this KDR, enjoy all the other benefits of leveling!.\n"
+                await self.thread.send(msg)
+                trainer = panel_training.TrainPanel(self.pid, self.sid,
+                                            self.iid, self.status_message, self.status_panel_generator, self.thread)
+                await trainer.get_train_panel()
+                return
+
             skill_view = SkillSelectView(status_message=self.status_message,
                                          generator=self.status_panel_generator,
                                          timeout=5000)
@@ -40,11 +49,11 @@ class PickSkillPanel:
             offered_skills = await db.get_inventory_value(self.pid, self.sid, self.iid, 'offered_skills')
             msg = "__**Choose A Skill**__:\n"
 
-            embeds=[]
+            embeds = []
 
             if len(offered_skills) == 0:
-                if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
-                    generic_skills = list(await db.get_all_generic_skills(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
+                if modifiers and get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
+                    generic_skills = list(await db.get_all_generic_skills(get_modifier(modifiers, KdrModifierNames.ALTERNATE_FORMAT.value)))
                 else:
                     generic_skills = list(await db.get_all_generic_skills())
 
@@ -55,10 +64,9 @@ class PickSkillPanel:
                         skill_name = skill['name']
                         skill_desc = skill['description']
                         skill_img = skill["img_url"]
-                        new_embed=Embed(title=skill_name,description=skill_desc, type="rich")
+                        new_embed = Embed(title=skill_name, description=skill_desc, type="rich")
                         new_embed.set_thumbnail(url=skill_img)
                         embeds.append(new_embed)
-
 
                     if len(skill_choices) >= 3:
                         await db.set_inventory_value(self.pid, self.sid, self.iid, 'offered_skills', skill_choices)
@@ -69,7 +77,7 @@ class PickSkillPanel:
                     skill_name = skill['name']
                     skill_desc = skill['description']
                     skill_img = skill["img_url"]
-                    new_embed=Embed(title=skill_name,description=skill_desc,type="rich")
+                    new_embed = Embed(title=skill_name, description=skill_desc, type="rich")
                     new_embed.set_thumbnail(url=skill_img)
                     embeds.append(new_embed)
 
@@ -91,6 +99,7 @@ class PickSkillPanel:
                                             skill_choices, skill_upgrade_choices, can_sell, gxp, self)
             await self.thread.send(msg, view=skill_view, embeds=embeds)
             return
+
         trainer = panel_training.TrainPanel(self.pid, self.sid,
                                             self.iid, self.status_message, self.status_panel_generator, self.thread)
         await trainer.get_train_panel()
