@@ -263,9 +263,14 @@ async def get_all_buckets(altformat=None):
     if altformat is None:
         return coll_buckets.find({"altformat": {"$exists": False}})
     
-    # Handle multiple altformats
+    # Handle multiple altformats, including "default"
     altformats = altformat.split(";")
-    query = {"$or": [{"altformat": af} for af in altformats]}
+    query = {"$or": [{"altformat": af} for af in altformats if af != "default"]}
+    
+    # Add default content to the query if "default" is included
+    if "default" in altformats:
+        query["$or"].append({"altformat": {"$exists": False}})
+    
     return coll_buckets.find(query)
 
 
@@ -279,10 +284,14 @@ async def get_bucket_category(bid, altformat=None):
         if altformat is None:
             return coll_buckets_generic.find_one({"altformat": {"$exists": False}}).get(bid)
         
-        # Handle multiple altformats
+        # Handle multiple altformats, including "default"
         altformats = altformat.split(";")
         for af in altformats:
-            result = coll_buckets_generic.find_one({"altformat": af})
+            if af == "default":
+                result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
+            else:
+                result = coll_buckets_generic.find_one({"altformat": af})
+            
             if result and bid in result:
                 return result.get(bid)
         
@@ -306,7 +315,11 @@ async def get_generic_bucket_categories(kdr_format=None):
 
     altformats = kdr_format.split(";")
     for af in altformats:
-        result = coll_buckets_generic.find_one({"kdr_format": af})
+        if af == "default":
+            result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
+        else:
+            result = coll_buckets_generic.find_one({"kdr_format": af})
+        
         if result is not None:
             return result.get("categories_generic", categories_buckets_generic)
 
@@ -319,7 +332,11 @@ async def get_class_bucket_categories(kdr_format=None):
 
     altformats = kdr_format.split(";")
     for af in altformats:
-        result = coll_buckets_generic.find_one({"altformat": af})
+        if af == "default":
+            result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
+        else:
+            result = coll_buckets_generic.find_one({"altformat": af})
+        
         if result is not None:
             return result.get("categories_class", categories_buckets_class)
 
@@ -332,7 +349,11 @@ async def get_secret_categories(kdr_format=None):
 
     altformats = kdr_format.split(";")
     for af in altformats:
-        result = coll_buckets_generic.find_one({"altformat": af})
+        if af == "default":
+            result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
+        else:
+            result = coll_buckets_generic.find_one({"altformat": af})
+        
         if result is not None:
             return result.get("categories_secret", categories_secret)
 
