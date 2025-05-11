@@ -5,6 +5,7 @@ from config.config import DB_ADDRESS, DB_KEY_SERVER, \
     PATH_BUCKETS, PATH_GENERIC_BUCKETS, PATH_CLASS_SKILLS, \
     PATH_TREASURES, PATH_GENERIC_SKILLS, DEFAULT_ELO_RANKING
 from core.kdr_data import categories_buckets_generic, categories_buckets_class, categories_secret
+from core.kdr_modifiers import get_modifier
 
 from json import load as json_load
 
@@ -261,7 +262,11 @@ async def get_bucket_value(bid, key):
 async def get_all_buckets(altformat=None):
     if altformat is None:
         return coll_buckets.find({"altformat": {"$exists": False}})
-    return coll_buckets.find({"altformat": altformat})
+    
+    # Handle multiple altformats
+    altformats = altformat.split(";")
+    query = {"$or": [{"altformat": af} for af in altformats]}
+    return coll_buckets.find(query)
 
 
 """"""
@@ -273,7 +278,16 @@ async def get_bucket_category(bid, altformat=None):
     try:
         if altformat is None:
             return coll_buckets_generic.find_one({"altformat": {"$exists": False}}).get(bid)
-        return coll_buckets_generic.find_one({"altformat": altformat}).get(bid)
+        
+        # Handle multiple altformats
+        altformats = altformat.split(";")
+        for af in altformats:
+            result = coll_buckets_generic.find_one({"altformat": af})
+            if result and bid in result:
+                return result.get(bid)
+        
+        # Fallback if no altformat matches
+        return []
     except Exception as e:
         print(f"Error retrieving bucket category: {e}")
         return []
@@ -290,9 +304,11 @@ async def get_generic_bucket_categories(kdr_format=None):
     if kdr_format is None:
         return categories_buckets_generic
 
-    result = coll_buckets_generic.find_one({"kdr_format": kdr_format})
-    if result is not None:
-        return result.get("categories_generic", categories_buckets_generic)
+    altformats = kdr_format.split(";")
+    for af in altformats:
+        result = coll_buckets_generic.find_one({"kdr_format": af})
+        if result is not None:
+            return result.get("categories_generic", categories_buckets_generic)
 
     return categories_buckets_generic
 
@@ -301,9 +317,11 @@ async def get_class_bucket_categories(kdr_format=None):
     if kdr_format is None:
         return categories_buckets_class
 
-    result = coll_buckets_generic.find_one({"altformat": kdr_format})
-    if result is not None:
-        return result.get("categories_class", categories_buckets_class)
+    altformats = kdr_format.split(";")
+    for af in altformats:
+        result = coll_buckets_generic.find_one({"altformat": af})
+        if result is not None:
+            return result.get("categories_class", categories_buckets_class)
 
     return categories_buckets_class
 
@@ -312,9 +330,11 @@ async def get_secret_categories(kdr_format=None):
     if kdr_format is None:
         return categories_secret
 
-    result = coll_buckets_generic.find_one({"altformat": kdr_format})
-    if result is not None:
-        return result.get("categories_secret", categories_secret)
+    altformats = kdr_format.split(";")
+    for af in altformats:
+        result = coll_buckets_generic.find_one({"altformat": af})
+        if result is not None:
+            return result.get("categories_secret", categories_secret)
 
     return categories_secret
 
@@ -375,8 +395,13 @@ async def get_treasure_value(tid, key):
 """ KDR """
 
 
-async def add_new_kdr(sid: int, iid: str, is_ranked: False, creatorid: str, maxplayers: int, class_choices: int=1, modifiers: str=""):
+async def add_new_kdr(sid: int, iid: str, is_ranked: False, creatorid: str, maxplayers: int, class_choices: int = 1, modifiers: str = ""):
     uid = 1 + len(list(coll_kdr.find({DB_KEY_SERVER: sid})))
+    altformats = None
+
+    # Extract altformats from modifiers using get_modifier
+    altformats = get_modifier(modifiers, "ALTFORMAT")
+
     instance = {
         DB_KEY_SERVER: sid,
         DB_KEY_INSTANCE: iid,
@@ -395,7 +420,8 @@ async def add_new_kdr(sid: int, iid: str, is_ranked: False, creatorid: str, maxp
         'ended': False,
         'max_players': maxplayers,
         'class_choices': class_choices,
-        'modifiers': modifiers
+        'modifiers': modifiers,
+        'altformats': altformats  # Store altformats
     }
 
     coll_kdr.insert_one(instance)
