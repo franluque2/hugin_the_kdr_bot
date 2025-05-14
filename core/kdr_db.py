@@ -629,5 +629,5 @@ async def get_all_active_kdrs(sid):
     :param sid: Server ID
     :return: List of active KDRs
     """
-    return list(coll_kdr.find({"server_id": sid, "started": True, "ended": False}))
+    return list(coll_kdr.find({"id_server": sid, "started": True, "ended": False}))
 
