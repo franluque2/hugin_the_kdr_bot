@@ -282,6 +282,7 @@ async def get_bucket_value(bid, key):
 
 
 async def get_all_buckets(altformat=None):
+    print(f"altformat: {altformat}")
     if altformat is None:
         # Include documents where altformat is missing but exclude those explicitly set to null
         return coll_buckets.find({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
