@@ -86,7 +86,7 @@ class KDRCore(Cog):
         interaction: Interaction,
         iid: str = "",
         rematch_count: int = 1,
-        round_type: app_commands.Choice[str] = app_commands.Choice(name="Round Robin", value="Round Robin")
+        round_type: app_commands.Choice[str] = None  # Default to None
     ):
         # Fetch data
         sid = interaction.guild_id
@@ -119,13 +119,16 @@ class KDRCore(Cog):
             await interaction.response.send_message(f"There must be an even number of participants to start.", ephemeral=True)
             return
 
+        # Default to "Round Robin" if no round_type is provided
+        selected_round_type = round_type.value if round_type else "Round Robin"
+
         # Fetch players and generate round brackets
         player_names = await db.get_instance_list(sid, iid, 'player_names')
         rounds = ""
 
-        if round_type.value == "Round Robin":
+        if selected_round_type == "Round Robin":
             rounds = statics.create_balanced_round_robin(player_names, rematch_count)
-        elif round_type.value == "Swiss":
+        elif selected_round_type == "Swiss":
             rounds = statics.create_swiss_rounds(player_names, rematch_count)  # rematch_count is now the number of rounds
         else:
             await interaction.followup.send(f"{OOPS}\n Invalid round type specified. Use 'Round Robin' or 'Swiss'.", ephemeral=True)
@@ -137,7 +140,7 @@ class KDRCore(Cog):
         # Set instance to started
         await db.set_instance_value(sid, iid, 'started', True)
         await db.set_instance_value(sid, iid, 'active_round', 0)
-        await db.set_instance_value(sid, iid, 'round_type', round_type.value)  # Save the selected round type
+        await db.set_instance_value(sid, iid, 'round_type', selected_round_type)  # Save the selected round type
         await db.set_all_inventory_value(sid, iid, 'shop_phase', True)
 
         # Ping players and send response
@@ -145,7 +148,7 @@ class KDRCore(Cog):
         for p in player_names:
             player_pings += f"<@{p}> "
 
-        msg1 = f"Match '{instance_name}' Started with {round_type.value} rounds!\n"
+        msg1 = f"Match '{instance_name}' Started with {selected_round_type} rounds!\n"
         msg2 = f'{player_pings}\n It\'s time to pick your class! You can now use the `pickclass` command.'
         msg3 = f"Use the `bracket` command to view the current standings for this KDR at any time. \n"
         await interaction.response.send_message(f"{msg1}\n{msg2}\n{msg3}")
