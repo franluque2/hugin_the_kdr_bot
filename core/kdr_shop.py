@@ -46,16 +46,15 @@ class KDRShop(Cog):
         sid = interaction.guild_id
         pid = str(interaction.user.id)
 
-        if iid=="":
-            player_kdrs=await db.get_users_value(str(interaction.user.id),sid,"instances")
-            if len(player_kdrs)==1:
-                iid=player_kdrs[0]
+        if iid == "":
+            player_kdrs = await db.get_users_value(str(interaction.user.id), sid, "instances")
+            if len(player_kdrs) == 1:
+                iid = player_kdrs[0]
 
         res_user_modifiers = await db.get_inventory_value(pid, sid, iid, 'modifiers')
         if SpecialClassHandling.CLASS_MIMIC.value in res_user_modifiers:
             await interaction.response.send_message("Mimics do not get a Shop Phase.", ephemeral=True)
             return
-
 
         res_user_shop = await db.get_inventory_value(pid, sid, iid, 'shop_phase')
         if not res_user_shop:
@@ -75,12 +74,25 @@ class KDRShop(Cog):
         playermodifiers = list(player_inventory["modifiers"])
 
         debug_complete_match = False
+
+        # Check if the player has a bye
         won, match_pos, opponent = \
             await statics.check_player_won_round(pid, round_results, current_rounds, active_round)
 
+        if current_rounds[active_round][match_pos][1] is None:
+            # Player gets a bye
+            round_results[active_round][match_pos] = (True, WinType.WIN_DEFAULT.value)
+            await db.set_instance_value(sid, iid, 'round_results', round_results)
+            await interaction.response.send_message(
+                "You received a bye this round and automatically won. Proceeding to the shop phase.",
+                ephemeral=True
+            )
+            won = True
+            opponent = None
+
         matchresult = round_results[active_round][match_pos][1]
 
-        if active_round == (len(current_rounds)-1):
+        if active_round == (len(current_rounds) - 1):
             await interaction.response.send_message("There are no shops in the final round of a KDR.", ephemeral=True)
             return
 
@@ -88,8 +100,10 @@ class KDRShop(Cog):
             await interaction.response.send_message("The result for your match has not been inputted.\n "
                                                     "Use the `reportresult` command.", ephemeral=True)
             return
+
         await interaction.response.send_message('Creating Shop Thread', ephemeral=True)
-        # increase gold
+
+        # Increase gold
         if shop_stage == 0:
             await statics.update_gold(pid, iid, sid, won, special_flags)
             shop_stage += 1
@@ -107,7 +121,10 @@ class KDRShop(Cog):
         status_panel_generator = StatusPanel(pid, iid, sid, interaction.user.name)
         msg = f'<@{pid}>'
         if won:
-            msg += f', your last match against <@{opponent}> ended with your victory '
+            if opponent:
+                msg += f', your last match against <@{opponent}> ended with your victory '
+            else:
+                msg += f', you received a bye this round and automatically won '
         else:
             msg += f', your last match against <@{opponent}> ended with your loss '
 
@@ -120,8 +137,7 @@ class KDRShop(Cog):
 
         mentions_ctrl = AllowedMentions(everyone=False, users=[interaction.user])
         await thread.send(content=msg, allowed_mentions=mentions_ctrl)
-        status_message = await thread.send(content="",
-                                           embed=await status_panel_generator.get_message())
+        status_message = await thread.send(content="", embed=await status_panel_generator.get_message())
 
         await status_message.pin()
 
@@ -133,10 +149,10 @@ class KDRShop(Cog):
 
         modifiers = await db.get_instance_value(sid, iid, 'modifiers')
 
-        if modifiers and (get_modifier(modifiers,KdrModifierNames.REVERSE_RUN.value) is not None): #Swap normal shop for Reverse Run "Shop"
-            reverter=ReverseSacrificePanel(pid,sid,iid,status_message,status_panel_generator,thread)
+        if modifiers and (get_modifier(modifiers, KdrModifierNames.REVERSE_RUN.value) is not None):  # Swap normal shop for Reverse Run "Shop"
+            reverter = ReverseSacrificePanel(pid, sid, iid, status_message, status_panel_generator, thread)
             await reverter.get_sacrifice_panel()
-            shop_stage=9
+            shop_stage = 9
             return
 
         # Increase xp
@@ -147,7 +163,7 @@ class KDRShop(Cog):
                 shop_stage += 1
                 await db.set_inventory_value(pid, sid, iid, 'shop_stage', shop_stage)
                 await status_message.edit(content=f'<@{pid}>', embed=await status_panel_generator.get_message())
-            #cleaning up just incase last shop phase was incomplete
+            # Cleaning up just in case last shop phase was incomplete
             else:
                 shop_stage += 1
                 await db.set_inventory_value(pid, sid, iid, 'shop_stage', shop_stage)
@@ -172,7 +188,7 @@ class KDRShop(Cog):
             await treasure_panel.get_treasure_panel()
 
         if shop_stage == 6:
-            shopintro=ShopIntroPanel(pid,sid,iid,thread)
+            shopintro = ShopIntroPanel(pid, sid, iid, thread)
             await shopintro.get_shop_intro()
 
             buyer = BuyPanel(pid, sid, iid, status_message,
@@ -184,7 +200,7 @@ class KDRShop(Cog):
                               status_panel_generator, thread)
             await tipper.get_tip_panel()
 
-        # button to enter sell mode no longer required
+        # Button to enter sell mode no longer required
 
         if shop_stage == 8:
             ender = EndShopPanel(pid, sid, iid, status_message, status_panel_generator, thread)
@@ -206,7 +222,7 @@ class KDRShop(Cog):
         pid = str(interaction.user.id)
         response = interaction.response
 
-        if iid=="":
+        if iid == "":
             player_kdrs=await db.get_users_value(str(interaction.user.id),sid,"instances")
             if len(player_kdrs)==1:
                 iid=player_kdrs[0]

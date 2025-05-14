@@ -69,8 +69,8 @@ class KDRAdmin(Cog):
     @app_commands.guild_only()
     @app_commands.check(statics.instance_started)
     @app_commands.check(statics.instance_exists)
-    async def nextround(self, interaction=Interaction, iid: str = ""):
-        # fetch data
+    async def nextround(self, interaction: Interaction, iid: str = ""):
+        # Fetch data
         sid = interaction.guild_id
         pid = str(interaction.user.id)
 
@@ -80,8 +80,8 @@ class KDRAdmin(Cog):
                 iid = player_kdrs[0]
 
         creatorid = await db.get_instance_value(sid, iid, 'creator_id')
-        if str(creatorid)!=str(pid) and ROLE_ADMIN not in str(interaction.user.roles):
-            await interaction.response.send_message(f"You cannot advance the round of a KDR you are not the owner of.",ephemeral=True)
+        if str(creatorid) != str(pid) and ROLE_ADMIN not in str(interaction.user.roles):
+            await interaction.response.send_message(f"You cannot advance the round of a KDR you are not the owner of.", ephemeral=True)
             return
 
         res_started = await db.get_instance_value(sid, iid, 'started')
@@ -90,7 +90,6 @@ class KDRAdmin(Cog):
             await interaction.response.send_message(f"This KDR has not started.")
             return
 
-
         instance_name = await db.get_instance_value(sid, iid, DB_KEY_INSTANCE)
         player_names = await db.get_instance_list(sid, iid, 'player_names')
         curr_round = await db.get_instance_value(sid, iid, 'active_round')
@@ -98,38 +97,56 @@ class KDRAdmin(Cog):
         active_round = await db.get_instance_value(sid, iid, 'active_round')
         current_rounds = await db.get_instance_value(sid, iid, 'current_rounds')
         isranked = await db.get_instance_value(sid, iid, 'is_ranked')
+        round_type = await db.get_instance_value(sid, iid, 'round_type')  # Fetch the round type
 
+        # Swiss round generation logic
+        if round_type == "swiss":
+            if curr_round + 1 < len(current_rounds):
+                scores = {player: 0 for player in player_names}
+                for round_idx in range(curr_round + 1):
+                    for match, result in zip(current_rounds[round_idx], round_results[round_idx]):
+                        if result[1] != WinType.INCOMPLETE.value:
+                            winner = match[0] if result[0] else match[1]
+                            if winner:
+                                scores[winner] += 1
+
+                # Generate the next round dynamically
+                next_round = statics.generate_next_swiss_round(player_names, scores, current_rounds)
+                current_rounds[curr_round + 1] = next_round
+
+                # Update the database with the new round
+                await db.set_instance_value(sid, iid, 'current_rounds', current_rounds)
+
+        # Increment the current round
         curr_round += 1
 
         player_pings = ""
         for p in player_names:
-            player_pings+=f"<@{p}> " 
-
+            player_pings += f"<@{p}> "
 
         if curr_round >= len(current_rounds):
-            msg=""
-            msg+=f"{player_pings} "
-            msg+=f"\nThe KDR `{instance_name}` has Ended! These are the final standings:\n\n"
-            players=[]
+            msg = ""
+            msg += f"{player_pings} "
+            msg += f"\nThe KDR `{instance_name}` has Ended! These are the final standings:\n\n"
+            players = []
             for player in player_names:
-                playerdata=await db.get_inventory(player,sid,iid)
+                playerdata = await db.get_inventory(player, sid, iid)
                 players.append(playerdata)
-            players=sorted(players,key=lambda x: x["wl_ratio"][0],reverse=True)
+            players = sorted(players, key=lambda x: x["wl_ratio"][0], reverse=True)
             for p in players:
-
-                pname=p["id_player"]
-                pwins=p["wl_ratio"][0]
-                plosses=p["wl_ratio"][1]
-                pclassid=p["class"]
-                pelo=await db.get_users_value(pname,sid,"elo")
-                pclass=await db.get_static_class_value(pclassid,"name")
-                msg+=f"<@{pname}> ({pclass}) - **Wins**: {pwins}, **Losses**: {plosses}"
+                pname = p["id_player"]
+                pwins = p["wl_ratio"][0]
+                plosses = p["wl_ratio"][1]
+                pclassid = p["class"]
+                pelo = await db.get_users_value(pname, sid, "elo")
+                pclass = await db.get_static_class_value(pclassid, "name")
+                msg += f"<@{pname}> ({pclass}) - **Wins**: {pwins}, **Losses**: {plosses}"
                 if isranked:
-                    msg+=f" **Elo Ranking After this KDR:** {int(pelo)}"
-                msg+="\n"
-                await db.set_users_value(pname,sid,"instances",iid,"$pull")
+                    msg += f" **Elo Ranking After this KDR:** {int(pelo)}"
+                msg += "\n"
+                await db.set_users_value(pname, sid, "instances", iid, "$pull")
             await interaction.response.send_message(msg)
-            await db.set_instance_value(sid,iid,"ended",True)
+            await db.set_instance_value(sid, iid, "ended", True)
             return
 
         await db.set_instance_value(sid, iid, 'active_round', curr_round)
@@ -150,29 +167,26 @@ class KDRAdmin(Cog):
             player_data = await db.get_inventory(p, sid, iid)
             playermodifiers = player_data["modifiers"]
             for modifier in playermodifiers:
-                if modifier == SpecialClassHandling.CLASS_MIMIC.value: #Mimics do not get a shop phase.
+                if modifier == SpecialClassHandling.CLASS_MIMIC.value:  # Mimics do not get a shop phase.
                     await db.set_inventory_value(p, sid, iid, 'shop_stage', 9)
                     await db.set_inventory_value(p, sid, iid, 'shop_phase', False)
 
-
-
-        rounds=""
-        num=0
+        rounds = ""
+        num = 0
         for i in current_rounds[curr_round]:
-            rounds+=f"<@{i[0]}> vs <@{i[1]}>"
-            if round_results[curr_round][num][1]!=WinType.INCOMPLETE.value:
-                rounds+=f"- <@{current_rounds[curr_round][num][not round_results[curr_round][num][0]]}> wins "
-            if round_results[curr_round][num][1]==WinType.WIN_2X0.value:
-                rounds+=f"2-0"
-            if round_results[curr_round][num][1]==WinType.WIN_2X1.value:
-                rounds+=f"2-1"
-            if round_results[curr_round][num][1]==WinType.WIN_DEFAULT.value:
-                rounds+=f"by Default"
-            num+=1
-            rounds+="\n"
+            rounds += f"<@{i[0]}> vs <@{i[1]}>"
+            if round_results[curr_round][num][1] != WinType.INCOMPLETE.value:
+                rounds += f"- <@{current_rounds[curr_round][num][not round_results[curr_round][num][0]]}> wins "
+            if round_results[curr_round][num][1] == WinType.WIN_2X0.value:
+                rounds += f"2-0"
+            if round_results[curr_round][num][1] == WinType.WIN_2X1.value:
+                rounds += f"2-1"
+            if round_results[curr_round][num][1] == WinType.WIN_DEFAULT.value:
+                rounds += f"by Default"
+            num += 1
+            rounds += "\n"
 
-        # ping players and send response
-
+        # Ping players and send response
         msg1 = f"The Next Round in KDR `{instance_name}` has Started!\n"
         msg2 = f'{player_pings}\n Check your current opponent with the `bracket` or `getcurrentmatch` command.'
         msg3 = f"Use the `bracket` command to view the current standings for this match at any time. \n"
@@ -686,93 +700,101 @@ class KDRAdmin(Cog):
 
     """ Admin Kick Player """
 
-    @app_commands.command(name="kickplayer", description="Kick a player from an active kdr.")
+    @app_commands.command(name="kickplayer", description="Kick a player from an active KDR.")
     @app_commands.guild_only()
     @app_commands.describe(iid="The Passcode of the KDR", player="The Player to Kick from the KDR")
     @app_commands.check(statics.instance_exists)
-    async def kick_player(self, interaction=Interaction, iid: str = "", player: Member=None):
-        # fetch data
-        pid = str(interaction.user.id)
+    async def kick_player(self, interaction: Interaction, iid: str = "", player: Member = None):
+        # Fetch data
         sid = interaction.guild_id
-        if iid=="":
-            player_kdrs=await db.get_users_value(str(interaction.user.id),sid,"instances")
-            if len(player_kdrs)==1:
-                iid=player_kdrs[0]
+        admin_id = str(interaction.user.id)
+
+        if iid == "":
+            player_kdrs = await db.get_users_value(admin_id, sid, "instances")
+            if len(player_kdrs) == 1:
+                iid = player_kdrs[0]
 
         creatorid = await db.get_instance_value(sid, iid, 'creator_id')
-        if str(creatorid)!=str(pid) and ROLE_ADMIN not in str(interaction.user.roles):
-            await interaction.response.send_message(f"You cannot kick a player from a KDR you are not the owner of.",ephemeral=True)
+        if str(creatorid) != str(admin_id) and ROLE_ADMIN not in str(interaction.user.roles):
+            await interaction.response.send_message(f"You cannot kick a player from a KDR you are not the owner of.", ephemeral=True)
             return
 
         if player is None:
-            await interaction.response.send_message(f"Player to kick cannot be empty.",ephemeral=True)
+            await interaction.response.send_message(f"Player to kick cannot be empty.", ephemeral=True)
             return
-        pid=str(player.id)
+
+        kicked_pid = str(player.id)
         round_results = await db.get_instance_value(sid, iid, 'round_results')
         current_rounds = await db.get_instance_value(sid, iid, 'current_rounds')
+        active_round = await db.get_instance_value(sid, iid, 'active_round')
+        round_type = await db.get_instance_value(sid, iid, 'round_type')  # Fetch the round type
 
-        # loop through rounds and matches
-        for x in range(len(current_rounds)):
-            for y in range(len(current_rounds[x])):
-                match = current_rounds[x][y]
-                first_player, second_player = "", ""
-                p1_wl, p2_wl = [], []
-                fp = str(match[0])
-                sp = str(match[1])
-                # if player not in match or match was already reported, continue
-                if (fp != pid and sp != pid) or round_results[x][y][1] != WinType.INCOMPLETE.value:
-                    continue
-                # if player is first player in match
-                if fp == pid:
-                    # set the round results to first player losing
-                    round_results[x][y] = (False, WinType.WIN_DEFAULT.value)
-                    # first player is player
-                    first_player = pid
-                    # second player is opponent
-                    second_player = sp
-                    p1_wl = await db.get_inventory_value(first_player, sid, iid, "wl_ratio")
-                    p2_wl = await db.get_inventory_value(second_player, sid, iid, "wl_ratio")
-                    # give player(first player) loss
-                    p1_wl[True] += 1
-                    # give opponent(second player) win
-                    p2_wl[False] += 1
-                if sp == pid:
-                    round_results[x][y] = (True, WinType.WIN_DEFAULT.value)
-                    first_player = fp
-                    second_player = pid
-                    p1_wl = await db.get_inventory_value(first_player, sid, iid, "wl_ratio")
-                    p2_wl = await db.get_inventory_value(second_player, sid, iid, "wl_ratio")
-                    # give player(second player) loss
-                    p2_wl[True] += 1
-                    # give opponent(first player) win
-                    p1_wl[False] += 1
+        # Logic for Round Robin
+        if round_type == "Round Robin":
+            # Loop through all rounds and matches
+            for x in range(len(current_rounds)):
+                for y in range(len(current_rounds[x])):
+                    match = current_rounds[x][y]
+                    fp, sp = str(match[0]), str(match[1])
 
-                await db.set_inventory_value(first_player, sid, iid, "wl_ratio", p1_wl)
-                await db.set_inventory_value(second_player, sid, iid, "wl_ratio", p2_wl)
-                await db.set_instance_value(sid, iid, 'round_results', round_results)
+                    # If player is not in the match or match was already reported, continue
+                    if (fp != kicked_pid and sp != kicked_pid) or round_results[x][y][1] != WinType.INCOMPLETE.value:
+                        continue
 
+                    # Handle player being kicked
+                    if fp == kicked_pid:
+                        round_results[x][y] = (False, WinType.WIN_DEFAULT.value)  # Opponent wins by default
+                    elif sp == kicked_pid:
+                        round_results[x][y] = (True, WinType.WIN_DEFAULT.value)  # Opponent wins by default
+
+        # Logic for Swiss
+        elif round_type == "Swiss":
+            # Loop through current and past rounds only
+            for x in range(active_round + 1):
+                for y in range(len(current_rounds[x])):
+                    match = current_rounds[x][y]
+                    fp, sp = str(match[0]), str(match[1])
+
+                    # If player is not in the match or match was already reported, continue
+                    if (fp != kicked_pid and sp != kicked_pid) or round_results[x][y][1] != WinType.INCOMPLETE.value:
+                        continue
+
+                    # Handle player being kicked
+                    if fp == kicked_pid:
+                        round_results[x][y] = (False, WinType.WIN_DEFAULT.value)  # Opponent wins by default
+                    elif sp == kicked_pid:
+                        round_results[x][y] = (True, WinType.WIN_DEFAULT.value)  # Opponent wins by default
+
+    # Remove player from the KDR
         instance_started = await db.get_instance_value(sid, iid, 'started')
         players = await db.get_instance_value(sid, iid, 'player_names')
-        player_active_instances = await db.get_users_value(pid, sid, 'instances')
-        player_classes = await db.get_inventory_value(pid, sid, iid, 'classes')
+        player_active_instances = await db.get_users_value(kicked_pid, sid, 'instances')
+        player_classes = await db.get_inventory_value(kicked_pid, sid, iid, 'classes')
         offered_classes = await db.get_instance_value(sid, iid, 'offered_classes')
+
         for c in player_classes:
             offered_classes.remove(c)
 
         num_players = await db.get_instance_value(sid, iid, 'players')
         num_players -= 1
-        players.remove(pid)
+        players.remove(kicked_pid)
         player_active_instances.remove(iid)
-        msg = f"<@{pid}> has been kicked from KDR Match {iid}.\n"
+
+        msg = f"<@{kicked_pid}> has been kicked from KDR Match {iid}.\n"
 
         await db.set_instance_value(sid, iid, 'players', num_players)
         await db.set_instance_value(sid, iid, 'player_names', players)
         await db.set_instance_value(sid, iid, 'offered_classes', offered_classes)
-        await db.set_users_value(pid, sid, 'instances', player_active_instances)
+        await db.set_users_value(kicked_pid, sid, 'instances', player_active_instances)
+
         if not instance_started:
-            await db.delete_player_inventory(pid, sid, iid)
+            await db.delete_player_inventory(kicked_pid, sid, iid)
         else:
             msg += "They have forfeited any matches not yet started."
+
+        # Update the round results in the database
+        await db.set_instance_value(sid, iid, 'round_results', round_results)
+
         await interaction.response.send_message(f'{msg}')
 
 
@@ -826,6 +848,26 @@ class KDRAdmin(Cog):
         await response.send_message(f"<@{pid}> was added to the KDR {iid}!", ephemeral=True)
         await player.send(f"<@{adminid}> added you to KDR `{iid}` in the server `{servername}`.")
             
+
+    @app_commands.command(name="setroundtypeall", description="Debug: Set round_type to 'Round Robin' for all currently running KDRs.")
+    @app_commands.guild_only()
+    @app_commands.checks.has_role(ROLE_ADMIN)
+    async def set_round_type_all(self, interaction: Interaction):
+        # Fetch all active KDRs
+        sid = interaction.guild_id
+        active_kdrs = await db.get_all_active_kdrs(sid)  # Assuming this function fetches all active KDRs
+
+        if not active_kdrs:
+            await interaction.response.send_message("No active KDRs found.", ephemeral=True)
+            return
+
+        # Update each KDR to set round_type to "Round Robin"
+        for kdr in active_kdrs:
+            iid = kdr[DB_KEY_INSTANCE]
+            await db.set_instance_value(sid, iid, 'round_type', "Round Robin")
+
+        await interaction.response.send_message(f"Set `round_type` to 'Round Robin' for {len(active_kdrs)} active KDR(s).", ephemeral=True)
+
     """ Command Errors """
 
     @nextround.error
@@ -840,6 +882,7 @@ class KDRAdmin(Cog):
     @force_join_kdr.error
     @override_shop_status.error
     @override_gold_value.error
+    @set_round_type_all.error
     async def command_error(self, interaction, error):
         if isinstance(error, kdr_errors.InstanceDoesNotExistError):
             await interaction.response.send_message(f"{OOPS} KDR Instance {error} does not exist.", ephemeral=True)
@@ -896,6 +939,7 @@ class KDRAdmin(Cog):
         class_list=await db.get_all_static_classes()
         final_class_list=[app_commands.Choice(name=x["name"],value=x["name"]) for x in class_list]
         return final_class_list
+
 
 async def setup(bot: Bot) -> None:
     await bot.add_cog(KDRAdmin(bot))

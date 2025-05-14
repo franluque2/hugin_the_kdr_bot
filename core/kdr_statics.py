@@ -173,16 +173,24 @@ async def player_in_round(interaction=Interaction):
 
 
 def generate_instance_name(sid):
-    file = open(f'{CWD}{PATH_INSTANCE_NAMES}')
-    data = json_load(file)
-    ran = randint(0, len(data) - 1)
-    ran_name = data[ran]
+    """
+    Generate a unique KDR instance name by combining 3-4 random words from a word list.
+    :param sid: Server ID
+    :return: Unique KDR instance name
+    """
+    # Load the word list from the JSON file
+    with open(f'{CWD}{PATH_INSTANCE_NAMES}', 'r') as file:
+        word_list = json_load(file)
 
-    while db.check_instance_exist(sid, ran_name):
-        ran = randint(0, len(data) - 1)
-        ran_name = data[ran]
-    file.close()
-    return ran_name
+    # Generate a unique name
+    while True:
+        # Combine 3-4 random words
+        name_parts = random.sample(word_list, random.randint(3, 4))
+        instance_name = ''.join(name_parts)
+
+        # Check if the name is unique in the database
+        if not db.check_instance_exist(sid, instance_name):
+            return instance_name
 
 
 """"""
@@ -403,4 +411,65 @@ def create_balanced_round_robin(players, rematch_count: int = 1):
     return s
 
 
-""""""
+def create_swiss_rounds(players, num_rounds):
+    """
+    Initialize Swiss rounds with placeholders.
+    :param players: List of player IDs.
+    :param num_rounds: Total number of rounds for the Swiss system.
+    :return: List of rounds with the first round randomized.
+    """
+    rounds = []
+
+    # Randomly shuffle players for the first round
+    random.shuffle(players)
+    first_round = []
+    for i in range(0, len(players), 2):
+        if i + 1 < len(players):
+            first_round.append((players[i], players[i + 1]))
+        else:
+            first_round.append((players[i], None))  # Bye round for odd number of players
+    rounds.append(first_round)
+
+    # Add placeholders for future rounds
+    for _ in range(1, num_rounds):
+        rounds.append([])
+
+    return rounds
+
+def generate_next_swiss_round(players, scores, previous_rounds):
+    """
+    Generate the next Swiss round dynamically based on player scores.
+    :param players: List of player IDs.
+    :param scores: Dictionary of player scores {player_id: score}.
+    :param previous_rounds: List of previous rounds to avoid repeat pairings.
+    :return: List of pairings for the next round.
+    """
+    # Sort players by their scores in descending order
+    sorted_players = sorted(players, key=lambda p: scores.get(p, 0), reverse=True)
+
+    # Pair players with similar scores
+    pairings = []
+    used_players = set()
+    while len(sorted_players) > 1:
+        player1 = sorted_players.pop(0)  # Take the top player
+        player2 = None
+
+        # Find the next player with the closest score who hasn't been paired with player1
+        for i, potential_opponent in enumerate(sorted_players):
+            if potential_opponent not in used_players and (player1, potential_opponent) not in previous_rounds:
+                player2 = sorted_players.pop(i)
+                break
+
+        # If no valid opponent is found, pair with the next available player
+        if player2 is None and sorted_players:
+            player2 = sorted_players.pop(0)
+
+        pairings.append((player1, player2))
+        used_players.add(player1)
+        used_players.add(player2)
+
+    # Handle odd number of players (bye round)
+    if len(sorted_players) == 1:
+        pairings.append((sorted_players[0], None))  # Bye round for the last player
+
+    return pairings

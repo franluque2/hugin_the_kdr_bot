@@ -191,7 +191,18 @@ async def get_all_base_classes(altformat=None, blacklist=None):
     if blacklist is None:
         blacklist = []
 
-    query = {"altformat": {"$exists": False}} if altformat is None else {"altformat": altformat}
+    if altformat is None:
+        # Include documents where altformat is missing but exclude those explicitly set to null
+        query = {"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]}
+    else:
+        # Handle multiple altformats, including "default"
+        altformats = altformat.split(";")
+        query = {"$or": [{"altformat": af} for af in altformats if af != "default"]}
+        
+        # Add default content to the query if "default" is included
+        if "default" in altformats:
+            query["$or"].append({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
+
     base_classes = coll_classes_base.find(query)
 
     # Filter out blacklisted classes
@@ -219,7 +230,18 @@ async def get_all_static_classes(altformat=None, blacklist=None):
     if blacklist is None:
         blacklist = []
 
-    query = {"altformat": {"$exists": False}} if altformat is None else {"altformat": altformat}
+    if altformat is None:
+        # Include documents where altformat is missing but exclude those explicitly set to null
+        query = {"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]}
+    else:
+        # Handle multiple altformats, including "default"
+        altformats = altformat.split(";")
+        query = {"$or": [{"altformat": af} for af in altformats if af != "default"]}
+        
+        # Add default content to the query if "default" is included
+        if "default" in altformats:
+            query["$or"].append({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
+
     static_classes = coll_classes_static.find(query)
 
     # Filter out blacklisted classes
@@ -261,7 +283,8 @@ async def get_bucket_value(bid, key):
 
 async def get_all_buckets(altformat=None):
     if altformat is None:
-        return coll_buckets.find({"altformat": {"$exists": False}})
+        # Include documents where altformat is missing but exclude those explicitly set to null
+        return coll_buckets.find({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
     
     # Handle multiple altformats, including "default"
     altformats = altformat.split(";")
@@ -269,7 +292,7 @@ async def get_all_buckets(altformat=None):
     
     # Add default content to the query if "default" is included
     if "default" in altformats:
-        query["$or"].append({"altformat": {"$exists": False}})
+        query["$or"].append({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
     
     return coll_buckets.find(query)
 
@@ -282,13 +305,13 @@ async def get_all_buckets(altformat=None):
 async def get_bucket_category(bid, altformat=None):
     try:
         if altformat is None:
-            return coll_buckets_generic.find_one({"altformat": {"$exists": False}}).get(bid)
+            return coll_buckets_generic.find_one({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]}).get(bid)
         
         # Handle multiple altformats, including "default"
         altformats = altformat.split(";")
         for af in altformats:
             if af == "default":
-                result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
+                result = coll_buckets_generic.find_one({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
             else:
                 result = coll_buckets_generic.find_one({"altformat": af})
             
@@ -372,7 +395,16 @@ async def get_skill(sid):
 async def get_all_generic_skills(altformat=None):
     if altformat is None:
         return coll_skills_generic.find({"altformat": {"$exists": False}})
-    return coll_skills_generic.find({"altformat": altformat})
+    
+    # Handle multiple altformats, including "default"
+    altformats = altformat.split(";")
+    query = {"$or": [{"altformat": af} for af in altformats if af != "default"]}
+    
+    # Add default content to the query if "default" is included
+    if "default" in altformats:
+        query["$or"].append({"altformat": {"$exists": False}})
+    
+    return coll_skills_generic.find(query)
 
 
 async def get_skill_by_id(skill_id):
@@ -402,8 +434,15 @@ async def get_treasure_by_name(name):
 
 async def get_treasures_by_rarity(rarity, altformat=None):
     if altformat is None:
-        return coll_treasures.find({'rarity': rarity, "altformat": {"$exists": False}})
-    return coll_treasures.find({'rarity': rarity, "altformat": altformat})
+        return coll_treasures.find({"rarity": rarity, "$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
+    
+    altformats = altformat.split(";")
+    query = {"$or": [{"rarity": rarity, "altformat": af} for af in altformats if af != "default"]}
+    
+    if "default" in altformats:
+        query["$or"].append({"rarity": rarity, "$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
+    
+    return coll_treasures.find(query)
 
 
 
@@ -418,7 +457,7 @@ async def get_treasure_value(tid, key):
 
 async def add_new_kdr(sid: int, iid: str, is_ranked: False, creatorid: str, maxplayers: int, class_choices: int = 1, modifiers: str = ""):
     uid = 1 + len(list(coll_kdr.find({DB_KEY_SERVER: sid})))
-    altformats = None
+    altformats = []
 
     # Extract altformats from modifiers using get_modifier
     altformats = get_modifier(modifiers, "ALTFORMAT")
@@ -442,7 +481,8 @@ async def add_new_kdr(sid: int, iid: str, is_ranked: False, creatorid: str, maxp
         'max_players': maxplayers,
         'class_choices': class_choices,
         'modifiers': modifiers,
-        'altformats': altformats  # Store altformats
+        'altformats': altformats,
+        'round_type': ''
     }
 
     coll_kdr.insert_one(instance)
@@ -582,4 +622,12 @@ async def clear_user_data():
 async def clear_kdr_data():
     coll_kdr.delete_many({})
     coll_inventory.delete_many({})
+
+async def get_all_active_kdrs(sid):
+    """
+    Fetch all active KDRs for the given server ID.
+    :param sid: Server ID
+    :return: List of active KDRs
+    """
+    return list(coll_kdr.find({"server_id": sid, "started": True, "ended": False}))
 
