@@ -450,7 +450,6 @@ def generate_next_swiss_round(players, scores, previous_rounds):
     # Pair players with similar scores
     pairings = []
     used_players = set()
-    print("sorted_players",sorted_players)
     while len(sorted_players) > 1:
         player1 = sorted_players.pop(0)  # Take the top player
         player2 = None

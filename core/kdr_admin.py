@@ -112,8 +112,6 @@ class KDRAdmin(Cog):
 
                 # Generate the next round dynamically
                 next_round = statics.generate_next_swiss_round(player_names, scores, current_rounds)
-                print(f"Next round generated: {next_round}")
-                print(f"Current round: {curr_round}")
                 current_rounds[curr_round + 1] = next_round
 
                 # Update the database with the new round
