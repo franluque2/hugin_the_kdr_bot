@@ -191,11 +191,8 @@ async def get_all_base_classes(altformat=None, blacklist=None):
     if blacklist is None:
         blacklist = []
 
-    print(f"altformat: {altformat}")
     if altformat is None:
-        print("altformat is None")
-        # Include documents where altformat is missing but exclude those explicitly set to null
-        query = {"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]}
+        {"altformat": {"$exists": False}}
     else:
         # Handle multiple altformats, including "default"
         altformats = altformat.split(";")
@@ -233,8 +230,7 @@ async def get_all_static_classes(altformat=None, blacklist=None):
         blacklist = []
 
     if altformat is None:
-        # Include documents where altformat is missing but exclude those explicitly set to null
-        query = {"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]}
+        {"altformat": {"$exists": False}}
     else:
         # Handle multiple altformats, including "default"
         altformats = altformat.split(";")
