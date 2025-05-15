@@ -193,7 +193,7 @@ async def get_all_base_classes(altformat=None, blacklist=None):
         blacklist = []
 
     if altformat is None:
-        {"altformat": {"$exists": False}}
+        query = {"altformat": {"$exists": False}}
     else:
         # Handle multiple altformats, including "default"
         altformats = altformat.split(";")
