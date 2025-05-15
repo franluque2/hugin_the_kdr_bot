@@ -204,7 +204,6 @@ async def get_all_base_classes(altformat=None, blacklist=None):
             query["$or"].append({"altformat": {"$exists": False}})
 
     base_classes = coll_classes_base.find(query)
-    print(f"base_classes: {base_classes}")
     # Filter out blacklisted classes
     filtered_classes = []
     for base_class in base_classes:
@@ -218,7 +217,7 @@ async def get_all_base_classes(altformat=None, blacklist=None):
 
 
 async def get_base_class_value(cid, key):
-    return coll_classes_base.find_one({'id': cid}).get(key)
+    return coll_classes_base.find_one({'id': {"$eq": cid}}).get(key)
 
 
 """"""
@@ -257,15 +256,15 @@ async def get_all_static_classes(altformat=None, blacklist=None):
 
 
 async def get_static_class(cid):
-    return coll_classes_static.find_one({'id': cid})
+    return coll_classes_static.find_one({'id': {"$eq": cid}})
 
 async def get_static_class_by_name(name):
-    return coll_classes_static.find_one({'name': name})
+    return coll_classes_static.find_one({'name': {"$eq": name}})
 
 
 
 async def get_static_class_value(cid, key):
-    return coll_classes_static.find_one({'id': cid}).get(key)
+    return coll_classes_static.find_one({'id': {"$eq": cid}}).get(key)
 
 
 """"""
@@ -274,11 +273,11 @@ async def get_static_class_value(cid, key):
 
 
 async def get_bucket(bid):
-    return coll_buckets.find_one({'id': bid})
+    return coll_buckets.find_one({'id': {"$eq": bid}})
 
 
 async def get_bucket_value(bid, key):
-    return coll_buckets.find_one({'id': bid}).get(key)
+    return coll_buckets.find_one({'id': {"$eq": bid}}).get(key)
 
 
 async def get_all_buckets(altformat=None):
@@ -313,7 +312,7 @@ async def get_bucket_category(bid, altformat=None):
             if af == "default":
                 result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
             else:
-                result = coll_buckets_generic.find_one({"altformat": af})
+                result = coll_buckets_generic.find_one({"altformat": {"$eq": af}})
             
             if result and bid in result:
                 return result.get(bid)
@@ -326,7 +325,7 @@ async def get_bucket_category(bid, altformat=None):
 
 
 async def get_bucket_category_value(bid, key):
-    return coll_buckets_generic.find_one({'id': bid}).get(key)
+    return coll_buckets_generic.find_one({'id': {"$eq": bid}}).get(key)
 
 
 async def get_all_bucket_categories():
@@ -341,7 +340,7 @@ async def get_generic_bucket_categories(kdr_format=None):
         if af == "default":
             result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
         else:
-            result = coll_buckets_generic.find_one({"kdr_format": af})
+            result = coll_buckets_generic.find_one({"kdr_format": {"$eq": af}})
         
         if result is not None:
             return result.get("categories_generic", categories_buckets_generic)
@@ -358,7 +357,7 @@ async def get_class_bucket_categories(kdr_format=None):
         if af == "default":
             result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
         else:
-            result = coll_buckets_generic.find_one({"altformat": af})
+            result = coll_buckets_generic.find_one({"altformat": {"$eq": af}})
         
         if result is not None:
             return result.get("categories_class", categories_buckets_class)
@@ -375,7 +374,7 @@ async def get_secret_categories(kdr_format=None):
         if af == "default":
             result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
         else:
-            result = coll_buckets_generic.find_one({"altformat": af})
+            result = coll_buckets_generic.find_one({"altformat": {"$eq": af}})
         
         if result is not None:
             return result.get("categories_secret", categories_secret)
@@ -389,7 +388,7 @@ async def get_secret_categories(kdr_format=None):
 
 
 async def get_skill(sid):
-    return coll_skills.find_one({'id': sid})
+    return coll_skills.find_one({'id': {"$eq": sid}})
 
 
 async def get_all_generic_skills(altformat=None):
@@ -409,15 +408,15 @@ async def get_all_generic_skills(altformat=None):
 
 
 async def get_skill_by_id(skill_id):
-    skill = coll_skills.find_one({'id': skill_id})
+    skill = coll_skills.find_one({'id': {"$eq": skill_id}})
     if skill is None:
-        gen_skill = coll_skills_generic.find_one({'id': skill_id})
+        gen_skill = coll_skills_generic.find_one({'id': {"$eq": skill_id}})
         return gen_skill
     return skill
 
 
 async def get_skill_value(sid, key):
-    return coll_skills.find_one({'id': sid}).get(key)
+    return coll_skills.find_one({'id': {"$eq": sid}}).get(key)
 
 
 """"""
@@ -426,29 +425,29 @@ async def get_skill_value(sid, key):
 
 
 async def get_treasure(tid):
-    return coll_treasures.find_one({'id': tid})
+    return coll_treasures.find_one({'id': {"$eq": tid}})
 
 
 async def get_treasure_by_name(name):
-    return coll_treasures.find_one({'name': name})
+    return coll_treasures.find_one({'name': {"$eq": name}})
 
 
 async def get_treasures_by_rarity(rarity, altformat=None):
     if altformat is None:
-        return coll_treasures.find({"rarity": rarity, "$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
+        return coll_treasures.find({"rarity": rarity, "altformat": {"$exists": False}})
     
     altformats = altformat.split(";")
-    query = {"$or": [{"rarity": rarity, "altformat": af} for af in altformats if af != "default"]}
+    query = {"$or": [{"rarity": rarity, "altformat": {"$eq": af}} for af in altformats if af != "default"]}
     
     if "default" in altformats:
-        query["$or"].append({"rarity": rarity, "$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
+        query["$or"].append({"rarity": rarity, "$and": {"altformat": {"$exists": False}}})
     
     return coll_treasures.find(query)
 
 
 
 async def get_treasure_value(tid, key):
-    return coll_treasures.find_one({'id': tid}).get(key)
+    return coll_treasures.find_one({'id': {"$eq": tid}}).get(key)
 
 
 """"""
