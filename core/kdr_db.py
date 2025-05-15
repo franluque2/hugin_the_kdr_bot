@@ -191,7 +191,9 @@ async def get_all_base_classes(altformat=None, blacklist=None):
     if blacklist is None:
         blacklist = []
 
+    print(f"altformat: {altformat}")
     if altformat is None:
+        print("altformat is None")
         # Include documents where altformat is missing but exclude those explicitly set to null
         query = {"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]}
     else:
