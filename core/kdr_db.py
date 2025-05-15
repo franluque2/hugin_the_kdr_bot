@@ -188,6 +188,7 @@ async def check_class_picked(sid, iid, kdr_class):
 
 
 async def get_all_base_classes(altformat=None, blacklist=None):
+    query = {}
     if blacklist is None:
         blacklist = []
 
@@ -200,7 +201,7 @@ async def get_all_base_classes(altformat=None, blacklist=None):
         
         # Add default content to the query if "default" is included
         if "default" in altformats:
-            query["$or"].append({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
+            query["$or"].append({"altformat": {"$exists": False}})
 
     base_classes = coll_classes_base.find(query)
     print(f"base_classes: {base_classes}")
@@ -226,6 +227,7 @@ async def get_base_class_value(cid, key):
 
 
 async def get_all_static_classes(altformat=None, blacklist=None):
+    query = {}
     if blacklist is None:
         blacklist = []
 
@@ -238,7 +240,7 @@ async def get_all_static_classes(altformat=None, blacklist=None):
         
         # Add default content to the query if "default" is included
         if "default" in altformats:
-            query["$or"].append({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
+            query["$or"].append({"altformat": {"$exists": False}})
 
     static_classes = coll_classes_static.find(query)
 
@@ -280,10 +282,9 @@ async def get_bucket_value(bid, key):
 
 
 async def get_all_buckets(altformat=None):
-    print(f"altformat: {altformat}")
+    query = {}
     if altformat is None:
-        # Include documents where altformat is missing but exclude those explicitly set to null
-        return coll_buckets.find({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
+        return coll_buckets.find({"altformat": {"$exists": False}})
     
     # Handle multiple altformats, including "default"
     altformats = altformat.split(";")
@@ -291,7 +292,7 @@ async def get_all_buckets(altformat=None):
     
     # Add default content to the query if "default" is included
     if "default" in altformats:
-        query["$or"].append({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
+        query["$or"].append({"altformat": {"$exists": False}})
     
     return coll_buckets.find(query)
 
@@ -304,13 +305,13 @@ async def get_all_buckets(altformat=None):
 async def get_bucket_category(bid, altformat=None):
     try:
         if altformat is None:
-            return coll_buckets_generic.find_one({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]}).get(bid)
+            return coll_buckets_generic.find_one({"altformat": {"$exists": False}}).get(bid)
         
         # Handle multiple altformats, including "default"
         altformats = altformat.split(";")
         for af in altformats:
             if af == "default":
-                result = coll_buckets_generic.find_one({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
+                result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
             else:
                 result = coll_buckets_generic.find_one({"altformat": af})
             
@@ -392,6 +393,7 @@ async def get_skill(sid):
 
 
 async def get_all_generic_skills(altformat=None):
+    query = {}
     if altformat is None:
         return coll_skills_generic.find({"altformat": {"$exists": False}})
     
