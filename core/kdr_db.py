@@ -576,7 +576,7 @@ def update_user_to_kdr(pid, sid, iid, classes):
                         {"$push": {'player_names': pid}})
 
 
-def add_match_rounds_to_kdr(sid, iid, rounds):
+async def add_match_rounds_to_kdr(sid, iid, rounds):
     curr_rounds = []
     curr_results = []
     for r in range(0, len(rounds)):
