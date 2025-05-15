@@ -180,6 +180,7 @@ class BuyPanel:
 async def get_shop_window_generic(pid, sid, iid, category):
     buckets_taken = list(await db.get_inventory_value(pid, sid, iid, "loot"))
     modifiers = await db.get_instance_value(sid, iid, "modifiers")
+    possible_buckets=[]
     if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
         possible_buckets = list(await db.get_bucket_category(category[0], get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
     else:
