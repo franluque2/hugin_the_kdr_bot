@@ -203,7 +203,7 @@ async def get_all_base_classes(altformat=None, blacklist=None):
             query["$or"].append({"$and": [{"altformat": {"$exists": False}}, {"altformat": {"$ne": None}}]})
 
     base_classes = coll_classes_base.find(query)
-
+    print(f"base_classes: {base_classes}")
     # Filter out blacklisted classes
     filtered_classes = []
     for base_class in base_classes:
