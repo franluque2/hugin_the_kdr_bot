@@ -315,6 +315,24 @@ shopkeepers=[
     "Justify told me to help out the new recruits, and you looked like you needed some. Here are some cards that can turn your luck around!",
 ]
 
+},
+{"id":"Cyber Ogre",
+"name":"CYBER OGRE",
+"img_url":"https://images.ygoprodeck.com/images/cards_cropped/64268668.jpg",
+"chance":1,
+"greetings":[
+    "GREETINGS MESSAGE 1: WELCOME, TODAY'S WARES INCLUDE: CYBER OGRE, CYBER OGRE 2, CYBER OGRE... [ERROR]",
+    "GREETINGS MESSAGE 2: HAVE YOU SEEN MY BROTHER?",
+    "GREETINGS MESSAGE 3: MY PROGRAMMING SAYS I AM NOT THE SHARPEST TOOL IN THE SHED.",
+    "GREETINGS MESSAGE 4: CYBER VALLEY TOLD ME THAT IF I RAN THIS SHOP I COULD LEARN HOW TO COUNT BEYOND 2.",
+    "GREETINGS MESSAGE 5: THEY TRIED TO TRAP ME IN A BYROAD WHILE I WAS ON MY WAY HERE, LUCKILY I HAD CYBER PHOENIX'S HELP."
+],
+"greetings_loss_streak":[
+    "CHEERFUL MESSAGE 1: HAVE YOU EVER THOUGHT ABOUT JUST WINNING.",
+    "CHEERFUL MESSAGE 2:IF YOU CANT WIN, FIND A SECOND YOU. WORKS EVERY TIME FOR ME.",
+    "CHEERFUL MESSAGE 3: REMEMBER, YOU'RE A ROCKSTAR. SO DO NOT GIVE UP."
+]
+
 }
 
 
