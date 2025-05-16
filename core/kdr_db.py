@@ -338,9 +338,9 @@ async def get_generic_bucket_categories(kdr_format=None):
     altformats = kdr_format.split(";")
     for af in altformats:
         if af == "default":
-            result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
+            result = categories_buckets_generic
         else:
-            result = coll_buckets_generic.find_one({"kdr_format": {"$eq": af}})
+            result = await coll_buckets_generic.find_one({"kdr_format": {"$eq": af}})
         
         if result is not None and "categories_generic" in result:
             return result["categories_generic"]
@@ -355,9 +355,9 @@ async def get_class_bucket_categories(kdr_format=None):
     altformats = kdr_format.split(";")
     for af in altformats:
         if af == "default":
-            result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
+            result = categories_buckets_class
         else:
-            result = coll_buckets_generic.find_one({"altformat": {"$eq": af}})
+            result = await coll_buckets_generic.find_one({"altformat": {"$eq": af}})
         
         if result is not None and "categories_class" in result:
             return result["categories_class"]
@@ -372,9 +372,9 @@ async def get_secret_categories(kdr_format=None):
     altformats = kdr_format.split(";")
     for af in altformats:
         if af == "default":
-            result = coll_buckets_generic.find_one({"altformat": {"$exists": False}})
+            result = categories_secret
         else:
-            result = coll_buckets_generic.find_one({"altformat": {"$eq": af}})
+            result = await coll_buckets_generic.find_one({"altformat": {"$eq": af}})
         
         if result is not None and "categories_secret" in result:
             return result["categories_secret"]
@@ -394,7 +394,7 @@ async def get_skill(sid):
 async def get_all_generic_skills(altformat=None):
     query = {}
     if altformat is None:
-        return coll_skills_generic.find({"altformat": {"$exists": False}})
+        return await coll_skills_generic.find({"altformat": {"$exists": False}})
     
     # Handle multiple altformats, including "default"
     altformats = altformat.split(";")
@@ -404,19 +404,19 @@ async def get_all_generic_skills(altformat=None):
     if "default" in altformats:
         query["$or"].append({"altformat": {"$exists": False}})
     
-    return coll_skills_generic.find(query)
+    return await coll_skills_generic.find(query)
 
 
 async def get_skill_by_id(skill_id):
-    skill = coll_skills.find_one({'id': {"$eq": skill_id}})
+    skill = await coll_skills.find_one({'id': {"$eq": skill_id}})
     if skill is None:
-        gen_skill = coll_skills_generic.find_one({'id': {"$eq": skill_id}})
+        gen_skill = await coll_skills_generic.find_one({'id': {"$eq": skill_id}})
         return gen_skill
     return skill
 
 
 async def get_skill_value(sid, key):
-    return coll_skills.find_one({'id': {"$eq": sid}}).get(key)
+    return await coll_skills.find_one({'id': {"$eq": sid}}).get(key)
 
 
 """"""
