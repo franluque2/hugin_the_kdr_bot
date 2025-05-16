@@ -340,7 +340,7 @@ async def get_generic_bucket_categories(kdr_format=None):
         if af == "default":
             result = categories_buckets_generic
         else:
-            result = await coll_buckets_generic.find_one({"kdr_format": {"$eq": af}})
+            result = coll_buckets_generic.find_one({"kdr_format": {"$eq": af}})
         
         if result is not None and "categories_generic" in result:
             return result["categories_generic"]
@@ -357,7 +357,7 @@ async def get_class_bucket_categories(kdr_format=None):
         if af == "default":
             result = categories_buckets_class
         else:
-            result = await coll_buckets_generic.find_one({"altformat": {"$eq": af}})
+            result = coll_buckets_generic.find_one({"altformat": {"$eq": af}})
         
         if result is not None and "categories_class" in result:
             return result["categories_class"]
@@ -374,7 +374,7 @@ async def get_secret_categories(kdr_format=None):
         if af == "default":
             result = categories_secret
         else:
-            result = await coll_buckets_generic.find_one({"altformat": {"$eq": af}})
+            result = coll_buckets_generic.find_one({"altformat": {"$eq": af}})
         
         if result is not None and "categories_secret" in result:
             return result["categories_secret"]
@@ -394,7 +394,7 @@ async def get_skill(sid):
 async def get_all_generic_skills(altformat=None):
     query = {}
     if altformat is None:
-        return await coll_skills_generic.find({"altformat": {"$exists": False}})
+        return coll_skills_generic.find({"altformat": {"$exists": False}})
     
     # Handle multiple altformats, including "default"
     altformats = altformat.split(";")
@@ -404,7 +404,7 @@ async def get_all_generic_skills(altformat=None):
     if "default" in altformats:
         query["$or"].append({"altformat": {"$exists": False}})
     
-    return await coll_skills_generic.find(query)
+    return coll_skills_generic.find(query)
 
 
 async def get_skill_by_id(skill_id):
@@ -416,7 +416,7 @@ async def get_skill_by_id(skill_id):
 
 
 async def get_skill_value(sid, key):
-    return await coll_skills.find_one({'id': {"$eq": sid}}).get(key)
+    return coll_skills.find_one({'id': {"$eq": sid}}).get(key)
 
 
 """"""
