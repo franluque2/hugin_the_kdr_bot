@@ -342,8 +342,8 @@ async def get_generic_bucket_categories(kdr_format=None):
         else:
             result = coll_buckets_generic.find_one({"kdr_format": {"$eq": af}})
         
-        if result is not None:
-            return result.get("categories_generic", categories_buckets_generic)
+        if result is not None and "categories_generic" in result:
+            return result["categories_generic"]
 
     return categories_buckets_generic
 
@@ -359,8 +359,8 @@ async def get_class_bucket_categories(kdr_format=None):
         else:
             result = coll_buckets_generic.find_one({"altformat": {"$eq": af}})
         
-        if result is not None:
-            return result.get("categories_class", categories_buckets_class)
+        if result is not None and "categories_class" in result:
+            return result["categories_class"]
 
     return categories_buckets_class
 
@@ -376,8 +376,8 @@ async def get_secret_categories(kdr_format=None):
         else:
             result = coll_buckets_generic.find_one({"altformat": {"$eq": af}})
         
-        if result is not None:
-            return result.get("categories_secret", categories_secret)
+        if result is not None and "categories_secret" in result:
+            return result["categories_secret"]
 
     return categories_secret
 
