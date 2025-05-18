@@ -408,9 +408,9 @@ async def get_all_generic_skills(altformat=None):
 
 
 async def get_skill_by_id(skill_id):
-    skill = await coll_skills.find_one({'id': {"$eq": skill_id}})
+    skill = coll_skills.find_one({'id': {"$eq": skill_id}})
     if skill is None:
-        gen_skill = await coll_skills_generic.find_one({'id': {"$eq": skill_id}})
+        gen_skill = coll_skills_generic.find_one({'id': {"$eq": skill_id}})
         return gen_skill
     return skill
 
