@@ -340,7 +340,7 @@ async def get_generic_bucket_categories(kdr_format=None):
         if af == "default":
             result = categories_buckets_generic
         else:
-            result = coll_buckets_generic.find_one({"kdr_format": {"$eq": af}})
+            result = coll_buckets_generic.find_one({"altformat": {"$eq": af}})
         
         if result is not None and "categories_generic" in result:
             return result["categories_generic"]
