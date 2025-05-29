@@ -275,6 +275,7 @@ class BuyView(discord.ui.View):
             raw_category = window["name"]
             category = type_converter[raw_category]
             cost = window["cost"] - costreduction
+            window["cost"] = cost
             buy_window_btn = BuyWindowButton(f"Buy the shown {category} window for {cost} gold.", f"{raw_category}",
                                              pid, sid, iid, status_message, status_panel_generator, thread,
                                              window)
