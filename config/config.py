@@ -52,6 +52,8 @@ MAX_RPG_STAT_LEVEL = 12
 RPG_STATS={
     "STR": 12,
     "DEX": 12,
+    "CON": 12,
+    "CHA": 12.
     "INT": 12
 }
 
