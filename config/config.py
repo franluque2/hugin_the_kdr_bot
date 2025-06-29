@@ -48,6 +48,12 @@ XP_PER_GOLD_SPENT = 2
 
 # max level a stat can have
 MAX_RPG_STAT_LEVEL = 12
+# RPG stats and their maximum values
+RPG_STATS={
+    "STR": 12,
+    "DEX": 12,
+    "INT": 12
+}
 
 # level thresholds in which to give a level
 LEVEL_THRESHOLDS = [2, 6, 8, 10, 14, 18, 22, 24, 28, 30]

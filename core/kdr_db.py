@@ -6,6 +6,7 @@ from config.config import DB_ADDRESS, DB_KEY_SERVER, \
     PATH_TREASURES, PATH_GENERIC_SKILLS, DEFAULT_ELO_RANKING
 from core.kdr_data import categories_buckets_generic, categories_buckets_class, categories_secret
 from core.kdr_modifiers import get_modifier
+from config.config import RPG_STATS
 
 from json import load as json_load
 
@@ -504,9 +505,6 @@ def add_user_to_kdr(pid, sid, iid, classes):
         DB_KEY_PLAYER: pid,
         'class': '',
         'gold': 0,
-        'STR': 0,
-        'CON': 0,
-        'DEX': 0,
         'XP': 0,
         'classes': classes,
         'skills': [],
@@ -523,7 +521,9 @@ def add_user_to_kdr(pid, sid, iid, classes):
         'offered_skills': [],
         'offered_treasure': [],
         'offered_loot': [],
-        'got_tip_skill': False
+        'got_tip_skill': False,
+        # Add all RPG stats dynamically
+        **{stat: 0 for stat in RPG_STATS}
     }
 
     num_players = coll_kdr.find_one({DB_KEY_SERVER: sid, DB_KEY_INSTANCE: iid}).get("players")
@@ -545,9 +545,6 @@ def update_user_to_kdr(pid, sid, iid, classes):
         DB_KEY_PLAYER: pid,
         'class': '',
         'gold': 0,
-        'STR': 0,
-        'CON': 0,
-        'DEX': 0,
         'XP': 0,
         'classes': classes,
         'skills': [],
@@ -564,7 +561,9 @@ def update_user_to_kdr(pid, sid, iid, classes):
         'offered_skills': [],
         'offered_treasure': [],
         'offered_loot': [],
-        'got_tip_skill': False
+        'got_tip_skill': False,
+        # Add all RPG stats dynamically
+        **{stat: 0 for stat in RPG_STATS}
     }
 
     coll_inventory.insert_one(user_inventory)

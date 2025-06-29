@@ -3,7 +3,7 @@ import core.kdr_db as db
 from discord import Message, Thread
 from discord.ui.button import ButtonStyle
 from views.panels.panel_status import StatusPanel
-from config.config import MAX_RPG_STAT_LEVEL
+from config.config import MAX_RPG_STAT_LEVEL, RPG_STATS
 import views.panels.panel_level_attribute as level_attribute_panel
 
 
@@ -52,21 +52,14 @@ class IncreaseStatView(discord.ui.View):
 
     async def create_buttons(self, pid: str, sid, iid,
                              status_message: Message, status_panel_generator: StatusPanel,
-                             thread: Thread, str: int, dex: int, con: int):
-        levelup_STR = IncreaseStatButton(f"Level Up STR.", "str_lvlup",
-                                         pid, sid, iid, status_message, status_panel_generator, thread,
-                                         "STR", str)
-        levelup_DEX = IncreaseStatButton(f"Level Up DEX", "dex_lvlup",
-                                         pid, sid, iid, status_message, status_panel_generator, thread,
-                                         "DEX", dex)
-        levelup_CON = IncreaseStatButton(f"Level UP CON", "con_lvlup",
-                                         pid, sid, iid, status_message, status_panel_generator, thread,
-                                         "CON", con)
-
-        levelup_STR.disabled = str >= MAX_RPG_STAT_LEVEL
-        levelup_DEX.disabled = dex >= MAX_RPG_STAT_LEVEL
-        levelup_CON.disabled = con >= MAX_RPG_STAT_LEVEL
-
-        self.add_item(levelup_STR)
-        self.add_item(levelup_DEX)
-        self.add_item(levelup_CON)
+                             thread: Thread, **stat_values):
+        # stat_values should be passed as stat_name=stat_value for each stat
+        for stat, max_val in RPG_STATS.items():
+            current_val = stat_values.get(stat.lower(), 0)  # expects keys like str, dex, con
+            button = IncreaseStatButton(
+                f"Level Up {stat}.", f"{stat.lower()}_lvlup",
+                pid, sid, iid, status_message, status_panel_generator, thread,
+                stat, current_val
+            )
+            button.disabled = current_val >= max_val
+            self.add_item(button)

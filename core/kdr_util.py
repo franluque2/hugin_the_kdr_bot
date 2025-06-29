@@ -7,7 +7,7 @@ from core import kdr_db as db, \
     kdr_errors, \
     kdr_special, \
     kdr_statics as statics
-from config.config import ROLE_ADMIN, OOPS, DB_KEY_SERVER, DB_KEY_INSTANCE, ABOUT_MSG
+from config.config import ROLE_ADMIN, OOPS, DB_KEY_SERVER, DB_KEY_INSTANCE, ABOUT_MSG, RPG_STATS
 from config.secret_values import GUILD
 
 class KDRUtil(Cog):
@@ -55,11 +55,15 @@ class KDRUtil(Cog):
 
         opponent_class = await db.get_inventory_value(opponent, sid, iid, 'class')
         if len(opponent_class) == 0:
-            await interaction.response.send_message('Your opponent hasn''t picked a class', ephemeral=True)
+            await interaction.response.send_message('Your opponent hasn\'t picked a class', ephemeral=True)
             return
 
         player_inventory = await db.get_inventory(pid, sid, iid)
         opponent_inventory = await db.get_inventory(opponent, sid, iid)
+
+        # Dynamically add all RPG stats for player and opponent
+        player_stats = {f"pl_{stat.lower()}": player_inventory.get(stat, 0) for stat in RPG_STATS}
+        opponent_stats = {f"opp_{stat.lower()}": opponent_inventory.get(stat, 0) for stat in RPG_STATS}
 
         match_data = {
             "is_ranked": await db.get_instance_value(sid, iid, 'is_ranked'),
@@ -69,9 +73,7 @@ class KDRUtil(Cog):
             "pl_class_name": (await db.get_static_class(player_inventory["class"]))["name"],
             "pl_total_wl": await db.get_users_value(pid, sid, 'total_winloss'),
             "pl_elo": await db.get_users_value(pid, sid, 'elo'),
-            "pl_str": player_inventory["STR"],
-            "pl_dex": player_inventory["DEX"],
-            "pl_con": player_inventory["CON"],
+            **player_stats,
             "pl_xp": player_inventory["XP"],
             "pl_gold": player_inventory["gold"],
             "pl_wl_ratio": player_inventory["wl_ratio"],
@@ -81,9 +83,7 @@ class KDRUtil(Cog):
             "opp_class_name": (await db.get_static_class(opponent_class))["name"],
             "opp_total_wl": await db.get_users_value(opponent, sid, 'total_winloss'),
             "opp_elo": await db.get_users_value(opponent, sid, 'elo'),
-            "opp_str": opponent_inventory["STR"],
-            "opp_dex": opponent_inventory["DEX"],
-            "opp_con": opponent_inventory["CON"],
+            **opponent_stats,
             "opp_xp": opponent_inventory["XP"],
             "opp_gold": opponent_inventory["gold"],
             "opp_wl_ratio": opponent_inventory["wl_ratio"],

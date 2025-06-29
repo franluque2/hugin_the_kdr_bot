@@ -3,6 +3,7 @@ from views.panels.panel_status import StatusPanel
 from core import kdr_db as db
 from core.kdr_data import SpecialSkillHandling
 import views.view_reverse_sacrifice as view_reverse_sacrifice
+from config.config import RPG_STATS
 import random
 
 class ReverseSacrificePanel:
@@ -106,18 +107,11 @@ async def get_skill_to_sacrifice(pid, sid, iid):
 
 
 async def get_stat_to_sacrifice(pid, sid, iid):
-    STR = await db.get_inventory_value(pid, sid, iid, "STR")
-    DEX = await db.get_inventory_value(pid, sid, iid, "DEX")
-    CON = await db.get_inventory_value(pid, sid, iid, "CON")
-
     stats = []
-    if STR >= 3:
-        stats.append("STR")
-    if DEX >= 3:
-        stats.append("DEX")
-    if CON >= 3:
-        stats.append("CON")
-
+    for stat in RPG_STATS:
+        val = await db.get_inventory_value(pid, sid, iid, stat)
+        if val is not None and val >= 3:
+            stats.append(stat)
     if stats:
         return random.choice(stats)
     return None

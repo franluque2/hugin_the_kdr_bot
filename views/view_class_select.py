@@ -8,6 +8,7 @@ import random
 from views.panels.panel_treasure import get_random_treasures
 from views.panels.panel_buying import get_shop_window_class, get_shop_window_generic
 from core.kdr_db import get_class_bucket_categories, get_generic_bucket_categories
+from config.config import RPG_STATS
 
 from discord import Embed
 
@@ -76,10 +77,16 @@ class ClassButton(discord.ui.Button):
                 await interaction.followup.send(f"Welcome to the a Reverse Run! This is the loot you will be starting with!: \n")
                 skillGiverView=SkillGiverView()
                 await skillGiverView.create_skill_giver_view(self.sid,self.iid,self.pid,interaction)
-                await interaction.followup.send(f"Your Stats of STR, CON AND DEX have been set to 9/9/9 ! \n")
-                await db.set_inventory_value(self.pid, self.sid, self.iid, "CON", 9)
-                await db.set_inventory_value(self.pid, self.sid, self.iid, "DEX", 9)
-                await db.set_inventory_value(self.pid, self.sid, self.iid, "STR", 9)
+                # Set all stats to 9 or their max, whichever is lower
+                stat_set_msg = []
+                for stat, max_val in RPG_STATS.items():
+                    set_val = min(9, max_val)
+                    await db.set_inventory_value(self.pid, self.sid, self.iid, stat, set_val)
+                    stat_set_msg.append(f"{stat}: {set_val}")
+                await interaction.followup.send(
+                    f"Your Stats have been set as follows for Reverse Run: " +
+                    ", ".join(stat_set_msg) + " !\n"
+                )
                 lootGiverView=LootGiverView()
                 await lootGiverView.create_loot_giving_view(self.sid,self.iid,self.pid,self.static_class_id,interaction)
 
