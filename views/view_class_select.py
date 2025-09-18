@@ -264,7 +264,7 @@ class SkillGiverView(discord.ui.View):
         skillnum=0
         
         generic_skills=[]
-        modifiers = await db.get_instance_value(self.sid, self.iid, "modifiers")
+        modifiers = await db.get_instance_value(sid, iid, "modifiers")
         if modifiers and get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value) is not None:
             generic_skills = list(await db.get_all_generic_skills(get_modifier(modifiers,KdrModifierNames.ALTERNATE_FORMAT.value)))
         else:
