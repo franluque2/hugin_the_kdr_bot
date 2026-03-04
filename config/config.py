@@ -64,7 +64,7 @@ LEVEL_THRESHOLDS = [2, 6, 8, 10, 14, 18, 22, 24, 28, 30]
 GOLD_COST_UPGRADE = 5
 
 # gold needed per interest threshold
-GOLD_INTEREST_REQUIRED = 4
+GOLD_INTEREST_REQUIRED = 6
 
 # gold gained per interest threshold
 GOLD_INTEREST_GAINED = 1
