@@ -34,7 +34,7 @@ class KDRCore(Cog):
     @app_commands.guild_only()
     async def new_kdr(self, interaction: Interaction, playernum:int=8, isprivate: bool = False, modifiers: str="", class_selection_number: int=1, isranked: bool = False):
         sid = interaction.guild_id
-        pid=interaction.user.id
+        pid=str(interaction.user.id)
         proles=interaction.user.roles
         await interaction.response.defer(ephemeral=True)
         if playernum%2!=0:
@@ -603,6 +603,10 @@ class KDRCore(Cog):
         players.remove(pid)
         player_active_instances.remove(iid)
         msg = f"<@{pid}> has left KDR Match {iid}.\n"
+
+        creator_id = await db.get_instance_value(sid, iid, 'creator_id')
+        if str(creator_id) == pid:
+            await db.set_instance_value(sid, iid, 'creator_id', None)
 
         await db.set_instance_value(sid, iid, 'players', num_players)
         await db.set_instance_value(sid, iid, 'player_names', players)
