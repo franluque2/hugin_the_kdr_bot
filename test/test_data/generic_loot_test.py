@@ -2,7 +2,7 @@ import json
 import os
 
 # Assuming that this is the path to the config folder
-CONFIG_PATH = os.path.join(os.path.dirname(__file__), "../..", "config")
+CONFIG_PATH = os.path.join(os.path.dirname(__file__), "../..", "class_examples")
 
 def load_json_file(filename):
     with open(os.path.join(CONFIG_PATH, filename), "r") as file:

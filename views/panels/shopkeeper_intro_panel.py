@@ -3,6 +3,7 @@ from core import kdr_db as db
 from config.shopkeepers import shopkeepers
 import random
 import numpy as np
+import core.kdr_ansi as ansi
 
 class ShopIntroPanel:
     def __init__(self, pid, sid, iid,
@@ -14,11 +15,13 @@ class ShopIntroPanel:
 
     async def get_shop_intro(self) -> None:
         shopname,greeting,greeting_loss,img_url=get_random_shopkeep()
+        # Store the shopkeeper name for the web shop page
+        await db.set_inventory_value(self.pid, self.sid, self.iid, "shopkeep_name", shopname)
         loss_streak=await db.get_inventory_value(self.pid,self.sid,self.iid,"loss_streak")
         text=greeting if loss_streak<2 else greeting_loss
         shopkeep=Embed(title=shopname,description=text)
         shopkeep.set_thumbnail(url=img_url)
-        await self.thread.send(f"A Shopkeeper comes to sell you wares!", embed=shopkeep)
+        await self.thread.send(embed=shopkeep)
         return
 
 def get_random_shopkeep():

@@ -45,7 +45,7 @@ class SkillClassButton(discord.ui.Button):
         await self.status_message.edit(content=f'<@{self.pid}>',
                                        embed=await self.status_panel_generator.get_message())
         
-        await db.set_inventory_value(self.pid,self.sid,self.iid,"got_tip_skill",True)
+        await db.set_inventory_value(self.pid,self.sid,self.iid,"has_received_gamble_reward",True)
 
         ender = EndShopPanel(self.pid, self.sid,
                              self.iid, self.status_message, self.status_panel_generator, self.thread)

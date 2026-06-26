@@ -1,161 +1,890 @@
 [
     {
-        "id":"fly_fishing",
-        "name":"Fly Fishing",
-        "description":"You are always treated as having \"Umi\" on the field. WATER monsters you control gain 200 ATK/DEF.",
+        "id": "fly_fishing",
+        "name": "Fly Fishing",
+        "description": "You are always treated as having \"Umi\" on the field. WATER monsters you control gain 200 ATK / DEF.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"i_taught_the_fish",
-        "name":"I taught the Fish to Xyz Summon",
-        "description":"If \"Terrorking Salmon\" is used for the Xyz Summon of a WATER monster, it can be treated as a Level 3 or 4 monster. An Xyz monster with \"Terroking Salmon\" as material, is treated as \"Terrorking Salmon\".",
+        "id": "i_taught_the_fish_to_xyz_summon",
+        "name": "I Taught the Fish to Xyz Summon",
+        "description": "If \"Terrorking Salmon\" is used for the Xyz Summon of a WATER monster, it can be treated as a Level 3 or 4 monster. An Xyz monster with \"Terrorking Salmon\" as material, is treated as \"Terrorking Salmon\".",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"dead_mans_hand",
-        "name":"Dead Man's Hand",
-        "description":"During your Draw Phase, instead of conducting your normal draw, you can reveal the top card of your Deck, then choose to add it to your hand or send it to the GY. If you send it to the GY, send the top card of your Deck to the GY.",
+        "id": "dead_man\u2019s_hand_-_look_ma,_no_hands",
+        "name": "Dead Man\u2019s Hand - Look Ma, No Hands",
+        "description": "(Once per turn): If you Summon \"Skull Servant\" with  you can use it again this turn.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"omniservant",
-        "name":"Omni-Servant",
-        "description":"Your Legendary Monster can be treated as the full Tribute for either a Tribute Summon or Ritual Summon, also if \"Skull Servant\" would be used for a Synchro Summon, you can treat it as a Level 1, 2, or 3 Tuner monster. (Once per Duel): You can Tribute Summon a monster.",
+        "id": "omni-servant",
+        "name": "Omni-Servant",
+        "description": "Your Legendary Monster can be treated as the full Tribute for either a Tribute Summon or Ritual Summon, also if Skull Servant would be used for a Synchro Summon, you can treat it as a Level 1, 2, 3, or 4 Tuner monster. (Once per turn): If you control \"Skull Servant\" you can Tribute Summon a monster.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"teamwork_makes_the_dream_work",
-        "name":"Teamwork makes the Dream Work!",
-        "description":"\"Predaplant\", \"Shaddoll\", \"Fluffal\", 'HERO', and \"Edge Imp\", monsters are all also treated as \"Predaplant\", \"Shaddoll\", \"Fluffal\", 'HERO', and \"Edge Imp\" monsters at all times.",
+        "id": "patchwork_playdate",
+        "name": "Patchwork Playdate",
+        "description": "(Once per turn): You can use 1 monster your opponent controls as Fusion Material for the Summon of \"Bickuribox\" when you use Patchwork.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"fusion_fury_patchwork",
-        "name":"Fusion Fury",
-        "description":"Patchwork can be used if you activate any effect that would Fusion Summon a monster instead of just 'Polymerization' and can now be used once for each card effect you use with a different name to fuse.",
+        "id": "fusion_fury",
+        "name": "Fusion Fury",
+        "description": "(Once per Duel): If you activate a card or effect that would Fusion Summon a monster, while you control \"Bickuribox\", you can use  Patchwork for that Fusion Summon.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"specially_prepared_meal",
-        "name":"Specially Prepared Meal",
-        "description":"All monsters in your hand/GY are all also \"Salamangreat\" monsters. Add \"Salamangreat Weasel\" and \"Salamangreat Tiger\" to your inventory.",
+        "id": "aaailnhlssvh",
+        "name": "AAAILNHLSSVH",
+        "description": "When you place an \"A\" Counter(s) by a card effect, place another. This Skill's name is always treated as \"Allen and Adrien\u2019s Alienation Immigration Legalization Nation Hydration Lactation Station Socialization Vacation resulting in Hospitalization\".",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"the_dragon_from_creation",
-        "name":"The Dragon from Creation",
-        "description":"\"Twin-Headed Fire Dragon\" is also treated as a Dragon monster. If you would use \"Twin-Headed Fire Dragon\" for a Synchro Summon, it can be treated as a Tuner monster, also you can treat it as any Level for that Synchro Summon.",
+        "id": "xenomorph_evolution",
+        "name": "Xenomorph Evolution",
+        "description": "Reptile monsters you control and in your GY are treated as \"Alien\" monsters.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"allen_adrien",
-        "name":"AAAILNHLSSVH",
-        "description":"When you place an \"A\" Counter(s) by a card effect, place another. This Skill's name is always treated as \"Allen and Adrien’s Alienation Immigration Legalization Nation Hydration Lactation Station Socialization Vacation resulting in Hospitalization\".",
+        "id": "specially_prepared_meal",
+        "name": "Specially Prepared Meal",
+        "description": "- All monsters in your hand/GY are all also \"Salamangreat\" monsters. Add \"Salamangreat Weasel\" and \"Salamangreat Tiger\" to your inventory.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"xenomorph_evolution",
-        "name":"Xenomorph Evolution",
-        "description":"Your Reptile monsters in your possession are all also treated as \"Alien\" monsters.",
+        "id": "the_dragon_from_creation",
+        "name": "The Dragon from Creation",
+        "description": "- \"Twin-Headed Fire Dragon\" is also treated as a Dragon monster. If you would use \"Twin-Headed Fire Dragon\" for a Synchro Summon, it can be treated as a Tuner monster.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"infusion_of_magic",
-        "name":"Infusion of Magic",
-        "description":"Your Tokens can now be treated as a substitute for any 1 Fusion Material, but the other materials must be correct. Your Tokens can be used as the entire requirement for a Ritual Summon also they are treated as the correct tribute. Your Tokens can now be treated as 2 Tributes for a Tribute Summon.",
+        "id": "infusion_of_magic",
+        "name": "Infusion of Magic",
+        "description": "- Your Tokens can now be treated as a substitute for any 1 Fusion Material, but the other materials must be correct. Your Tokens can be used as the entire requirement for a Ritual Summon also they are treated as the correct tribute. Your Tokens can now be treated as 2 Tributes for a Tribute Summon.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"i_count_spells",
-        "name":"I Count Spells",
-        "description":"\"Neo Aqua Madoor\" gains 1 Spell Counter each time a Spell Card is activated.",
+        "id": "i_count_spells",
+        "name": "I Count Spells",
+        "description": "\"Neo Aqua Madoor\" gains 1 Spell Counter each time a Spell Card is activated.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"super_nutrient_y",
-        "name":"Super Nutrient Y",
-        "description":"(Once per Duel): If you Summon a Plant monster(s): You can draw 2 cards and discard 1 card.",
+        "id": "super_nutrient_y",
+        "name": "Super Nutrient Y",
+        "description": "(Once per Duel): If you Summon a Plant monster(s): You can draw 2 cards and discard 1 card.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"mulching",
-        "name":"Mulching",
-        "description":"(Once per turn): You can excavate the top card of your Deck, and if it is a Plant monster, send it to the GY. Otherwise, banish it. This is treated as a card effect.",
+        "id": "mulching",
+        "name": "Mulching",
+        "description": "- (Once per turn): You can excavate the top card of your Deck, and if it is a Plant monster, send it to the GY. Otherwise, banish it. This is treated as a card effect.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"dexterous",
-        "name":"Dexterous",
-        "description":"Gain +4 DEX. You no longer have a cap on the DEX stat. (Once per Duel): Instead of drawing for DEX, you can add \"Book of Moon\" from your Deck to your hand (Add 1 copy of \"Book of Moon\" to your Deck, permanently).",
+        "id": "dexterous:",
+        "name": "Dexterous:",
+        "description": "Gain +4 DEX. You no longer have a cap on the DEX stat. (Once per Duel): Instead of drawing for DEX, you can add \"Book of Moon\" from your Deck to your hand (Add 1 copy of \"Book of Moon\" to your Deck, permanently).",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"tight_tights",
-        "name":"Tight Tights",
-        "description":"The first time you Flip Summon a monster each turn, draw 1 card, then discard 1 card.",
+        "id": "tight_tights",
+        "name": "Tight Tights",
+        "description": "The first time you Flip Summon a monster each turn, draw 1 card, then discard 1 card.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"blessed_by_ishizu",
-        "name":"Blessed by Ishizu",
-        "description":"Once per turn, if \"Kelbek\", \"Mudora\", \"Keldo\", or \"Agido\" are Normal Summoned or sent to the GY, you can send the top 5 cards of your Deck to the GY.",
+        "id": "blessed_by_ishizu",
+        "name": "Blessed by Ishizu",
+        "description": "- Once per turn, if \"Kelbek\", \"Mudora\", \"Keldo\", or \"Agido\" are Normal Summoned or sent to the GY: You can send the top 5 cards of your Deck to the GY.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
         "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id":"shattered_hourglass",
-        "name":"shattered_hourglass",
-        "description":" Replace \"Hourglass of Life\" with \"Wingweaver\" in your Skill/Quest/Relic. You can Normal Summon/Set \"Wingweaver\" without Tributing. (Once per Duel): If you Special Summon from the effect of your Legendary Relic, you can Special Summon 1 Fairy monster from your hand or GY.",
+        "id": "shattered_hourglass",
+        "name": "Shattered Hourglass",
+        "description": "- (Once per Duel): If you Special Summon from the effect of your Legendary Relic, you can Special Summon 1 Fairy monster from your hand or GY.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "secret_synchro_surprise",
+        "name": "Secret Synchro Surprise",
+        "description": "(Once per turn): You can have 1 Warrior monster you control become the level of a Warrior monster in your GY until the end of the turn.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "the_stars_align",
+        "name": "The Stars Align",
+        "description": "(Once per turn): If you have 12 monsters with different levels in your GY, you can banish 1 monster from your GY and destroy 1 card your opponent controls.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "book_turning",
+        "name": "Book Turning",
+        "description": "(Once per turn): When you draw a card during your Draw Phase, you can banish it face-down to draw 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "audible_dot_com",
+        "name": "Audible Dot Com",
+        "description": "- Once per turn, during your Draw Phase: You can add 1 \"Boo Koo\" from your Deck to your hand.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "bigger_boats!",
+        "name": "Bigger Boats!",
+        "description": "-  If you Summon \"Skull Mariner\", you can equip 2 monsters to it instead of 1.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "bountifully_bodacious_booty!",
+        "name": "Bountifully Bodacious Booty!",
+        "description": "-  If you banish a Treasure(s), you can add them to your hand.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "shapeshift_mastery",
+        "name": "Shapeshift Mastery",
+        "description": "When you Shapeshift, you can Special Summon monsters that are up to 2 Levels higher or lower than the shuffled monster.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "swift_shapeshifter",
+        "name": "Swift Shapeshifter",
+        "description": "(Once per Duel): You can discard 1 card and once this turn, during your Battle Phase, you can Shapeshift as if it were a Quick Effect, also, you can Shapeshift an additional time this turn.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "predation",
+        "name": "Predation",
+        "description": "(Once per turn): You can destroy 1 card you control or in your hand. This is treated as a card effect.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "dino-roids",
+        "name": "Dino-Roids",
+        "description": "(Once per Duel): You can banish 2 Dinosaur monsters from your GY; Special Summon 1 Level 5 or higher Dinosaur monster from your Deck, ignoring summoning conditions.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "automated_mining_equipment",
+        "name": "Automated Mining Equipment",
+        "description": "Your Unique Skill sends the remaining excavated monsters to GY instead of shuffling them back into the Deck.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "a_double_prism_is_a_phenomenon_of_opti-:",
+        "name": "A Double Prism is a Phenomenon of Opti-:",
+        "description": "Face-up \"Prisman\" you control gain the effect: \"Once per chain (Quick Effect): Summon an Extra Deck monster using this card as material or perform a Tribute Summon, by tributing monsters you control including this card.\"",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "itsy_bitsy_spider",
+        "name": "Itsy Bitsy Spider",
+        "description": "(Once per turn): If you Normal Summon a \"Spider\" monster or \"Kumootoko\": you can target 1 monster your opponent controls; equip it to an Insect-type monster you control. This is treated as a card effect.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "reincarnated_as_a_spider(stackable)",
+        "name": "Reincarnated as a Spider(Stackable)",
+        "description": "When you buy this, declare 1 insect monster\u2019s name in your inventory. Listed cards are now also a \"Spider\" monster. Each stack of this skill allows you to choose another monster.",
+        "stackable_count": 99,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "stacked_deck",
+        "name": "Stacked Deck",
+        "description": "(Once per turn): During your End Phase, you can remove 1 Lucky Counter from Gateway Drug and take 1 \"Stacked Deck\" card from your Deck or GY, and place it on top of your Deck.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "mixed_suits",
+        "name": "Mixed Suits",
+        "description": "(Once per turn): If your \"Stacked Deck\" card is sent from the field to the GY, you can add 1 \"Stacked Deck\" card with a different name from your Deck to your hand. (Once per Duel): If you have 4 \"Stacked Deck\" cards with different names in your GY, you can banish 1 monster your opponent controls.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "idle_death_gamble",
+        "name": "Idle Death Gamble",
+        "description": "If your LP are less than 4000, you can shuffle your hand into the Deck and declare a card name. Excavate the top card of your Deck, if it is the declared card, your LP become 8000, also add 5 cards from your Deck to your hand. Otherwise, you lose the Duel.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "all_the_colours_of_the_gadget",
+        "name": "All the Colours of the Gadget",
+        "description": "If you Tribute Summon a Machine monster by tributing a \"Gadget\" monster, it gains all 3 of the listed effects in your Relic.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "further_upgrades",
+        "name": "Further Upgrades",
+        "description": "Weakness of Flesh can Summon Level 5 or higher monsters.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "chargeback",
+        "name": "Chargeback",
+        "description": "Your monsters banished by your Unique Skill are also only banished until your opponent's Draw Phase.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "charge-up",
+        "name": "Charge-Up",
+        "description": "Your non-Thunder monsters in your possession are also always treated as Thunder monsters. (Once per turn): You can banish 1 card in your hand; add 1 Thunder monster with the same Level but a different name from your GY to your hand and draw 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "commons_alone_weak._together,_strong",
+        "name": "Commons Alone Weak. Together, Strong",
+        "description": "You cannot play (SR) or higher Treasures in your Deck. You can play up to 3 of any (C) or (R) Treasures you have.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "unoppressing_the_oppressive_restrictions",
+        "name": "Unoppressing the Oppressive Restrictions",
+        "description": "You can use your Legendary Relic an additional time per turn.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "recipe_book_-_allen\u2019s_guide_to_fish",
+        "name": "Recipe Book - Allen\u2019s Guide to Fish",
+        "description": "This is a special fourth ingredient that fits into any dish! (Anchovies) You can roll a die. Reveal that many cards from the top of your Deck and add 1 Ritual Monster or Ritual Spell from among those to your hand, then shuffle the rest back into the Deck.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "recipe_book_-_adrien\u2019s_guide_to_beasts",
+        "name": "Recipe Book - Adrien\u2019s Guide to Beasts",
+        "description": "This is a special fourth ingredient that fits into any dish! (Hotdogs) The next time you tribute a monster this turn: you can add 1 Ritual Monster that is 1 level higher or lower than the tributed monster from your Deck to your hand.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "psychic_advantage",
+        "name": "Psychic Advantage",
+        "description": "(Once per turn): If you\u2019ve lost 1000LP this turn, draw 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "therapy",
+        "name": "Therapy",
+        "description": "The first time you would pay LP each turn, gain that much LP instead.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "",
+        "name": "",
+        "description": "",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "creation_story",
+        "name": "Creation Story",
+        "description": "Once per Duel, during your Draw Phase: Send cards from the top of your Deck to the GY until you\u2019ve sent both 1 LIGHT and 1 DARK monster to the GY, but if you send more than 4 cards with this effect, banish all cards in your GY during the End Phase.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "chaos_tale:",
+        "name": "Chaos Tale:",
+        "description": "Once per turn, if 2 or more monsters are banished at the same time: you can draw 1 card, discard 1 card, then send the top card of your Deck to the GY.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "chaos_control",
+        "name": "Chaos Control",
+        "description": "(Once per Duel): You can send 1 LIGHT and 1 DARK monster from your Deck to the GY, discard 1 card, then add \u201cThe Chaos Creator\u201d from your Deck to your hand, and if you do, until the end of your turn, face-up \u201cThe Chaos Creator\u201d have their effects negated. (Add \u201cThe Chaos Creator\u201d to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "light_and_darkness_dragon",
+        "name": "Light and Darkness Dragon",
+        "description": "(Once per Duel): You can return from among your banishment 1 LIGHT monster and 1 DARK monster to the GY, then add 1 LIGHT Dragon monster from your Deck to your hand and send 1 DARK Dragon monster from your Deck to your GY, or vice versa.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "fly_fishing",
+        "name": "Fly Fishing",
+        "description": "- You are always treated as having \"Umi\" on the field. WATER monsters you control gain 200 ATK / DEF.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "i_taught_the_fish_to_xyz_summon",
+        "name": "I Taught the Fish to Xyz Summon",
+        "description": "If \"Terrorking Salmon\" is used for the Xyz Summon of a WATER monster, it can be treated as a Level 3 or 4 monster. An Xyz monster with \"Terrorking Salmon\" as material, is treated as \"Terrorking Salmon\".",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "dead_man\u2019s_hand_-_look_ma,_no_hands",
+        "name": "Dead Man\u2019s Hand - Look Ma, No Hands",
+        "description": "(Once per turn): If you Summon \"Skull Servant\" with  you can use it again this turn.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "omni-servant",
+        "name": "Omni-Servant",
+        "description": "- Your Legendary Monster can be treated as the full Tribute for either a Tribute Summon or Ritual Summon, also if Skull Servant would be used for a Synchro Summon, you can treat it as a Level 1, 2, 3, or 4 Tuner monster. (Once per turn): If you control \"Skull Servant\" you can Tribute Summon a monster.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "patchwork_playdate",
+        "name": "Patchwork Playdate",
+        "description": "(Once per turn): You can use 1 monster your opponent controls as Fusion Material for the Summon of \"Bickuribox\" when you use Patchwork.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "fusion_fury",
+        "name": "Fusion Fury",
+        "description": "(Once per Duel): If you activate a card or effect that would Fusion Summon a monster, while you control \"Bickuribox\", you can use  Patchwork for that Fusion Summon.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "aaailnhlssvh",
+        "name": "AAAILNHLSSVH",
+        "description": "When you place an \"A\" Counter(s) by a card effect, place another. This Skill's name is always treated as \"Allen and Adrien\u2019s Alienation Immigration Legalization Nation Hydration Lactation Station Socialization Vacation resulting in Hospitalization\".",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "xenomorph_evolution",
+        "name": "Xenomorph Evolution",
+        "description": "Reptile monsters you control and in your GY are treated as \"Alien\" monsters.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "specially_prepared_meal",
+        "name": "Specially Prepared Meal",
+        "description": "- All monsters in your hand/GY are all also \"Salamangreat\" monsters. Add \"Salamangreat Weasel\" and \"Salamangreat Tiger\" to your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "the_dragon_from_creation",
+        "name": "The Dragon from Creation",
+        "description": "- \"Twin-Headed Fire Dragon\" is also treated as a Dragon monster. If you would use \"Twin-Headed Fire Dragon\" for a Synchro Summon, it can be treated as a Tuner monster.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "infusion_of_magic",
+        "name": "Infusion of Magic",
+        "description": "- Your Tokens can now be treated as a substitute for any 1 Fusion Material, but the other materials must be correct. Your Tokens can be used as the entire requirement for a Ritual Summon also they are treated as the correct tribute. Your Tokens can now be treated as 2 Tributes for a Tribute Summon.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "i_count_spells",
+        "name": "I Count Spells",
+        "description": "\"Neo Aqua Madoor\" gains 1 Spell Counter each time a Spell Card is activated.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "super_nutrient_y",
+        "name": "Super Nutrient Y",
+        "description": "(Once per Duel): If you Summon a Plant monster(s): You can draw 2 cards and discard 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "mulching",
+        "name": "Mulching",
+        "description": "- (Once per turn): You can excavate the top card of your Deck, and if it is a Plant monster, send it to the GY. Otherwise, banish it. This is treated as a card effect.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "dexterous:",
+        "name": "Dexterous:",
+        "description": "Gain +4 DEX. You no longer have a cap on the DEX stat. (Once per Duel): Instead of drawing for DEX, you can add \"Book of Moon\" from your Deck to your hand (Add 1 copy of \"Book of Moon\" to your Deck, permanently).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "tight_tights",
+        "name": "Tight Tights",
+        "description": "The first time you Flip Summon a monster each turn, draw 1 card, then discard 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "blessed_by_ishizu",
+        "name": "Blessed by Ishizu",
+        "description": "- Once per turn, if \"Kelbek\", \"Mudora\", \"Keldo\", or \"Agido\" are Normal Summoned or sent to the GY: You can send the top 5 cards of your Deck to the GY.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "shattered_hourglass",
+        "name": "Shattered Hourglass",
+        "description": "- (Once per Duel): If you Special Summon from the effect of your Legendary Relic, you can Special Summon 1 Fairy monster from your hand or GY.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "secret_synchro_surprise",
+        "name": "Secret Synchro Surprise",
+        "description": "(Once per turn): You can have 1 Warrior monster you control become the level of a Warrior monster in your GY until the end of the turn.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "the_stars_align",
+        "name": "The Stars Align",
+        "description": "(Once per turn): If you have 12 monsters with different levels in your GY, you can banish 1 monster from your GY and destroy 1 card your opponent controls.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "book_turning",
+        "name": "Book Turning",
+        "description": "(Once per turn): When you draw a card during your Draw Phase, you can banish it face-down to draw 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "audible_dot_com",
+        "name": "Audible Dot Com",
+        "description": "- Once per turn, during your Draw Phase: You can add 1 \"Boo Koo\" from your Deck to your hand.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "bigger_boats!",
+        "name": "Bigger Boats!",
+        "description": "-  If you Summon \"Skull Mariner\", you can equip 2 monsters to it instead of 1.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "bountifully_bodacious_booty!",
+        "name": "Bountifully Bodacious Booty!",
+        "description": "-  If you banish a Treasure(s), you can add them to your hand.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "shapeshift_mastery",
+        "name": "Shapeshift Mastery",
+        "description": "When you Shapeshift, you can Special Summon monsters that are up to 2 Levels higher or lower than the shuffled monster.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "swift_shapeshifter",
+        "name": "Swift Shapeshifter",
+        "description": "(Once per Duel): You can discard 1 card and once this turn, during your Battle Phase, you can Shapeshift as if it were a Quick Effect, also, you can Shapeshift an additional time this turn.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "predation",
+        "name": "Predation",
+        "description": "(Once per turn): You can destroy 1 card you control or in your hand. This is treated as a card effect.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "dino-roids",
+        "name": "Dino-Roids",
+        "description": "(Once per Duel): You can banish 2 Dinosaur monsters from your GY; Special Summon 1 Level 5 or higher Dinosaur monster from your Deck, ignoring summoning conditions.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "automated_mining_equipment",
+        "name": "Automated Mining Equipment",
+        "description": "Your Unique Skill sends the remaining excavated monsters to GY instead of shuffling them back into the Deck.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "a_double_prism_is_a_phenomenon_of_opti-:",
+        "name": "A Double Prism is a Phenomenon of Opti-:",
+        "description": "Face-up \"Prisman\" you control gain the effect: \"Once per chain (Quick Effect): Summon an Extra Deck monster using this card as material or perform a Tribute Summon, by tributing monsters you control including this card.\"",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "itsy_bitsy_spider",
+        "name": "Itsy Bitsy Spider",
+        "description": "(Once per turn): If you Normal Summon a \"Spider\" monster or \"Kumootoko\": you can target 1 monster your opponent controls; equip it to an Insect-type monster you control. This is treated as a card effect.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "reincarnated_as_a_spider(stackable)",
+        "name": "Reincarnated as a Spider(Stackable)",
+        "description": "When you buy this, declare 1 insect monster\u2019s name in your inventory. Listed cards are now also a \"Spider\" monster. Each stack of this skill allows you to choose another monster.",
+        "stackable_count": 99,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "stacked_deck_1",
+        "name": "Stacked Deck 1",
+        "description": "Add the following additional Custom Cards to your inventory (max 1 of each): \"Stacked Deck - Ace of Spades\", \"Stacked Deck - King of Hearts\"",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "stacked_deck_2",
+        "name": "Stacked Deck 2",
+        "description": "Add the following Custom Card to your inventory (max 1 of each): \"Stacked Deck - Jack of Clubs\". You can play 1 \"Stacked Deck\" card at 3.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "stacked_deck_3",
+        "name": "Stacked Deck 3",
+        "description": "Add the following Custom Card to your inventory (max 1 of each): \"Stacked Deck - Full House\". You can play 2 \"Stacked Deck\" card(s) at 3, except \"Stacked Deck - Full House\"",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "all_the_colours_of_the_gadget",
+        "name": "All the Colours of the Gadget",
+        "description": "If you Tribute Summon a Machine monster by tributing a \"Gadget\" monster, it gains all 3 of the listed effects in your Relic.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "further_upgrades",
+        "name": "Further Upgrades",
+        "description": "Weakness of Flesh can Summon Level 5 or higher monsters.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "chargeback",
+        "name": "Chargeback",
+        "description": "Your monsters banished by your Unique Skill are also only banished until your opponent's Draw Phase.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "charge-up",
+        "name": "Charge-Up",
+        "description": "Your non-Thunder monsters in your possession are also always treated as Thunder monsters. (Once per turn): You can banish 1 card in your hand; add 1 Thunder monster with the same Level but a different name from your GY to your hand and draw 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "commons_alone_weak._together,_strong",
+        "name": "Commons Alone Weak. Together, Strong",
+        "description": "You cannot play (SR) or higher Treasures in your Deck. You can play up to 3 of any (C) or (R) Treasures you have.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "unoppressing_the_oppressive_restrictions",
+        "name": "Unoppressing the Oppressive Restrictions",
+        "description": "You can use your Legendary Relic an additional time per turn.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "recipe_book_-_allen\u2019s_guide_to_fish",
+        "name": "Recipe Book - Allen\u2019s Guide to Fish",
+        "description": "This is a special fourth ingredient that fits into any dish! (Anchovies) You can roll a die. Reveal that many cards from the top of your Deck and add 1 Ritual Monster or Ritual Spell from among those to your hand, then shuffle the rest back into the Deck.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "recipe_book_-_adrien\u2019s_guide_to_beasts",
+        "name": "Recipe Book - Adrien\u2019s Guide to Beasts",
+        "description": "This is a special fourth ingredient that fits into any dish! (Hotdogs) The next time you tribute a monster this turn: you can add 1 Ritual Monster that is 1 level higher or lower than the tributed monster from your Deck to your hand.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "psychic_advantage",
+        "name": "Psychic Advantage",
+        "description": "(Once per turn): If you\u2019ve lost 1000LP this turn, draw 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "therapy",
+        "name": "Therapy",
+        "description": "The first time you would pay LP each turn, gain that much LP instead.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "creation_story",
+        "name": "Creation Story",
+        "description": "Once per Duel, during your Draw Phase: Send cards from the top of your Deck to the GY until you\u2019ve sent both 1 LIGHT and 1 DARK monster to the GY, but if you send more than 4 cards with this effect, banish all cards in your GY during the End Phase.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "chaos_tale:",
+        "name": "Chaos Tale:",
+        "description": "Once per turn, if 2 or more monsters are banished at the same time: you can draw 1 card, discard 1 card, then send the top card of your Deck to the GY.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "chaos_control",
+        "name": "Chaos Control",
+        "description": "(Once per Duel): You can send 1 LIGHT and 1 DARK monster from your Deck to the GY, discard 1 card, then add \u201cThe Chaos Creator\u201d from your Deck to your hand, and if you do, until the end of your turn, face-up \u201cThe Chaos Creator\u201d have their effects negated. (Add \u201cThe Chaos Creator\u201d to your inventory).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "light_and_darkness_dragon",
+        "name": "Light and Darkness Dragon",
+        "description": "(Once per Duel): You can return from among your banishment 1 LIGHT monster and 1 DARK monster to the GY, then add 1 LIGHT Dragon monster from your Deck to your hand and send 1 DARK Dragon monster from your Deck to your GY, or vice versa.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,

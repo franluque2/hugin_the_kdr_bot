@@ -7,6 +7,12 @@ from views.view_treasures import TreasureView
 from views.panels.panel_buying import BuyPanel
 from views.panels.shopkeeper_intro_panel import ShopIntroPanel
 import random
+import core.kdr_ansi as ansi
+from urllib.parse import quote
+
+
+def _treasure_img_url(name: str) -> str:
+    return f"https://raw.githubusercontent.com/JustBryant/hugin_images/refs/heads/main/card_images/{quote(name)}.jpg"
 
 
 class TreasurePanel():
@@ -42,20 +48,20 @@ class TreasurePanel():
             if modifier == SpecialSkillHandling.SKILL_PIRATE_SOUL.value:
                 # give all three treasures
                 treasuresgivenout = True
-                msg = "__**Yarr, yer a Pirate Laddie! Ye get all these treasures!**__:\n"
+                description = "Yarr, yer a Pirate Laddie! Ye get all these treasures!:"
                 embeds=[]
                 for treasure in offered_treasure:
                     treasure_name = treasure["name"]
-                    treasure_image = treasure["img_url"]
                     rarity=rarity_converter[treasure["rarity"]]
                     treasure_rarity=f"Rarity: {rarity}"
-                    new_embed=Embed(title=treasure_name,description=treasure_rarity)
-                    new_embed.set_thumbnail(url=treasure_image)
+                    
+                    new_embed=Embed(title=treasure_name, description=treasure_rarity)
+                    new_embed.set_image(url=_treasure_img_url(treasure_name))
                     embeds.append(new_embed)
                     await db.set_inventory_value(self.pid, self.sid, self.iid, "treasures", treasure["id"], "$push")
 
 
-                await self.thread.send(content=msg,embeds=embeds)
+                await self.thread.send(content=description, embeds=embeds)
                 shop_stage += 1
                 await db.set_inventory_value(self.pid, self.sid, self.iid, 'shop_stage', shop_stage)
                 await db.set_inventory_value(self.pid, self.sid, self.iid, "offered_treasure", [])
@@ -70,20 +76,20 @@ class TreasurePanel():
             # give all three treasures
             treasuresgivenout = True
 
-            msg = "__**Yarr, yer a Pirate Laddie! Ye get all these treasures!**__:\n"
+            description = "Yarr, yer a Pirate Laddie! Ye get all these treasures!:"
             embeds=[]
             for treasure in offered_treasure:
                 treasure_name = treasure["name"]
-                treasure_image = treasure["img_url"]
                 rarity=rarity_converter[treasure["rarity"]]
                 treasure_rarity=f"Rarity: {rarity}"
-                new_embed=Embed(title=treasure_name,description=treasure_rarity)
-                new_embed.set_thumbnail(url=treasure_image)
+                
+                new_embed=Embed(title=treasure_name, description=treasure_rarity)
+                new_embed.set_thumbnail(url=_treasure_img_url(treasure_name))
                 embeds.append(new_embed)
                 await db.set_inventory_value(self.pid, self.sid, self.iid, "treasures", treasure["id"], "$push")
 
 
-            await self.thread.send(content=msg,embeds=embeds)
+            await self.thread.send(content=description, embeds=embeds)
 
             shop_stage += 1
             await db.set_inventory_value(self.pid, self.sid, self.iid, 'shop_stage', shop_stage)
@@ -98,18 +104,18 @@ class TreasurePanel():
             treasurer = TreasureView()
             await treasurer.create_buttons(self.pid, self.sid, self.iid, self.statusmessage,
                                            self.statuspanelgenerator, self.thread, offered_treasure)
-            msg = "__**Pick one Treasure!**__:\n"
+            description = "Pick one Treasure!:"
             embeds=[]
             for treasure in offered_treasure:
                 treasure_name = treasure["name"]
-                treasure_image = treasure["img_url"]
                 rarity=rarity_converter[treasure["rarity"]]
                 treasure_rarity=f"Rarity: {rarity}"
-                new_embed=Embed(title=treasure_name,description=treasure_rarity)
-                new_embed.set_thumbnail(url=treasure_image)
+                
+                new_embed=Embed(title=treasure_name, description=treasure_rarity)
+                new_embed.set_image(url=_treasure_img_url(treasure_name))
                 embeds.append(new_embed)
                 
-            await self.thread.send(content=msg, view=treasurer,embeds=embeds)
+            await self.thread.send(content=description, view=treasurer, embeds=embeds)
 
 
 async def get_random_treasures(altformat=None):

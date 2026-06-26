@@ -6,6 +6,8 @@ from views.panels.panel_status import StatusPanel
 from views.panels.panel_end_shop_phase import EndShopPanel
 from views.panels.panel_interface import panel_interpreter
 from core.kdr_data import SpecialSkillHandling
+from discord import Embed
+import core.kdr_ansi as ansi
 
 
 
@@ -109,8 +111,8 @@ class SellSelector(discord.ui.Select):
                     # no len for special code flag, remove the modifier
                     playermodifiers.remove(sellableskill["special_code_flag"])
 
-        await interaction.response.send_message(f"<@{interaction.user.id}> has sold {sold_things_str} "
-                                                f"for a total of **{final_gold_gained}** Gold!")
+        description = f"<@{interaction.user.id}> has sold **{sold_things_str}** for a total of **{final_gold_gained}** Gold!"
+        await interaction.response.send_message(description)
 
         self.player_gold += final_gold_gained
 

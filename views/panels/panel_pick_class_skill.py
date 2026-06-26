@@ -1,8 +1,9 @@
 from random import shuffle
-from discord import Message, Thread
+from discord import Message, Thread, Embed
 from core import kdr_db as db
 from views.panels.panel_status import StatusPanel
 import views.view_skill_class_select as skillselectview
+import core.kdr_ansi as ansi
 
 
 class PickClassSkillPanel:
@@ -24,10 +25,9 @@ class PickClassSkillPanel:
         playerskills = await db.get_inventory_value(self.pid, self.sid, self.iid, "skills")
 
         skill_choices = []
-        msg = "__**Choose A Unique Class Skill**__:\n"
-        class_skills_ids = list(
-            await db.get_static_class_value(await db.get_inventory_value(self.pid, self.sid, self.iid, "class"),
-                                            "unique_skills"))
+        embeds = []
+        class_name = await db.get_inventory_value(self.pid, self.sid, self.iid, "class")
+        class_skills_ids = list(await db.get_static_class_value(class_name, "unique_skills"))
 
         class_skills = []
         for id in class_skills_ids:
@@ -39,10 +39,17 @@ class PickClassSkillPanel:
                 skill_choices.append(skill)
                 skill_name = skill['name']
                 skill_desc = skill['description']
+                skill_img = skill.get("img_url", "")
 
-                msg += f"**{skill_name}**: {skill_desc}\n\n"
+                ansi_desc = ansi.wrap_ansi(f"{ansi.pink(skill_name, b=True)}\n{ansi.white(skill_desc)}")
+                new_embed = Embed(title="CLASS SKILL OFFERED", description=ansi_desc)
+                if skill_img:
+                    new_embed.set_thumbnail(url=skill_img)
+                embeds.append(new_embed)
+
             if len(skill_choices) >= 3:
                 break
         await skill_view.create_buttons(self.pid, self.sid, self.iid, self.status_message, self.status_panel_generator,
                                         self.thread, skill_choices)
-        await self.thread.send(msg, view=skill_view)
+        
+        await self.thread.send(embeds=embeds, view=skill_view)

@@ -18,7 +18,7 @@ shopkeepers=[
     "I believe in You! Believe in the me that believes in You!",
     "Look, you're already down here, might as well buy that vanilla in low quality, they are lonely you know.",
     "KDR luckly gives you some complimentary money when behind, take it and use it to teach those opponents of yours what for!",
-    "Have you tried begging for a win? It works for me sometimes :(",
+    "Have you tried begging for a win? It works for me sometimes",
     "You might feel bad for losing, but losing gives you money to pay for goods and services that you can use to feel less bad about it."
 ]
 
@@ -47,12 +47,12 @@ shopkeepers=[
 
 },
 {"id":"tri_brigade_kitt",
-"name":"Kitt <3",
+"name":"Kitt",
 "img_url":"https://files.catbox.moe/aajsd1.png",
 "chance":1,
 "greetings":[
     "You Know, I could've made some of these m- WHAT IS THAT BUTTON?",
-    "Ah, KDR, you know, I heard Bluey is somewhere around here, say hi to him for me please. :)",
+    "Ah, KDR, you know, I heard Bluey is somewhere around here, say hi to him for me please.",
     "Handmade Sunglasses, was very necessary.",
     "No, I cannot introduce you to my sister, anyways did you hear what Albaz is? What is that loot you're talking about?",
     "My favorite things, making new things, making new friends, did I mention making new things? Oh, and also saving the day.",
@@ -170,7 +170,7 @@ shopkeepers=[
     "Yo, shoppers! Welcome to Little D's Dino Den, where this tyrannosaurus tot's got a terrible temper for amazing deals!",
     "Ladies and gents, make some noise! Little D's Den is where you'll find skills and cards that'll make you roar!",
     "Mic check, one-two! Prepare to be amazed by me, the legendary Little D! This fierce tyrannosaurus tot spits fire on the mic and blows your mind with incredible card pools!",
-    "♫Hey, hey, hey! Little D in the house, the rapping tyrannosaurus tot with flows that astound! Step into my Dino Den, where the prices are low and the beats are profound!♫",
+    "Hey, hey, hey! Little D in the house, the rapping tyrannosaurus tot with flows that astound! Step into my Dino Den, where the prices are low and the beats are profound!",
     "Hello, hello, party people! Welcome to Little D's Den, where this talented rapping tyrannosaurus tot brings the groove and steals the show with his prices!",
     "Hey yo! Welcome to Little D's Dino Den! Watch out for this fiery tyrannosaurus tot with a time wizard offer you won't want to miss!",
     "Hey there, party people! Little D in the house, spittin' rhymes and slinging merchandise, no doubt! Get ready for a rap-tastic shopping spree, where this fierce t-rex sets your soul free!"

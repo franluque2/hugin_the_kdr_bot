@@ -12,6 +12,7 @@ class SpecialClassHandling(Enum):
     CLASS_MIMIC = 1001
     CLASS_PIRATE = 1002
     CLASS_GAMBLER = 1003
+    CLASS_SLIME = 1004
 
 class SpecialTypeHandling(Enum):
     GAMBLER_5050_SKILL = 3000
@@ -67,7 +68,7 @@ type_converter = {
     "removal": "Removal/Disruption",
     "engine": "Engine",
     "powercard": "Power Cards",
-    "low_qual": "Class Low Quality",
+    "low_qual": "Starter Packs",
     "mid_qual": "Class Mid Quality",
     "high_qual": "Class High Quality"
 }
@@ -84,4 +85,10 @@ rarity_converter = {
 categories_buckets_generic = [["staples", 3, 3, 1], ["removal", 4, 3, 2], ["engine", 5, 2, 3]]
 categories_buckets_class = [["low_qual", 4, 1, 0], ["mid_qual", 6, 2, 3], ["high_qual", 6, 1, 7]]
 categories_secret=[] #["powercard", 10, 1, 2] removed for balance concerns
+
+# Quest type rarity weights (higher = more likely to appear)
+quest_type_weights = {
+    "regular": 20,
+    "mythic": 1
+}
 

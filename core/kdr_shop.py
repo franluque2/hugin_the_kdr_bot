@@ -3,8 +3,9 @@ import random
 from discord.ext.commands.cog import Cog
 from discord.ext.commands.bot import Bot
 from discord import app_commands
-from discord import Interaction, InteractionResponse
+from discord import Interaction, InteractionResponse, Embed
 from discord import ChannelType, AllowedMentions
+import core.kdr_ansi as ansi
 from core.kdr_data import WinType, SpecialClassHandling, SpecialSkillHandling, KdrModifierNames
 from core.kdr_modifiers import get_modifier
 
@@ -15,13 +16,13 @@ from core import kdr_db as db
 from config.config import OOPS
 from config.secret_values import GUILD
 
-from views.panels.panel_status import StatusPanel
 from views.panels.panel_pick_skill import PickSkillPanel
 from views.panels.panel_training import TrainPanel
 from views.panels.panel_level_attribute import LevelAttributePanel
 from views.panels.panel_treasure import TreasurePanel
 from views.panels.panel_buying import BuyPanel
-from views.panels.panel_tips import TipPanel
+from views.panels.panel_status import StatusPanel
+from views.panels.panel_gamble import GamblePanel
 from views.panels.panel_end_shop_phase import EndShopPanel
 from views.panels.shopkeeper_intro_panel import ShopIntroPanel
 from views.panels.panel_reverse_sacrifice import ReverseSacrificePanel
@@ -51,14 +52,15 @@ class KDRShop(Cog):
             if len(player_kdrs) == 1:
                 iid = player_kdrs[0]
 
-        res_user_modifiers = await db.get_inventory_value(pid, sid, iid, 'modifiers')
-        if SpecialClassHandling.CLASS_MIMIC.value in res_user_modifiers:
-            await interaction.response.send_message("Mimics do not get a Shop Phase.", ephemeral=True)
-            return
-
         res_user_shop = await db.get_inventory_value(pid, sid, iid, 'shop_phase')
         if not res_user_shop:
             await interaction.response.send_message("You have already finished your shop phase.")
+            return
+
+        # Mimic: no shop phase
+        modifiers = await db.get_inventory_value(pid, sid, iid, 'modifiers')
+        if SpecialClassHandling.CLASS_MIMIC.value in modifiers:
+            await interaction.response.send_message("Mimics do not get a Shop Phase.", ephemeral=True)
             return
 
         round_results = await db.get_instance_value(sid, iid, 'round_results')
@@ -119,33 +121,40 @@ class KDRShop(Cog):
             thread = channel
 
         status_panel_generator = StatusPanel(pid, iid, sid, interaction.user.name)
-        msg = f'<@{pid}>'
+        
+        description = ""
+        opponent_name = "Opponent"
+        if opponent:
+            opponent_user = self.client.get_user(int(opponent))
+            if not opponent_user:
+                try:
+                    opponent_user = await self.client.fetch_user(int(opponent))
+                except:
+                    pass
+            if opponent_user:
+                opponent_name = f"**{opponent_user.display_name}**"
+            else:
+                opponent_name = f"**Player {opponent}**"
+
         if won:
             if opponent:
-                msg += f', your last match against <@{opponent}> ended with your victory '
+                description = f"Your last match against {opponent_name} ended with your victory "
             else:
-                msg += f', you received a bye this round and automatically won '
+                description = "You received a bye this round and automatically won "
         else:
-            msg += f', your last match against <@{opponent}> ended with your loss '
+            description = f"Your last match against {opponent_name} ended with your loss "
 
         if matchresult == WinType.INCOMPLETE or matchresult == WinType.WIN_DEFAULT:
-            msg += f'by default'
-        if matchresult == WinType.WIN_2X0:
-            msg += f'2-0'
-        if matchresult == WinType.WIN_2X1:
-            msg += f'2-1'
+            description += "by default."
+        elif matchresult == WinType.WIN_2X0:
+            description += "2-0."
+        elif matchresult == WinType.WIN_2X1:
+            description += "2-1."
 
-        mentions_ctrl = AllowedMentions(everyone=False, users=[interaction.user])
-        await thread.send(content=msg, allowed_mentions=mentions_ctrl)
+        await thread.send(content=f"<@{pid}>, {description}")
         status_message = await thread.send(content="", embed=await status_panel_generator.get_message())
 
         await status_message.pin()
-
-        # Mimic does not get a normal shop phase
-        if SpecialClassHandling.CLASS_MIMIC.value in special_flags:
-            # TODO, handle mimic
-            await thread.send("Mimic gets handled here")
-            return
 
         modifiers = await db.get_instance_value(sid, iid, 'modifiers')
 
@@ -196,9 +205,10 @@ class KDRShop(Cog):
             await buyer.get_buy_panel()
 
         if shop_stage == 7:
-            tipper = TipPanel(pid, sid, iid, status_message,
-                              status_panel_generator, thread)
-            await tipper.get_tip_panel()
+            gambler = GamblePanel(pid, sid, iid, status_message,
+                                  status_panel_generator, thread)
+            await gambler.get_gamble_panel()
+            return
 
         # Button to enter sell mode no longer required
 

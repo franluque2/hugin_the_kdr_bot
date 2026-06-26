@@ -3,7 +3,7 @@ from config.config import DB_ADDRESS, DB_KEY_SERVER, \
     DB_KEY_INSTANCE, DB_KEY_PLAYER, CWD, \
     PATH_STATIC_CLASSES, PATH_BASE_CLASSES, \
     PATH_BUCKETS, PATH_GENERIC_BUCKETS, PATH_CLASS_SKILLS, \
-    PATH_TREASURES, PATH_GENERIC_SKILLS, DEFAULT_ELO_RANKING
+    PATH_TREASURES, PATH_GENERIC_SKILLS, PATH_RECIPES, DEFAULT_ELO_RANKING
 from core.kdr_data import categories_buckets_generic, categories_buckets_class, categories_secret
 from core.kdr_modifiers import get_modifier
 from config.config import RPG_STATS
@@ -43,8 +43,20 @@ coll_skills_generic = kdr_db['skills_generic']
 # skills collection
 coll_skills = kdr_db['skills']
 
+
+
 # generic buckets collection
 coll_buckets_generic = kdr_db['buckets_generic']
+
+# quests collection
+coll_quests = kdr_db['quests']
+
+# recipes collection
+coll_recipes = kdr_db['recipes']
+
+async def get_recipe_by_name(name):
+    """Look up a recipe by name from MongoDB. Returns dict or None."""
+    return coll_recipes.find_one({'name': {"$eq": name}})
 
 # possible instance names
 instance_name_ids = {}
@@ -194,15 +206,20 @@ async def get_all_base_classes(altformat=None, blacklist=None):
         blacklist = []
 
     if altformat is None:
-        query = {"altformat": {"$exists": False}}
+        query = {"altformat": {"$exists": False}, "is_secret": {"$ne": True}}
     else:
         # Handle multiple altformats, including "default"
         altformats = altformat.split(";")
-        query = {"$or": [{"altformat": af} for af in altformats if af != "default"]}
+        query = {
+            "$and": [
+                {"is_secret": {"$ne": True}},
+                {"$or": [{"altformat": af} for af in altformats if af != "default"]}
+            ]
+        }
         
         # Add default content to the query if "default" is included
         if "default" in altformats:
-            query["$or"].append({"altformat": {"$exists": False}})
+            query["$and"][1]["$or"].append({"altformat": {"$exists": False}})
 
     base_classes = coll_classes_base.find(query)
     # Filter out blacklisted classes
@@ -216,9 +233,24 @@ async def get_all_base_classes(altformat=None, blacklist=None):
 
     return filtered_classes
 
+""" Quests """
+
+async def get_all_quests():
+    return list(coll_quests.find({}))
+
+async def get_quest_by_id(qid):
+    return coll_quests.find_one({"id": qid})
+
+""""""
 
 async def get_base_class_value(cid, key):
-    return coll_classes_base.find_one({'id': {"$eq": cid}}).get(key)
+    res = coll_classes_base.find_one({'id': {"$eq": cid}})
+    if res:
+        return res.get(key)
+    return None
+
+async def get_base_class(cid):
+    return coll_classes_base.find_one({'id': {"$eq": cid}})
 
 
 """"""
@@ -232,15 +264,20 @@ async def get_all_static_classes(altformat=None, blacklist=None):
         blacklist = []
 
     if altformat is None:
-        {"altformat": {"$exists": False}}
+        query = {"altformat": {"$exists": False}, "is_secret": {"$ne": True}}
     else:
         # Handle multiple altformats, including "default"
         altformats = altformat.split(";")
-        query = {"$or": [{"altformat": af} for af in altformats if af != "default"]}
+        query = {
+            "$and": [
+                {"is_secret": {"$ne": True}},
+                {"$or": [{"altformat": af} for af in altformats if af != "default"]}
+            ]
+        }
         
         # Add default content to the query if "default" is included
         if "default" in altformats:
-            query["$or"].append({"altformat": {"$exists": False}})
+            query["$and"][1]["$or"].append({"altformat": {"$exists": False}})
 
     static_classes = coll_classes_static.find(query)
 
@@ -483,6 +520,7 @@ async def add_new_kdr(sid: int, iid: str, is_ranked: False, creatorid: str, maxp
         'class_choices': class_choices,
         'modifiers': modifiers,
         'altformats': altformats,
+        'round_type': '',
         'round_type': ''
     }
 
@@ -510,10 +548,11 @@ def add_user_to_kdr(pid, sid, iid, classes):
         'skills': [],
         'loot': [],
         'treasures': [],
+        'base_cards': [],
         'wl_ratio': [0, 0],
         'loss_streak': 0,
-        'tip_threshold': 0,
-        'total_tips': 0,
+        'gamble_threshold': 0,
+        'gamble_count': 0,
         'sheet_url': '',
         'shop_phase': False,
         'shop_stage': 0,
@@ -521,7 +560,9 @@ def add_user_to_kdr(pid, sid, iid, classes):
         'offered_skills': [],
         'offered_treasure': [],
         'offered_loot': [],
-        'got_tip_skill': False,
+        'has_received_gamble_reward': False,
+        'absorbed_classes': [],
+        'recipes': [],
         # Add all RPG stats dynamically
         **{stat: 0 for stat in RPG_STATS}
     }
@@ -550,10 +591,11 @@ def update_user_to_kdr(pid, sid, iid, classes):
         'skills': [],
         'loot': [],
         'treasures': [],
+        'base_cards': [],
         'wl_ratio': [0,0],
         'loss_streak': 0,
-        'tip_threshold': 0,
-        'total_tips': 0,
+        'gamble_threshold': 0,
+        'gamble_count': 0,
         'sheet_url': '',
         'shop_phase': False,
         'shop_stage': 0,
@@ -561,7 +603,9 @@ def update_user_to_kdr(pid, sid, iid, classes):
         'offered_skills': [],
         'offered_treasure': [],
         'offered_loot': [],
-        'got_tip_skill': False,
+        'has_received_gamble_reward': False,
+        'absorbed_classes': [],
+        'recipes': [],
         # Add all RPG stats dynamically
         **{stat: 0 for stat in RPG_STATS}
     }
@@ -620,6 +664,8 @@ async def clear_user_data():
 
 async def clear_kdr_data():
     coll_kdr.delete_many({})
+
+
     coll_inventory.delete_many({})
 
 async def get_all_active_kdrs(sid):

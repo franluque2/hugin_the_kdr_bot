@@ -7,6 +7,7 @@ from views.view_skill_select import SkillSelectView
 from core.kdr_data import KdrModifierNames, SpecialSkillHandling
 from config.config import LEVEL_THRESHOLDS, GOLD_PER_XP
 import views.panels.panel_training as panel_training
+import core.kdr_ansi as ansi
 
 
 class PickSkillPanel:
@@ -45,10 +46,10 @@ class PickSkillPanel:
                                          generator=self.status_panel_generator,
                                          timeout=5000)
 
+            msg = f"<@{self.pid}>, you have reached a level-up threshold! Pick a skill to learn!"
             skill_choices = []
             offered_skills = await db.get_inventory_value(self.pid, self.sid, self.iid, 'offered_skills')
-            msg = "__**Choose A Skill**__:\n"
-
+            
             embeds = []
 
             if len(offered_skills) == 0:
@@ -64,10 +65,12 @@ class PickSkillPanel:
                         skill_name = skill['name']
                         skill_desc = skill['description']
                         skill_img = skill["img_url"]
-                        new_embed = Embed(title=skill_name, description=skill_desc, type="rich")
-                        new_embed.set_thumbnail(url=skill_img)
+                        
+                        ansi_desc = ansi.wrap_ansi(f"{ansi.pink(skill_name, b=True)}\n{ansi.white(skill_desc)}")
+                        new_embed = Embed(title="GENERIC SKILL OFFERED", description=ansi_desc, type="rich")
+                        if skill_img:
+                            new_embed.set_thumbnail(url=skill_img)
                         embeds.append(new_embed)
-
                     if len(skill_choices) >= 3:
                         await db.set_inventory_value(self.pid, self.sid, self.iid, 'offered_skills', skill_choices)
                         break
@@ -77,8 +80,11 @@ class PickSkillPanel:
                     skill_name = skill['name']
                     skill_desc = skill['description']
                     skill_img = skill["img_url"]
-                    new_embed = Embed(title=skill_name, description=skill_desc, type="rich")
-                    new_embed.set_thumbnail(url=skill_img)
+                    
+                    ansi_desc = ansi.wrap_ansi(f"{ansi.pink(skill_name, b=True)}\n{ansi.white(skill_desc)}")
+                    new_embed = Embed(title="GENERIC SKILL OFFERED", description=ansi_desc, type="rich")
+                    if skill_img:
+                        new_embed.set_thumbnail(url=skill_img)
                     embeds.append(new_embed)
 
             skill_upgrade_choices = []

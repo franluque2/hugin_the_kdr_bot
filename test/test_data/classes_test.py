@@ -2,7 +2,7 @@ import json
 import os
 
 # Assuming that this is the path to the config folder
-CONFIG_PATH = os.path.join(os.path.dirname(__file__), "../..", "config")
+CONFIG_PATH = os.path.join(os.path.dirname(__file__), "../..", "class_examples")
 
 def load_json_file(filename):
     with open(os.path.join(CONFIG_PATH, filename), "r") as file:
@@ -18,8 +18,6 @@ def test_static_classes_ids_in_base_classes_echoes():
 
     for static_class in static_classes_data:
         static_class_id = static_class["id"]
-        if static_class_id=="mimic":
-            continue #temp ignoring mimic since it hasn't been finished yet
         assert static_class_id in base_class_echo_ids, f"Static Class ID {static_class_id} not found in base_classes echoes"
 
 def test_base_classes_echo_ids_in_static_classes():

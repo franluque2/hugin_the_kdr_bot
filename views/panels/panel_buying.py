@@ -1,7 +1,7 @@
 from discord import Message, Thread
 from views.panels.panel_status import StatusPanel
 from core import kdr_db as db
-from core.kdr_data import SpecialSkillHandling
+from core.kdr_data import SpecialSkillHandling, SpecialClassHandling
 from views.view_buying import BuyView
 from core.kdr_data import type_converter, KdrModifierNames
 from core.kdr_modifiers import get_modifier
@@ -9,6 +9,9 @@ from core.kdr_db import get_generic_bucket_categories, get_class_bucket_categori
 
 from config.config import BANLIST_LINK, LEVEL_THRESHOLDS
 import random
+import core.kdr_ansi as ansi
+import discord
+from discord import Embed
 
 
 class BuyPanel:
@@ -34,6 +37,13 @@ class BuyPanel:
         offered_loot = player_inventory["offered_loot"]
         player_class = player_inventory["class"]
         special_flags = player_inventory["modifiers"]
+
+        # Slime: use the absorbed class for class loot display
+        if SpecialClassHandling.CLASS_SLIME.value in special_flags:
+            absorbed = player_inventory.get("absorbed_classes", [])
+            if absorbed:
+                player_class = absorbed[-1]  # Use most recently absorbed class
+
         can_sell = len(player_inventory["treasures"]) > 0
 
         playerlevel = 0
@@ -47,8 +57,8 @@ class BuyPanel:
             if skill_data["is_sellable"]:
                 can_sell = True
 
-        msg = f""
-
+        embeds = []
+        
         # Fetch full categories
         full_categories_generic = await get_generic_bucket_categories(kdr_format)
         full_categories_class = await get_class_bucket_categories(kdr_format)
@@ -62,64 +72,108 @@ class BuyPanel:
             for cat in full_categories_class:
                 catid = cat[0]
                 catname = type_converter[catid]
-                msg += f"**{catname}**:\n\n"
+                
                 if cat[3] > playerlevel:
-                    msg += f"This category of loot unlocks at level {cat[3] + 1}.\n"
+                    embed = Embed(title=catname, description=f"This category of loot unlocks at level {cat[3] + 1}.", color=discord.Color.blue())
+                    embeds.append(embed)
                 else:
                     shopwindowitems = await get_shop_window_class(self.pid, self.sid, self.iid, player_class, cat)
                     if len(shopwindowitems) == 0:
-                        msg += f"You have bought out all your possible loot for this category\n"
+                        embed = Embed(title=catname, description="You have bought out all your possible loot for this category", color=discord.Color.blue())
+                        embeds.append(embed)
                     else:
                         shopwindow = {"name": catid, "cost": cat[1], "buckets": shopwindowitems}
-                        for bucket in shopwindowitems:
-                            if bucket["cards"] is not None:
-                                for card in bucket["cards"]:
-                                    msg += f"{card} / "
-                                msg = msg[:-3]
-                                msg += f"\n"
-                            for skill in bucket["skills"]:
-                                skillinfo = await db.get_skill_by_id(skill)
-                                name = skillinfo["name"]
-                                desc = skillinfo["description"]
-                                msg += f"\n**{name}** : {desc}\n"
+                        ansi_lines = []
+                        for idx, bucket in enumerate(shopwindowitems):
+                            if idx > 0:
+                                ansi_lines.append(ansi.cyan(f"─" * 30, b=False))
+                            if bucket["cards"]:
+                                ansi_lines.append(ansi.cyan("--- [ CARDS ] ---", b=True))
+                                cards_str = " / ".join(bucket["cards"])
+                                ansi_lines.append(ansi.white(cards_str))
+                            
+                            if bucket["cards"] and bucket["skills"]:
+                                ansi_lines.append(ansi.gray("-" * 20))
+                                
+                            if bucket["skills"]:
+                                ansi_lines.append(ansi.yellow("--- [ SKILLS ] ---", b=True))
+                                for skill in bucket["skills"]:
+                                    skillinfo = await db.get_skill_by_id(skill)
+                                    name = skillinfo["name"]
+                                    desc = skillinfo.get("description", "No description") or "No description available"
+                                    ansi_lines.append(ansi.pink(name, b=True))
+                                    ansi_lines.append(ansi.white(desc))
+
+                            if bucket.get("recipes"):
+                                ansi_lines.append(ansi.pink("--- [ RECIPES ] ---", b=True))
+                                for recipe in bucket["recipes"]:
+                                    recipe_name = recipe if isinstance(recipe, str) else recipe.get("name", "")
+                                    recipe_desc = "" if isinstance(recipe, str) else recipe.get("description", "")
+                                    ansi_lines.append(ansi.pink(recipe_name, b=True))
+                                    if recipe_desc:
+                                        ansi_lines.append(ansi.white(recipe_desc))
 
                             shopwindow["cost"] += bucket["tax"]
                             if bucket["tax"] != 0:
-                                tax = bucket["tax"]
-                                msg += f"**Tax**: This Shown Category costs **{tax}** more!\n"
-                            msg += f"\n"
+                                ansi_lines.append(ansi.red(f"Tax: This Category costs {bucket['tax']} more!", b=True))
+                        
+                        description_content = ansi.wrap_ansi("\n".join(ansi_lines))
+                        embed = Embed(title=catname, description=description_content.strip(), color=discord.Color.blue())
+                        embeds.append(embed)
                         loot.append(shopwindow)
                         categories_class.append(cat)
 
             for cat in full_categories_generic:
                 catid = cat[0]
                 catname = type_converter[catid]
-                msg += f"**{catname}**:\n\n"
+                
                 if cat[3] > playerlevel:
-                    msg += f"This category of loot unlocks at level {cat[3] + 1}.\n"
+                    embed = Embed(title=catname, description=f"This category of loot unlocks at level {cat[3] + 1}.", color=discord.Color.green())
+                    embeds.append(embed)
                 else:
                     shopwindowitems = await get_shop_window_generic(self.pid, self.sid, self.iid, cat)
                     if len(shopwindowitems) == 0:
-                        msg += f"You have bought out all your possible loot for this category\n"
+                        embed = Embed(title=catname, description="You have bought out all your possible loot for this category", color=discord.Color.green())
+                        embeds.append(embed)
                     else:
                         shopwindow = {"name": catid, "cost": cat[1], "buckets": shopwindowitems}
-                        for bucket in shopwindowitems:
-                            if bucket["cards"] is not None:
-                                for card in bucket["cards"]:
-                                    msg += f"{card} / "
-                                msg = msg[:-3]
-                                msg += f"\n"
+                        ansi_lines = []
+                        for idx, bucket in enumerate(shopwindowitems):
+                            if idx > 0:
+                                ansi_lines.append(ansi.cyan(f"─" * 30, b=False))
+                            if bucket["cards"]:
+                                ansi_lines.append(ansi.cyan("--- [ CARDS ] ---", b=True))
+                                cards_str = " / ".join(bucket["cards"])
+                                ansi_lines.append(ansi.white(cards_str))
+                            
+                            if bucket["cards"] and bucket["skills"]:
+                                ansi_lines.append(ansi.gray("-" * 20))
+                                
+                            if bucket["skills"]:
+                                ansi_lines.append(ansi.yellow("--- [ SKILLS ] ---", b=True))
+                                for skill in bucket["skills"]:
+                                    skillinfo = await db.get_skill_by_id(skill)
+                                    name = skillinfo["name"]
+                                    desc = skillinfo.get("description", "No description") or "No description available"
+                                    ansi_lines.append(ansi.pink(name, b=True))
+                                    ansi_lines.append(ansi.white(desc))
 
-                            for skill in bucket["skills"]:
-                                skillinfo = await db.get_skill_by_id(skill)
-                                name = skillinfo["name"]
-                                desc = skillinfo["description"]
-                                msg += f"\n**{name}** : {desc}\n"
+                            if bucket.get("recipes"):
+                                ansi_lines.append(ansi.pink("--- [ RECIPES ] ---", b=True))
+                                for recipe in bucket["recipes"]:
+                                    recipe_name = recipe if isinstance(recipe, str) else recipe.get("name", "")
+                                    recipe_desc = "" if isinstance(recipe, str) else recipe.get("description", "")
+                                    ansi_lines.append(ansi.pink(recipe_name, b=True))
+                                    if recipe_desc:
+                                        ansi_lines.append(ansi.white(recipe_desc))
+
                             shopwindow["cost"] += bucket["tax"]
-                            msg += f"\n"
                             if bucket["tax"] != 0:
-                                tax = bucket["tax"]
-                                msg += f"**Tax**: This Shown Category costs **{tax}** more!\n"
+                                ansi_lines.append(ansi.red(f"Tax: This Category costs {bucket['tax']} more!", b=True))
+                        
+                        description_content = ansi.wrap_ansi("\n".join(ansi_lines))
+                        embed = Embed(title=catname, description=description_content.strip(), color=discord.Color.green())
+                        embeds.append(embed)
                         loot.append(shopwindow)
                         categories_generic.append(cat)
 
@@ -130,51 +184,62 @@ class BuyPanel:
             categories_generic = offered_loot[1]
             categories_class = offered_loot[2]
             for window in loot:
-                cat = type_converter[window["name"]]
-                msg += f"**{cat}**:\n\n"
-                for bucket in window["buckets"]:
-                    if bucket["cards"] is not None:
-                        for card in bucket["cards"]:
-                            msg += f"{card} / "
-                        msg = msg[:-3]
-                        msg += f"\n"
-                    for skill in bucket["skills"]:
-                        skillinfo = await db.get_skill_by_id(skill)
-                        name = skillinfo["name"]
-                        desc = skillinfo["description"]
-                        msg += f"\n**{name}** : {desc}\n"
+                catname = type_converter[window["name"]]
+                ansi_lines = []
+                for idx, bucket in enumerate(window["buckets"]):
+                    if idx > 0:
+                        ansi_lines.append(ansi.cyan(f"─" * 30, b=False))
+                    if bucket["cards"]:
+                        ansi_lines.append(ansi.cyan("--- [ CARDS ] ---", b=True))
+                        cards_str = " / ".join(bucket["cards"])
+                        ansi_lines.append(ansi.white(cards_str))
+                    
+                    if bucket["cards"] and bucket["skills"]:
+                        ansi_lines.append(ansi.gray("-" * 20))
+                        
+                    if bucket["skills"]:
+                        ansi_lines.append(ansi.yellow("--- [ SKILLS ] ---", b=True))
+                        for skill in bucket["skills"]:
+                            skillinfo = await db.get_skill_by_id(skill)
+                            name = skillinfo["name"]
+                            desc = skillinfo.get("description", "No description") or "No description available"
+                            ansi_lines.append(ansi.pink(name, b=True))
+                            ansi_lines.append(ansi.white(desc))
+                    
+                    if bucket.get("recipes"):
+                        ansi_lines.append(ansi.pink("--- [ RECIPES ] ---", b=True))
+                        for recipe in bucket["recipes"]:
+                            recipe_name = recipe if isinstance(recipe, str) else recipe.get("name", "")
+                            recipe_desc = "" if isinstance(recipe, str) else recipe.get("description", "")
+                            ansi_lines.append(ansi.pink(recipe_name, b=True))
+                            if recipe_desc:
+                                ansi_lines.append(ansi.white(recipe_desc))
+                    
                     if bucket["tax"] != 0:
-                        tax = bucket["tax"]
-                        msg += f"**Tax**: This Shown Category costs **{tax}** more!\n"
-                msg += "\n"
+                        ansi_lines.append(ansi.red(f"Tax: This Category costs {bucket['tax']} more!", b=True))
+                
+                description_content = ansi.wrap_ansi("\n".join(ansi_lines))
+                is_class = any(c[0] == window["name"] for c in full_categories_class)
+                embed = Embed(title=catname, description=description_content.strip(), color=discord.Color.blue() if is_class else discord.Color.green())
+                embeds.append(embed)
 
-        msg += f"\nRemember to check the KDR Banlist at {BANLIST_LINK} !\n"
-
-        # Split msg into 2000-character chunks
-        msg_lines = msg.split("\n")
-        msg_ov = []
-        buffer = ""
-        for line in msg_lines:
-            if len(buffer + line + "\n") > 1900:
-                msg_ov.append(buffer)
-                buffer = ""
-            buffer += line
-            buffer += "\n"
-
-        if len(buffer) > 1:
-            msg_ov.append(buffer)
-
-        for msg_overflow in msg_ov[:-1]:
-            await self.thread.send(msg_overflow)
-        buy_view = BuyView()
-        costreduction = 0
-        if SpecialSkillHandling.SKILL_BARGAIN.value in special_flags:
-            costreduction = 1
-        await buy_view.create_buttons(self.pid, self.sid, self.iid, self.status_message,
-                                      self.status_panel_generator, self.thread, can_sell, loot, categories_generic,
-                                      categories_class, full_categories_secret, self, costreduction)
-
-        await self.thread.send(msg_ov[-1:][0], view=buy_view)
+        banlist_msg = f"Remember to check the KDR Banlist at {BANLIST_LINK} !"
+        
+        # Send embeds in chunks if necessary
+        for i in range(0, len(embeds), 10):
+            current_embeds = embeds[i:i+10]
+            if i + 10 >= len(embeds):
+                # Last chunk, attach the view
+                buy_view = BuyView()
+                costreduction = 0
+                if SpecialSkillHandling.SKILL_BARGAIN.value in special_flags:
+                    costreduction = 1
+                await buy_view.create_buttons(self.pid, self.sid, self.iid, self.status_message,
+                                              self.status_panel_generator, self.thread, can_sell, loot, categories_generic,
+                                              categories_class, full_categories_secret, self, costreduction)
+                await self.thread.send(content=banlist_msg if i==0 else None, embeds=current_embeds, view=buy_view)
+            else:
+                await self.thread.send(content=banlist_msg if i==0 else None, embeds=current_embeds)
 
 
 async def get_shop_window_generic(pid, sid, iid, category):

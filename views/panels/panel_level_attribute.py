@@ -1,4 +1,4 @@
-from discord import Message, Thread
+from discord import Message, Thread, Embed
 from views.panels.panel_status import StatusPanel
 from config.config import LEVEL_THRESHOLDS, MAX_RPG_STAT_LEVEL, RPG_STATS
 from core import kdr_db as db
@@ -6,6 +6,7 @@ import views.panels.panel_treasure as panel_treasure
 from views.view_increase_stat import IncreaseStatView
 from core.kdr_data import KdrModifierNames
 from core.kdr_modifiers import get_modifier
+import core.kdr_ansi as ansi
 
 
 class LevelAttributePanel:
@@ -49,8 +50,9 @@ class LevelAttributePanel:
                 )
                 # Build a dynamic stat display
                 stat_display = "  ".join([f"**{stat}**: {val}" for stat, val in stat_values.items()])
+                description = f"Select a Stat to Level Up\n\n**Current Stats:** {stat_display}"
                 await self.thread.send(
-                    f"Select a Stat to Level Up\n\nCurrent Stats: {stat_display}",
+                    content=description,
                     view=increase_view
                 )
                 return

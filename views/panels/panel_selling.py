@@ -1,10 +1,11 @@
 from random import shuffle
-from discord import Message, Thread
+from discord import Message, Thread, Embed
 from core import kdr_db as db
 from views.panels.panel_status import StatusPanel
 from core.kdr_data import SpecialSkillHandling, SpecialClassHandling, SpecialSkillNames
 from views.view_sell_panel import SellView
 import random
+import core.kdr_ansi as ansi
 
 
 class SellPanel:
@@ -45,10 +46,10 @@ class SellPanel:
                 can_sell = True
                 sellable_skills.append(skill_data)
 
-        msg = f"Selling, you currently have {player_gold} gold"
+        description = f"Selling, you currently have **{player_gold}** gold"
         seller=SellView()
         await seller.create_buttons(self.pid, self.sid, self.iid,
                                                   self.status_message, self.status_panel_generator, self.thread,
                                                   can_sell, player_gold, sellable_skills, treasures,self.original_panel)
-        await self.thread.send(msg, view=seller)
+        await self.thread.send(description, view=seller)
         return
