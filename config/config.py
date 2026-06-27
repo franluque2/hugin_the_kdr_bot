@@ -4,7 +4,9 @@ from os import getcwd
 # server
 CLEAR_COMMANDS = False
 CLEAR_COMMANDS_GLOBAL = False
-OOPS = '__**Oops!**__\n'
+OOPS = 'Oops!'
+WEB_PORT = 8081
+BASE_URL = f"http://localhost:{WEB_PORT}"
 
 # db
 DB_ADDRESS = "mongodb://localhost:27017/"
@@ -22,7 +24,9 @@ PATH_BUCKET_SKILLS = 'bucket_skills.json'
 PATH_CLASS_SKILLS = 'class_skills.json'
 PATH_GENERIC_BUCKETS = 'generic_buckets.json'
 PATH_GENERIC_SKILLS = 'generic_skills.json'
+PATH_GENERIC_QUESTS = 'generic_quests.json'
 PATH_TREASURES = 'treasures.json'
+PATH_RECIPES = 'recipes.json'
 
 # roles
 ROLE_ADMIN = "KDR-Admin"
@@ -81,6 +85,10 @@ GOLD_LOSS_GAINED = 10
 # gold gained with professional duelist
 GOLD_WIN_GAINED_PROFESSIONAL_DUELIST = 15
 
+# number of quests to show to the player
+QUESTS_TO_SHOW = 3
+INITIAL_GENERIC_SKILLS_TO_SHOW = 3
+
 # loss streak extra gold
 LOSS_STREAK_EXTRA_GOLD = [0, 0, 0, 0, 0]
 
@@ -99,3 +107,4 @@ ABOUT_MSG=f"Hi, I am Hugin! A bot to run Roguelike Yugioh Experiences Known as K
             Created and maintained by <@{DEV_ID}>\n \
             Based on the Game Design work of <@{CREATORS_IDS[0]}> and <@{CREATORS_IDS[1]}>\n\n\
             I am Open Source! Check me out at {REPO_URL}"
+)

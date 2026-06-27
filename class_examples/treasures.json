@@ -1,344 +1,368 @@
 [
-	{
+    {
         "id": "dicephoon",
         "rarity": "common",
         "name": "Dicephoon",
-        "img_url":"https://images.ygoprodeck.com/images/cards/3493058.jpg"
-   	},
-	{
-        "id": "summondice",
+        "img_url": "https://images.ygoprodeck.com/images/cards/3493058.jpg"
+    },
+    {
+        "id": "summon_dice",
         "rarity": "common",
         "name": "Summon Dice",
-        "img_url":"https://images.ygoprodeck.com/images/cards/41139112.jpg"
-   	},
-	{
-        "id": "ancientleaf",
+        "img_url": "https://images.ygoprodeck.com/images/cards/41139112.jpg"
+    },
+    {
+        "id": "ancient_leaf",
         "rarity": "common",
         "name": "Ancient Leaf",
-        "img_url":"https://images.ygoprodeck.com/images/cards/11830996.jpg"
-   	},
-	{
+        "img_url": "https://images.ygoprodeck.com/images/cards/11830996.jpg"
+    },
+    {
         "id": "storm",
         "rarity": "common",
         "name": "Storm",
-        "img_url":"https://images.ygoprodeck.com/images/cards/13210191.jpg"
-   	},
-	{
-        "id": "creatureseizure",
+        "img_url": "https://images.ygoprodeck.com/images/cards/13210191.jpg"
+    },
+    {
+        "id": "creature_seizure",
         "rarity": "common",
         "name": "Creature Seizure",
-        "img_url":"https://images.ygoprodeck.com/images/cards/15305240.jpg"
-   	},
-	{
-        "id": "blusteringwinds",
+        "img_url": "https://images.ygoprodeck.com/images/cards/15305240.jpg"
+    },
+    {
+        "id": "blustering_winds",
         "rarity": "common",
         "name": "Blustering Winds",
-        "img_url":"https://images.ygoprodeck.com/images/cards/22346472.jpg"
-   	},
-	{
-        "id": "poisonoftheoldman",
+        "img_url": "https://images.ygoprodeck.com/images/cards/22346472.jpg"
+    },
+    {
+        "id": "poison_of_the_old_man",
         "rarity": "common",
         "name": "Poison of the Old Man",
-        "img_url":"https://images.ygoprodeck.com/images/cards/8842266.jpg"
-   	},
-	{
-        "id": "cupoface",
+        "img_url": "https://images.ygoprodeck.com/images/cards/8842266.jpg"
+    },
+    {
+        "id": "cup_of_ace",
         "rarity": "common",
         "name": "Cup of Ace",
-        "img_url":"https://images.ygoprodeck.com/images/cards/37812118.jpg"
-   	},
-	{
-        "id": "finaldestiny",
+        "img_url": "https://images.ygoprodeck.com/images/cards/37812118.jpg"
+    },
+    {
+        "id": "final_destiny",
         "rarity": "common",
         "name": "Final Destiny",
-        "img_url":"https://images.ygoprodeck.com/images/cards/18591904.jpg"
-   	},
-	{
-        "id": "doublesummon",
+        "img_url": "https://images.ygoprodeck.com/images/cards/18591904.jpg"
+    },
+    {
+        "id": "double_summon",
         "rarity": "common",
         "name": "Double Summon",
-        "img_url":"https://images.ygoprodeck.com/images/cards/43422537.jpg"
-   	},	
-	{
-        "id": "theshallowgrave",
+        "img_url": "https://images.ygoprodeck.com/images/cards/43422537.jpg"
+    },
+    {
+        "id": "the_shallow_grave",
         "rarity": "common",
         "name": "The Shallow Grave",
-        "img_url":"https://images.ygoprodeck.com/images/cards/43434803.jpg"
-   	},	
-	{
-        "id": "afeatherofthephoenix",
+        "img_url": "https://images.ygoprodeck.com/images/cards/43434803.jpg"
+    },
+    {
+        "id": "a_feather_of_the_phoenix",
         "rarity": "common",
         "name": "A Feather of the Phoenix",
-        "img_url":"https://images.ygoprodeck.com/images/cards/49140998.jpg"
-   	},	
-	{
-        "id": "differentdimensioncapsule",
+        "img_url": "https://images.ygoprodeck.com/images/cards/49140998.jpg"
+    },
+    {
+        "id": "different_dimension_capsule",
         "rarity": "common",
         "name": "Different Dimension Capsule",
-        "img_url":"https://images.ygoprodeck.com/images/cards/11961740.jpg"
-   	},	
-	{
-        "id": "chaindestruction",
+        "img_url": "https://images.ygoprodeck.com/images/cards/11961740.jpg"
+    },
+    {
+        "id": "chain_destruction",
         "rarity": "common",
         "name": "Chain Destruction",
-        "img_url":"https://images.ygoprodeck.com/images/cards/1248895.jpg"
-   	},
-	{
-        "id": "battlebreak",
+        "img_url": "https://images.ygoprodeck.com/images/cards/1248895.jpg"
+    },
+    {
+        "id": "battle_break",
         "rarity": "common",
         "name": "Battle Break",
-        "img_url":"https://images.ygoprodeck.com/images/cards/22047978.jpg"
-   	},
-	{
-        "id": "halfunbreak",
+        "img_url": "https://images.ygoprodeck.com/images/cards/22047978.jpg"
+    },
+    {
+        "id": "the_legend_of_tickets",
+        "rarity": "common",
+        "name": "The Legend of Tickets",
+        "img_url": "https://images.ygoprodeck.com/images/cards/54120521.jpg"
+    },
+    {
+        "id": "half_unbreak",
         "rarity": "rare",
         "name": "Half Unbreak",
-        "img_url":"https://images.ygoprodeck.com/images/cards/981540.jpg"
-	},	
-	{
-        "id": "upstartgoblin",
+        "img_url": "https://images.ygoprodeck.com/images/cards/981540.jpg"
+    },
+    {
+        "id": "upstart_goblin",
         "rarity": "rare",
         "name": "Upstart Goblin",
-        "img_url":"https://images.ygoprodeck.com/images/cards/70368879.jpg"
-   	},	
-	{
-        "id": "byebyedamage",
+        "img_url": "https://images.ygoprodeck.com/images/cards/70368879.jpg"
+    },
+    {
+        "id": "bye_bye_damage",
         "rarity": "rare",
         "name": "Bye Bye Damage",
-        "img_url":"https://images.ygoprodeck.com/images/cards/20735371.jpg"
-   	},	
-	{
-        "id": "carddestruction",
+        "img_url": "https://images.ygoprodeck.com/images/cards/20735371.jpg"
+    },
+    {
+        "id": "card_destruction",
         "rarity": "rare",
         "name": "Card Destruction",
-        "img_url":"https://images.ygoprodeck.com/images/cards/72892473.jpg"
-   	},	
-	{
-        "id": "changingdestiny",
+        "img_url": "https://images.ygoprodeck.com/images/cards/72892473.jpg"
+    },
+    {
+        "id": "changing_destiny",
         "rarity": "rare",
         "name": "Changing Destiny",
-        "img_url":"https://images.ygoprodeck.com/images/cards/24673894.jpg"
-   	},	
-	{
-        "id": "securityorb",
+        "img_url": "https://images.ygoprodeck.com/images/cards/24673894.jpg"
+    },
+    {
+        "id": "security_orb",
         "rarity": "rare",
         "name": "Security Orb",
-        "img_url":"https://images.ygoprodeck.com/images/cards/26533075.jpg"
-   	},
-	{
-        "id": "pinpointguard",
+        "img_url": "https://images.ygoprodeck.com/images/cards/26533075.jpg"
+    },
+    {
+        "id": "pinpoint_guard",
         "rarity": "rare",
         "name": "Pinpoint Guard",
-        "img_url":"https://images.ygoprodeck.com/images/cards/44509898.jpg"
-   	},
-	{
-        "id": "magicjammer",
+        "img_url": "https://images.ygoprodeck.com/images/cards/44509898.jpg"
+    },
+    {
+        "id": "magic_jammer",
         "rarity": "rare",
-        "name": "magic jammer",
-        "img_url":"https://images.ygoprodeck.com/images/cards/77414722.jpg"
-   	},
-	{
-        "id": "foolishburial",
+        "name": "Magic Jammer",
+        "img_url": "https://images.ygoprodeck.com/images/cards/77414722.jpg"
+    },
+    {
+        "id": "foolish_burial",
         "rarity": "rare",
         "name": "Foolish Burial",
-        "img_url":"https://images.ygoprodeck.com/images/cards/81439174.jpg"
-   	},	
-	{
-        "id": "onedayofpeace",
+        "img_url": "https://images.ygoprodeck.com/images/cards/81439173.jpg"
+    },
+    {
+        "id": "one_day_of_peace",
         "rarity": "rare",
         "name": "One Day of Peace",
-        "img_url":"https://images.ygoprodeck.com/images/cards/33782437.jpg"
-   	},	
-	{
-        "id": "egoboost",
+        "img_url": "https://images.ygoprodeck.com/images/cards/33782437.jpg"
+    },
+    {
+        "id": "ego_boost",
         "rarity": "rare",
         "name": "Ego Boost",
-        "img_url":"https://images.ygoprodeck.com/images/cards/73178098.jpg"
-   	},	
-	{
-        "id": "aquaround",
+        "img_url": "https://images.ygoprodeck.com/images/cards/73178098.jpg"
+    },
+    {
+        "id": "aqua_chorus_round",
         "rarity": "rare",
-        "name": "Aqua Round (OCG)",
-        "img_url":"https://images.ygoprodeck.com/images/cards/59131526.jpg"
-   	},	
-	{
-        "id": "flashoftheforbiddenspell",
+        "name": "Aqua Chorus Round",
+        "img_url": "https://images.ygoprodeck.com/images/cards/59131526.jpg"
+    },
+    {
+        "id": "flash_of_the_forbidden_spell",
         "rarity": "rare",
         "name": "Flash of the Forbidden Spell",
-        "img_url":"https://images.ygoprodeck.com/images/cards/39956951.jpg"
-   	},	
-	{
-        "id": "draggeddownintothegrave",
+        "img_url": "https://images.ygoprodeck.com/images/cards/39956951.jpg"
+    },
+    {
+        "id": "dragged_down_into_the_grave",
         "rarity": "rare",
         "name": "Dragged Down into the Grave",
-        "img_url":"https://images.ygoprodeck.com/images/cards/16435215.jpg"
-   	},	
-	{
+        "img_url": "https://images.ygoprodeck.com/images/cards/16435215.jpg"
+    },
+    {
         "id": "shrink",
         "rarity": "rare",
         "name": "Shrink",
-        "img_url":"https://images.ygoprodeck.com/images/cards/55713623.jpg"
-   	},	
-	{
-        "id": "lightningvortex",
+        "img_url": "https://images.ygoprodeck.com/images/cards/55713623.jpg"
+    },
+    {
+        "id": "multi-universe",
+        "rarity": "rare",
+        "name": "Multi-Universe",
+        "img_url": "https://images.ygoprodeck.com/images/cards/885016.jpg"
+    },
+    {
+        "id": "disablaster_the_negation_fortress",
+        "rarity": "rare",
+        "name": "Disablaster the Negation Fortress",
+        "img_url": "https://images.ygoprodeck.com/images/cards/58707981.jpg"
+    },
+    {
+        "id": "fairy_tail_-_snow",
         "rarity": "super_rare",
-        "name": "Lightning Vortex",
-        "img_url":"https://images.ygoprodeck.com/images/cards/69162969.jpg"
-   	},	
-	{
-        "id": "darkcore",
+        "name": "Fairy Tail - Snow",
+        "img_url": "https://images.ygoprodeck.com/images/cards/55623480.jpg"
+    },
+    {
+        "id": "the_league_of_uniform_nomenclature_strikes",
+        "rarity": "super_rare",
+        "name": "The League of Uniform Nomenclature Strikes",
+        "img_url": "https://images.ygoprodeck.com/images/cards/29265962.jpg"
+    },
+    {
+        "id": "kuebiko",
+        "rarity": "super_rare",
+        "name": "Kuebiko",
+        "img_url": "https://images.ygoprodeck.com/images/cards/20087414.jpg"
+    },
+    {
+        "id": "grief_tablet",
+        "rarity": "super_rare",
+        "name": "Grief Tablet",
+        "img_url": "https://images.ygoprodeck.com/images/cards/18046862.jpg"
+    },
+    {
+        "id": "time_dimension_hole",
+        "rarity": "super_rare",
+        "name": "Time Dimension Hole",
+        "img_url": "https://images.ygoprodeck.com/images/cards/90615639.jpg"
+    },
+    {
+        "id": "dark_core",
         "rarity": "super_rare",
         "name": "Dark Core",
-        "img_url":"https://images.ygoprodeck.com/images/cards/70231910.jpg"
-   	},	
-	{
-        "id": "threateningroar",
+        "img_url": "https://images.ygoprodeck.com/images/cards/70231910.jpg"
+    },
+    {
+        "id": "threatening_roar",
         "rarity": "super_rare",
         "name": "Threatening Roar",
-        "img_url":"https://images.ygoprodeck.com/images/cards/36361633.jpg"
-   	},	
-	{
+        "img_url": "https://images.ygoprodeck.com/images/cards/36361633.jpg"
+    },
+    {
         "id": "waboku",
         "rarity": "super_rare",
         "name": "Waboku",
-        "img_url":"https://images.ygoprodeck.com/images/cards/12607053.jpg"
-   	},	
-	{
-        "id": "braincontrol",
+        "img_url": "https://images.ygoprodeck.com/images/cards/12607053.jpg"
+    },
+    {
+        "id": "final_bringer_of_the_end_times",
         "rarity": "super_rare",
-        "name": "Brain Control",
-        "img_url":"https://images.ygoprodeck.com/images/cards/87910978.jpg"
-   	},	
-	{
-        "id": "thatgrasslooksgreener",
-        "rarity": "super_rare",
-        "name": "That Grass Looks Greener",
-        "img_url":"https://images.ygoprodeck.com/images/cards/11110587.jpg"
-   	},	
-	{
-        "id": "offeringstothedoomed",
+        "name": "Final Bringer of the End Times",
+        "img_url": "https://images.ygoprodeck.com/images/cards/54261514.jpg"
+    },
+    {
+        "id": "offerings_to_the_doomed",
         "rarity": "super_rare",
         "name": "Offerings to the Doomed",
-        "img_url":"https://images.ygoprodeck.com/images/cards/19230408.jpg"
-   	},	
-	{
-        "id": "forbidden lance",
+        "img_url": "https://images.ygoprodeck.com/images/cards/19230408.jpg"
+    },
+    {
+        "id": "forbidden_lance",
         "rarity": "super_rare",
         "name": "Forbidden Lance",
-        "img_url":"https://images.ygoprodeck.com/images/cards/27243130.jpg"
-   	},	
-	{
-        "id": "tripletacticstalent",
+        "img_url": "https://images.ygoprodeck.com/images/cards/27243130.jpg"
+    },
+    {
+        "id": "triple_tactics_talent",
         "rarity": "super_rare",
         "name": "Triple Tactics Talent",
-        "img_url":"https://images.ygoprodeck.com/images/cards/25311006.jpg"
-   	},	
-	{
-        "id": "swordsofrevealinglight",
-        "rarity": "super_rare",
-        "name": "Swords of Revealing Light",
-        "img_url":"https://images.ygoprodeck.com/images/cards/72302403.jpg"
-   	},
-	{
-        "id": "premat",
-        "rarity": "super_rare",
-        "name": "Premature Burial",
-        "img_url":"https://images.ygoprodeck.com/images/cards/70828912.jpg"
-	},	
-	{
-        "id": "chickengame",
+        "img_url": "https://images.ygoprodeck.com/images/cards/25311006.jpg"
+    },
+    {
+        "id": "chicken_game",
         "rarity": "super_rare",
         "name": "Chicken Game",
-        "img_url":"https://images.ygoprodeck.com/images/cards/67616300.jpg"
-   	},	
-	{
-        "id": "egomorph",
+        "img_url": "https://images.ygoprodeck.com/images/cards/67616300.jpg"
+    },
+    {
+        "id": "overexaggeration",
         "rarity": "super_rare",
-        "name": "Egomorph (OCG)",
-        "img_url":"https://images.ygoprodeck.com/images/cards/101201065.jpg"
-   	},	
-	{
-        "id": "sixthsense",
+        "name": "Overexaggeration",
+        "img_url": "https://images.ygoprodeck.com/images/cards/96352712.jpg"
+    },
+    {
+        "id": "sixth_sense",
         "rarity": "super_rare",
         "name": "Sixth Sense",
-        "img_url":"https://images.ygoprodeck.com/images/cards/3280747.jpg"
-   	},	
-	{
-        "id": "jellycannon",
+        "img_url": "https://images.ygoprodeck.com/images/cards/3280747.jpg"
+    },
+    {
+        "id": "jelly_cannon",
         "rarity": "super_rare",
         "name": "Jelly Cannon",
-        "img_url":"https://images.ygoprodeck.com/images/cards/41440817.jpg"
-   	},	
-	{
-        "id": "corruptedgemoftebellion",
+        "img_url": "https://images.ygoprodeck.com/images/cards/41440817.jpg"
+    },
+    {
+        "id": "premature_burial",
         "rarity": "ultra_rare",
-        "name": "Corrupted Gem of Rebellion - Snake Eye",
-        "img_url":"https://images.ygoprodeck.com/images/cards/101201060.jpg"
-   	},
-	{
-        "id": "potofgreed",
+        "name": "Premature Burial",
+        "img_url": "https://images.ygoprodeck.com/images/cards/70828912.jpg"
+    },
+    {
+        "id": "mirage_of_nightmare",
+        "rarity": "ultra_rare",
+        "name": "Mirage of Nightmare",
+        "img_url": "https://images.ygoprodeck.com/images/cards/41482598.jpg"
+    },
+    {
+        "id": "pot_of_greed",
         "rarity": "ultra_rare",
         "name": "Pot of Greed",
-        "img_url":"https://images.ygoprodeck.com/images/cards/55144522.jpg"
-   	},
-	{
-        "id": "gracefulcharity",
+        "img_url": "https://images.ygoprodeck.com/images/cards/55144522.jpg"
+    },
+    {
+        "id": "graceful_charity",
         "rarity": "ultra_rare",
         "name": "Graceful Charity",
-        "img_url":"https://images.ygoprodeck.com/images/cards/79571449.jpg"
-   	},
-	{
-        "id": "reborn",
+        "img_url": "https://images.ygoprodeck.com/images/cards/79571449.jpg"
+    },
+    {
+        "id": "monster_reborn",
         "rarity": "ultra_rare",
         "name": "Monster Reborn",
-        "img_url":"https://images.ygoprodeck.com/images/cards/83764719.jpg"
-	},
-	{
-        "id": "lastwill",
+        "img_url": "https://images.ygoprodeck.com/images/cards/83764719.jpg"
+    },
+    {
+        "id": "last_will",
         "rarity": "ultra_rare",
         "name": "Last Will",
-        "img_url":"https://images.ygoprodeck.com/images/cards/85602018.jpg"
-	},
-	{
-        "id": "painfulchoice",
-        "rarity": "ultra_rare",
-        "name": "Painful Choice",
-        "img_url":"https://images.ygoprodeck.com/images/cards/74191942.jpg"
-	},
-	{
-        "id": "torrentialtribute",
-        "rarity": "ultra_rare",
-        "name": "Torrential Tribute",
-        "img_url":"https://images.ygoprodeck.com/images/cards/53582587.jpg"
-	},
-	{
-        "id": "forbiddenchalice",
+        "img_url": "https://images.ygoprodeck.com/images/cards/85602018.jpg"
+    },
+    {
+        "id": "forbidden_chalice",
         "rarity": "ultra_rare",
         "name": "Forbidden Chalice",
-        "img_url":"https://images.ygoprodeck.com/images/cards/25789292.jpg"
-	},
-	{
-        "id": "ultimateoffering",
-        "rarity": "ultra_rare",
-        "name": "Ultimate Offering",
-        "img_url":"https://images.ygoprodeck.com/images/cards/80604092.jpg"
-	},
-	{
-        "id": "gianttrunade",
+        "img_url": "https://images.ygoprodeck.com/images/cards/25789292.jpg"
+    },
+    {
+        "id": "giant_trunade",
         "rarity": "ultra_rare",
         "name": "Giant Trunade",
-        "img_url":"https://images.ygoprodeck.com/images/cards/42703248.jpg"
-	},
-	{
-        "id": "soulcharge",
+        "img_url": "https://images.ygoprodeck.com/images/cards/42703248.jpg"
+    },
+    {
+        "id": "daigusto_emeral",
         "rarity": "ultra_rare",
-        "name": "Soul Charge",
-        "img_url":"https://images.ygoprodeck.com/images/cards/54447022.jpg"
-	},
-	{
-        "id": "snatchsteal",
+        "name": "Daigusto Emeral",
+        "img_url": "https://images.ygoprodeck.com/images/cards/581014.jpg"
+    },
+    {
+        "id": "dark_rebellion_xyz_dragon",
         "rarity": "ultra_rare",
-        "name": "Snatch Steal",
-        "img_url":"https://images.ygoprodeck.com/images/cards/45986603.jpg"
-	}
+        "name": "Dark Rebellion Xyz Dragon",
+        "img_url": "https://images.ygoprodeck.com/images/cards/16195942.jpg"
+    },
+    {
+        "id": "number_103:_ragnazero",
+        "rarity": "ultra_rare",
+        "name": "Number 103: Ragnazero",
+        "img_url": "https://images.ygoprodeck.com/images/cards/94380860.jpg"
+    },
+    {
+        "id": "leviair_the_sea_dragon",
+        "rarity": "ultra_rare",
+        "name": "Leviair the Sea Dragon",
+        "img_url": "https://images.ygoprodeck.com/images/cards/95992081.jpg"
+    }
 ]

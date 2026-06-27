@@ -1,10 +1,11 @@
 from random import shuffle
-from discord import Message, Thread
+from discord import Message, Thread, Embed
 from core import kdr_db as db
 from views.panels.panel_status import StatusPanel
 from core.kdr_data import SpecialSkillHandling
 from config.config import GOLD_INTEREST_REQUIRED, GOLD_INTEREST_GAINED
 import math
+import core.kdr_ansi as ansi
 
 
 class EndShopPanel:
@@ -26,8 +27,8 @@ class EndShopPanel:
         stage += 1
         await db.set_inventory_value(self.pid, self.sid, self.iid, 'shop_stage', stage)
 
-        await self.thread.send(
-            f"And that is all for this Shop Phase! You will gain {possible_interest} Gold as interest on your gold at the start of the next shop phase")
+        description = f"And that is all for this Shop Phase! You will gain **{possible_interest}** Gold as interest on your gold at the start of the next shop phase"
+        await self.thread.send(description)
         await db.set_inventory_value(self.pid, self.sid, self.iid, 'shop_phase', False)
         
         if isinstance(self.thread, Thread):

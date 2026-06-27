@@ -1,0 +1,29 @@
+[
+    {
+        "id": "bigly_questing",
+        "name": "Bigly Questing",
+        "type": "regular",
+        "description": "Win a Match without dropping below 6000 LP.",
+        "rewards": {
+            "gold": 5,
+            "stats": {
+                "str": 2,
+                "dex": 1
+            },
+            "cards": [
+                "Sangan",
+                "Witch of the Black Forest"
+            ],
+            "class": "fisherman"
+        }
+    },
+    {
+        "id": "mythical_mishaps",
+        "name": "Mythical Mishaps",
+        "type": "mythic",
+        "description": "Win a Match without any Class Loot.",
+        "rewards": {
+            "class": "paladin"
+        }
+    }
+]

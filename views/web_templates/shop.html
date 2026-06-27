@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDR Shop Contents - {{ class_name }}</title>
+    <style>
+        :root {
+            --bg-color: #0f0f13;
+            --panel-color: #1a1a24;
+            --accent-color: #3498db;
+            --text-color: #e0e0e0;
+            --muted-text: #95a5a6;
+            --gold-color: #f1c40f;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 98%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(26, 26, 36, 0.8);
+            border-bottom: 3px solid var(--accent-color);
+            border-radius: 10px;
+        }
+
+        h1 { font-size: 2em; margin: 0; }
+        .subtitle { color: var(--muted-text); margin-top: 5px; font-size: 0.9em; }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 15px;
+        }
+
+        .window-panel {
+            background: var(--panel-color);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .window-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .bucket-group {
+            border: 1px dashed rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .window-title { font-size: 1.2em; font-weight: bold; color: var(--accent-color); }
+        .window-cost { color: var(--gold-color); font-weight: bold; font-size: 1.1em; }
+
+        .section-title {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            color: var(--muted-text);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 8px;
+        }
+
+        /* Card Grid - Scaled down for shop viewing */
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .card-wrapper {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-wrapper:hover { transform: scale(1.15) translateY(-5px); z-index: 50; }
+
+        .card-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            display: block;
+        }
+
+        /* Skill List */
+        .skill-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.03);
+            padding: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .skill-item:hover { background: rgba(255,255,255,0.08); }
+
+        .skill-icon { width: 30px; height: 30px; border-radius: 4px; margin-right: 10px; }
+        .skill-info h4 { margin: 0; font-size: 0.85em; }
+
+        /* Tooltip */
+        .tooltip {
+            position: fixed;
+            background: rgba(15, 15, 20, 0.98);
+            border: 1px solid var(--accent-color);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 14px;
+            z-index: 10000;
+            display: none;
+            width: 320px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            pointer-events: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .tooltip h3 { margin: 0 0 10px 0; color: var(--accent-color); border-bottom: 1px solid #333; padding-bottom: 5px; }
+        .tp-details { color: var(--gold-color); font-size: 0.85em; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; }
+        .tp-stats { display: flex; gap: 8px; margin-bottom: 10px; }
+        .stat-badge { background: #333; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8em; }
+        .stat-badge.atk { color: #e74c3c; }
+        .stat-badge.def { color: #3498db; }
+        .tooltip p { margin: 0; line-height: 1.5; color: #ccc; font-style: italic; font-size: 0.9em; }
+
+        @media (max-width: 800px) {
+            .shop-grid { grid-template-columns: 1fr; }
+            .visual-grid { grid-template-columns: repeat(4, 1fr); }
+            .skill-list { grid-template-columns: 1fr; }
+            .tooltip { width: 90vw; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ shopkeep_name }}'s Offers</h1>
+            <div class="subtitle">Inspecting the shown loot for {{ class_name }}</div>
+        </header>
+
+        <div class="shop-grid">
+            {% for window in windows %}
+            <div class="window-panel">
+                <div class="window-header">
+                    <span class="window-title">{{ window.name }}</span>
+                    <span class="window-cost">{{ window.cost }} Gold</span>
+                </div>
+
+                {% for bucket in window.buckets %}
+                <div class="bucket-group">
+                    
+                    {% if bucket.cards %}
+                    <div class="section-title">Included Cards</div>
+                    <div class="visual-grid">
+                        {% for card in bucket.cards %}
+                        <div class="card-wrapper" 
+                             data-name="{{ card.name }}" 
+                             data-details="{{ card.details }}" 
+                             data-level="{{ card.level }}" 
+                             data-atk="{{ card.atk }}" 
+                             data-def="{{ card.def }}" 
+                             data-desc="{{ card.description }}">
+                            <img src="{{ card.img }}" class="card-img" onerror="this.src='https://raw.githubusercontent.com/JustBryant/hugin_images/refs/heads/main/card_images/Cyber%20Dragon.jpg'">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if bucket.skills %}
+                    <div class="section-title">Included Skills</div>
+                    <div class="skill-list">
+                        {% for skill in bucket.skills %}
+                        <div class="skill-item" 
+                             data-name="{{ skill.name }}" 
+                             data-details="Skill" 
+                             data-desc="{{ skill.description }}">
+                            <img src="{{ skill.img }}" class="skill-icon">
+                            <div class="skill-info">
+                                <h4>{{ skill.name }}</h4>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if bucket.recipes %}
+                    <div class="section-title">Included Recipes</div>
+                    <div class="skill-list">
+                        {% for recipe in bucket.recipes %}
+                        <div class="skill-item" 
+                             data-name="{{ recipe.name }}" 
+                             data-details="Recipe" 
+                             data-desc="{{ recipe.description }}">
+                            <div class="skill-info">
+                                <h4>{{ recipe.name }}</h4>
+                                {% if recipe.description %}
+                                <p style="margin: 2px 0 0; font-size: 0.75em; color: #999;">{{ recipe.description }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="global-tooltip" class="tooltip"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tooltip = document.getElementById('global-tooltip');
+            const targets = document.querySelectorAll('.card-wrapper, .skill-item');
+            
+            targets.forEach(target => {
+                target.addEventListener('mouseenter', (e) => {
+                    const name = target.getAttribute('data-name');
+                    const details = target.getAttribute('data-details');
+                    const level = target.getAttribute('data-level');
+                    const atk = target.getAttribute('data-atk');
+                    const def = target.getAttribute('data-def');
+                    const desc = target.getAttribute('data-desc');
+
+                    tooltip.innerHTML = '';
+                    const h3 = document.createElement('h3');
+                    h3.textContent = name;
+                    tooltip.appendChild(h3);
+                    
+                    if (details && details !== 'None') {
+                        const div = document.createElement('div');
+                        div.className = 'tp-details';
+                        div.textContent = details;
+                        tooltip.appendChild(div);
+                    }
+                    
+                    if (level || atk || def) {
+                        const statsDiv = document.createElement('div');
+                        statsDiv.className = 'tp-stats';
+                        if (level && level !== 'None') {
+                            const span = document.createElement('span');
+                            span.className = 'stat-badge';
+                            span.textContent = `LVL ${level}`;
+                            statsDiv.appendChild(span);
+                        }
+                        if (atk && atk !== 'None') {
+                            const span = document.createElement('span');
+                            span.className = 'stat-badge atk';
+                            span.textContent = `ATK ${atk}`;
+                            statsDiv.appendChild(span);
+                        }
+                        if (def && def !== 'None') {
+                            const span = document.createElement('span');
+                            span.className = 'stat-badge def';
+                            span.textContent = `DEF ${def}`;
+                            statsDiv.appendChild(span);
+                        }
+                        tooltip.appendChild(statsDiv);
+                    }
+                    
+                    const p = document.createElement('p');
+                    p.textContent = desc;
+                    tooltip.appendChild(p);
+                    
+                    tooltip.style.display = 'block';
+                });
+
+                target.addEventListener('mousemove', (e) => {
+                    let x = e.clientX + 15;
+                    let y = e.clientY + 15;
+                    const width = tooltip.offsetWidth;
+                    const height = tooltip.offsetHeight;
+                    if (x + width > window.innerWidth) x = e.clientX - width - 15;
+                    if (y + height > window.innerHeight) y = e.clientY - height - 15;
+                    tooltip.style.left = x + 'px';
+                    tooltip.style.top = y + 'px';
+                });
+
+                target.addEventListener('mouseleave', () => {
+                    tooltip.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

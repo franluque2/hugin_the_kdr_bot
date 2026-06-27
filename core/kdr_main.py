@@ -7,6 +7,7 @@ import config.secret_values as secret_values
 from config.secret_values import TOKEN, GUILD
 
 import core.kdr_db as db
+from core.kdr_web import start_web_server
 
 # intents & bot instance
 intents = discord.Intents.all()
@@ -28,6 +29,7 @@ async def on_ready():
     await client.load_extension('core.kdr_core')
     await client.load_extension('core.kdr_admin')
     await client.load_extension('core.kdr_util')
+    await start_web_server()
     await client.load_extension('core.kdr_shop')
     await client.load_extension('core.kdr_fun')
 

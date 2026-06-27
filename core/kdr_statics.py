@@ -1,3 +1,4 @@
+import discord
 import random
 import core.kdr_data as kdr_data
 import core.kdr_errors as kdr_errors
@@ -6,12 +7,14 @@ import math
 from random import randint
 from json import load as json_load
 from core import kdr_db as db
+from core.kdr_web import get_inventory_url
 from config.config import CWD, PATH_INSTANCE_NAMES, GOLD_INTEREST_REQUIRED, \
     GOLD_INTEREST_GAINED, LOSS_STREAK_EXTRA_GOLD, GOLD_WIN_GAINED_PROFESSIONAL_DUELIST, \
     GOLD_WIN_GAINED, HEAVY_SACK_EXTRA_GOLD, GOLD_LOSS_GAINED
 from discord import Interaction, Embed
 from core.kdr_data import SpecialSkillHandling, KdrModifierNames
 from core.kdr_modifiers import get_modifier
+import core.kdr_ansi as ansi
 
 from config.secret_values import GUILD, SERVER_WHITELIST
 
@@ -107,8 +110,8 @@ async def player_not_exist_instance(interaction=Interaction):
 async def player_has_character_sheet(interaction=Interaction):
     # check if the user already exists in that instance id
     pid, sid, iid = await get_player_data(interaction)
-    charsheetlink = await db.get_inventory_value(pid, sid, iid, 'sheet_url')
-    if len(charsheetlink) != 0:
+    inventory = await db.get_inventory(pid, sid, iid)
+    if inventory:
         return True
     raise kdr_errors.PlayerHasNoCharacterSheetError(iid)
 
@@ -272,11 +275,14 @@ async def get_final_class_selection(player_classes):
         class_echos = await db.get_base_class_value(x, 'echos')
         for c in class_echos:
             echo = await db.get_static_class(c)
+            if not echo:
+                continue
             name = echo['name']
             img_url = echo['url_picture']
             sheet_url = echo['url_sheet']
             desc = echo['description']
-            newembed=Embed(title=name,description=desc, url=sheet_url)
+            
+            newembed=Embed(title=name, description=desc, url=sheet_url, color=discord.Color.from_rgb(255, 105, 180)) # Pink Color
             newembed.set_footer(text=f"Faction: {base_class_name}")
             newembed.set_thumbnail(url=img_url)
             embeds.append(newembed)

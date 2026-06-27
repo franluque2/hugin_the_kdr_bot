@@ -3,20 +3,21 @@ import core.kdr_db_build as db_build
 import core.kdr_errors as kdr_errors
 import core.kdr_messages as kdr_messages
 import core.kdr_statics as statics
+import core.kdr_ansi as ansi
 
 from discord.ext.commands.cog import Cog
 from discord.ext.commands.bot import Bot
-from discord import app_commands
+from discord import app_commands, Embed
 from discord import Interaction, Attachment
 from discord import Member
-from discord import Interaction
 
 from core.kdr_data import WinType, SpecialClassHandling
 from core.kdr_elo import EloAdjustment
 from config.config import OOPS, ROLE_ADMIN, DB_KEY_INSTANCE, ROLE_CODER, ROLE_OWNER, \
                             PATH_BUCKETS, PATH_BASE_CLASSES, PATH_STATIC_CLASSES, \
                             PATH_TREASURES, PATH_GENERIC_SKILLS, PATH_GENERIC_BUCKETS, \
-                            PATH_BUCKET_SKILLS, PATH_CLASS_SKILLS
+                            PATH_BUCKET_SKILLS, PATH_CLASS_SKILLS, PATH_GENERIC_QUESTS, \
+                            PATH_RECIPES
 from config.secret_values import GUILD, SERVER_WHITELIST
 
 import random
@@ -41,6 +42,22 @@ class ShopStatuses(Enum):
 class KDRAdmin(Cog):
     def __init__(self, client: Bot):
         self.client = client
+
+    async def cog_app_command_error(self, interaction: Interaction, error: app_commands.AppCommandError):
+        description = ""
+        if isinstance(error, app_commands.MissingAnyRole):
+            description = "You are missing one of the required roles to use this command."
+        elif isinstance(error, kdr_errors.ServerNotWhitelistedError):
+            description = "This server is not whitelisted for KDR Admin commands."
+        else:
+            description = f"An unexpected error occurred: {error}"
+            print(f"Unhandled Cog Error: {error}")
+        
+        if description:
+            if not interaction.response.is_done():
+                await interaction.response.send_message(description, ephemeral=True)
+            else:
+                await interaction.followup.send(description, ephemeral=True)
 
     """ Admin Reset KDR Build Data """
 
@@ -165,11 +182,10 @@ class KDRAdmin(Cog):
                 await db.set_inventory_value(p, sid, iid, 'XP', xp)
             await db.set_inventory_value(p, sid, iid, 'shop_stage', 0)
             player_data = await db.get_inventory(p, sid, iid)
-            playermodifiers = player_data["modifiers"]
-            for modifier in playermodifiers:
-                if modifier == SpecialClassHandling.CLASS_MIMIC.value:  # Mimics do not get a shop phase.
-                    await db.set_inventory_value(p, sid, iid, 'shop_stage', 9)
-                    await db.set_inventory_value(p, sid, iid, 'shop_phase', False)
+            playermodifiers = player_data.get("modifiers", [])
+            if SpecialClassHandling.CLASS_MIMIC.value in playermodifiers:
+                await db.set_inventory_value(p, sid, iid, 'shop_stage', 9)
+                await db.set_inventory_value(p, sid, iid, 'shop_phase', False)
 
         rounds = ""
         num = 0
@@ -440,8 +456,14 @@ class KDRAdmin(Cog):
         playerclass=await db.get_static_class_by_name(classname)
 
         await db.set_inventory_value(first_player,sid,iid,"class",playerclass["id"])
-        generated_tip=random.randint(playerclass["tip_ratio"][0],playerclass["tip_ratio"][1])
-        await db.set_inventory_value(first_player,sid,iid,"tip_threshold",generated_tip)
+        
+        # Only set gamble_threshold if the class actually has a gamble_ratio (Gambler)
+        if "gamble_ratio" in playerclass:
+            generated_gamble = random.randint(playerclass["gamble_ratio"][0], playerclass["gamble_ratio"][1])
+            await db.set_inventory_value(first_player, sid, iid, "gamble_threshold", generated_gamble)
+        else:
+            await db.set_inventory_value(first_player, sid, iid, "gamble_threshold", 0)
+
         await interaction.response.send_message(f'<@{pid}> has modified <@{first_player}>\'s class, they are now a {classname}. ')
 
         offered_classes = await db.get_instance_list(sid, iid, 'offered_classes')
@@ -530,12 +552,13 @@ class KDRAdmin(Cog):
     @app_commands.command(name="builddata", description="Builds the classes, treasures, buckets, etc based on files sent.")
     @app_commands.guild_only()
     @app_commands.check(statics.server_whitelisted)
-    @app_commands.checks.has_any_role(ROLE_CODER, ROLE_OWNER)
+    @app_commands.checks.has_any_role(ROLE_ADMIN, ROLE_CODER, ROLE_OWNER)
     async def build_data(self,interaction: Interaction, basefile: Attachment,
                         staticfile: Attachment, bucketsfile: Attachment,
                         bucketskillsfile: Attachment, classskillfile: Attachment,
                         genericskillfile: Attachment, genericbucketfile: Attachment,
-                        treasurefile: Attachment):
+                        treasurefile: Attachment, questfile: Attachment,
+                        recipefile: Attachment):
 
         msg = f"Rebuilding data..."
         await interaction.response.send_message(msg)
@@ -547,6 +570,8 @@ class KDRAdmin(Cog):
         genericskills=None
         genericbuckets=None
         treasures=None
+        quests=None
+        recipesdata=None
         if basefile.filename==PATH_BASE_CLASSES:
             baseclassesbytes=await basefile.read()
             baseclasses=json.loads(str(baseclassesbytes, 'utf-8'))
@@ -597,6 +622,20 @@ class KDRAdmin(Cog):
         else:
             await interaction.edit_original_response(f"Treasures file not found or not named {PATH_TREASURES}")
             return
+            
+        if questfile.filename==PATH_GENERIC_QUESTS:
+            questsbytes=await questfile.read()
+            quests=json.loads(str(questsbytes, 'utf-8'))
+        else:
+            await interaction.edit_original_response(f"Quests file not found or not named {PATH_GENERIC_QUESTS}")
+            return
+            
+        if recipefile.filename==PATH_RECIPES:
+            recipesbytes=await recipefile.read()
+            recipesdata=json.loads(str(recipesbytes, 'utf-8'))
+        else:
+            await interaction.edit_original_response(f"Recipes file not found or not named {PATH_RECIPES}")
+            return
 
         await interaction.edit_original_response(content=msg)
 
@@ -630,8 +669,64 @@ class KDRAdmin(Cog):
         msg += "\n*Built Treasures*"
         await interaction.edit_original_response(content=msg)
 
+        if not await db_build.build_quests(quests):
+            raise kdr_errors.BuildDBDataError("Quests")
+        msg += "\n*Built Quests*"
+        await interaction.edit_original_response(content=msg)
+
+        if not await db_build.build_recipes(recipesdata):
+            raise kdr_errors.BuildDBDataError("Recipes")
+        msg += "\n*Built Recipes*"
+        await interaction.edit_original_response(content=msg)
+
         msg += "\nFinished Building Data."
         await interaction.edit_original_response(content=msg)
+
+    """ Admin Rebuild From Local Files """
+    @app_commands.command(name="rebuildlocal", description="Rebuilds the database from the local JSON files in the workspace.")
+    @app_commands.guild_only()
+    @app_commands.check(statics.server_whitelisted)
+    @app_commands.checks.has_any_role(ROLE_ADMIN, ROLE_CODER, ROLE_OWNER)
+    async def rebuild_local(self, interaction: Interaction):
+        await interaction.response.defer()
+        msg = "Rebuilding from local files...\n"
+        
+        try:
+            import json
+            import os
+            from config.config import CWD, PATH_BASE_CLASSES, PATH_STATIC_CLASSES, PATH_BUCKETS, \
+                PATH_BUCKET_SKILLS, PATH_CLASS_SKILLS, PATH_GENERIC_SKILLS, PATH_GENERIC_BUCKETS, \
+                PATH_TREASURES, PATH_GENERIC_QUESTS, PATH_RECIPES
+
+            def load_local(path):
+                # Ensure the path starts with / if it doesn't and isn't absolute
+                full_path = path if path.startswith('/') else f"{CWD}/{path}"
+                with open(full_path, 'r') as f:
+                    return json.load(f)
+
+            baseclasses = load_local(PATH_BASE_CLASSES)
+            staticclasses = load_local(PATH_STATIC_CLASSES)
+            buckets = load_local(PATH_BUCKETS)
+            bucketskills = load_local(PATH_BUCKET_SKILLS)
+            classskills = load_local(PATH_CLASS_SKILLS)
+            genericskills = load_local(PATH_GENERIC_SKILLS)
+            genericbuckets = load_local(PATH_GENERIC_BUCKETS)
+            treasures = load_local(PATH_TREASURES)
+            quests = load_local(PATH_GENERIC_QUESTS)
+            recipes = load_local(PATH_RECIPES)
+
+            await db_build.build_base_classes(baseclasses)
+            await db_build.build_static_classes(staticclasses)
+            await db_build.build_buckets(buckets)
+            await db_build.build_generic_buckets(genericbuckets)
+            await db_build.build_skills(bucketskills, classskills, genericskills)
+            await db_build.build_treasures(treasures)
+            await db_build.build_quests(quests)
+            await db_build.build_recipes(recipes)
+
+            await interaction.followup.send("Successfully rebuilt database from local JSON files.")
+        except Exception as e:
+            await interaction.followup.send(f"Error rebuilding from local files: {e}")
 
     """ Admin Reset KDR PLAYERS"""
 
@@ -643,6 +738,56 @@ class KDRAdmin(Cog):
     async def reset_kdr_player_data(self, interaction=Interaction):
         await db.clear_user_data()
         await interaction.response.send_message("KDR Player Data has been reset.")
+
+    """ Admin Adjust Quest """
+    @app_commands.command(name="adjustquest", description="Adjusts a player's quest status.")
+    @app_commands.describe(player="The player to adjust the quest for.",
+                          iid="The Instance ID.",
+                          status="The new completion status (True/False).",
+                          quest_id="The Quest ID to set (leave empty to keep current).")
+    @app_commands.guild_only()
+    @app_commands.check(statics.server_whitelisted)
+    @app_commands.checks.has_any_role(ROLE_ADMIN, ROLE_CODER, ROLE_OWNER)
+    async def adjust_quest(self, interaction: Interaction, player: Member, iid: str, status: bool, quest_id: str = ""):
+        sid = interaction.guild_id
+        pid = str(player.id)
+        
+        inventory = await db.get_inventory(pid, sid, iid)
+        if not inventory:
+            await interaction.response.send_message("Player or Instance not found.", ephemeral=True)
+            return
+            
+        active_quest = inventory.get("active_quest")
+        
+        if quest_id:
+            quest_info = await db.get_quest_by_id(quest_id)
+            if not quest_info:
+                await interaction.response.send_message(f"Quest ID {quest_id} not found.", ephemeral=True)
+                return
+            active_quest = {
+                "id": quest_info["id"],
+                "name": quest_info["name"],
+                "completed": status
+            }
+        elif active_quest:
+            active_quest["completed"] = status
+        else:
+            await interaction.response.send_message("Player has no active quest and no Quest ID was provided.", ephemeral=True)
+            return
+            
+        await db.set_inventory_value(pid, sid, iid, "active_quest", active_quest)
+        
+        # Also sync completed_quests list
+        completed_quests = inventory.get("completed_quests", [])
+        if status:
+            if active_quest["id"] not in completed_quests:
+                await db.set_inventory_value(pid, sid, iid, "completed_quests", active_quest["id"], operation="$push")
+        else:
+            if active_quest["id"] in completed_quests:
+                completed_quests.remove(active_quest["id"])
+                await db.set_inventory_value(pid, sid, iid, "completed_quests", completed_quests)
+
+        await interaction.response.send_message(f"Updated quest status for <@{pid}> to **{'Completed' if status else 'Incomplete'}** (Quest: {active_quest['name']}).")
 
     """ Admin Join KDR Fake"""
 

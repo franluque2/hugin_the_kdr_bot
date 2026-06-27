@@ -1,10 +1,11 @@
-from discord import Message, Thread
+from discord import Message, Thread, Embed
 from views.panels.panel_status import StatusPanel
 from config.config import LEVEL_THRESHOLDS, GOLD_PER_XP, XP_PER_GOLD_SPENT
 from core import kdr_db as db
 from core.kdr_data import SpecialSkillHandling
 import views.panels.panel_level_attribute as panel_level_attribute
 from views.view_training import TrainingView
+import core.kdr_ansi as ansi
 
 
 class TrainPanel:
@@ -56,7 +57,7 @@ class TrainPanel:
             await train_view.create_buttons(self.pid, self.sid, self.iid, self.status_message,
                                             self.status_panel_generator, self.thread,
                                             can_sell, can_train, gold_to_pay)
-            await self.thread.send("Would you like to train?\n", view=train_view)
+            await self.thread.send("Would you like to train?", view=train_view)
             return
 
         stage += 1

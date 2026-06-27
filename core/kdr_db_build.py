@@ -74,5 +74,15 @@ async def build_treasures(file: dict) -> bool:
         db.coll_treasures.insert_one(c)
     return True
 
+async def build_quests(file: dict) -> bool:
+    for c in file:
+        db.coll_quests.insert_one(c)
+    return True
+
+async def build_recipes(file: dict) -> bool:
+    for c in file:
+        db.coll_recipes.insert_one(c)
+    return True
+
 
 """"""

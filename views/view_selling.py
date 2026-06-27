@@ -8,15 +8,14 @@ from views.panels.panel_selling import SellPanel
 class SellingButton(discord.ui.Button):
     def __init__(self, label: str, custom_id: str, pid: str, sid, iid,
                  status_message: Message, status_panel_generator: StatusPanel,
-                 thread: Thread, original_panel):
-        super().__init__(label=label, custom_id=custom_id)
+                 thread: Thread, original_panel, style: ButtonStyle = ButtonStyle.secondary):
+        super().__init__(label=label, custom_id=custom_id, style=style)
         self.pid = pid
         self.sid = sid
         self.iid = iid
         self.status_message = status_message
         self.status_panel_generator = status_panel_generator
         self.thread = thread
-        self.style=ButtonStyle.secondary
         self.original_panel=original_panel
 
     async def callback(self, interaction: discord.Interaction):

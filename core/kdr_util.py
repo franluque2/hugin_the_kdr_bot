@@ -1,12 +1,13 @@
 from discord.ext.commands.cog import Cog
 from discord.ext.commands.bot import Bot
-from discord import app_commands
-from discord import Interaction
+from discord import app_commands, Interaction, Embed
+import core.kdr_ansi as ansi
 from core import kdr_db as db, \
     kdr_messages, \
     kdr_errors, \
     kdr_special, \
     kdr_statics as statics
+from core.kdr_web import get_inventory_url
 from config.config import ROLE_ADMIN, OOPS, DB_KEY_SERVER, DB_KEY_INSTANCE, ABOUT_MSG, RPG_STATS
 from config.secret_values import GUILD
 
@@ -78,7 +79,7 @@ class KDRUtil(Cog):
             "pl_gold": player_inventory["gold"],
             "pl_wl_ratio": player_inventory["wl_ratio"],
             "pl_loss_streak": player_inventory["loss_streak"],
-            "pl_sheet_url": player_inventory["sheet_url"],
+            "pl_sheet_url": get_inventory_url(sid, iid, pid),
             "opp_id": opponent,
             "opp_class_name": (await db.get_static_class(opponent_class))["name"],
             "opp_total_wl": await db.get_users_value(opponent, sid, 'total_winloss'),
@@ -88,24 +89,24 @@ class KDRUtil(Cog):
             "opp_gold": opponent_inventory["gold"],
             "opp_wl_ratio": opponent_inventory["wl_ratio"],
             "opp_loss_streak": opponent_inventory["loss_streak"],
-            "opp_sheet_url": opponent_inventory["sheet_url"],
+            "opp_sheet_url": get_inventory_url(sid, iid, opponent),
         }
-        await interaction.response.send_message(kdr_messages.current_match(match_data),
-                                                ephemeral=True, suppress_embeds=True)
+        description = kdr_messages.current_match(match_data)
+        await interaction.response.send_message(description, ephemeral=True)
 
     """ Learn how to play"""
 
     @app_commands.command(name="tutorial", description="Get a Description of what KDR is and how to play.")
     @app_commands.guild_only()
     async def get_tutorial(self, interaction=Interaction):
-        # fetch data
-        await interaction.response.send_message(f"__**What is KDR?**__ \n https://sites.google.com/view/ygodungeonrun/tutorial", ephemeral=True)
-        await interaction.followup.send(f"__**Using me**__ (no, not like that!) __**and setting up your Character sheet!**__:\nhttps://docs.google.com/document/d/1KSAqvNsn8h7E_rAzQzw4BlOsI5cNdm7AM_jCc0nkkTQ/edit?usp=sharing", ephemeral=True)
+        description = (
+            "What is KDR?\nhttps://www.ygokdr.org/tutorial\n\n"
+        )
+        await interaction.response.send_message(description, ephemeral=True)
 
     @app_commands.command(name="about", description="Get Technical Information about Hugin!")
     @app_commands.guild_only()
     async def get_about_msg(self, interaction=Interaction):
-        # fetch data
         await interaction.response.send_message(ABOUT_MSG, ephemeral=True)
 
 

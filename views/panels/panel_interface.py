@@ -1,5 +1,5 @@
 import views.panels.panel_buying as panel_buying
-import views.panels.panel_tips as panel_tips
+import views.panels.panel_gamble as panel_gamble
 import views.panels.panel_training as panel_training
 import views.panels.panel_pick_skill as panel_pick_skill
 
@@ -10,8 +10,8 @@ class panel_interpreter:
         if isinstance(self.panel,panel_training.TrainPanel):
             await self.panel.get_train_panel()
             return
-        if isinstance(self.panel,panel_tips.TipPanel):
-            await self.panel.get_tip_panel()
+        if isinstance(self.panel,panel_gamble.GamblePanel):
+            await self.panel.get_gamble_panel()
             return
         if isinstance(self.panel,panel_buying.BuyPanel):
             await self.panel.get_buy_panel()

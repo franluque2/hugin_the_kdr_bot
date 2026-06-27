@@ -1,10 +1,11 @@
-from discord import Message, Thread
+from discord import Message, Thread, Embed
 from views.panels.panel_status import StatusPanel
 from core import kdr_db as db
 from core.kdr_data import SpecialSkillHandling
 import views.view_reverse_sacrifice as view_reverse_sacrifice
 from config.config import RPG_STATS
 import random
+import core.kdr_ansi as ansi
 
 class ReverseSacrificePanel:
     def __init__(self, pid, sid, iid, status_message: Message, status_panel_generator: StatusPanel,
@@ -36,31 +37,41 @@ class ReverseSacrificePanel:
 
 
         reverse_sacrifice_view = view_reverse_sacrifice.ReverseSacrificeView()
-        msg=f"To get to the next round, you must give up some of your inventory, choose one of the following:\n"
+        embeds = []
+        # Header embed
+        embeds.append(Embed(title="Sacrifice Required", description="To get to the next round, you must give up some of your inventory. Choose one of the following:", color=discord.Color.red()))
 
         for window in loot_to_delete:
-            msg += f"**{window['id'] + 1}**. Sacrifice:\n"
+            ansi_lines = []
             if window["statdown"] is not None:
-                msg += f"**-3 {window['statdown']}**\n"
+                ansi_lines.append(ansi.red(f"-3 {window['statdown'].upper()}", b=True))
             if window["skill"] is not None:
                 skill = await db.get_skill_by_id(window["skill"])
-                msg += f"**{skill['name']}** : {skill['description']}\n"
+                ansi_lines.append(ansi.yellow("--- [ SKILL TO LOSE ] ---", b=True))
+                ansi_lines.append(ansi.pink(skill['name'], b=True))
+                ansi_lines.append(ansi.white(skill['description']))
+
             for bucket in window["buckets"]:
-                if bucket["cards"] is not None:
-                    for card in bucket["cards"]:
-                        msg += f"{card} \ "
-                if bucket["skills"] is not None:
+                if bucket["cards"] is not None and len(bucket["cards"]) > 0:
+                    ansi_lines.append(ansi.cyan("--- [ CARDS TO LOSE ] ---", b=True))
+                    ansi_lines.append(ansi.white(' / '.join(bucket['cards'])))
+                if bucket["skills"] is not None and len(bucket["skills"]) > 0:
+                    ansi_lines.append(ansi.yellow("--- [ SKILLS TO LOSE ] ---", b=True))
                     for skill in bucket["skills"]:
                         skillinfo = await db.get_skill_by_id(skill)
-                        msg += f"**{skillinfo['name']}** : {skillinfo['description']}\ "
-                msg = msg[:-2]
-                msg += "\n"
-            msg += "\n"
+                        name = skillinfo["name"]
+                        desc = skillinfo.get("description", "No description") or "No description available"
+                        ansi_lines.append(ansi.pink(name, b=True))
+                        ansi_lines.append(ansi.white(desc))
+            
+            description_content = ansi.wrap_ansi("\n".join(ansi_lines))
+            embeds.append(Embed(title=f"OPTION {window['id'] + 1}", description=description_content.strip(), color=discord.Color.orange()))
+        
         await reverse_sacrifice_view.create_buttons(self.pid, self.sid, self.iid, self.status_message,
                                         self.status_panel_generator, self.thread,loot_to_delete)
-        await self.thread.send(msg, view=reverse_sacrifice_view)
         
-
+        await self.thread.send(embeds=embeds, view=reverse_sacrifice_view)
+        
         await db.set_inventory_value(self.pid, self.sid, self.iid, 'shop_stage', 8)
 
 

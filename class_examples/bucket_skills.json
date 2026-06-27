@@ -1,254 +1,506 @@
 [
     {
-        "id": "Water_You_Doing_We_Hate_Floodgates",
-        "name":"WATER you doing? We hate floodgates",
-        "description":"Negate the first effect of \"Ocean Dragon Lord - Kairyu-Shin\". This Skill cannot leave your inventory.",
+        "id": "unbanish_me",
+        "name": "Unbanish Me",
+        "description": "Your opponent's cards aren't banished by the effects of your \"Runick\" cards. This Skill cannot leave your inventory.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Eternal_Hellfire",
-        "name":"Eternal Hellfire",
-        "description":"\"Molten Zombie\" is treated always treated as a Zombie monster",
+        "id": "toadally_aw-dangit",
+        "name": "Toadally Aw-Dangit",
+        "description": "Negate the second effect of \"Toadally Awesome\". This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "partial_zombification",
+        "name": "Partial Zombification",
+        "description": "The effect of \"Zombie World\" instead makes your opponent's monsters also become Zombie. Negate the second effect of \"Zombie World\". This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "hex-unsealed",
+        "name": "Hex-Unsealed",
+        "description": "If you activate the effect of a \"Hex-Sealed\" monster, you can use Patchwork.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Pile_Of_Old_Bones",
-        "name":"Pile of Old Bones",
-        "description":"If you would Fusion Summon a Zombie monster using a \"Skull Servant\" you control, you can banish monsters from your GY as material as well",
+        "id": "didn't_see_that_coming?",
+        "name": "Didn't see that coming?",
+        "description": "If you would Fusion Summon using \"Surprise Fusion\", you can use Patchwork.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Partial_Zombification",
-        "name":"Partial Zombification",
-        "description":"While \"Zombie World\" is face-up on the field, monsters your opponent controls and in their GY do not become Zombie monsters, but are also treated as Zombie monsters instead. Negate the second effect of \"Zombie World\". This Skill cannot leave your inventory.",
+        "id": "first_is_worst",
+        "name": "First is Worst",
+        "description": "You cannot Summon Fusion Monsters with the effect of \"The First Darklord\". Negate the first effect of \"The First Darklord\". This Skill cannot leave your inventory.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Scythe_And_Dice",
-        "name":"Scythe and Dice",
-        "description":"If you would activate the effect of \"Edge Imp Scythe\", you can discard it and use Patchwork instead.",
+        "id": "missing_piece",
+        "name": "Missing Piece",
+        "description": "\"Frightfur Sabre-Tooth\" can be destroyed by battle ignoring its effect. This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "construct_constriction",
+        "name": "Construct Constriction",
+        "description": "You can only use each effect of \"El Shaddoll Construct\" once per turn. This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "everlasting_burning:",
+        "name": "Everlasting Burning:",
+        "description": "\"Ashened\" monsters in your possession are always also treated as FIRE monsters. This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "cold_fire",
+        "name": "Cold Fire",
+        "description": "Your opponent takes no damage from the effects of \"Volcanic Emperor\". Negate the first effect of \"Volcanic Inferno\". This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "a_good_offense",
+        "name": "A Good Offense",
+        "description": "Negate the first effect of \"Cosmic Slicer Zer'oll\". This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "necr-no-valley",
+        "name": "Necr-NO-Valley",
+        "description": "Negate the second, third, and fourth effects of \"Necrovalley\". This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "mythical_mishaps",
+        "name": "Mythical Mishaps",
+        "description": "You cannot activate the monster effect of \"Mythical Beast Jackal King\". This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "do_you_dhea?",
+        "name": "Do you Dhea?",
+        "description": "You cannot Tribute an opponent's monster to Summon \"Predaplant Dheadevil\". This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "dragonna_live",
+        "name": "Dragonna Live",
+        "description": "Negate the first effect of \"Black Rose Dragon\". You can only use the first effect of \"Bramble Rose Dragon\" once per turn. This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "ed…_ward…?",
+        "name": "Ed… ward…?",
+        "description": "Once per turn: You can Fusion Summon \"Chimera the Flying Mythical Beast\" by banishing 1 of the materials from your GY and Tributing the other from your hand or field. \"Berfomet\" is now treated as a Flip Monster.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Uncracking_Kraken",
-        "name":"Uncracking Kraken",
-        "description":"\"Frightfur Kraken\" cannot attack the turn you use the first effect of \"Frightfur Kraken\". This Skill cannot leave your inventory.",
+        "id": "small_caves",
+        "name": "Small Caves",
+        "description": "The effect of \"Subterror Cave Clash\" to gain ATK/DEF only grants 100 ATK/DEF for each set monster on the field instead of 500. This Skill cannot leave your inventory.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Missing_Piece",
-        "name":"Missing Piece",
-        "description":"You cannot Fusion Summon \"Frightfur Sabre-Tooth\" using more than 2 Fusion Materials. This Skill cannot leave your inventory.",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "Construct_Constriction",
-        "name":"Construct Constriction",
-        "description":"You can only use each effect of \"El Shaddoll Construct\" once per turn. This Skill cannot leave your inventory",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "Cold_Fire",
-        "name":"Cold Fire",
-        "description":"Your opponent takes no damage from the effects of \"Volcanic Emperor\". Negate the first effect of \"Volcanic Inferno\". This Skill cannot leave your inventory",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "Everlasting_Burning",
-        "name":"Everlasting Burning",
-        "description":"\"Ashened\" monsters and \"Veidos the Eruption Dragon of Extinction\" are always treated as FIRE monsters, The second effect of \"Veidos the Eruption Dragon of Extinction\" instead destroys 1 monster on the field. This Skill cannot leave your inventory.",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "We_Are_Venom",
-        "name":"We Are Venom",
-        "description":"While you control \"Venom Swamp\", all Reptile monsters you control are treated as \"Venom\" monsters.",
+        "id": "going_ham",
+        "name": "Going HAM",
+        "description": "The Fusion materials for \"Master of Ham\" are 2 Flip Monsters.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "A_Good_Offense",
-        "name":"A Good Offense",
-        "description":"Negate the first effect of \"Cosmic Slicer Zer'oll\". This Skill cannot leave your inventory.",
+        "id": "don’t_flip_out",
+        "name": "Don’t Flip Out",
+        "description": "If “Chakravartin Sphinx” would be sent from the field to the GY, banish it instead. This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "frightful_fluffals",
+        "name": "Frightful Fluffals",
+        "description": "(Once per Duel): You can discard 1 card; send 1 \"Fluffal\" card from your Deck to your GY, and if you do, you can add 1 \"Toy Vendor\" from your GY to your hand.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Entropy_Takes_An_L",
-        "name":"Entrop takes an L",
-        "description":"The second effect of \"Magician of Chaos\" can only be activated during your turn. This Skill cannot leave your inventory.",
+        "id": "herald_of_fairness",
+        "name": "Herald of Fairness",
+        "description": "Negate the first and second effects of \"Herald of the Arc Light\". This Skill cannot leave your inventory.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Mythical_Mishaps",
-        "name":"Mythical Mishaps",
-        "description":"You cannot activate the monster effect of \"Mythical Beast Jackal King\" and \"Mythical Beast Master Cerberus\". This Skill cannot leave your inventory.",
+        "id": "not_so_quick",
+        "name": "Not So Quick",
+        "description": "The effects of \"Mudora the Sword Oracle\" and \"Keldo the Sacred Protector\" are no longer Quick Effects. This Skill cannot leave your inventory.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Dont_Be_Greedy",
-        "name":"Don't Be Greedy",
-        "description":"Negate the second effect of \"Greedy Venom Fusion Dragon\". You can only use each effect of \"Predaplant Chimerafflesia\" once per turn. This Skill cannot leave your inventory.",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "Magnolia",
-        "name":"Mag-NO-lia",
-        "description":"The third effect of \"Aromalylith Magnolia\" only gives itself ATK points. This Skill cannot leave your inventory.",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "Edward",
-        "name":"Ed… ward…?",
-        "description":"You can Fusion Summon \"Chimera the Flying Mythical Beast\" by banishing 1 of the materials from your GY and Tributing the other from your hand or field. \"Berfomet\" is now treated as a Flip Monster.",
+        "id": "you_can't_hide_from_destiny",
+        "name": "You Can't Hide from Destiny",
+        "description": "(Once per turn): If you activate \"Clock Tower Prison\" you can add 1 \"Destiny HERO\" monster from your Deck to your hand. Each time a \"Destiny HERO\" monster is Summoned, place 1 Clock Counter on \"Clock Tower Prison\". If \"Clock Tower Prison\" has 4 or more Clock Counters during your turn, destroy it.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Fake_Tarot_Cards",
-        "name":"Fake Tarot Cards",
-        "description":"The effects of \"Prediction Princess Tarotrei\" can only target monsters you control. This skill cannot leave your inventory.",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "Greedging",
-        "name":"Greedging",
-        "description":"You can only activate \"Pot of Greed\" if you control \"Spirit of the Pot of Greed\". \"Jar Turtle\" is now a Flip Monster, and gains this effect: 'FLIP: Special Summon 1 \"Spirit of the Pot of Greed\" from your Deck.'. This Skill cannot leave your inventory.",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "Deus_X_Machina",
-        "name":"Deus-X Machina",
-        "description":"Negate the second effect of \"Deus-X Krawler\". This Skill cannot leave your inventory.",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "Going_Ham",
-        "name":"Going HAM",
-        "description":"The Fusion materials for \"Master of HAM\" are 2 Flip Monsters.",
+        "id": "the_guard_guardian",
+        "name": "The Guard Guardian",
+        "description": "While you control at least 2 \"Celtic Guard\" monsters, and no non-\"Celtic Guard\" monsters, negate the first effect of \"Celtic Guard of Noble Arms\".",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Small_Caves",
-        "name":"Small Caves",
-        "description":"The effect of “Subterror Cave Clash” to gain ATK/DEF only grants 100 ATK/DEF for each set monster on the field instead of 500. This Skill cannot leave your inventory",
+        "id": "phantom_force",
+        "name": "Phantom Force",
+        "description": "\"Phantom Beast\" monsters in your possession are also always treated as \"Gladiator Beast\" monsters, and \"Gladiator Beast\" monsters in your possession are also always treated as \"Phantom Beast\" monsters.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "tri-heart_attack",
+        "name": "Tri-Heart Attack",
+        "description": "Negate the first effect of \"Scareclaw Tri-Heart\". This Skill cannot leave your inventory.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Cataclysmic_Prism",
-        "name":"Cataclysmic Prism",
-        "description":"You can use the effects of \"Cataclysmic\" monsters, if your Fairy monster is destroyed by an opponent's card, except a \"Cataclysmic\" monster, regardless of its attribute.",
+        "id": "crikey_mate",
+        "name": "Crikey Mate",
+        "description": "\"Ayers Rock Sunrise\" can also target Beast-Warrior monsters.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": true,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "The_Infinite_Cosmos",
-        "name":"The Infinite Cosmos",
-        "description":"(Once per turn): If a \"Starry Knight, Starry Dragon\" you control is returned to the hand, draw 1 card.",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": true,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "The_Great_Void",
-        "name":"The Great Void",
-        "description":"During your turn, monsters your opponent controls are also treated as DARK monsters.",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": true,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "Frightful_Fluffals",
-        "name":"Frightful Fluffals",
-        "description":"(Once per Duel): You can discard 1 card; send 1 \"Fluffal\" card from your Deck to your GY, and if you do, you can add 1 \"Toy Vendor\" from your GY to your hand.",
-        "stackable_count": 1,
-        "special_code_flag": -1,
-        "is_sellable": true,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
-    },
-    {
-        "id": "Herald_of_Fairness",
-        "name":"Herald of Fairness",
-        "description":"Negate the first and second effect of “Herald of the Arc Light”. This Skill cannot leave your inventory.",
+        "id": "dtryna_act_up",
+        "name": "Dtryna Act Up",
+        "description": "The third effect of \"Dyna Tank\" can only Special Summon Normal Monsters. Negate the first effect of Kaitoptera. This Skill cannot leave your inventory.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     },
     {
-        "id": "Not_The_Zeroth_Darklord",
-        "name":"Not the Zero'th Darklord",
-        "description":"Negate the first effect of \"The First Darklord\". This Skill cannot leave your inventory.",
+        "id": "i_haven't_read_misc",
+        "name": "I Haven't Read Misc",
+        "description": "Negate the first effect of \"Miscellaneousaurus\". This Skill cannot leave your inventory.",
         "stackable_count": 1,
         "special_code_flag": -1,
         "is_sellable": false,
-        "img_url":"https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"    
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "fragile_fossils",
+        "name": "Fragile Fossils",
+        "description": "You can choose if \"Paleozoic\" monsters you control are destroyed by your card effects.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "blockdomination",
+        "name": "Blockdomination",
+        "description": "\"Block\" monsters gain 500 ATK/DEF. Face-up \"Block\" monsters swap their original ATK and DEF.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "traps_got_me_rock_hard",
+        "name": "Traps Got Me Rock Hard",
+        "description": "If you excavate a Continuous Trap with an effect that Special Summons itself as a monster off Diggin' for Gems, you can add that card to your hand instead of Summoning/adding an EARTH/Rock monster.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "part_of_the_family",
+        "name": "Part of the Family",
+        "description": "The effect of \"Insect Invitation\" instead makes your opponent's monsters also become Insect. This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "tiiiime_is_on_my_siiiiide",
+        "name": "Tiiiime is on my Siiiiide",
+        "description": "The effect of \"Time Wizard\" is now thrice per turn. The effect to destroy all monsters your opponent controls now destroys 1 monster your opponent controls. This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "straight_sniping",
+        "name": "Straight Sniping",
+        "description": "(Once per turn): You can use the effect of \"Snipe Hunter\" without discarding once this turn.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "cup_full_of_aces",
+        "name": "Cup Full of Aces",
+        "description": "(Once per Duel): If you Special Summon \"Couple of Aces\", you can add up to 3 \"Cup of Ace\" from your Deck, or GY to your hand.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "heavy_metal_morphers",
+        "name": "Heavy Metal Morphers",
+        "description": "While you control \"Slot Machine\", monsters you control are also treated as DARK Machine monsters.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "less_chaos",
+        "name": "Less Chaos",
+        "description": "Negate the second effect of \"Arcana Force EX - The Chaos Ruler\". This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "watt_did_you_say?!",
+        "name": "Watt Did You Say?!",
+        "description": "Negate the first effect of \"Wattkingdom\". This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "batteryman_c-hanging",
+        "name": "Batteryman C-hanging",
+        "description": "The effect of \"Batteryman C\" also increases the ATK/DEF of \"Batteryman\" monsters.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "conversion_therapy",
+        "name": "Conversion Therapy",
+        "description": "You can Xyz Summon \"Lightning Chidori\" using 2 Level 4 Thunder monsters instead. The effect of \"Electrode Beast Cation\" no longer prevents you from Special Summoning from the Extra Deck.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "just_a_prank",
+        "name": "Just a Prank",
+        "description": "Thunder monsters in your possession are always treated as \"Prank-Kids\" monsters.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "nemesis_of_the_nemeses",
+        "name": "Nemesis of the Nemeses",
+        "description": "\"Nemeses\" monsters in your possession are always treated as Thunder monsters. Negate the second effect of \"Archnemeses Protos\". This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "royal_light",
+        "name": "Royal Light",
+        "description": "An opponent's monster you target with the effect of \"The Monarchs Masterplan\" is treated as a LIGHT monster.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "gadget_rush",
+        "name": "Gadget Rush",
+        "description": "You can Normal Summon \"Gadget\" monsters while you control \"Boss Rush\".",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "never_forget",
+        "name": "Never Forget",
+        "description": "(Once per turn): You can tribute 1 \"Gadget\" monster you control, to Special Summon 1 \"Mecha Phantom Beast Token\" (Machine/WIND/Level 3/ATK 0/DEF 0).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "xyz_shoukan!",
+        "name": "XYZ SHOUKAN!",
+        "description": "You can Special Summon Fusion Monsters that list \"X-Head Cannon\", \"Y-Dragon Head\", and/or \"Z-Metal Tank\" as material, by also banishing cards from your GY.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "seafood_delight",
+        "name": "Seafood Delight",
+        "description": "Learn the \"Seafood Platter\" recipe (Check your sheet).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "\"leftovers\"",
+        "name": "\"Leftovers\"",
+        "description": "Learn the \"\"Leftovers\"\" recipe (Check your sheet).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "chip_shop_chewsday",
+        "name": "Chip Shop Chewsday",
+        "description": "Learn the “British “Person”” recipe (Check your sheet).",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "herald_of_fairness",
+        "name": "Herald of Fairness",
+        "description": "Negate the first and second effects of \"Herald of the Arc Light\". This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "allen_and_adrien’s_psychic_solar_psybeam",
+        "name": "Allen and Adrien’s Psychic Solar Psybeam",
+        "description": "Once per turn, if you banish a card from your hand, you can pay 500LP and draw 1 card.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": true,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "absolutely_bonked",
+        "name": "Absolutely Bonked",
+        "description": "The first effect of “Absolute Axon Kicker” banishes 1 card on the field instead. This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "jammed_blaster",
+        "name": "Jammed Blaster",
+        "description": "You can only use the second effect of \"Psychic Blaster Mk-II\" during your Main Phase. This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "end_of_the_beginning_of_the_end",
+        "name": "End of the Beginning of the End",
+        "description": "\"Chaos End Ruler - Ruler of the Beginning and the End\" can banish any 1 LIGHT and 1 DARK monster from your GY for its summoning condition instead. The effect of \"Chaos End Ruler - Ruler of the Beginning and the End\", only banishes 1 card from your opponent's field or GY instead. This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
+    },
+    {
+        "id": "best_isles",
+        "name": "Best Isles",
+        "description": "You cannot target monsters in your opponent's GY with the effects of \"Bystial\" monsters. This Skill cannot leave your inventory.",
+        "stackable_count": 1,
+        "special_code_flag": -1,
+        "is_sellable": false,
+        "img_url": "https://ms.yugipedia.com//4/45/Skill-DULI-EN-VG.png"
     }
 ]

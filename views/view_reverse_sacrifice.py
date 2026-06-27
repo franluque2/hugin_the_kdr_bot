@@ -4,7 +4,6 @@ from discord import Message, Thread, ActionRow
 from discord.ui.button import ButtonStyle
 from views.panels.panel_status import StatusPanel
 import views.panels.panel_reverse_sacrifice as panel_reverse_sacrifice
-import views.panels.panel_tips as panel_tips
 from core.kdr_data import type_converter
 from views.panels.panel_additional_loot import AdditionalLootPanel
 from config.config import LEVEL_THRESHOLDS
