@@ -103,9 +103,8 @@ BANLIST_LINK = "https://sites.google.com/view/ygodungeonrun/banlist"
 DEV_ID=123870790713212934
 CREATORS_IDS=[237634316731940876, 111522518451441664]
 REPO_URL="https://github.com/franluque2/hugin_the_kdr_bot"
-ABOUT_MSG = (
-    "Hi, I am Hugin! I automate Roguelike Yugioh Experiences (KDRs).\n\n"
-    f"Developer: <@{DEV_ID}>\n"
-    f"Game Designers: <@{CREATORS_IDS[0]}> and <@{CREATORS_IDS[1]}>\n\n"
-    f"Source Code: {REPO_URL}"
+ABOUT_MSG=f"Hi, I am Hugin! A bot to run Roguelike Yugioh Experiences Known as KDRs! \n \
+            Created and maintained by <@{DEV_ID}>\n \
+            Based on the Game Design work of <@{CREATORS_IDS[0]}> and <@{CREATORS_IDS[1]}>\n\n\
+            I am Open Source! Check me out at {REPO_URL}"
 )
