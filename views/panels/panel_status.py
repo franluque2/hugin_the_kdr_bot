@@ -51,7 +51,7 @@ class StatusPanel:
         if modifiers and (get_modifier(modifiers, KdrModifierNames.NO_INTEREST.value) is not None or get_modifier(modifiers, KdrModifierNames.LOSE_GOLD_AT_END.value) is not None):
             ret_embed.set_footer(text="No Interest gain at end of round.")
         else:
-            ret_embed.set_footer(text=f"Projected Interest: {self.possible_interest}")
+            ret_embed.set_footer(text=f"Interest when the shop ends will be: {self.possible_interest}")
         return ret_embed
 
     async def update_vals(self):
