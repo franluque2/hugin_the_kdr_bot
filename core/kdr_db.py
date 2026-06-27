@@ -520,7 +520,6 @@ async def add_new_kdr(sid: int, iid: str, is_ranked: False, creatorid: str, maxp
         'class_choices': class_choices,
         'modifiers': modifiers,
         'altformats': altformats,
-        'round_type': '',
         'round_type': ''
     }
 
