@@ -584,7 +584,7 @@ class KDRAdmin(Cog):
     @app_commands.command(name="builddata", description="Builds the classes, treasures, buckets, etc based on files sent.")
     @app_commands.guild_only()
     @app_commands.check(statics.server_whitelisted)
-    @app_commands.checks.has_any_role(ROLE_ADMIN, ROLE_CODER, ROLE_OWNER)
+    @app_commands.checks.has_any_role(ROLE_CODER, ROLE_OWNER)
     async def build_data(self,interaction: Interaction, basefile: Attachment,
                         staticfile: Attachment, bucketsfile: Attachment,
                         bucketskillsfile: Attachment, classskillfile: Attachment,
@@ -713,52 +713,6 @@ class KDRAdmin(Cog):
 
         msg += "\nFinished Building Data."
         await interaction.edit_original_response(content=msg)
-
-    """ Admin Rebuild From Local Files """
-    @app_commands.command(name="rebuildlocal", description="Rebuilds the database from the local JSON files in the workspace.")
-    @app_commands.guild_only()
-    @app_commands.check(statics.server_whitelisted)
-    @app_commands.checks.has_any_role(ROLE_ADMIN, ROLE_CODER, ROLE_OWNER)
-    async def rebuild_local(self, interaction: Interaction):
-        await interaction.response.defer()
-        msg = "Rebuilding from local files...\n"
-        
-        try:
-            import json
-            import os
-            from config.config import CWD, PATH_BASE_CLASSES, PATH_STATIC_CLASSES, PATH_BUCKETS, \
-                PATH_BUCKET_SKILLS, PATH_CLASS_SKILLS, PATH_GENERIC_SKILLS, PATH_GENERIC_BUCKETS, \
-                PATH_TREASURES, PATH_GENERIC_QUESTS, PATH_RECIPES
-
-            def load_local(path):
-                # Ensure the path starts with / if it doesn't and isn't absolute
-                full_path = path if path.startswith('/') else f"{CWD}/{path}"
-                with open(full_path, 'r') as f:
-                    return json.load(f)
-
-            baseclasses = load_local(PATH_BASE_CLASSES)
-            staticclasses = load_local(PATH_STATIC_CLASSES)
-            buckets = load_local(PATH_BUCKETS)
-            bucketskills = load_local(PATH_BUCKET_SKILLS)
-            classskills = load_local(PATH_CLASS_SKILLS)
-            genericskills = load_local(PATH_GENERIC_SKILLS)
-            genericbuckets = load_local(PATH_GENERIC_BUCKETS)
-            treasures = load_local(PATH_TREASURES)
-            quests = load_local(PATH_GENERIC_QUESTS)
-            recipes = load_local(PATH_RECIPES)
-
-            await db_build.build_base_classes(baseclasses)
-            await db_build.build_static_classes(staticclasses)
-            await db_build.build_buckets(buckets)
-            await db_build.build_generic_buckets(genericbuckets)
-            await db_build.build_skills(bucketskills, classskills, genericskills)
-            await db_build.build_treasures(treasures)
-            await db_build.build_quests(quests)
-            await db_build.build_recipes(recipes)
-
-            await interaction.followup.send("Successfully rebuilt database from local JSON files.")
-        except Exception as e:
-            await interaction.followup.send(f"Error rebuilding from local files: {e}")
 
     """ Admin Reset KDR PLAYERS"""
 
