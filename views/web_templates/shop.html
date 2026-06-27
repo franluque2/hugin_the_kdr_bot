@@ -254,22 +254,46 @@
                     const def = target.getAttribute('data-def');
                     const desc = target.getAttribute('data-desc');
 
-                    let html = `<h3>${name}</h3>`;
+                    tooltip.innerHTML = '';
+                    const h3 = document.createElement('h3');
+                    h3.textContent = name;
+                    tooltip.appendChild(h3);
+                    
                     if (details && details !== 'None') {
-                        html += `<div class="tp-details">${details}</div>`;
+                        const div = document.createElement('div');
+                        div.className = 'tp-details';
+                        div.textContent = details;
+                        tooltip.appendChild(div);
                     }
                     
                     if (level || atk || def) {
-                        html += `<div class="tp-stats">`;
-                        if (level && level !== 'None') html += `<span class="stat-badge">LVL ${level}</span>`;
-                        if (atk && atk !== 'None') html += `<span class="stat-badge atk">ATK ${atk}</span>`;
-                        if (def && def !== 'None') html += `<span class="stat-badge def">DEF ${def}</span>`;
-                        html += `</div>`;
+                        const statsDiv = document.createElement('div');
+                        statsDiv.className = 'tp-stats';
+                        if (level && level !== 'None') {
+                            const span = document.createElement('span');
+                            span.className = 'stat-badge';
+                            span.textContent = `LVL ${level}`;
+                            statsDiv.appendChild(span);
+                        }
+                        if (atk && atk !== 'None') {
+                            const span = document.createElement('span');
+                            span.className = 'stat-badge atk';
+                            span.textContent = `ATK ${atk}`;
+                            statsDiv.appendChild(span);
+                        }
+                        if (def && def !== 'None') {
+                            const span = document.createElement('span');
+                            span.className = 'stat-badge def';
+                            span.textContent = `DEF ${def}`;
+                            statsDiv.appendChild(span);
+                        }
+                        tooltip.appendChild(statsDiv);
                     }
                     
-                    html += `<p>${desc}</p>`;
+                    const p = document.createElement('p');
+                    p.textContent = desc;
+                    tooltip.appendChild(p);
                     
-                    tooltip.innerHTML = html;
                     tooltip.style.display = 'block';
                 });
 
