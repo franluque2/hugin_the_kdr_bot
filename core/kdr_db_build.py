@@ -10,7 +10,6 @@ from config.config import DB_KEY_SERVER, DB_KEY_INSTANCE, \
 
 
 async def build_base_classes(file: dict) -> bool:
-    db.coll_classes_base.delete_many({})
     for c in file:
         db.coll_classes_base.insert_one(c)
 
@@ -23,7 +22,6 @@ async def build_base_classes(file: dict) -> bool:
 
 
 async def build_static_classes(file: dict) -> bool:
-    db.coll_classes_static.delete_many({})
     for c in file:
         db.coll_classes_static.insert_one(c)
     return True
@@ -35,7 +33,6 @@ async def build_static_classes(file: dict) -> bool:
 
 
 async def build_buckets(file: dict) -> bool:
-    db.coll_buckets.delete_many({})
     for c in file:
         db.coll_buckets.insert_one(c)
     return True
@@ -47,7 +44,6 @@ async def build_buckets(file: dict) -> bool:
 
 
 async def build_generic_buckets(file: dict) -> bool:
-    db.coll_buckets_generic.delete_many({})
     for c in file:
         db.coll_buckets_generic.insert_one(c)
     return True
@@ -59,8 +55,6 @@ async def build_generic_buckets(file: dict) -> bool:
 
 
 async def build_skills(file_bucket_skills: dict, file_class_skills: dict, file_generic_skills: dict) -> bool:
-    db.coll_skills.delete_many({})
-    db.coll_skills_generic.delete_many({})
     for c in file_bucket_skills:
         db.coll_skills.insert_one(c)
     for c in file_class_skills:
@@ -76,19 +70,16 @@ async def build_skills(file_bucket_skills: dict, file_class_skills: dict, file_g
 
 
 async def build_treasures(file: dict) -> bool:
-    db.coll_treasures.delete_many({})
     for c in file:
         db.coll_treasures.insert_one(c)
     return True
 
 async def build_quests(file: dict) -> bool:
-    db.coll_quests.delete_many({})
     for c in file:
         db.coll_quests.insert_one(c)
     return True
 
 async def build_recipes(file: dict) -> bool:
-    db.coll_recipes.delete_many({})
     for c in file:
         db.coll_recipes.insert_one(c)
     return True
