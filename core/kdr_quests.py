@@ -81,29 +81,36 @@ async def give_quest_rewards(pid, sid, iid, quest_info):
         quality = loot_pool.get("quality", "low_qual")
         taken_buckets = set(await db.get_inventory_value(pid, sid, iid, "loot") or [])
 
-        # Determine the category definition
         if pool_type == "generic":
-            cat_list = categories_buckets_generic
+            possible_buckets = await db.get_bucket_category(quality) or []
         else:
-            cat_list = categories_buckets_class
-
-        # Find the matching category by quality name
-        category = None
-        for cat in cat_list:
-            if cat[0] == quality:
-                category = cat
-                break
-
-        if category:
-            possible_buckets = await db.get_bucket_category(quality) if pool_type == "generic" \
-                else await db.get_class_bucket_categories()
-            available = [b for b in possible_buckets if b not in taken_buckets]
-            if available:
-                chosen = random.choice(available)
-                await db.set_inventory_value(pid, sid, iid, 'loot', chosen, operation="$push")
-                reward_msg += f"- Random {pool_type.title()} Loot ({quality})\n"
+            # Class loot: get player's base class bucket_list
+            player_class_id = await db.get_inventory_value(pid, sid, iid, "class")
+            if player_class_id:
+                static_class = await db.get_static_class(player_class_id)
+                if static_class:
+                    base_class_id = static_class.get("base_class_id") or static_class.get("base")
+                    if base_class_id:
+                        base_class = await db.get_base_class(base_class_id)
+                        if base_class:
+                            bucket_list = base_class.get("bucket_list", {})
+                            possible_buckets = bucket_list.get(quality, [])
+                        else:
+                            possible_buckets = []
+                    else:
+                        possible_buckets = []
+                else:
+                    possible_buckets = []
             else:
-                reward_msg += "- No available loot pools of that type.\n"
+                possible_buckets = []
+
+        available = [b for b in possible_buckets if b not in taken_buckets]
+        if available:
+            chosen = random.choice(available)
+            await db.set_inventory_value(pid, sid, iid, 'loot', chosen, operation="$push")
+            reward_msg += f"- Random {pool_type.title()} Loot ({quality})\n"
+        else:
+            reward_msg += "- No available loot pools of that type.\n"
 
     # 8. Class Change (Mythic Reward)
     new_class_id = rewards.get("class_change") or rewards.get("class")
