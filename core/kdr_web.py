@@ -14,6 +14,9 @@ import asyncio
 import aiohttp
 import re as re_mod
 
+# Guard to prevent double-starting the web server
+_web_server_started = False
+
 # Set up logging for web requests
 logger = logging.getLogger('kdr_web')
 logger.setLevel(logging.DEBUG)
@@ -531,6 +534,12 @@ async def handle_shop(request):
     return aiohttp_jinja2.render_template('shop.html', request, context)
 
 async def start_web_server():
+    global _web_server_started
+    if _web_server_started:
+        logger.info("Web server already started, skipping")
+        return
+    _web_server_started = True
+
     app = web.Application()
     
     # Template lookup
