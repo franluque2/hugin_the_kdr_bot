@@ -10,10 +10,12 @@ async def give_quest_rewards(pid, sid, iid, quest_info):
     # 1. Stats
     if "stats" in rewards:
         for stat, val in rewards["stats"].items():
-            if stat in RPG_STATS:
-                current_val = await db.get_inventory_value(pid, sid, iid, stat)
-                new_val = min(current_val + val, RPG_STATS[stat])
-                await db.set_inventory_value(pid, sid, iid, stat, new_val)
+            stat_key = stat.upper()
+            if stat_key in RPG_STATS:
+                current_val = await db.get_inventory_value(pid, sid, iid, stat_key)
+                new_val = min(current_val + val, RPG_STATS[stat_key])
+                await db.set_inventory_value(pid, sid, iid, stat_key, new_val)
+                reward_msg += f"- +{val} {stat_key}\n"
                 reward_msg += f"- +{val} {stat}\n"
     
     # 2. Gold
