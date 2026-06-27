@@ -123,10 +123,11 @@ class ClassButton(discord.ui.Button):
         if all_base_cards:
             await db.set_inventory_value(self.pid, self.sid, self.iid, "base_cards", all_base_cards)
             
-        if len(static_class_info["unique_effects"])>0:
-            player_modifiers=await db.get_inventory_value(self.pid,self.sid,self.iid,"modifiers")
-            player_modifiers.append(*static_class_info["unique_effects"])
-            await db.set_inventory_value(self.pid,self.sid,self.iid,"modifiers",player_modifiers)
+        unique_effects = static_class_info.get("unique_effects", [])
+        if unique_effects:
+            player_modifiers = await db.get_inventory_value(self.pid, self.sid, self.iid, "modifiers") or []
+            player_modifiers.extend(unique_effects)
+            await db.set_inventory_value(self.pid, self.sid, self.iid, "modifiers", player_modifiers)
         
         # Only set gamble_threshold if the class actually has a gamble_ratio (Gambler)
         if "gamble_ratio" in static_class_info:
