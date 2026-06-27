@@ -100,8 +100,7 @@ class KDRUtil(Cog):
     @app_commands.guild_only()
     async def get_tutorial(self, interaction=Interaction):
         description = (
-            "What is KDR?\nhttps://sites.google.com/view/ygodungeonrun/tutorial\n\n"
-            "Setting up your Character sheet:\nhttps://docs.google.com/document/d/1KSAqvNsn8h7E_rAzQzw4BlOsI5cNdm7AM_jCc0nkkTQ/edit?usp=sharing"
+            "What is KDR?\nhttps://www.ygokdr.org/tutorial\n\n"
         )
         await interaction.response.send_message(description, ephemeral=True)
 
